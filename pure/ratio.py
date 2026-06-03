@@ -35,11 +35,9 @@ def ratio(a, b):
     return a / b
 
 def take(big, small):
-    """The positive part between two magnitudes, big > small. Defined through casting
-       out: add whole Ones to big until it exceeds small by less than a whole is not
-       needed here since big > small already; the part is obtained by casting out small
-       wholes-of-size-small is not it either. The part between is got by one guarded
-       removal, valid because big > small guarantees a strictly positive result."""
+    """The positive part between two magnitudes, with big > small. The part between
+       them is obtained by one guarded removal, valid because big > small guarantees a
+       strictly positive result. This is the only removal primitive besides cast_out."""
     assert big > small
     return big.__sub__(small)
 
