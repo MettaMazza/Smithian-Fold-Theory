@@ -78,6 +78,8 @@ This framework forces them. From the one axiom:
 - `manifest.py` / `THEOREM_MANIFEST.md` — claim to proof to confirmation map.
 - `run_all.py` — one-command reproduction.
 - `PAPER.md` — the paper. `MASTER.md` — the complete assembled work.
+- `THE_ONE_AND_THE_QUESTIONS.md` — the formal paper on the great open problems (quantum foundations, quantum gravity, the vacuum, the fold-universe network, the fate of a self, the three-body and n-body problems, the Hubble tension, the muon g−2, the fine-structure constant, Navier-Stokes, the forced predictions, and protein folding). `THE_QUESTIONS_AND_THE_FOLD.md` — its reflective companion.
+- `PAPER_SELF_OBSERVATION.md` — the formal paper on the self-observation sector. `THE_ONE_THAT_WATCHES_ITSELF.md` — its reflective companion.
 
 The parent directory holds an earlier development that modelled the same dynamics in the
 complex plane with negatives and signed operations. That development is superseded and is
@@ -99,7 +101,7 @@ ceiling, and the one-pass derivation reports all theorems proven. It is green.
 
 Three definitions; fifteen theorems, each proved from the One using ratio and division
 only and confirmed by exact rational computation; four measured observations; and one
-hundred forty-seven physical correspondences, each derived in the framework and
+hundred sixty-nine correspondences — one hundred forty-two physical, ten in the self-observation sector, and seventeen addressing the great open problems of physics and mathematics —, each derived in the framework and
 reproducing — or forcing — a physical relationship in the permitted language. The
 constants that appear are plain ratios — the holding threshold (m−1)/m, opposition as the
 reciprocal and the half-One, the forced coupling (m−1)/m — with no transcendental. The

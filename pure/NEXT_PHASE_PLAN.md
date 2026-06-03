@@ -64,7 +64,7 @@ The public-facing documents were never refreshed after M11–M31 and B16. They u
 carry the wrong result count.
 
 **A-2a — stale counts.** "ninety-five" appears in `PAPER.md` (4×), `README.md`, and `REVIEWS.md`; the
-registry is now **147** E-results. Update each to the registry truth (the registry is the source of
+registry is now **152** E-results. Update each to the registry truth (the registry is the source of
 truth, as REVIEWS itself states).
 
 **A-2b — stale matter-sector abstract.** `PAPER.md` (abstract, §intro, scope para at line 116)
@@ -75,7 +75,7 @@ ladder, the CKM and CP phase, the PMNS). Rewrite the matter-sector passages to t
 and the scope paragraph to cite B16 (scale forced free as theorem, not "outside its remit by design").
 
 **A-2c — README and REVIEWS.** Bring the README summary and the REVIEWS "what remained" passage to
-the completed state (matter sector forced, scale forced by B20, 147 results).
+the completed state (matter sector forced, scale forced by B20, 152 results).
 
 ### A-3 — SEVERITY 3: trivial hedges
 

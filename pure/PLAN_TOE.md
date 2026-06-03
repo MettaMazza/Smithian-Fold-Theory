@@ -6,7 +6,7 @@
 
 ## Where the corpus stands now (from the live run)
 
-The framework forces, gate-clean and reproducing from one command, on one axiom, three definitions, fifteen theorems, four observations, and one hundred forty-seven registered results:
+The framework forces, gate-clean and reproducing from one command, on one axiom, three definitions, fifteen theorems, four observations, and one hundred fifty-two registered results:
 
 - **The four interactions, dimensionless structure:** the couplings (m−1)/m, the colour count three, the mediator count m²−1, the spatial dimension three, the electroweak mixing and its running, the on-shell tie, the coupling convergence and its closed-form rate, the forced internal anchor depth (B15).
 - **The matter sector's integer structure:** the colour count three (T1, D7b), the generation count three (T2, the tripling fold's fibre), the chirality two-hand fibre (D7c), the Dirac structure (QA4, QA5).

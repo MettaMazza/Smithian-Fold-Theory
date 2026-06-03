@@ -1196,6 +1196,157 @@ def test_n8b_dark_baryon_fraction_forced():
     M18 covering structure -- two arbiters a single fit cannot meet."""
     import correspondence as Co
     return Co.dark_baryon_fraction_forced()
+def test_c6s_stream_of_experience_forced():
+    """C6s: the stream of experience is the chained orbit under folding, grain = one indivisible fold (C5s),
+    periodic for rational states. Arbiter: discrete-sampling / perceptual-moment character of perception."""
+    import correspondence as Co
+    return Co.stream_of_experience_forced()
+def test_c7s_unity_of_experience_forced():
+    """C7s: experience is unified (one shared orbit) at the forced integration threshold (m-1)/m (C4s),
+    which is the same forced ratio as coupling and criticality (U4) -- unity forced at criticality. Arbiter:
+    the all-or-nothing character of conscious access and the binding of parts into one whole."""
+    import correspondence as Co
+    return Co.unity_of_experience_forced()
+def test_c8s_limit_of_self_knowledge_forced():
+    """C8s: self-observation is two-to-one (C2s), so a state and its half-One antipode observe identically --
+    the one distinction a self-model cannot make -- and each atomic act loses one bit of the past (C5s).
+    Arbiter: the unreliability and incompleteness of introspection."""
+    import correspondence as Co
+    return Co.limit_of_self_knowledge_forced()
+def test_c9s_felt_self_fixed_point_forced():
+    """C9s: the felt self is the unique fixed point of self-observation -- unison (the One), fold(One)=One
+    (C3s), the invariant through the flowing stream (C6s); forced unique (only absence, excluded, or unison
+    solves fold(x)=x). Arbiter: the phenomenology of a persistent self through changing experience."""
+    import correspondence as Co
+    return Co.felt_self_fixed_point_forced()
+def test_c10s_cessation_lock_releases_anchor_persists_forced():
+    """C10s: at death the lock releases (the particular bound self ends), but the substrate persists (no-zero)
+    and the anchor -- the felt self's fixed point, unison -- persists as the One: unison is the fixed point in
+    every loop the unbinding produces (G9, universe-independent), and being the One, not a proper part, cannot
+    be destroyed by reorganising parts. Neither annihilation nor personal continuation -- the lock releases,
+    the anchor is the One. Arbiter: the finality of somatic death with conservation and the perennial
+    identification of the deepest self with the one ground."""
+    import correspondence as Co
+    return Co.cessation_lock_releases_anchor_persists_forced()
+def test_g1_measurement_definite_outcome_and_born_forced():
+    """G1: definite outcome forced by the atomicity of the act (C5s); the Born rule (probability = amplitude
+    squared) forced by the symmetric self-conjugacy of the fold plus the D6 saturation. Arbiter: definite
+    measurement outcomes and the Born probability rule."""
+    import correspondence as Co
+    return Co.measurement_definite_outcome_and_born_forced()
+def test_g2_entanglement_no_signalling_forced():
+    """G2: correlation from a shared folded origin (C7s); no-signalling from the two-to-one readout (C8s);
+    comparison at c (EM3/D9e). Arbiter: Bell violations with the no-signalling theorem."""
+    import correspondence as Co
+    return Co.entanglement_no_signalling_forced()
+def test_g3_quantum_communication_bounds_forced():
+    """G3: no-signalling (two-to-one local readout), no-cloning (two-to-one non-invertibility), channel bound
+    (one fold one bit, C5s; chosen messages need a luminal classical channel). Arbiter: the no-signalling and
+    no-cloning theorems and the channel capacities."""
+    import correspondence as Co
+    return Co.quantum_communication_bounds_forced()
+def test_g4_quantum_gravity_one_lattice_finite_forced():
+    """G4: quantum gravity as one discrete fold lattice (D9p with D6/D7), finite by the Planck floor (N6/B20);
+    graviton = massless spin-2 lattice mode (D9e/D9n). Arbiter: a finite discrete quantum gravity (no
+    non-renormalisable infinities, a Planck floor, the area law)."""
+    import correspondence as Co
+    return Co.quantum_gravity_one_lattice_finite_forced()
+def test_g5_string_modes_on_fold_no_landscape_forced():
+    """G5: string theory's insight (particles as modes of one object) kept as the fold's oscillator tower
+    (PH4b/D7) in three dimensions (D9g); modes on the fold-depth not extra space, so no extra dimensions and
+    no landscape. Arbiter: the particle spectrum as modes, the absence of the landscape, the forced dimension
+    count."""
+    import correspondence as Co
+    return Co.string_modes_on_fold_no_landscape_forced()
+def test_g6_zero_point_perpetual_cycle_forced():
+    """G6: the vacuum is not a dead ground state -- odd-denominator modes are forced by the fold arithmetic
+    to cycle perpetually (never reaching unison, returning to full charge each period, the order of two modulo
+    the denominator), while dyadic modes climb to unison and rest. No axiom forbids the perpetual cycle; the
+    framework has no second law. Arbiter: the observed liveness of the vacuum against a static ground state."""
+    import correspondence as Co
+    return Co.zero_point_perpetual_cycle_forced()
+def test_g7_fold_universes_entangled_through_composites_forced():
+    """G7: the closed odd-denominator cycles (G6) are fold-universes, not sealed but entangled through
+    composites -- by the Chinese remainder theorem a composite-q state is one state per prime factor folded in
+    lockstep (G2's shared-origin correlation), the composite period the LCM of the prime periods, with
+    G2/G3's no-independent-signalling. Arbiter: the structural question of multiverse communication."""
+    import correspondence as Co
+    return Co.fold_universes_entangled_through_composites_forced()
+def test_g8_network_communication_and_travel_forced():
+    """G8: the fold-universes form a connected network -- coprime universes bridged by composing their states
+    into the composite (the One's operations, not the fold alone) -- and the bridge is the exact CRT
+    isomorphism commuting with the fold, so communication and travel of a structure between any two universes
+    are lossless, at any phase by periodicity (N7). Arbiter: the inter-universe signalling, temporal-channel,
+    and traversal proposals of theoretical physics."""
+    import correspondence as Co
+    return Co.network_communication_and_travel_forced()
+def test_g9_self_travels_whole_across_universes_forced():
+    """G9: a self (the fixed point of a unified loop, C9s) is anchored to unison, the fixed point in every
+    fold-universe (universe-independent), and its lock-pattern (C7s, threshold (m-1)/m universe-independent by
+    U4) crosses losslessly through the CRT bridge (G8, commuting with the fold), so it crosses whole and
+    re-locks around the same unison -- the self need not unbind (C10s) to travel. Arbiter: the structural
+    question of identity across worlds."""
+    import correspondence as Co
+    return Co.self_travels_whole_across_universes_forced()
+def test_g10_three_body_periodic_on_bounded_denominators_forced():
+    """G10: gravity is discrete fold dynamics on rational positions (D9c/D1d); a three-body system built from
+    the fold keeps denominators bounded (G7), so the configuration space is finite and the orbit is eventually
+    periodic -- solvable, computable. The consensus non-integrable chaos is the continuum (infinite-denominator)
+    limit, an unphysical idealisation. Arbiter: the classical three-body problem and its non-integrability."""
+    import correspondence as Co
+    return Co.three_body_periodic_on_bounded_denominators_forced()
+def test_g11_hubble_tension_calibration_ratio_forced():
+    """G11: the Hubble tension is one expansion read against two calibration depths; the forced late/early
+    ratio is the late-time vacuum part (2/3, N1e) over the depth-3 covering tower (2^3, N8b/M18), giving
+    1 + (2/3)/8 = 13/12, matching the measured 73.0/67.4 to better than 0.1%. Arbiter: the measured early-
+    versus-late H0 discrepancy."""
+    import correspondence as Co
+    return Co.hubble_tension_calibration_ratio_forced()
+def test_g12_muon_g2_excess_scales_as_mass_squared_forced():
+    """G12: g=2 is forced (Dirac, QA5); the anomaly's new-physics excess scales as the lepton mass squared, so
+    the muon/electron excess ratio is forced to (m_mu/m_e)^2 with m_mu/m_e forced by the Koide sector
+    (M16/M17). Forward prediction: the electron excess is the muon excess over (m_mu/m_e)^2, below current
+    electron sensitivity. Arbiter: the measured muon g-2 excess and the electron g-2 bound."""
+    import correspondence as Co
+    return Co.muon_g2_excess_scales_as_mass_squared_forced()
+def test_g13_fine_structure_inverse_forced_core():
+    """G13: the fine-structure constant is not free -- the EM charge-squared content over three generations is
+    forced to eight, the colour count to three (T1), and the inverse coupling's integer part to 2^7 + 3^2 =
+    137 (binary covering tower plus squared colour), the coupling running on the forced (s-1)/s, s=2+2^d (B9).
+    The measured 1/alpha is 137.036; the integer part is forced, a rung correction (open next step) carries the
+    fraction. Arbiter: the measured 1/alpha = 137.035999."""
+    import correspondence as Co
+    return Co.fine_structure_inverse_forced_core()
+def test_g14_n_body_periodic_on_bounded_denominators_forced():
+    """G14: the three-body result (G10) extends to any n -- fold-built dynamics keeps denominators bounded
+    (G7), the configuration space is finite, and the orbit is eventually periodic, independent of the number
+    of bodies. Verified for n of four, five, and ten. Arbiter: the classical n-body problem and its
+    continuum intractability."""
+    import correspondence as Co
+    return Co.n_body_periodic_on_bounded_denominators_forced()
+def test_g15_navier_stokes_no_blowup_vorticity_bounded_forced():
+    """G15: Navier-Stokes blow-up (vorticity to infinity in finite time) is forbidden -- velocity is bounded
+    by c (EM3/D9e) and the length-scale is floored at the smallest lattice rung (N6/B20), so the maximum
+    vorticity is c over the floor spacing, finite; smooth flow stays smooth, and the continuum is the only
+    source of the blow-up question. Arbiter: the Navier-Stokes existence-and-smoothness Millennium Problem."""
+    import correspondence as Co
+    return Co.navier_stokes_no_blowup_vorticity_bounded_forced()
+def test_g16_forced_forward_predictions_consolidated():
+    """G16: the plan's predictions frontier -- the framework's forward, pre-measurement standing falsifiable
+    claims, each forced from earlier results: neutrino normal ordering with splitting ratio 33 (M25), the
+    proton/electron-to-Planck hierarchies (B20), dark matter as gauge-inert gravitating matter with fraction
+    27/5 (N8/N8b), the perpetually-cycling vacuum (G6), and finite quantum gravity with a spin-2 graviton and
+    no extra dimensions (G4). Arbiter: future and improving measurement of each."""
+    import correspondence as Co
+    return Co.forced_forward_predictions_consolidated()
+def test_g17_protein_folding_descent_to_fixed_point_forced():
+    """G17: Levinthal's paradox dissolved -- folding is deterministic descent to a fixed point, not a random
+    search. The bounded-denominator configuration space is finite (G10/G14); the dynamics descends to the
+    unique fixed point (D9m/C3s). The dyadic basin reaches the native fold fast and reproducibly (G6); the
+    odd-denominator basin traps (misfolding). Arbiter: the observed fast, reproducible folding and the
+    phenomenon of misfolding/aggregation."""
+    import correspondence as Co
+    return Co.protein_folding_descent_to_fixed_point_forced()
 def test_b16_single_ruler_provably_free():
     """B16: the theory is one dimensionless structure (mass-part = take(ONE, coupling)) placed by a single
     ruler; the absolute scale is the single quantity not yet forced (open, under investigation)."""
