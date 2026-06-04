@@ -30,3 +30,20 @@ We wrote and executed a syntax-check engine (`check_latex.py`) to verify brace a
 * **Result**: `File primitives_of_action.tex is balanced and syntactically sound.`
 * **Result**: `File fundamental_constants.tex is balanced and syntactically sound.`
 * **Result**: `All checks passed.`
+
+## Live Particle Validation
+
+We executed the particle validation harness (`particle_validation.py`) against live PDG and CODATA values, obtaining the following parameter-free comparison:
+
+| Physical Quantity | Forced Value (Model) | Measured Value (PDG/CODATA) | Deviation (%) | Source |
+| :--- | :--- | :--- | :--- | :--- |
+| **Koide Leptons (M15)** | $0.666667$ | $0.666664$ | $0.00\%$ | Live PDG |
+| **Koide Up-Hand Quarks (M23)** | $0.833333$ | $0.848790$ | $-1.82\%$ | Live PDG |
+| **Koide Down-Hand Quarks (M23)** | $0.750000$ | $0.731288$ | $2.56\%$ | Live PDG |
+| **Proton/Electron Mass Ratio (M32)** | $1836.325449$ | $1836.152673$ | $0.01\%$ | Live PDG |
+| **$1/\alpha$ Fine-Structure Constant (G13)** | $137.036000$ | $137.035999$ | $0.00\%$ | CODATA |
+| **Neutrino $\Delta m^2$ Ratio (M25)** | $33.000000$ | $33.330000$ | $-0.99\%$ | NuFIT avg atm/solar |
+| **Jarlskog CP Violation (M28)** | $0.000031$ | $0.000031$ | $0.84\%$ | PDG |
+| **Quark $s/d$ Mass Ratio (M26)** | $19.483541$ | $19.780000$ | $-1.50\%$ | Common-scale, lattice |
+| **Quark $b/s$ Mass Ratio (M26)** | $54.773618$ | $53.940000$ | $1.55\%$ | Common-scale, lattice |
+| **Quark $t/c$ Mass Ratio (M26)** | $108.582150$ | $103.300000$ | $5.11\%$ | Common-scale, corpus-cited |
