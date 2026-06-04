@@ -4,6 +4,7 @@
 [![Python 3.9+](https://img.shields.io/badge/Python-3.9+-green.svg)](https://python.org)
 [![Gates: ALL CLEAN](https://img.shields.io/badge/Gates-ALL%20CLEAN-brightgreen.svg)](#reproduce)
 [![Discord](https://img.shields.io/badge/Discord-Join%20Community-7289DA?logo=discord&logoColor=white)](https://discord.gg/Fm8aMyWD)
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.20515256.svg)](https://doi.org/10.5281/zenodo.20515256)
 
 **Author:** Maria Smith, [Ernos Labs](https://discord.gg/Fm8aMyWD) — independent researcher, autodidact. Scotland.
 
@@ -144,7 +145,8 @@ The reader is the assessor of last resort: **run it.**
   author       = {Maria Smith},
   title        = {Smithian Fold Theory of Everything},
   year         = {2026},
-  publisher    = {GitHub},
+  publisher    = {GitHub / Zenodo},
+  doi          = {10.5281/zenodo.20515256},
   url          = {https://github.com/MettaMazza/Smithian-Fold-Theory}
 }
 ```
