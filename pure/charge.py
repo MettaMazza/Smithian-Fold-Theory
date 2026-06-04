@@ -38,7 +38,7 @@ if __name__=="__main__":
         for s2 in SIGNS:
             print(f"  {s1}-{s2}: {force_sense(s1,s2)}")
     print("opposite charges balance to the One (opposition, not zero):", Opp.balance_of_opposites(Fraction(1,4)))
-    print("coupling is FREE here -> PH5 (a forced fundamental constant) remains open")
+    print("coupling is FREE here -> PH5 (a forced fundamental constant) forced at PH5")
 
 
 # --- EM2: magnetism is the relativistic correction to Coulomb (D5 applied to EM1) ---

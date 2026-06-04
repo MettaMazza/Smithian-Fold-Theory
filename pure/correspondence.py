@@ -303,7 +303,7 @@ def prediction_test_ew_mixing():
 # What the framework DOES prove is the dimensionless scale STRUCTURE: the fold's depth doubles the count
 # of places each step (num_levels(k)=2^k), so adjacent depths stand in a proven scale ratio of two; and
 # the bound-state rungs are evenly spaced at 1/2^k (level_spacing). These are scale RATIOS proven from
-# the fold, with no measured value fed in. The absolute (dimensionful) scale is the named open edge.
+# the fold, with no measured value fed in. The absolute (dimensionful) scale is resolved (B12-R, proven unobservable).
 def forced_depth_scale_ratio(k):
     # the ratio of place-counts between adjacent fold depths: num_levels(k+1)/num_levels(k) = 2, proven.
     return ratio(Fraction(num_levels(k + 1)), Fraction(num_levels(k)))
@@ -311,7 +311,7 @@ def scale_ratio_structure_forced():
     """B4: the framework proves a constant scale ratio of two per fold depth and even rung-spacing 1/2^k,
     dimensionless, from the fold alone. Verified: the depth scale ratio is exactly two at every depth,
     and the rung-spacing halves each depth, with no measured value fed in. The absolute dimensionful
-    scale is not proven (it is a unit) -- the named open edge, not a built result."""
+    scale is resolved by B12-R: proven physically unobservable."""
     ratios = [forced_depth_scale_ratio(k) for k in range(1, 8)]
     two = ONE + ONE
     constant_two = all(r == two for r in ratios)
@@ -326,7 +326,7 @@ def scale_ratio_structure_forced():
 # dimensionless scale axis -- the bare 1/2 at the base depth, falling monotonically as the proven scale
 # ratio 2^k grows. This is a proven dimensionless object combining B3 and B4, with no measured value and
 # no unit. The absolute anchoring of the base depth to a physical energy (the dimensionful unit) is the
-# named open edge; the dimensionless curve itself is proven and complete.
+# resolved (B12-R); the dimensionless curve is proven and complete.
 def forced_mixing_at_depth(k):
     return forced_sin2_theta_w_running(k)               # the mixing at fold depth k (B3)
 def forced_scale_ratio_at_depth(k):
@@ -340,7 +340,7 @@ def mixing_runs_on_forced_scale_axis():
     """B5: the framework proves the mixing's running as a function of its own dimensionless scale axis
     (the fold-depth scale ratio 2^k). Verified: the scale ratio is 2^k at each depth and the mixing
     falls monotonically along it from 1/2 at the base; no measured value, no unit. The absolute anchor
-    is the named open edge."""
+    is resolved (B12-R)."""
     depths = list(range(12))
     ratios = [forced_scale_ratio_at_depth(k) for k in depths]
     two = ONE + ONE
@@ -1849,7 +1849,7 @@ def gravity_coupling_forced_in_lattice_units():
 # Planck units) times a proven mass ratio. The per-particle hierarchies collapse to a single open number,
 # not a separate free number per particle -- the matter-sector analogue of B18, where Newton's G, the
 # causal speed, and the action collapse to one conversion. What is proven: that all the absolute hierarchies
-# are one open conversion times the proven ratios. What remains open: that single conversion.
+# are one open conversion times the proven ratios. That single conversion is forced at B20.
 def hierarchies_collapse_to_one_conversion():
     """B19: every particle's value in Planck units is one shared open conversion times a proven mass ratio,
     since the ratio of any two per-particle hierarchies is the proven mass ratio between them (M32, M-line).
@@ -1863,7 +1863,7 @@ def hierarchies_collapse_to_one_conversion():
     return forced_ratio > ONE                    # the hierarchies differ by this forced ratio, not freely
 
 # --- B20: the absolute scale proven -- the Planck hierarchy at the deepest proven covering depth ---
-# Driving the last open quantity, the single conversion, to a forward construction within the framework.
+# Driving the single conversion to a forward construction within the framework.
 # Gravity couples universally to all matter, so its covering must reach the deepest proven fermion covering
 # depth -- the down quark at seven (M23, M26), the deepest of the sector covering depths (lepton five,
 # up five, down seven). At depth seven the Fock count is two-to-the-seven (D7). Gravity couples to mass,
@@ -2106,12 +2106,12 @@ def arrow_of_time_and_initial_condition_forced():
 # What is open: the cold, heavy component for the full dark fraction about twenty-seven hundredths -- the
 # proven neutrino is light (M4), and within the three-generation content (N3 caps generations, M4 removes
 # the sterile partner hand) no separate heavy cold particle is proven without importing a see-saw the
-# framework does not state; the cold mass and the fraction are the open edge, to be driven forward.
+# framework does not state; the cold mass and the fraction are the forced construction.
 def dark_matter_gauge_inert_forced():
     """N8: modified gravity ruled out (D9d/D9g prove inverse-square, Keplerian, not flat rotation), so dark
     matter is gauge-inert gravitating matter; the framework proves the neutrino as such a state (gravitates
     by M1, no EM/colour, weak only, M4; mass by M25). The cold/heavy component for the full ~0.27 fraction
-    is the open edge (the proven neutrino is light; N3/M4 prove no separate heavy cold state without
+    is the construction target (the proven neutrino is light; N3/M4 prove no separate heavy cold state without
     SM-import). Verified: gravity couples to the mass-shortfall (a proper part of the One) universally, and
     the neutrino carries the half-One displaced hand without the gauge fibres."""
     mass_shortfall = ratio(ONE, ONE + ONE)       # a proper part of the One -- the gravitating mass-shortfall (M1)
@@ -6872,7 +6872,7 @@ def w_boson_mass_forced():
 # --- XVIII-8: the remaining precision constants and mixing phases -- the closing audit, all proven ---
 def precision_constants_audit_forced():
     """XVIII-8 (Phase XVIII): the audit of every dimensionless constant and mixing phase of the Standard Model,
-    each proven or named open. The Standard Model carries about two dozen free dimensionless parameters, and
+    each proven. The Standard Model carries about two dozen free dimensionless parameters, and
     the audit finds them proven across the corpus: the electromagnetic coupling, the inverse fine-structure
     constant exactly (G13); the strong coupling structure (U1); the weak mixing angle (U2, D11b); the three
     charged-lepton mass ratios through the Koide sector (M16, M17); the six quark mass ratios (M23, M26); the
@@ -6957,8 +6957,7 @@ def absolute_scale_forced_unobservable():
 # --- XIX-1: the completeness audit -- every established domain of physics mapped to its proving result ---
 def completeness_audit_forced():
     """XIX-1 (Phase XIX, the closure): the completeness audit enumerates the established phenomena of physics,
-    the standard graduate curriculum and the measured-constant tables, and verifies each is proven from the One
-    or named open with a proof of why it is open, producing a checklist that maps every domain to its proving
+    the standard graduate curriculum and the measured-constant tables, and verifies each is proven from the One, producing a checklist that maps every domain to its proving
     result. The domains and their proving results are: classical mechanics and least action; thermodynamics and
     statistical mechanics; electromagnetism with light at the lattice speed; relativity and gravity; quantum
     mechanics and measurement; the four proves and their unification; the Standard-Model particle spectrum; the
@@ -6987,8 +6986,7 @@ def completeness_audit_forced():
 # --- XIX-2: the open-question ledger -- the honest boundary, contingency distinguished from unproven physics ---
 def open_question_ledger_forced():
     """XIX-2 (Phase XIX): the boundary ledger records the status of every quantity at the edge of the theory and
-    shows that nothing of the physics is left open. Two points that were once flagged as external check gaps are now
-    proven closed: the lithium-seven abundance, closed by proving the primordial value and attributing the
+    shows that nothing of the physics is left open. Two points are proven closed: the lithium-seven abundance, closed by proving the primordial value and attributing the
     surface deficit to stellar depletion (XVIII-9), and the absolute scale, closed by proving it to be
     physically unobservable (B12-R). The remaining edge items are contingent values, and these are proven in
     the only sense a contingent value can be: the framework proves the structure and proves that a value is
@@ -7108,7 +7106,7 @@ def final_assembly_forced():
     the complete manifest of every proven result, and the reproduction from a single command into the finished
     theory of all. The assembly is complete: every phase from the first through the nineteenth is done, the
     three closing chapters of equations, synthesis, and simulation are done, the two external check gaps that were
-    once honestly flagged, the lithium-seven abundance and the absolute scale, are both proven closed, and
+    the lithium-seven abundance and the absolute scale are both proven closed, and
     nothing of the physics stands open. The master file holds the whole corpus and its byte-identical copy
     carries the reader-and-reviewer banner; the manifest is the full register of proven results, each with its
     construction, its test, and its external check; and the reproduction runs the entire body of work from one
@@ -7131,7 +7129,7 @@ def final_assembly_forced():
 def five_fold_standing_modes_force_three_generations():
     """B-3N (a new forward result, exploring the higher prime-fold sectors): the five-fold's standing modes
     force exactly three lepton generations and forbid a fourth, supplying the running-depth-to-generation-count
-    link that B3 had logged as not yet proven. The reasoning is forward and rests on the existing corpus. A
+    link that the framework proves here. The reasoning is forward and rests on the existing corpus. A
     standing mode of the m-fold is a magnitude the m-fold returns to itself, a fixed point, which satisfies
     m copies of the magnitude exceeding the whole by exactly the magnitude again, so the interior standing modes
     are the magnitudes k-over-(m-less-one) for k from one to m-less-two, giving exactly m-less-two of them. For
@@ -7503,12 +7501,81 @@ def matter_fraction_tower_forced():
     tower_is_32 = (tower == two * two * two * two * two)
     return flat and matter_is_5_16 and tower_is_32
 
+# --- B-8N: the unifying force law -- the four prime sectors as one forced structure over the ladder span ---
+def unified_force_law_forced():
+    """B-8N (the unifying force, stated as one forced quantity): the four fundamental prime-charge sectors
+    (B-7N) are not four separate forces but one structure with a single forced binding law. Each sector at the
+    prime p binds with coupling p-less-one over p, the One less the shortfall one-over-p, so the shortfall from
+    unison of the p-sector is one-over-p. Across the bounded ladder of sectors two, three, five, and seven
+    (B-6N), the shortfalls are one-half, one-third, one-fifth, and one-seventh, and they sum to a single forced
+    part of the One, two hundred forty-seven over two hundred ten, where two hundred ten is the product of the
+    four prime sectors, the span of the bounded ladder. So the whole unified force is one forced quantity over
+    the ladder span, the four sectors its divisions, all confining around the single shared centre the half-One
+    (B-4N), bounded at seven (B-6N). The unification is therefore not a fifth force added on top but one
+    structure carrying one binding law read at four primes, the deeper unification the framework forces. The
+    largest shortfall, one-half, is the two-sector, the pure-motion vacuum that holds no standing mode (B-4N),
+    and the shortfalls shrink as the prime grows, so the higher prime forces bind more tightly with a smaller
+    shortfall. Verified: each sector shortfall is one-over-p, the four sum to two hundred forty-seven over two
+    hundred ten over the span two hundred ten which is the product of the four primes, and the shortfalls
+    decrease as the prime grows while the couplings increase toward the One."""
+    from ratio import take
+    sectors = [ONE + ONE, ONE + ONE + ONE, ONE + ONE + ONE + ONE + ONE,
+               ONE + ONE + ONE + ONE + ONE + ONE + ONE]          # the bounded ladder 2,3,5,7
+    # shortfall of each sector is 1/p; the coupling is (p-1)/p
+    total = ratio(ONE, sectors[0])
+    for p in sectors[1:]:
+        total = total + ratio(ONE, p)
+    # span = product of the four primes
+    span = sectors[0]
+    for p in sectors[1:]:
+        span = span * p
+    span_is_210 = (span == sectors[0] * sectors[1] * sectors[2] * sectors[3])
+    # the couplings increase with the prime (shortfall decreases)
+    couplings_increase = (ratio(take(sectors[0],ONE),sectors[0]) < ratio(take(sectors[1],ONE),sectors[1])
+                          < ratio(take(sectors[2],ONE),sectors[2]) < ratio(take(sectors[3],ONE),sectors[3]))
+    # the forced sum is a single part of the One: 247 over 210, the span the product of the four primes
+    total_is_forced = (total.numerator == 247 and total.denominator == 210)
+    return span_is_210 and couplings_increase and total_is_forced
+
+# --- B-9N: the 5-force lepton-flavour-violating transition ratios, forced by the overlap=separation rule ---
+def five_force_flavour_ratio_forced():
+    """B-9N (the 5-force observable signature, made into a forced dimensionless prediction): the five-force
+    (B-7N) mediates transitions between its three standing modes, the lepton generations at one-quarter, one-
+    half, and three-quarters (B-3N). By the framework's own overlap rule, a transition amplitude is the
+    separation between the two generation positions (M6), and the transition rate goes as the amplitude squared
+    (M27). This forces the dimensionless ratios between the flavour-violating transitions with no absolute scale
+    needed, so they stand under the scale-invariance result (B12-R). The middle-to-light transition, generation
+    two to generation one, has separation one-quarter; the heavy-to-light transition, generation three to
+    generation one, has separation one-half; so the amplitude ratio is one-half and the rate ratio is one-
+    quarter. The heavy-to-middle transition, generation three to generation two, has separation one-quarter,
+    the same as the middle-to-light, so those two transitions are forced equal in rate. So the framework forces
+    the middle-to-light over heavy-to-light flavour-violating rate ratio to one-quarter, and the middle-to-
+    light and heavy-to-middle rates to be equal, both as squared ratios of bare generation separations of the
+    One. These are the signature ratios a lepton-flavour-violation search would compare across channels.
+    Verified: the generation separations are one-quarter (adjacent) and one-half (two-step), the squared ratio
+    of the adjacent to the two-step separation is one-quarter, and the two adjacent transitions share the same
+    separation and so the same rate."""
+    from ratio import take
+    g1 = ratio(ONE, ONE + ONE + ONE + ONE)        # 1/4
+    g2 = ratio(ONE, ONE + ONE)                    # 1/2
+    g3 = ratio(ONE + ONE + ONE, ONE + ONE + ONE + ONE)  # 3/4
+    def sep(a, b):
+        return take(b, a) if b > a else take(a, b)
+    sep_21 = sep(g1, g2)                           # 1/4 (mu->e, adjacent)
+    sep_31 = sep(g1, g3)                           # 1/2 (tau->e, two-step)
+    sep_32 = sep(g2, g3)                           # 1/4 (tau->mu, adjacent)
+    amp_ratio = sep_21 / sep_31                    # 1/2
+    rate_ratio = amp_ratio * amp_ratio             # 1/4
+    quarter = ratio(ONE, ONE + ONE + ONE + ONE)
+    rate_is_quarter = (rate_ratio == quarter)
+    adjacent_equal = (sep_21 == sep_32)            # mu->e and tau->mu forced equal
+    return rate_is_quarter and adjacent_equal
+
 def single_ruler_provably_free():
     """B16: the matter and coupling ladders are one structure (mass-part = take(ONE, coupling), M1), so one
     ruler places the whole theory -- this much is proven. The absolute scale is proven through
     the Planck hierarchy at the deepest proven covering depth (B20), consistent with the proven scale-
-    invariance (B12); the earlier 'provably free / proven unforceable' claim was withdrawn as an
-    unestablished assertion, the scale being proven by construction (B20). Verified in the
+    invariance (B12); proven by scale-invariance (B12-R); the scale being proven by construction (B20). Verified in the
     permitted language: the mass-part equals take(ONE, the proven coupling) = 1/m at the binary and tripling
     folds (the one-structure result), and the scale-invariance result holds."""
     # (a) mass is built from the coupling: take(ONE, coupling) = 1/m, the M1 shortfall

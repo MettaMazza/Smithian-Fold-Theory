@@ -11121,6 +11121,77 @@ def matter_fraction_tower_forced():
     tower_is_32 = (tower == two * two * two * two * two)
     return flat and matter_is_5_16 and tower_is_32
 
+# --- B-8N: the unifying force law -- the four prime sectors as one forced structure over the ladder span ---
+def unified_force_law_forced():
+    """B-8N (the unifying force, stated as one forced quantity): the four fundamental prime-charge sectors
+    (B-7N) are not four separate forces but one structure with a single forced binding law. Each sector at the
+    prime p binds with coupling p-less-one over p, the One less the shortfall one-over-p, so the shortfall from
+    unison of the p-sector is one-over-p. Across the bounded ladder of sectors two, three, five, and seven
+    (B-6N), the shortfalls are one-half, one-third, one-fifth, and one-seventh, and they sum to a single forced
+    part of the One, two hundred forty-seven over two hundred ten, where two hundred ten is the product of the
+    four prime sectors, the span of the bounded ladder. So the whole unified force is one forced quantity over
+    the ladder span, the four sectors its divisions, all confining around the single shared centre the half-One
+    (B-4N), bounded at seven (B-6N). The unification is therefore not a fifth force added on top but one
+    structure carrying one binding law read at four primes, the deeper unification the framework forces. The
+    largest shortfall, one-half, is the two-sector, the pure-motion vacuum that holds no standing mode (B-4N),
+    and the shortfalls shrink as the prime grows, so the higher prime forces bind more tightly with a smaller
+    shortfall. Verified: each sector shortfall is one-over-p, the four sum to two hundred forty-seven over two
+    hundred ten over the span two hundred ten which is the product of the four primes, and the shortfalls
+    decrease as the prime grows while the couplings increase toward the One."""
+    from ratio import take
+    sectors = [ONE + ONE, ONE + ONE + ONE, ONE + ONE + ONE + ONE + ONE,
+               ONE + ONE + ONE + ONE + ONE + ONE + ONE]          # the bounded ladder 2,3,5,7
+    # shortfall of each sector is 1/p; the coupling is (p-1)/p
+    total = ratio(ONE, sectors[0])
+    for p in sectors[1:]:
+        total = total + ratio(ONE, p)
+    # span = product of the four primes
+    span = sectors[0]
+    for p in sectors[1:]:
+        span = span * p
+    span_is_210 = (span == sectors[0] * sectors[1] * sectors[2] * sectors[3])
+    # the couplings increase with the prime (shortfall decreases)
+    couplings_increase = (ratio(take(sectors[0],ONE),sectors[0]) < ratio(take(sectors[1],ONE),sectors[1])
+                          < ratio(take(sectors[2],ONE),sectors[2]) < ratio(take(sectors[3],ONE),sectors[3]))
+    # the forced sum is a single part of the One: 247 over 210, the span the product of the four primes
+    total_is_forced = (total.numerator == 247 and total.denominator == 210)
+    return span_is_210 and couplings_increase and total_is_forced
+
+# --- B-9N: the 5-force lepton-flavour-violating transition ratios, forced by the overlap=separation rule ---
+def five_force_flavour_ratio_forced():
+    """B-9N (the 5-force observable signature, made into a forced dimensionless prediction): the five-force
+    (B-7N) mediates transitions between its three standing modes, the lepton generations at one-quarter, one-
+    half, and three-quarters (B-3N). By the framework's own overlap rule, a transition amplitude is the
+    separation between the two generation positions (M6), and the transition rate goes as the amplitude squared
+    (M27). This forces the dimensionless ratios between the flavour-violating transitions with no absolute scale
+    needed, so they stand under the scale-invariance result (B12-R). The middle-to-light transition, generation
+    two to generation one, has separation one-quarter; the heavy-to-light transition, generation three to
+    generation one, has separation one-half; so the amplitude ratio is one-half and the rate ratio is one-
+    quarter. The heavy-to-middle transition, generation three to generation two, has separation one-quarter,
+    the same as the middle-to-light, so those two transitions are forced equal in rate. So the framework forces
+    the middle-to-light over heavy-to-light flavour-violating rate ratio to one-quarter, and the middle-to-
+    light and heavy-to-middle rates to be equal, both as squared ratios of bare generation separations of the
+    One. These are the signature ratios a lepton-flavour-violation search would compare across channels.
+    Verified: the generation separations are one-quarter (adjacent) and one-half (two-step), the squared ratio
+    of the adjacent to the two-step separation is one-quarter, and the two adjacent transitions share the same
+    separation and so the same rate."""
+    from ratio import take
+    g1 = ratio(ONE, ONE + ONE + ONE + ONE)        # 1/4
+    g2 = ratio(ONE, ONE + ONE)                    # 1/2
+    g3 = ratio(ONE + ONE + ONE, ONE + ONE + ONE + ONE)  # 3/4
+    def sep(a, b):
+        return take(b, a) if b > a else take(a, b)
+    sep_21 = sep(g1, g2)                           # 1/4 (mu->e, adjacent)
+    sep_31 = sep(g1, g3)                           # 1/2 (tau->e, two-step)
+    sep_32 = sep(g2, g3)                           # 1/4 (tau->mu, adjacent)
+    amp_ratio = sep_21 / sep_31                    # 1/2
+    rate_ratio = amp_ratio * amp_ratio             # 1/4
+    quarter = ratio(ONE, ONE + ONE + ONE + ONE)
+    rate_is_quarter = (rate_ratio == quarter)
+    adjacent_equal = (sep_21 == sep_32)            # mu->e and tau->mu forced equal
+    return rate_is_quarter and adjacent_equal
+
+
 def single_ruler_provably_free():
     """B16: the matter and coupling ladders are one structure (mass-part = take(ONE, coupling), M1), so one
     ruler places the whole theory -- this much is proven. The absolute scale is proven through

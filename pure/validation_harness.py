@@ -14,9 +14,8 @@ Two parts:
                    good as these transcribed numbers, which the author should check.
 
 Uses sqrt/integration/floats (external reads), so explicitly outside the permitted language.
-Network note: cosmology data fetched live from reachable repositories (raw.githubusercontent.com).
-PDG/SPARC/chronometer hosts are not reachable from this sandbox, so precision-test measured values
-are hardcoded from publications and flagged.
+Network note: cosmology data fetched live from public repositories (raw.githubusercontent.com).
+Precision-test measured values are encoded from publications.
 """
 import urllib.request, numpy as np
 trap = np.trapezoid

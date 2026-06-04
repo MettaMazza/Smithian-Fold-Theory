@@ -25,7 +25,7 @@ print(f"  G-b  gravity exponent (d-1) at d=3 = {exponent(3)} ; EM fold factor m_
 print("        READING: both equal 2, again by independent constructions (geometry of a shell vs the binary")
 print("        fold). No single construction forces the equality; it is a value-coincidence, not a forced tie.")
 print()
-print("=== HONEST CONCLUSION (reported, not adjudicated) ===")
+print("=== CONCLUSION (reported, not adjudicated) ===")
 print("  No GENUINELY independent cross-domain relationship is forced: the only cross-domain coincidences")
 print("  (m_strong=3=d ; d-1=2=m_em) are equalities of VALUE between quantities forced by SEPARATE")
 print("  constructions, not relationships a single construction forces. By the standard U4-U6 were")

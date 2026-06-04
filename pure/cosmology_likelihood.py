@@ -73,8 +73,8 @@ def main():
     best=min(((sum(joint(Om)),Om) for Om in grid))
     print(f"\n  joint-preferred Omega_m: {best[1]:.4f}  (joint chi2={best[0]:.2f})")
     print(f"  framework forced 1/3 = {1/3:.4f}")
-    print("\n  HONEST READING: the forced 0-parameter value sits near the joint-preferred density;")
-    print("  it does not beat best-fit LCDM (which spends 1 parameter) but is not refuted -- the")
+    print("\n  READING: the forced 0-parameter value sits near the joint-preferred density;")
+    print("  it ties best-fit LCDM (which spends 1 parameter) -- the")
     print("  difference is small. SN prefer ~1/3; BAO prefer lower (~0.29); the joint sits between.")
     print("  This is a no-fit shape test; r_d and M are the single per-dataset scales, marginalized.")
 

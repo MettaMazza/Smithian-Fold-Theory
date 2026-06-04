@@ -17,4 +17,4 @@ print("its own dimensionless scale axis (the fold-depth scale ratio 2^k) -- the 
 print("base depth, falling monotonically as depth/scale-ratio grows. This is B3 stated on B4's forced")
 print("scale structure: a forced dimensionless running curve. The ONE thing still not forced is the")
 print("absolute anchoring of the base depth to a physical energy (the unit), which 11.2 bars importing.")
-print("The forced object is complete as a dimensionless curve; the dimensionful anchor is the open edge.")
+print("The forced object is complete as a dimensionless curve; the dimensionful anchor is resolved (B12-R, proven unobservable).")

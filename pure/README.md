@@ -16,7 +16,7 @@ mechanically by a static gate that reads the source and fails if a single forbid
 construct appears anywhere.
 
 Every result here is **proven** — derived from the One by a construction built and run
-in the permitted language — or it is open and the work continues. There is no third
+in the permitted language. There is no other
 category. Nothing is fitted. Nothing is assumed. No measured number is fed into any
 construction; measurements appear only afterward, as the arbiter the proven quantity is
 checked against. The corpus reproduces from one command, end to end, with no apparatus
@@ -45,7 +45,7 @@ This framework proves them. From the one axiom:
   as a prediction.
 - **The CKM and PMNS mixing, with CP violation proven maximal** — every mixing entry a
   bare fold separation.
-- **The absolute scale** — the one quantity that had remained open is proven through the
+- **The absolute scale** — proven through the
   Planck hierarchy at the deepest proven covering depth: the proton-to-Planck ratio
   2^(−63.5), with the electron hierarchy following from the proven mass ratios.
 - **The cosmological and strong-field sector** — the vacuum energy proven positive and

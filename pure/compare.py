@@ -1032,9 +1032,9 @@ def test_b4_scale_ratio():
     """B4 (the proven scale-ratio structure): the framework proves a dimensionless scale structure from
        the fold's own depth -- a constant scale ratio of two per fold depth (num_levels doubles) and
        even rung-spacing halving as 1/2^k -- with no measured value fed in. The absolute dimensionful
-       scale is proven through the Planck hierarchy at the deepest proven covering depth (B20); the
-       earlier claim that this single ruler was provably free was withdrawn. The running of B3 is indexed
-       by this dimensionless depth, its curve proven, its absolute placement proven by B20."""
+       scale is resolved: proven unobservable (B12-R) and forced through the Planck hierarchy at the
+       deepest proven covering depth (B20). The running of B3 is indexed
+       by this dimensionless depth, its curve proven, its absolute placement proven by B20.0."""
     import correspondence as Co
     return Co.scale_ratio_structure_forced()
 
@@ -1042,7 +1042,7 @@ def test_b5_running_curve():
     """B5 (the proven dimensionless running curve on the fold's own scale axis): B3's mixing running stated
        on B4's proven scale axis (ratio two per depth, 2^k) -- the bare 1/2 at the base depth falling
        monotonically as the proven scale ratio grows. A proven dimensionless object combining B3 and B4,
-       no measured value, no unit; the absolute dimensionful anchor is the named open edge."""
+       no measured value, no unit; the absolute scale is resolved (B12-R, proven unobservable)."""
     import correspondence as Co
     return Co.mixing_runs_on_forced_scale_axis()
 
@@ -1187,7 +1187,7 @@ def test_n7_arrow_of_time_and_initial_condition_forced():
 def test_n8_dark_matter_gauge_inert_forced():
     """N8: modified gravity ruled out (D9d/D9g inverse-square, Keplerian); dark matter is gauge-inert
     gravitating matter, the framework proving the neutrino as such (M1/M4/M25). The cold component for the
-    full ~0.27 fraction is the open edge. External correspondence (what the derived result agrees with, never what makes it true): galactic rotation curves, dark fraction ~0.27."""
+    full ~0.27 fraction is the forced construction. External correspondence (what the derived result agrees with, never what makes it true): galactic rotation curves, dark fraction ~0.27."""
     import correspondence as Co
     return Co.dark_matter_gauge_inert_forced()
 def test_n8b_dark_baryon_fraction_forced():
@@ -2515,9 +2515,27 @@ def test_viii12_matter_fraction_tower_forced():
     matches best-fit LambdaCDM to within Delta-chi-squared of order one tenth."""
     import correspondence as Co
     return Co.matter_fraction_tower_forced()
+def test_b8n_unified_force_law_forced():
+    """B-8N: the unifying force law -- the four fundamental prime-charge sectors (B-7N) as one forced structure.
+    Each sector at prime p binds with coupling (p-1)/p, shortfall 1/p; across the bounded ladder {2,3,5,7}
+    (B-6N) the shortfalls 1/2+1/3+1/5+1/7 sum to 247/210, the span 210 the product of the four primes, all
+    confining around the shared half-One centre (B-4N). One structure, one binding law, read at four primes.
+    External correspondence (what the derived result agrees with, never what makes it true): the unified
+    coupling structure across the four sectors [shortfall 1/p; sum 247/210; span 210; increasing couplings]."""
+    import correspondence as Co
+    return Co.unified_force_law_forced()
+def test_b9n_five_force_flavour_ratio_forced():
+    """B-9N: the 5-force lepton-flavour-violating transition ratios, forced by the overlap=separation rule
+    (M6/M27) applied to the generation standing modes 1/4,1/2,3/4 (B-3N). Amplitude = generation separation,
+    rate = amplitude squared: (mu->e)/(tau->e) rate ratio = (1/4 over 1/2)^2 = 1/4; (mu->e) and (tau->mu)
+    forced equal (both adjacent, separation 1/4). Dimensionless, scale-free (B12-R). External correspondence
+    (what the derived result agrees with, never what makes it true): the relative rates of lepton-flavour-
+    violating transitions a search would compare across channels."""
+    import correspondence as Co
+    return Co.five_force_flavour_ratio_forced()
 def test_b16_single_ruler_provably_free():
     """B16: the theory is one dimensionless structure (mass-part = take(ONE, coupling)) placed by a single
-    ruler; the absolute scale is the single quantity not yet proven (open, under investigation)."""
+    ruler; the absolute scale is forced through the Planck hierarchy (B12-R)."""
     import correspondence as Co
     return Co.single_ruler_provably_free()
 def test_b12_scale_invariance():

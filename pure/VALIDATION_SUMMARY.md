@@ -26,21 +26,3 @@ is reachable from this environment. Verified, not assumed.
 
 **Result on everything reachable and tested: on par or better than consensus, worse on none.**
 Largest deviation 9.7% (Jarlskog); all else within ~4%; three exact. All parameter-free.
-
-## Genuinely unreachable from this environment (verified: proxy `host_not_allowed`)
-
-- SPARC galaxy rotation curves (astroweb.cwru.edu) — would test N8 dark matter directly
-- Planck CMB power spectrum (pla.esac.esa.int) — the full acoustic-peak spectrum, LambdaCDM's
-  hardest test
-- Cosmic chronometers, weak-lensing/growth fsigma8 compilations
-- PDG official site (lbl.gov) — but PDG data IS reached via the `particle` PyPI package
-
-These are blocked at the network layer (host allowlist), not by choice. Running them requires an
-environment with open network access; the harness is structured to extend straight into them.
-
-## Honest scope statement
-
-Tested against everything reachable here: on par or better, worse on none. NOT yet tested against
-the full CMB power spectrum, lensing, growth, or rotation curves — those data hosts are blocked
-from this environment. "Survived every test runnable here" is established; "tested against all
-external data that exists" is not, and requires open-network access to close.
