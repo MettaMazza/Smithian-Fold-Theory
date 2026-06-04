@@ -4,32 +4,20 @@
     1   28     30   Y   Y   Y   Y   Y   Y   Y   Y   Y   Y   n   n    14       Y
     2   18     28   Y   n   Y   Y   n   n   Y   Y   Y   Y   n   n     9       n
     3   11     24   Y   Y   Y   Y   n   n   Y   n   Y   Y   n   n     0       Y
-    4   11     24   Y   Y   Y   Y   n   n   Y   n   Y   Y   n   n     0       Y
-    5   10     12   Y   Y   Y   Y   Y   n   Y   Y   Y   Y   n   n     5       Y
-    6    8     18   Y   Y   Y   Y   n   n   Y   Y   Y   Y   n   n     4       Y
-    7    8     18   Y   Y   Y   Y   n   n   Y   Y   Y   Y   n   n     4       Y
-    8    6     22   Y   n   Y   Y   n   n   Y   n   Y   Y   n   n     0       n
-    9    6     22   Y   n   Y   Y   n   n   Y   n   Y   Y   n   n     0       n
-   10    4     16   Y   n   Y   Y   n   n   Y   n   Y   Y   n   n     0       n
-   11    4     16   Y   n   Y   Y   n   n   Y   n   Y   Y   n   n     0       n
-   12    3      8   Y   Y   Y   Y   n   n   Y   n   Y   Y   n   n     0       Y
-   13    1   None   Y   Y   Y   n   -   -   -   Y   -   -   -   -     0       n
+    4   10     12   Y   Y   Y   Y   Y   n   Y   Y   Y   Y   n   n     5       Y
+    5    8     18   Y   Y   Y   Y   n   n   Y   Y   Y   Y   n   n     4       Y
+    6    6     22   Y   n   Y   Y   n   n   Y   n   Y   Y   n   n     0       n
+    7    6     22   Y   n   Y   Y   n   n   Y   n   Y   Y   n   n     0       n
+    8    4     16   Y   n   Y   Y   n   n   Y   n   Y   Y   n   n     0       n
+    9    4     16   Y   n   Y   Y   n   n   Y   n   Y   Y   n   n     0       n
+   10    1   None   Y   Y   Y   n   -   -   -   Y   -   -   -   -     0       n
+   11    1     23   Y   n   Y   Y   n   n   Y   n   Y   Y   Y   n     0       n
+   12    1     23   Y   n   Y   Y   n   n   Y   n   Y   Y   Y   n     0       n
+   13    1     23   Y   n   Y   Y   n   n   Y   n   Y   Y   Y   n     0       n
    14    1     23   Y   n   Y   Y   n   n   Y   n   Y   Y   Y   n     0       n
-   15    1     15   Y   n   Y   Y   n   Y   Y   n   Y   Y   Y   n     0       n
+   15    1     23   Y   n   Y   Y   n   n   Y   n   Y   Y   Y   n     0       n
    16    1     23   Y   n   Y   Y   n   n   Y   n   Y   Y   Y   n     0       n
-   17    1     29   Y   n   Y   Y   n   n   Y   n   Y   Y   Y   n     0       n
+   17    1     23   Y   n   Y   Y   n   n   Y   n   Y   Y   Y   n     0       n
    18    1     23   Y   n   Y   Y   n   n   Y   n   Y   Y   Y   n     0       n
    19    1     23   Y   n   Y   Y   n   n   Y   n   Y   Y   Y   n     0       n
-   20    1     29   Y   n   Y   Y   n   n   Y   n   Y   Y   Y   n     0       n
-   21    1     23   Y   n   Y   Y   n   n   Y   n   Y   Y   Y   n     0       n
-   22    1     29   Y   n   Y   Y   n   n   Y   n   Y   Y   Y   n     0       n
-   23    1     23   Y   n   Y   Y   n   n   Y   n   Y   Y   Y   n     0       n
-   24    1     29   Y   n   Y   Y   n   n   Y   n   Y   Y   Y   n     0       n
-   25    1     15   Y   n   Y   Y   n   Y   Y   n   Y   Y   Y   n     0       n
-   26    1     23   Y   n   Y   Y   n   n   Y   n   Y   Y   Y   n     0       n
-   27    1     29   Y   n   Y   Y   n   n   Y   n   Y   Y   Y   n     0       n
-   28    1     15   Y   n   Y   Y   n   Y   Y   n   Y   Y   Y   n     0       n
-   29    1     23   Y   n   Y   Y   n   n   Y   n   Y   Y   Y   n     0       n
-   30    1     29   Y   n   Y   Y   n   n   Y   n   Y   Y   Y   n     0       n
-   31    1     23   Y   n   Y   Y   n   n   Y   n   Y   Y   Y   n     0       n
-   32    1     23   Y   n   Y   Y   n   n   Y   n   Y   Y   Y   n     0       n
+   20    1     23   Y   n   Y   Y   n   n   Y   n   Y   Y   Y   n     0       n
