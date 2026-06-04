@@ -333,6 +333,11 @@ Every established result with its falsification condition extracted from the cla
 | 327 | D1b | (structural — see claim text) | PASS |
 | 328 | PH5a | (structural — see claim text) | PASS |
 | 329 | PH5 | (structural — see claim text) | PASS |
+| 330 | B-10N | a standing mode of the 8-fold whose fold-orbit escaped denominator 7 would break the result | PASS |
+| 331 | B-11N | a standing mode of the 12-fold whose fold-orbit escaped denominator 11, or a pair count not equal to 5, would break the result | PASS |
+| 332 | B-12N | a standing mode of the 18-fold whose fold-orbit escaped denominator 17, or orbits not of size 8, would break the result | PASS |
+| 333 | B-13N | a standing mode of the 24-fold whose fold-orbit escaped denominator 23, or orbits not of size 11, would break the result | PASS |
+| 334 | B-14N | a standing mode of the 30-fold whose fold-orbit escaped denominator 29, or a pair count not equal to 14, would break the result | PASS |
 
 ---
-**Total: 329 results, 161 with explicit falsification conditions**
+**Total: 334 results, 166 with explicit falsification conditions**
