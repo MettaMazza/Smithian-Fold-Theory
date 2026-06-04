@@ -1,6 +1,6 @@
 # Theorem manifest — claim → proof → machine confirmation
 
-Environment: Python 3.12.3 on Linux; exact arithmetic via fractions.Fraction.
+Environment: Python 3.9.6 on Darwin; exact arithmetic via fractions.Fraction.
 
 | id | kind | proof | status | statement |
 |----|------|-------|--------|-----------|
