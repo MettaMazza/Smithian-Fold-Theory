@@ -2739,3 +2739,43 @@ def test_b13_unison_order():
        running pair at every depth (strong>weak>EM). All from the fold factors and the axis, nothing fed in."""
     import correspondence as Co
     return Co.unison_order_forced()
+def test_b10n_composite_sector_8_confining():
+    """B-10N: composite confining sector 8 (=2^3) -- the second orbit in denominator 7. The standing
+    modes k/7 for k=1..6 confine (T1), close under fold within denominator 7 (T2), and sit in one
+    sector (T4). The three members 3/7, 5/7, 6/7 form the second orbit, complementary to the claimed
+    strong sector orbit 1/7, 2/7, 4/7. External correspondence (what the derived result agrees with,
+    never what makes it true): the orbit structure of the doubling map on rationals with denominator 7."""
+    import correspondence as Co
+    return Co.composite_sector_8_confining()
+def test_b11n_composite_sector_12_confining():
+    """B-11N: composite confining sector 12 (=2^2·3) -- 10 members k/11, T5=YES (5 pairs). The standing
+    modes k/11 for k=1..10 confine (T1), close under fold within denominator 11 (T2), sit in one sector
+    (T4), and the 10 interior modes form 5 antipodal pairs (T5: pairs = (sector-1)/2). External
+    correspondence (what the derived result agrees with, never what makes it true): the confining orbit
+    structure of the doubling map on rationals with denominator 11."""
+    import correspondence as Co
+    return Co.composite_sector_12_confining()
+def test_b12n_composite_sector_18_confining():
+    """B-12N: composite confining sector 18 (=2·3^2) -- two orbits of 8 members each in k/17. The
+    standing modes k/17 for k=1..16 confine (T1), close under fold within denominator 17 (T2), sit in
+    one sector (T4), and split into two orbit subgroups of 8 members each under the doubling map.
+    External correspondence (what the derived result agrees with, never what makes it true): the orbit
+    structure of the doubling map on rationals with denominator 17."""
+    import correspondence as Co
+    return Co.composite_sector_18_confining()
+def test_b13n_composite_sector_24_confining():
+    """B-13N: composite confining sector 24 (=2^3·3) -- two orbits of 11 members each in k/23. The
+    standing modes k/23 for k=1..22 confine (T1), close under fold within denominator 23 (T2), sit
+    in one sector (T4), and split into two orbit subgroups of 11 members each under the doubling map.
+    External correspondence (what the derived result agrees with, never what makes it true): the orbit
+    structure of the doubling map on rationals with denominator 23."""
+    import correspondence as Co
+    return Co.composite_sector_24_confining()
+def test_b14n_composite_sector_30_confining():
+    """B-14N: composite confining sector 30 (=2·3·5) -- 28 members k/29, T5=YES (14 pairs). The
+    standing modes k/29 for k=1..28 confine (T1), close under fold within denominator 29 (T2), sit in
+    one sector (T4), and the 28 interior modes form 14 antipodal pairs (T5: pairs = (sector-1)/2 = 14).
+    External correspondence (what the derived result agrees with, never what makes it true): the
+    confining orbit structure of the doubling map on rationals with denominator 29."""
+    import correspondence as Co
+    return Co.composite_sector_30_confining()

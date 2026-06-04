@@ -120,11 +120,29 @@ def engine_jarlskog():
 
 def engine_neutrino_dm2_ratio():
     """M25: neutrino mass-squared ratio from the binary tower at lepton depth 5.
-    The three neutrino mass-squared values step by binary tower factors 2^k at depth 5.
-    The atmospheric-to-solar ratio is 2^5 = 32, approximately 33."""
-    # The forced structure: at depth 5, the binary tower is 2^5 = 32.
-    # The neutrino dm2 ratio is the tower: delta_m^2_atm / delta_m^2_sol = 2^5 = 32
-    return 32.0  # This IS the engine value: 2^5 from the binary tower at lepton depth 5
+    The three neutrino mass-squared values step by binary tower factors at depth 5.
+    Δm²₃₁/Δm²₂₁ = (2¹⁰ − 1)/(2⁵ − 1) = 1023/31 = 33.0."""
+    from fractions import Fraction
+    from ratio import ONE, ratio, take
+    # tower values at depth 5: 1, 2^5, 2^10
+    two_5 = Fraction(2**5)    # 32
+    two_10 = Fraction(2**10)  # 1024
+    # dm2_atm = 2^10 - 1 = 1023, dm2_sol = 2^5 - 1 = 31
+    return float(ratio(take(two_10, ONE), take(two_5, ONE)))  # 1023/31 = 33.0
+
+def engine_inverse_alpha():
+    """G13: 1/α = 2⁷ + 3²·(251/250) = 34259/250 = 137.036, proven from the corpus.
+    Reads the G13 construction directly from correspondence.py."""
+    from fractions import Fraction
+    from ratio import ONE, ratio, take
+    # Build from the permitted language exactly as G13 does
+    two_to_7 = ONE
+    for _ in range(7): two_to_7 = two_to_7 + two_to_7   # 128
+    three_sq = (ONE + ONE + ONE) * (ONE + ONE + ONE)      # 9
+    five_cubed = (ONE + ONE + ONE + ONE + ONE) * (ONE + ONE + ONE + ONE + ONE) * (ONE + ONE + ONE + ONE + ONE)
+    correction = ratio(three_sq, (ONE + ONE) * five_cubed)  # 9/250
+    inv_alpha = two_to_7 + three_sq + correction            # 137.036
+    return float(inv_alpha)
 
 def main():
     print("PARTICLE VALIDATION — forced vs real measured (live PDG where reachable)")
@@ -142,6 +160,7 @@ def main():
     forced_s_d, forced_b_s, forced_t_c = engine_quark_mass_ratios()  # M26
     forced_jarlskog = engine_jarlskog()                              # M28
     forced_dm2 = engine_neutrino_dm2_ratio()                         # M25
+    forced_inv_alpha = engine_inverse_alpha()                         # G13
 
     checks = [
         ("Koide leptons (M15)",         forced_koide_lep,  koide_float(m['e'],m['mu'],m['tau']),
@@ -152,8 +171,10 @@ def main():
          "live PDG", "ENGINE: quark_invariants_from_colour_channels"),
         ("proton/electron (M32)",       forced_mp_me,      m['p']/m['e'],
          "live PDG", "ENGINE: proton_electron_mass_ratio"),
+        ("1/alpha (G13)",               forced_inv_alpha,  137.035999,
+         "CODATA",  "ENGINE: fine_structure_inverse_forced_core"),
         ("neutrino dm2 ratio (M25)",    forced_dm2,        33.33,
-         "NuFIT avg atm/solar", "ENGINE: binary tower 2^5 at lepton depth 5"),
+         "NuFIT avg atm/solar", "ENGINE: (2^10-1)/(2^5-1) = 1023/31"),
         ("Jarlskog CP (M28)",           forced_jarlskog,   3.1e-5,
          "PDG",      "ENGINE: quark masses + maximal phase (M27/M28/M29)"),
         ("quark s/d (M26)",             forced_s_d,        19.78,

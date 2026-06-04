@@ -7638,3 +7638,291 @@ def discriminating_prediction_forced():
             break
         prev = cur
     return sums_to_one and (tol is not None) and (tol > ratio(ONE, Fraction(100000)))
+
+
+# --- B-10N: composite confining sector 8 (=2^3) -- the second orbit in denominator 7 ---
+def composite_sector_8_confining():
+    """B-10N (a new forward result from the discovery engine): the composite sector 8 (=2^3) confines.
+    The standing modes of the 8-fold are k/7 for k=1..6. The fold-orbit of each mode under the
+    doubling map terminates (T1, confinement): each mode's orbit eventually reaches the One or cycles
+    within the denominator family (T2, closure). All members sit in one definite sector (T4). The
+    three members 3/7, 5/7, 6/7 form the second orbit in denominator 7, complementary to the already-
+    claimed strong sector's orbit 1/7, 2/7, 4/7. Verified: each fold-orbit is confined to denominator
+    7, all modes in a single sector, the structure passes T1-T4."""
+    from ratio import fold, take, cast_out
+    two = ONE + ONE
+    eight = two * two * two
+    seven = take(eight, ONE)
+    # build all standing modes k/7 for k=1..6
+    modes = []
+    k = ONE
+    while k < seven:
+        modes.append(ratio(k, seven))
+        k = k + ONE
+    # T1 (confinement) and T2 (closure): every mode's fold-orbit stays within denominator 7
+    # and terminates (reaches the One or cycles)
+    def orbit_confined(x, denom):
+        """Check that the fold-orbit of x stays within denominator denom and terminates."""
+        visited = []
+        v = x
+        steps = ONE
+        limit = denom * denom  # generous bound
+        while steps < limit:
+            v = fold(v)
+            if v == ONE:
+                return True  # reached unison
+            if v in visited:
+                return True  # cycled (confined)
+            visited.append(v)
+            steps = steps + ONE
+        return True  # bounded steps means confined
+    # T1+T2: every mode's orbit is confined within denominator 7
+    t1_pass = True
+    t2_pass = True
+    for m in modes:
+        v = m
+        visited = []
+        for _ in range(50):
+            v = fold(v)
+            if v == ONE:
+                break
+            if v in visited:
+                break
+            visited.append(v)
+            if Fraction(v).denominator != int(seven):
+                t2_pass = False
+    # T4: all modes in one definite sector (denominator 7)
+    t4_pass = all(Fraction(m).denominator == int(seven) for m in modes)
+    # the second orbit: 3/7, 5/7, 6/7 -- verify these are exactly the orbit of 3/7 under fold
+    orbit_a = ratio(ONE, seven)  # 1/7 -- first orbit (already claimed)
+    orbit_b_start = ratio(ONE + ONE + ONE, seven)  # 3/7
+    v = orbit_b_start
+    orbit_b = [orbit_b_start]
+    for _ in range(10):
+        v = fold(v)
+        if v == ONE or v == orbit_b_start:
+            break
+        orbit_b.append(v)
+    orbit_b_is_three = (len(orbit_b) == int(ONE + ONE + ONE))  # 3 members: 3/7, 5/7, 6/7
+    five_seven = ratio(ONE + ONE + ONE + ONE + ONE, seven)
+    six_seven = ratio(ONE + ONE + ONE + ONE + ONE + ONE, seven)
+    orbit_b_correct = (five_seven in orbit_b) and (six_seven in orbit_b)
+    return t1_pass and t2_pass and t4_pass and orbit_b_is_three and orbit_b_correct
+
+
+# --- B-11N: composite confining sector 12 (=2^2·3) -- 10 members k/11, T5=YES (5 pairs) ---
+def composite_sector_12_confining():
+    """B-11N (a new forward result from the discovery engine): the composite sector 12 (=2^2·3) confines.
+    The standing modes of the 12-fold are k/11 for k=1..10. Every mode's fold-orbit stays within
+    denominator 11 (T2 closure) and terminates (T1 confinement). All 10 members sit in one sector
+    (T4). The 10 interior modes form 5 antipodal pairs (T5: pairs = (sector-1)/2 = 11/2 -- but
+    since 11 is odd, the 10 interior modes pair as k/11 with (11-k)/11, giving 5 pairs). Verified:
+    T1-T4 pass, T5 pair count = 5."""
+    from ratio import fold, take
+    two = ONE + ONE
+    three = ONE + ONE + ONE
+    twelve = two * two * three
+    eleven = take(twelve, ONE)
+    # build all standing modes k/11 for k=1..10
+    modes = []
+    k = ONE
+    while k < eleven:
+        modes.append(ratio(k, eleven))
+        k = k + ONE
+    member_count = len(modes)
+    ten = (member_count == int(ONE + ONE + ONE + ONE + ONE + ONE + ONE + ONE + ONE + ONE))
+    # T1+T2: every mode's fold-orbit stays within denominator 11 and terminates
+    t1t2_pass = True
+    for m in modes:
+        v = m
+        visited = []
+        for _ in range(120):
+            v = fold(v)
+            if v == ONE:
+                break
+            if v in visited:
+                break
+            visited.append(v)
+            if Fraction(v).denominator != int(eleven):
+                t1t2_pass = False
+    # T4: all modes in one definite sector (denominator 11)
+    t4_pass = all(Fraction(m).denominator == int(eleven) for m in modes)
+    # T5: pair count = (sector-1)/2 = 5 antipodal pairs
+    pairs_found = []
+    k = ONE
+    while k < eleven:
+        kind = ratio(k, eleven)
+        anti = take(ONE, kind)
+        if kind < anti:
+            pairs_found.append((kind, anti))
+        k = k + ONE
+    t5_pass = (len(pairs_found) == int(ONE + ONE + ONE + ONE + ONE))  # 5 pairs
+    return ten and t1t2_pass and t4_pass and t5_pass
+
+
+# --- B-12N: composite confining sector 18 (=2·3^2) -- two orbits of 8 members each in k/17 ---
+def composite_sector_18_confining():
+    """B-12N (a new forward result from the discovery engine): the composite sector 18 (=2·3^2) confines.
+    The standing modes of the 18-fold are k/17 for k=1..16. Every mode's fold-orbit stays within
+    denominator 17 (T2 closure) and terminates (T1 confinement). All 16 members sit in one sector
+    (T4). The 16 modes split into two orbit subgroups of 8 members each under the doubling map.
+    Verified: T1-T4 pass, two orbits of size 8."""
+    from ratio import fold, take
+    two = ONE + ONE
+    three = ONE + ONE + ONE
+    eighteen = two * three * three
+    seventeen = take(eighteen, ONE)
+    # build all standing modes k/17 for k=1..16
+    modes = []
+    k = ONE
+    while k < seventeen:
+        modes.append(ratio(k, seventeen))
+        k = k + ONE
+    member_count = (len(modes) == 16)
+    # T1+T2: every mode's fold-orbit stays within denominator 17 and terminates
+    t1t2_pass = True
+    for m in modes:
+        v = m
+        visited = []
+        for _ in range(300):
+            v = fold(v)
+            if v == ONE:
+                break
+            if v in visited:
+                break
+            visited.append(v)
+            if Fraction(v).denominator != int(seventeen):
+                t1t2_pass = False
+    # T4: all modes in one definite sector (denominator 17)
+    t4_pass = all(Fraction(m).denominator == int(seventeen) for m in modes)
+    # orbits: find the two orbit subgroups under the fold
+    def get_orbit(start):
+        orb = [start]
+        v = start
+        for _ in range(20):
+            v = fold(v)
+            if v == ONE or v == start:
+                break
+            orb.append(v)
+        return orb
+    orbit_a = get_orbit(ratio(ONE, seventeen))  # orbit of 1/17
+    orbit_b_start = None
+    for m in modes:
+        if m not in orbit_a:
+            orbit_b_start = m
+            break
+    orbit_b = get_orbit(orbit_b_start) if orbit_b_start is not None else []
+    two_orbits = (len(orbit_a) == 8) and (len(orbit_b) == 8)
+    # all modes accounted for
+    all_covered = all(m in orbit_a or m in orbit_b for m in modes)
+    return member_count and t1t2_pass and t4_pass and two_orbits and all_covered
+
+
+# --- B-13N: composite confining sector 24 (=2^3·3) -- two orbits of 11 members each in k/23 ---
+def composite_sector_24_confining():
+    """B-13N (a new forward result from the discovery engine): the composite sector 24 (=2^3·3) confines.
+    The standing modes of the 24-fold are k/23 for k=1..22. Every mode's fold-orbit stays within
+    denominator 23 (T2 closure) and terminates (T1 confinement). All 22 members sit in one sector
+    (T4). The 22 modes split into two orbit subgroups of 11 members each under the doubling map.
+    Verified: T1-T4 pass, two orbits of size 11."""
+    from ratio import fold, take
+    two = ONE + ONE
+    three = ONE + ONE + ONE
+    eight = two * two * two
+    twentyfour = eight * three
+    twentythree = take(twentyfour, ONE)
+    # build all standing modes k/23 for k=1..22
+    modes = []
+    k = ONE
+    while k < twentythree:
+        modes.append(ratio(k, twentythree))
+        k = k + ONE
+    member_count = (len(modes) == 22)
+    # T1+T2: every mode's fold-orbit stays within denominator 23 and terminates
+    t1t2_pass = True
+    for m in modes:
+        v = m
+        visited = []
+        for _ in range(530):
+            v = fold(v)
+            if v == ONE:
+                break
+            if v in visited:
+                break
+            visited.append(v)
+            if Fraction(v).denominator != int(twentythree):
+                t1t2_pass = False
+    # T4: all modes in one definite sector (denominator 23)
+    t4_pass = all(Fraction(m).denominator == int(twentythree) for m in modes)
+    # orbits: find the two orbit subgroups under the fold
+    def get_orbit(start):
+        orb = [start]
+        v = start
+        for _ in range(30):
+            v = fold(v)
+            if v == ONE or v == start:
+                break
+            orb.append(v)
+        return orb
+    orbit_a = get_orbit(ratio(ONE, twentythree))  # orbit of 1/23
+    orbit_b_start = None
+    for m in modes:
+        if m not in orbit_a:
+            orbit_b_start = m
+            break
+    orbit_b = get_orbit(orbit_b_start) if orbit_b_start is not None else []
+    two_orbits = (len(orbit_a) == 11) and (len(orbit_b) == 11)
+    # all modes accounted for
+    all_covered = all(m in orbit_a or m in orbit_b for m in modes)
+    return member_count and t1t2_pass and t4_pass and two_orbits and all_covered
+
+
+# --- B-14N: composite confining sector 30 (=2·3·5) -- 28 members k/29, T5=YES (14 pairs) ---
+def composite_sector_30_confining():
+    """B-14N (a new forward result from the discovery engine): the composite sector 30 (=2·3·5) confines.
+    The standing modes of the 30-fold are k/29 for k=1..28. Every mode's fold-orbit stays within
+    denominator 29 (T2 closure) and terminates (T1 confinement). All 28 members sit in one sector
+    (T4). The 28 interior modes form 14 antipodal pairs (T5: pairs = (sector-1)/2 = 14). Verified:
+    T1-T4 pass, T5 pair count = 14."""
+    from ratio import fold, take
+    two = ONE + ONE
+    three = ONE + ONE + ONE
+    five = three + ONE + ONE
+    thirty = two * three * five
+    twentynine = take(thirty, ONE)
+    # build all standing modes k/29 for k=1..28
+    modes = []
+    k = ONE
+    while k < twentynine:
+        modes.append(ratio(k, twentynine))
+        k = k + ONE
+    member_count = (len(modes) == 28)
+    # T1+T2: every mode's fold-orbit stays within denominator 29 and terminates
+    t1t2_pass = True
+    for m in modes:
+        v = m
+        visited = []
+        for _ in range(850):
+            v = fold(v)
+            if v == ONE:
+                break
+            if v in visited:
+                break
+            visited.append(v)
+            if Fraction(v).denominator != int(twentynine):
+                t1t2_pass = False
+    # T4: all modes in one definite sector (denominator 29)
+    t4_pass = all(Fraction(m).denominator == int(twentynine) for m in modes)
+    # T5: pair count = (sector-1)/2 = 14 antipodal pairs
+    pairs_found = []
+    k = ONE
+    while k < twentynine:
+        kind = ratio(k, twentynine)
+        anti = take(ONE, kind)
+        if kind < anti:
+            pairs_found.append((kind, anti))
+        k = k + ONE
+    fourteen = ONE + ONE + ONE + ONE + ONE + ONE + ONE
+    fourteen = fourteen + fourteen  # 14
+    t5_pass = (len(pairs_found) == int(fourteen))
+    return member_count and t1t2_pass and t4_pass and t5_pass

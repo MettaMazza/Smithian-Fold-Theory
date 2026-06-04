@@ -2,7 +2,7 @@
 COSMOLOGY JOINT LIKELIHOOD — external correspondence layer (NOT the gate-clean core).
 
 Real, externally-validated test of the framework's FORCED, parameter-free cosmology
-(Omega_m = 1/3, Omega_vac = 2/3, flat, w=-1; VIII-8/VIII-9/VIII-10/VIII-11) against published
+(Omega_m = 5/16, Omega_vac = 11/16, flat, w=-1; VIII-12) against published
 cosmological data with their FULL covariance matrices, via a single joint chi-squared:
 
   - DESI 2024 BAO   (D_M/r_d, D_H/r_d, D_V/r_d; 12 points; full 12x12 covariance)
@@ -62,20 +62,20 @@ def chi2_sn(Om, z, mu, Cinv):
 
 def main():
     print("JOINT COSMOLOGY LIKELIHOOD — real data, full covariances, single chi2")
-    print("framework: Omega_m = 1/3 FORCED (zero free parameters)\n")
+    print("framework: Omega_m = 5/16 FORCED (zero free parameters)\n")
     zb,vb,qb,Cbi = load_bao()
     zs,mus,Csi = load_sn()
     def joint(Om): return chi2_bao(Om,zb,vb,qb,Cbi), chi2_sn(Om,zs,mus,Csi)
     print(f"  {'model':32}{'BAO':>9}{'SN':>11}{'JOINT':>11}")
-    for Om,name in [(1/3,'framework 1/3 (0 params)'),(0.3137,'LCDM 0.3137 (1 param)')]:
+    for Om,name in [(5/16,'framework 5/16 (0 params)'),(0.3137,'LCDM 0.3137 (1 param)')]:
         cb,cs=joint(Om); print(f"  {name:32}{cb:9.2f}{cs:11.2f}{cb+cs:11.2f}")
     grid=np.linspace(0.27,0.37,51)
     best=min(((sum(joint(Om)),Om) for Om in grid))
     print(f"\n  joint-preferred Omega_m: {best[1]:.4f}  (joint chi2={best[0]:.2f})")
-    print(f"  framework forced 1/3 = {1/3:.4f}")
+    print(f"  framework forced 5/16 = {5/16:.4f}")
     print("\n  READING: the forced 0-parameter value sits near the joint-preferred density;")
     print("  it ties best-fit LCDM (which spends 1 parameter) -- the")
-    print("  difference is small. SN prefer ~1/3; BAO prefer lower (~0.29); the joint sits between.")
+    print("  difference is small. SN prefer ~5/16; BAO prefer lower (~0.29); the joint sits between.")
     print("  This is a no-fit shape test; r_d and M are the single per-dataset scales, marginalized.")
 
 if __name__ == "__main__":
