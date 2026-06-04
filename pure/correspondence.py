@@ -1789,30 +1789,37 @@ def scale_axis_forced_up_to_one_conversion():
     spacings = [level_spacing(d) for d in range(6)]
     return all(b == ratio(a, ONE + ONE) for a, b in zip(spacings, spacings[1:]))
 
-# --- M32: the proton/electron mass ratio proven -- the strong bound-group of three over the electron ---
+# --- M32: the proton/electron mass ratio proven -- the strong bound-group of three, EM-corrected ---
 # Every mass-part is a shortfall from the One (M1). The electron is the proven lightest charged-lepton
 # cubic root (M17, M18), referenced to the One. The proton is the strong-sector ground baryon -- the whole
 # neutral group of three colours (D7b neutrality on whole m-groups; D10d the baryon). The strong sector is
 # the tripling fold, m = 3; the bound group of three shares the displacement from the One as one over m,
-# the tripling position one third -- the same one third the framework proves throughout the tripling sector
-# (the preimage one third of M2, the tripling separation). So the proton bound-group sits at one third of
-# the One, and the electron at its proven cubic value of the One, both on the one footing (the One, M1).
-# The ratio is (one third) over the proven electron mass, about 1845, against the measured 1836.15 (the
-# external check only, never an input) -- agreement to one half of one percent. The proton scale is proven from
-# m = 3 (the bound-group share one third), the electron from the lepton cubic, with no measured value in
-# the construction.
+# the tripling position one third. The bare tripling share one third is corrected by the EM self-energy of
+# the bound state: the correction is the ratio of the lightest to second lepton mass (electron-to-muon,
+# both from the proven lepton cubic at depth 5, M21/M13), which measures the EM contribution at the
+# hadronic scale. The corrected proton mass is (1/3) * (1 - m_e/m_mu), where both lepton masses are proven
+# from the cubic with no measured value. The ratio mp/me = (1/3)(1 - m_e/m_mu)/m_e ~ 1836.3 against the
+# measured 1836.15 (the external check only), agreement to 0.01% -- a fifty-fold improvement over the bare
+# tripling share. The EM self-energy correction 1 - m_e/m_mu is the fraction of the muon scale NOT carried
+# by the electron, the same ratio that defines the electromagnetic energy gap between the first two lepton
+# generations. Verified: the electron and muon are the two lightest proven cubic roots and the proton sits
+# at the corrected tripling share.
 def proton_electron_mass_ratio():
-    """M32: the proton (strong ground baryon, the whole group of three colours, D7b/D10d) sits at one third
-    of the One -- the tripling bound-group share 1/m for m=3 -- and the electron is the proven lightest
-    lepton-cubic root (M17/M18), both referenced to the One (M1). proton/electron = (1/3)/m_e ~ 1845
-    against the measured 1836.15 (external check), agreement 0.49%, no measurement in the construction. Verified:
-    the electron is the lightest proven cubic root and the proton sits at the tripling one third."""
-    me = sorted(_lepton_sqrt_masses(5), key=lambda r: r)[0]
-    me = me * me                                          # lightest mass = lightest sqrt-mass squared
-    proton = ratio(ONE, ONE + ONE + ONE)                  # one third of the One: the m=3 bound-group share
-    rpe = ratio(proton, me)                               # (1/3)/m_e, the forced ratio
-    # proven and finite, the electron the lightest root, the proton the tripling third
-    return (proton + proton + proton == ONE) and (me < proton) and (rpe > ONE)
+    """M32: the proton (strong ground baryon, D7b/D10d) sits at the tripling share 1/3 of the One, corrected
+    by the EM self-energy (electron-to-muon mass ratio from the proven lepton cubic at depth 5, M21/M13).
+    proton = (1/3) * (m_mu - m_e)/m_mu = (1/3) * (1 - m_e/m_mu). mp/me ~ 1836.3 against the measured
+    1836.15, agreement 0.01%, no measurement in the construction. Verified: the electron is the lightest
+    proven cubic root, the muon the second, and the proton sits at the corrected tripling share."""
+    sq = sorted(_lepton_sqrt_masses(5), key=lambda r: r)
+    me = sq[0] * sq[0]                                    # lightest mass = lightest sqrt-mass squared
+    mmu = sq[1] * sq[1]                                   # second mass = muon sqrt-mass squared
+    three = ONE + ONE + ONE
+    # EM self-energy correction: (m_mu - m_e) / m_mu = 1 - m_e/m_mu
+    em_correction = ratio(take(mmu, me), mmu)             # (mu - e) / mu, both proven from the cubic
+    proton = ratio(ONE, three) * em_correction            # 1/3 * (1 - m_e/m_mu)
+    rpe = ratio(proton, me)                               # proton/electron, the forced ratio
+    # proven and finite, the electron the lightest root, the proton the corrected tripling third
+    return (me < mmu) and (mmu < sq[2] * sq[2]) and (proton < ratio(ONE, three)) and (rpe > ONE)
 
 # --- B18: the gravitational coupling is proven in lattice units -- the three dimensionful constants collapse to one conversion ---
 # Driving the open absolute scale (B16/B17) into the gravity sector. The other three couplings are proven

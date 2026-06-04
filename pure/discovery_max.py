@@ -714,9 +714,96 @@ def mode_running_curves(max_depth=56):
     print(f"  Time: {elapsed(t0)}")
 
 # ============================================================================
-# MAIN DISPATCH
+# MODE 9: --census — Unclaimed Structure Census
 # ============================================================================
 
+def mode_census():
+    """Classify all unclaimed closed-set members by sector, orbit type, and
+    relationship to claimed structures."""
+    t0 = timer()
+    print(f"\n{'='*80}")
+    print("MODE: UNCLAIMED STRUCTURE CENSUS")
+    print(f"{'='*80}\n")
+
+    named = D.corpus_named_parts()
+    closed = D.closed_set()
+    unclaimed = sorted([x for x in closed if x not in named])
+    claimed_list = sorted([x for x in closed if x in named])
+
+    print(f"  Closed set:  {len(closed)} members")
+    print(f"  Named:       {len(claimed_list)}")
+    print(f"  Unclaimed:   {len(unclaimed)}")
+    print()
+
+    # Group unclaimed by denominator
+    by_denom = {}
+    for x in unclaimed:
+        d = x.denominator
+        by_denom.setdefault(d, []).append(x)
+
+    # For each denominator family, determine the sector and orbit structure
+    lines = ["# Unclaimed Structure Census\n"]
+    lines.append(f"Total closed set: {len(closed)} | Named: {len(claimed_list)} | Unclaimed: {len(unclaimed)}\n")
+    lines.append("| Denominator | Count | Sector(s) | Sample Members | Orbit Type |")
+    lines.append("|-------------|-------|-----------|----------------|------------|\n")
+
+    print(f"  {'denom':>5} {'count':>5} {'sector':>8} {'orbit_type':>14}  sample")
+    print(f"  {'-'*5} {'-'*5} {'-'*8} {'-'*14}  {'-'*30}")
+
+    sector_summary = Counter()
+
+    for denom in sorted(by_denom.keys()):
+        members = sorted(by_denom[denom])
+        # Find sectors for members
+        secs = set()
+        for m in members[:5]:
+            fc = D.fold_count(m)
+            if fc is not None:
+                secs.add(fc)
+
+        sec_str = ",".join(str(s) for s in sorted(secs)) if secs else "?"
+        for s in secs:
+            sector_summary[s] += len(members)
+
+        # Determine orbit type
+        orbit_type = "standing"
+        for m in members[:3]:
+            o = D.orbit_of(m, I(2))
+            if len(o) > 1:
+                orbit_type = "orbit(len=" + str(len(o)) + ")"
+                break
+
+        sample = ", ".join(str(m) for m in members[:6])
+        if len(members) > 6:
+            sample += " ... (+" + str(len(members) - 6) + ")"
+
+        print(f"  {denom:5} {len(members):5} {sec_str:>8} {orbit_type:>14}  {sample}")
+        lines.append(f"| {denom} | {len(members)} | {sec_str} | {sample} | {orbit_type} |")
+
+    print("\n  SECTOR DISTRIBUTION:")
+    for sec, count in sorted(sector_summary.items()):
+        n = sec
+        factors = []
+        for p in [2, 3, 5, 7, 11, 13, 17, 19, 23, 29]:
+            while n % p == 0:
+                factors.append(p)
+                n //= p
+        fac_str = " x ".join(str(f) for f in factors) if factors else str(sec)
+        is_prime = sec > 1 and all(sec % i != 0 for i in range(2, int(sec**0.5) + 1))
+        label = "PRIME" if is_prime else "composite"
+        claimed_secs = {2, 3, 4, 6, 8, 12, 18, 24, 30}
+        claimed_label = "CLAIMED" if sec in claimed_secs else "unclaimed"
+        print(f"    sector {sec:3} ({fac_str:>10}) = {label:10} {claimed_label:10}: {count} members")
+
+    lines.append("\n## Summary\n")
+    lines.append(f"- Denominators represented: {len(by_denom)}")
+    lines.append(f"- Sectors found: {len(sector_summary)}")
+
+    print(f"\n  Time: {elapsed(t0)}")
+    write_report("unclaimed_census.md", "\n".join(lines))
+
+# ============================================================================
+# MAIN DISPATCH
 def main():
     args = set(sys.argv[1:])
     run_all = "--all" in args
@@ -762,6 +849,9 @@ def main():
                 limit = int(a.split("=")[1])
         mode_running_curves(max_depth=limit)
 
+    if "--census" in args or run_all:
+        mode_census()
+
     if not args or args == {"--all"}:
         if not run_all:
             print("\nUsage: python3 discovery_max.py [MODE]")
@@ -773,6 +863,7 @@ def main():
             print("  --falsification    Falsification register")
             print("  --auto-extend      Extended auto-proof (T1-T12)")
             print("  --running-curves   Coupling running curves (--depth-limit=N)")
+            print("  --census           Unclaimed structure census")
             print("  --all              Run every mode")
 
 if __name__ == "__main__":

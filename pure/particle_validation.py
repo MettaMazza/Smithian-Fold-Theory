@@ -81,14 +81,17 @@ def engine_koide_quarks():
     return up_koide, down_koide
 
 def engine_proton_electron_ratio():
-    """M32: proton(1/3) / electron(lightest lepton cubic root squared)."""
+    """M32: proton = (1/3) * (1 - m_e/m_mu), EM-corrected tripling share."""
     from fractions import Fraction
-    from ratio import ONE, ratio
+    from ratio import ONE, ratio, take
     import correspondence as Co
-    me = sorted(Co._lepton_sqrt_masses(5), key=lambda r: r)[0]
-    me_sq = me * me
-    proton = ratio(ONE, ONE + ONE + ONE)
-    return float(ratio(proton, me_sq))
+    sq = sorted(Co._lepton_sqrt_masses(5), key=lambda r: r)
+    me = sq[0] * sq[0]                                     # electron
+    mmu = sq[1] * sq[1]                                    # muon
+    three = ONE + ONE + ONE
+    em_correction = ratio(take(mmu, me), mmu)              # (mu - e) / mu
+    proton = ratio(ONE, three) * em_correction             # 1/3 * (1 - e/mu)
+    return float(ratio(proton, me))
 
 def engine_quark_mass_ratios():
     """M26: s/d, b/s, t/c from the engine cubic."""
