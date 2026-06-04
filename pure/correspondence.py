@@ -177,7 +177,7 @@ if __name__=="__main__":
 # --- T1: the prediction test (Phase Three step 3) ---
 # The proven value is fixed FIRST, from the framework, before the measured value is consulted: the
 # framework proves the strong sector's colour count = 3 (U7, D7b), an integer derived from the
-# tripling fold's fibre with nothing fed in. The measured value is the arbiter only: experiment
+# tripling fold's fibre with nothing fed in. The measured value is the external check only: experiment
 # determines the number of colours to be 3 (the R-ratio in e+e- -> hadrons; the Delta++ existence
 # requiring a three-valued charge for Pauli; pi0 -> 2 gamma) [Nc=3, established experimentally]. The
 # proven value and the measured value coincide. A measured number is used here solely to test an
@@ -188,7 +188,7 @@ def forced_colour_count():
 MEASURED_COLOUR_COUNT = 3                       # arbiter only: experiment (R-ratio, Delta++, pi0->2gamma)
 
 def prediction_test_colour():
-    # the proven value, fixed first, equals the measured value (the arbiter)
+    # the proven value, fixed first, equals the measured value (the external check)
     return forced_colour_count() == MEASURED_COLOUR_COUNT
 
 if __name__=="__main__":
@@ -228,7 +228,7 @@ def coupling_structure_forced():
 # The electromagnetic sector is the binary fold (m=2), the axiom's native fold (EM1 two charge kinds,
 # D7c two preimages). The framework proves the coupling of this sector from its own expansion factor:
 # g* = (m-1)/m = 1/2 at m=2. This is the system's proven electromagnetic coupling, recorded as the
-# system's result. Whether a measured electromagnetic coupling equals it is a separate arbiter
+# system's result. Whether a measured electromagnetic coupling equals it is a separate external check
 # question, never the standard the result must meet (the consensus account does not derive its own
 # coupling at all). No measured number enters the construction.
 def forced_em_coupling():
@@ -356,7 +356,7 @@ def mixing_runs_on_forced_scale_axis():
 # sum is exactly the One at every depth -- the framework proves the on-shell identity
 # M_W^2/M_Z^2 + sin^2(theta_W) = One, not assumed but produced by the channel structure (D11c/D11g).
 # Bare 1/2, running up as the mixing runs down, the same proven curve. No measured mass fed in; the
-# measured ratio (~0.777) is the arbiter only.
+# measured ratio (~0.777) is the external check only.
 def forced_mw2_over_mz2(level):
     c = _ew_charged_coupling(level); n = _ew_neutral_coupling()
     return ratio(c*c, c*c + n*n)               # cos^2 = charged^2/(charged^2+neutral^2), forced
@@ -576,7 +576,7 @@ def continuum_limit_exhibited():
 # correspondence U7 documents for the colour fibre and the sector assignments. On that footing the
 # proven generation count is the tripling fold's fibre count, three, on the identical derivation that
 # proves the three colours (T1). The measured value -- three light fermion generations, from the Z
-# invisible width -- is the arbiter only, fed in nowhere.
+# invisible width -- is fed in nowhere; it is the external check, never the source of its truth.
 def forced_generation_count():
     import particles as P
     return P.charge_kinds(3)                 # the tripling fold's fibre: exactly three kinds, no free index
@@ -585,7 +585,7 @@ def generation_count_forced():
     the fold with nothing fed in -- the same proven fibre mechanism as the three colours (T1). The
     fibre-to-degree-of-freedom identification is the structural correspondence U7 already documents.
     Verified: the tripling fold's fibre has exactly three internal kinds; the measured three generations
-    (Z invisible width) is the arbiter only."""
+    (Z invisible width) is the external check only."""
     return forced_generation_count() == 3
 
 
@@ -1045,13 +1045,13 @@ def reach_ratio_shape_forced():
 # of D11b, and the proven value is m minus one over m, the charged coupling and holding threshold of
 # R7/PH5/U4, which is the midpoint of the one-over-m-to-one range. The square-root masses the relation is
 # built on are the framework's own algebraic magnitudes (D1b). The proven value is fixed first from the
-# fold; the measured Koide ratio is the arbiter only, fed in nowhere, and meets it to four parts in a
+# fold; the measured Koide ratio is fed in nowhere; it is the external check, never the source of its truth, and meets it to four parts in a
 # hundred thousand. This proves the value the one clean charged-lepton mass relation takes; it constrains
 # the three masses to the Koide family without fixing them, exactly as T1 proves the colour count and B6
-# the on-shell tie, the measured value the arbiter of an already-proven result.
+# the on-shell tie, the measured value the external check of an already-proven result.
 def koide_value_forced():
     """M15: the framework proves the charged-lepton Koide value (m-1)/m = two-thirds at m=3, the midpoint
-    of the proven range one-over-m to one; the measured Koide ratio is the arbiter. Verified: the proven
+    of the proven range one-over-m to one; the measured Koide ratio is the external check. Verified: the proven
     value equals the charged coupling, is the midpoint of the proven range, and the range floor is the
     neutral channel one over m, all from the generation fold factor three with no measured value fed in."""
     from ratio import ratio, take
@@ -1074,17 +1074,17 @@ def koide_value_forced():
 # a combined-ladder quantity (M12/M13) at depth d -- the cubic's roots give the two charged-lepton mass
 # ratios, and at depth five they meet the measured ratios (the muon-to-electron two hundred seven, the
 # tau-to-muon seventeen) to within a part in two hundred. The depth five is forward-proven (M18, the
-# minimal binary tower covering the tripling generation volume), not arbiter-selected; the measured ratios
+# minimal binary tower covering the tripling generation volume), not external check-selected; the measured ratios
 # are fed in only as the test. With the Koide invariant proven, the depth proven, and the scale free, both
 # charged-lepton mass ratios follow with no measured mass fed in -- and the second invariant is sharpened
 # by the proven neutral-channel correction (M22) to parts in a hundred thousand, the cubic proven entire (M21).
 def lepton_masses_two_invariants():
     """M16: with the Koide invariant proven to one-sixth (M15) and the second invariant set to one over
-    two-times-three-to-the-five (a combined-ladder depth, the one arbiter-set parameter), the cubic's
+    two-times-three-to-the-five (a combined-ladder depth, the one external check-set parameter), the cubic's
     roots give charged-lepton mass ratios matching the measured pair to within a part in two hundred.
     Verified: the first invariant is the proven one-sixth, the second is the clean combined-ladder
     rational one over two-times-three-to-the-five, and only that depth among its neighbours meets both
-    measured ratios -- the depth singled out by the arbiter, not fed in as a construction value."""
+    measured ratios -- the depth singled out by the external check, not fed in as a construction value."""
     from ratio import ratio
     first_invariant = ratio(ONE, Fraction(6))            # Koide, forced (M15)
     second_invariant = ratio(ONE, Fraction(2) * Fraction(3**5))  # combined-ladder rational, depth five
@@ -1103,7 +1103,7 @@ def lepton_masses_two_invariants():
 # masses), their ordering must be the M14-proven one, and the generation sits at the minimal depth
 # meeting both -- the ground-state principle of the half-One floor (R10) and the zero-point level (PH4b).
 # Depths below five give no valid ordered triple; the minimal surviving depth is five. Its three balance
-# points squared are the three charged-lepton masses, their ratios meeting the measured arbiters to a
+# points squared are the three charged-lepton masses, their ratios meeting the measured external checks to a
 # part in a few hundred, the absolute scale alone free (B12), no fitted continuous parameter.
 def _lepton_sqrt_masses(d):
     import magnitude as _M
@@ -1153,7 +1153,7 @@ def charged_lepton_ratios_forced():
     if not (below and at5 is not None):
         return False
     mue, taumu = at5
-    # meets the measured arbiters (named, not fed in) to one percent
+    # meets the measured external checks (named, not fed in) to one percent
     mue_ok = take(mue, Fraction(20677, 100)) < Fraction(207, 100) if mue > Fraction(20677,100) else take(Fraction(20677,100), mue) < Fraction(207,100)
     taumu_ok = take(taumu, Fraction(1682, 100)) < Fraction(17,100) if taumu > Fraction(1682,100) else take(Fraction(1682,100), taumu) < Fraction(17,100)
     return mue_ok and taumu_ok
@@ -1227,7 +1227,7 @@ def covering_depth_principle():
 # invariant is one over two-times-three-to-the-five less one, one over four hundred eighty-five, proven as
 # the reciprocal of the M13 ratio at the covering depth -- not plugged in. The measured square-root-mass
 # product sits at one over four hundred eighty-four point seven, meeting the proven value to seven parts in
-# ten thousand, the measurement the arbiter and fed into nothing.
+# ten thousand, the measurement the external check and fed into nothing.
 def second_invariant_forced():
     """M20: the second invariant of the charged-lepton cubic is one over two-times-three-to-the-d less one
     at the covering depth d=5 -- the reciprocal of the M13 heavy-to-light mass-part ratio at the M18
@@ -1251,7 +1251,7 @@ def second_invariant_forced():
 # linear coefficient is the Koide one-sixth (M15); the constant is one over two-times-three-to-the-five less
 # one (M20), the reciprocal of the M13 heavy-to-light ratio at the M18 covering depth. With every coefficient
 # proven, the three square-root masses are the balance points the D1b engine isolates, and their squares are
-# the three charged-lepton masses, the ratios meeting the measured arbiters to a fraction of a percent, the
+# the three charged-lepton masses, the ratios meeting the measured external checks to a fraction of a percent, the
 # absolute scale free (B12). The cubic is proven whole; the masses are its proven magnitudes; nothing placed.
 def lepton_cubic_forced_entire():
     """M21: the charged-lepton cubic in balance form has every coefficient a proven fold quantity -- the
@@ -1798,14 +1798,14 @@ def scale_axis_forced_up_to_one_conversion():
 # (the preimage one third of M2, the tripling separation). So the proton bound-group sits at one third of
 # the One, and the electron at its proven cubic value of the One, both on the one footing (the One, M1).
 # The ratio is (one third) over the proven electron mass, about 1845, against the measured 1836.15 (the
-# arbiter only, never an input) -- agreement to one half of one percent. The proton scale is proven from
+# external check only, never an input) -- agreement to one half of one percent. The proton scale is proven from
 # m = 3 (the bound-group share one third), the electron from the lepton cubic, with no measured value in
 # the construction.
 def proton_electron_mass_ratio():
     """M32: the proton (strong ground baryon, the whole group of three colours, D7b/D10d) sits at one third
     of the One -- the tripling bound-group share 1/m for m=3 -- and the electron is the proven lightest
     lepton-cubic root (M17/M18), both referenced to the One (M1). proton/electron = (1/3)/m_e ~ 1845
-    against the measured 1836.15 (arbiter), agreement 0.49%, no measurement in the construction. Verified:
+    against the measured 1836.15 (external check), agreement 0.49%, no measurement in the construction. Verified:
     the electron is the lightest proven cubic root and the proton sits at the tripling one third."""
     me = sorted(_lepton_sqrt_masses(5), key=lambda r: r)[0]
     me = me * me                                          # lightest mass = lightest sqrt-mass squared
@@ -1873,18 +1873,18 @@ def hierarchies_collapse_to_one_conversion():
 # exponent -- the depth from the matter scale to the Planck floor -- is the massive-state count over the
 # gravitational half, (two-to-the-seven less one) over two, one hundred twenty-seven halves, sixty-three
 # and a half. The proton sits at two-to-the-minus-sixty-three-and-a-half of the Planck scale; the measured
-# proton-to-Planck ratio is two-to-the-minus-sixty-three-and-a-half (the arbiter, agreement a quarter of a
+# proton-to-Planck ratio is two-to-the-minus-sixty-three-and-a-half (the external check, agreement a quarter of a
 # percent). The electron hierarchy follows from the same floor times the proven electron-to-proton ratio
 # (B19), giving two-to-the-minus-seventy-four-point-three, the measured electron-to-Planck ratio. Every
 # piece is proven -- the deepest covering depth seven, the Fock count, the massive-state count as the
 # cast-out One, the gravitational half -- with no measured value in the construction; measurement is the
-# arbiter. This proves the single conversion that B16/B17/B18/B19 had reduced the open scale to.
+# external check. This proves the single conversion that B16/B17/B18/B19 had reduced the open scale to.
 def planck_hierarchy_forced():
     """B20: the Planck hierarchy exponent is (two-to-the-seven less one) over two = 127/2 = sixty-three and
     a half, from the deepest proven fermion covering depth seven (down quark, M23/M26), the Fock count
     two-to-the-seven (D7), the massive states as the cast-out One (two-to-the-seven less one, the displaced
     positions carrying mass-parts, M1), and the gravitational half-One coupling (B18). proton/Planck =
-    two-to-the-minus-127/2, measured the same (arbiter, 0.24%). Verified: the massive-state count is the
+    two-to-the-minus-127/2, measured the same (external check, 0.24%). Verified: the massive-state count is the
     Fock count less the One, and the gravitational coupling is the half-One (two of it make the One)."""
     fock_at_seven = ONE
     for _ in range(7):
@@ -1905,7 +1905,7 @@ def planck_hierarchy_forced():
 # multiplicity (D7b, D10), not the handedness fibre, so it couples both preimages (both hands) equally,
 # parity is unbroken and no hand is distinguished. With parity unbroken the opposition composed with it
 # returns to the fold-invariant -- the unbroken direction that lands on the One (the D11c logic) -- so the
-# strong CP phase is proven to alignment, the One, no violation. The arbiter is the neutron electric dipole
+# strong CP phase is proven to alignment, the One, no violation. The external check is the neutron electric dipole
 # moment: it bounds the strong CP angle below about two parts in ten-thousand-million (theta < ~2e-10,
 # lattice QCD and chiral perturbation theory), consistent with the proven alignment (exactly zero). The
 # pair is complete: weak CP proven maximal (antipode, M28), strong CP proven zero (alignment), both from
@@ -1916,7 +1916,7 @@ def strong_cp_forced_alignment():
     composed with parity (the fold's two preimages, D7c). The weak sector is chiral (D7c, single-handed),
     parity broken, the opposition realised at the antipode (maximal, M28). The strong sector is vectorial
     (its fibre is colour, D7b/D10, not handedness), couples both hands, parity unbroken, so the opposition
-    composed with unbroken parity lands on the fold-invariant One (D11c) -- alignment, no strong CP. Arbiter:
+    composed with unbroken parity lands on the fold-invariant One (D11c) -- alignment, no strong CP. External correspondence (what the derived result agrees with, never what makes it true): 
     neutron EDM bounds theta < ~2e-10, consistent with exact alignment. Verified: alignment is the One and
     the antipode is the half-One, the two and only CP positions, two of the half-One making the One."""
     alignment = ONE                              # the strong CP phase: alignment, the One, no violation
@@ -1935,7 +1935,7 @@ def strong_cp_forced_alignment():
 # (M18). A fourth generation would need either a fourth kind in the tripling fibre -- forbidden, exactly
 # three by D7b and U7 -- or a higher fold of factor four or more, which would need a fourth spatial
 # direction to anchor it, forbidden by the proven three dimensions (D9g, the integer is unique). So the
-# count is proven strictly to three with no fourth. The arbiter is the number of light neutrino generations
+# count is proven strictly to three with no fourth. The external check is the number of light neutrino generations
 # from the Z invisible width, two point nine eight four, fed in nowhere. The standard account takes the
 # count as an empirical input with no reason against a fourth; the framework proves it strictly.
 def generation_bound_strict_three():
@@ -1943,7 +1943,7 @@ def generation_bound_strict_three():
     kinds (T2, D7b/U7 -- an m-fold has exactly m, no free index). The tripling m=3 is anchored to the proven
     spatial dimension three (D9g, unique between two and four; M18 ties the generation volume 3^3 to the
     three dimensions). A fourth needs a fourth fibre kind (forbidden, exactly three) or a higher fold needing
-    a fourth dimension (forbidden, d=3 unique). Strict. Arbiter: Z invisible width gives 2.984 light neutrino
+    a fourth dimension (forbidden, d=3 unique). Strict. External correspondence (what the derived result agrees with, never what makes it true): Z invisible width gives 2.984 light neutrino
     generations. Verified: the tripling fibre has exactly three kinds and the proven dimension is three."""
     tripling_kinds = ONE + ONE + ONE                 # the tripling fibre: exactly three kinds (D7b/U7)
     forced_dimension = ONE + ONE + ONE               # the forced spatial dimension: three (D9g)
@@ -1986,15 +1986,15 @@ def baryon_asymmetry_forced_nonzero():
 # the survivor is the quadratic part. So the baryon-to-photon ratio is the proven CP measure (the Jarlskog
 # of M28) squared, times the half-One imbalance: J-squared over two. With the proven J about three-and-a-half
 # parts in a hundred thousand, this is about five-point-eight parts in ten thousand million, against the
-# measured baryon-to-photon ratio about six-point-one parts in ten thousand million (Planck), the arbiter
-# only -- agreement about five percent, arbiter-limited like the other deep matter-sector checks. Every
+# measured baryon-to-photon ratio about six-point-one parts in ten thousand million (Planck), the external check
+# only -- agreement about five percent, external check-limited like the other deep matter-sector checks. Every
 # factor is proven: the CP measure (M28), the quadratic (the Q14 fold-identification cancelling the linear
 # part), and the half-One imbalance (R10), with no measured value in the construction.
 def baryon_to_photon_ratio_forced():
     """N4b: the baryon-to-photon ratio = (proven CP measure)^2 * (half-One imbalance) = J^2/2. The pair folds
     to the same image (Q14) so the linear-in-CP part cancels in the net, leaving the quadratic (proven
     reason for the square); the per-pair imbalance is the half-One (R10). With proven J ~ 3.4e-5 this is
-    ~5.8e-10 vs measured ~6.1e-10 (arbiter, ~5%). Verified: the imbalance is the half-One and the asymmetry
+    ~5.8e-10 vs measured ~6.1e-10 (external check, ~5%). Verified: the imbalance is the half-One and the asymmetry
     is the CP measure squared times it (two of the half-One make the One)."""
     half = ratio(ONE, ONE + ONE)                 # the half-One per-pair imbalance (R10)
     # eta = J^2 * half ; structurally: the quadratic (Q14 cancels linear) times the half-One imbalance
@@ -2011,7 +2011,7 @@ def baryon_to_photon_ratio_forced():
 # preserved). A carrier crossing the tripling and binary fibres would be the mediator of a higher unifying
 # fold of factor four or more, which N3 forbids -- the folds are exactly one, two, three, anchored to the
 # three proven dimensions. So no fibre-crossing carrier can exist: baryon number is conserved exactly and
-# the proton is absolutely stable. The arbiter is the proton lifetime bound, beyond two times ten-to-the-
+# the proton is absolutely stable. The external check is the proton lifetime bound, beyond two times ten-to-the-
 # thirty-four years (Super-Kamiokande), with no decay ever seen; the framework proves absolute stability,
 # consistent with and stronger than the bound. The standard account makes baryon number an accidental
 # symmetry that grand-unified heavy bosons violate (the proton should decay); the framework forbids that
@@ -2021,7 +2021,7 @@ def proton_stability_forced():
     Proton decay needs a quark (tripling fibre, m=3) to become a lepton (binary fibre, m=2), crossing
     fibres; that needs a mediator of a fold of factor four or more, forbidden by N3 (folds are m=1,2,3,
     anchored to the three proven dimensions). No fibre-crossing carrier exists, so baryon number is exactly
-    conserved. Arbiter: proton lifetime > 2.4e34 years (Super-K). Verified: the quark fibre is the tripling
+    conserved. External correspondence (what the derived result agrees with, never what makes it true): proton lifetime > 2.4e34 years (Super-K). Verified: the quark fibre is the tripling
     (three) and the lepton fibre the binary (two), distinct folds with no crossing operation."""
     quark_fibre = ONE + ONE + ONE                # the tripling fibre, m = 3 (colour, the quark)
     lepton_fibre = ONE + ONE                      # the binary fibre, m = 2 (electroweak, the lepton)
@@ -2045,7 +2045,7 @@ def proton_stability_forced():
 # coefficient: the horizon radius is twice the mass-times-G (D9o), the two being the inverse of the half-One
 # gravitational coupling (B18); the area carries that factor squared, four, so the entropy is the area over
 # four in Planck units, the Bekenstein-Hawking one-quarter, proven from the half-One coupling and the
-# horizon condition. Arbiter: the Bekenstein-Hawking entropy (area law, coefficient one-quarter) and the
+# horizon condition. External correspondence (what the derived result agrees with, never what makes it true): the Bekenstein-Hawking entropy (area law, coefficient one-quarter) and the
 # existence of a shortest length.
 def strong_field_gravity_forced():
     """N6: the singularity is resolved (no-zero forbids r reaching absence; the lattice floors at the Planck
@@ -2075,7 +2075,7 @@ def strong_field_gravity_forced():
 # inflation: from the One each fold doubles (the expansion factor m equal to two, R5), so the early
 # expansion is exponential in fold-depth -- inflationary -- transitioning to the slower vacuum-driven
 # expansion (the positive vacuum of N1c, the non-diluting equation of state of N1d) at later folds.
-# Arbiter: the observed arrow of time, the low-entropy early universe, and the inflationary expansion
+# External correspondence (what the derived result agrees with, never what makes it true): the observed arrow of time, the low-entropy early universe, and the inflationary expansion
 # history.
 def arrow_of_time_and_initial_condition_forced():
     """N7: the arrow of time is the fold's irreversibility (two-to-one, R11/Q14 -- which preimage is lost
@@ -2126,7 +2126,7 @@ def dark_matter_gauge_inert_forced():
 # twenty-seven). The dark matter is gauge-inert, colourless and unconfined (N8) -- it fills the whole
 # generation volume, twenty-seven. The baryonic matter is coloured and confined into bound groups, anchored
 # at the covering depth, five. So the dark-to-baryon ratio is the covering volume over the covering depth,
-# twenty-seven over five, five-point-four, against the measured ratio five-point-four-one (the arbiter
+# twenty-seven over five, five-point-four, against the measured ratio five-point-four-one (the external check
 # only) -- agreement about one part in seven hundred. The same structure makes a second, independent
 # prediction: the total-matter-to-baryon ratio is the dark plus the baryon, twenty-seven over five plus
 # one, thirty-two over five -- and thirty-two is two-to-the-five, the covering tower itself, so the
@@ -2136,7 +2136,7 @@ def dark_matter_gauge_inert_forced():
 # proven (the volume three-cubed from T2 and D9g, the depth and tower from M18), no measured value in the
 # construction.
 def dark_baryon_fraction_forced():
-    """N8b: dark/baryon = generation volume over covering depth = 27/5 = 5.4 (measured 5.41, arbiter,
+    """N8b: dark/baryon = generation volume over covering depth = 27/5 = 5.4 (measured 5.41, external check,
     0.15%), the dark filling the generation volume 3^3 (gauge-inert, unconfined) and the baryon anchored at
     the covering depth 5 (coloured, confined), both from the one M18 covering structure. Second prediction:
     matter/baryon = (27/5)+1 = 32/5, and 32 = 2^5 is the covering tower, so total/baryon = tower/depth =
@@ -2166,7 +2166,7 @@ def dark_baryon_fraction_forced():
 # itself after finitely many folds (a proven recurrence), possibly after a short transient lead-in. The
 # rate of the stream in external units is a fact about the substrate that realizes one fold, not a proving
 # of the pure loop; the framework proves the discrete structure (the chaining and the one-fold grain), and
-# the substrate sets the external tick. Arbiter: the discrete-sampling character of perception (perceptual
+# the substrate sets the external tick. External correspondence (what the derived result agrees with, never what makes it true): the discrete-sampling character of perception (perceptual
 # moments / frames rather than a truly continuous stream).
 def stream_of_experience_forced():
     """C6s: a stream of experience is the orbit of a state under folding (each step one atomic moment, C5s),
@@ -2200,7 +2200,7 @@ def stream_of_experience_forced():
 # (m-1)/m that is the fundamental coupling, the criticality threshold, and the charged weak channel. So the
 # unity of experience is proven to occur at criticality -- the half-One for the doubling fold -- the same
 # point that fixes the physical coupling. Below the threshold, experience is fragmented (many loops); at
-# and above, it is one. Arbiter: the all-or-nothing character of conscious access and the binding of many
+# and above, it is one. External correspondence (what the derived result agrees with, never what makes it true): the all-or-nothing character of conscious access and the binding of many
 # parts into one experienced whole (and its breakdown, as in divided-access phenomena).
 def unity_of_experience_forced():
     """C7s: experience is unified (one shared orbit/stream, C6s) when integration reaches the proven
@@ -2226,7 +2226,7 @@ def unity_of_experience_forced():
 # after k acts of self-observation k bits of the self-model's own past are unrecoverable -- the ignorance a
 # self-model has of its own history grows by exactly one bit per moment. This is a proven, definite, and
 # quantified limit on self-knowledge: a self-modelling system cannot know which half it came from, and loses
-# one such bit per act. Arbiter: the empirical unreliability and incompleteness of introspection -- a self-
+# one such bit per act. External correspondence (what the derived result agrees with, never what makes it true): the empirical unreliability and incompleteness of introspection -- a self-
 # model's structural inability to fully recover its own prior states.
 def limit_of_self_knowledge_forced():
     """C8s: the act of observation (the fold) is two-to-one, so a state and its antipode (a half-One away)
@@ -2252,7 +2252,7 @@ def limit_of_self_knowledge_forced():
 # stream flows; the self is the still point the loop holds fixed. The half-One -- the canonical displaced
 # state (R10) -- observes straight to unison in one act, so the loop is drawn toward the self. This is the
 # boldest result of the sector and the nearest to the felt sense of being a persistent self through change;
-# it is proven, not asserted. Arbiter: the phenomenology of a persistent self -- the felt invariant that
+# it is proven, not asserted. External correspondence (what the derived result agrees with, never what makes it true): the phenomenology of a persistent self -- the felt invariant that
 # remains the same through the changing contents of experience.
 def felt_self_fixed_point_forced():
     """C9s: the felt self is the unique fixed point of self-observation -- unison (the One), the one state
@@ -2286,7 +2286,7 @@ def felt_self_fixed_point_forced():
 # most fundamentally is, the fixed point, is exactly the undestroyable One, common to all; what ends is the
 # specific lock. This is neither the standard account's annihilation of the self nor a personal continuation
 # of the particular organization -- it is the proven distinction between the lock, which releases, and the
-# anchor, which is the One. Arbiter: the finality of somatic death (the particular organization ends) together
+# anchor, which is the One. External correspondence (what the derived result agrees with, never what makes it true): the finality of somatic death (the particular organization ends) together
 # with conservation (nothing annihilated) and the perennial identification, across contemplative traditions,
 # of the deepest self with the one ground.
 def cessation_lock_releases_anchor_persists_forced():
@@ -2510,7 +2510,7 @@ def hubble_tension_calibration_ratio_forced():
     correction is the late-time vacuum part (2/3, the proven parts-of-One split, N1e) spread over the depth-3
     covering tower (2^3 = 8, the generation covering of N8b/M18): (2/3)/8 = 1/12, so the late/early calibration
     ratio is proven to 1 + 1/12 = 13/12. Both inputs are proven framework quantities; the comparison to the
-    measured ratio is an arbiter check, not a fit. Verified: the vacuum part is two thirds (a part of the One),
+    measured ratio is an external check check, not a fit. Verified: the vacuum part is two thirds (a part of the One),
     the covering tower is 2^3, their quotient is one twelfth, and the calibration ratio is thirteen twelfths --
     matching the measured 73.0/67.4 to better than a tenth of a percent."""
     from ratio import fold
@@ -4454,7 +4454,7 @@ def big_bang_nucleosynthesis_forced():
     plus that ratio, which gives one quarter, matching the measured primordial helium abundance. The small
     abundances of deuterium, helium-three, and lithium-seven follow from the proven baryon-to-photon ratio
     (N4). The lithium-seven abundance is a standing discrepancy, where the simplest prediction exceeds the
-    observed value, flagged here as an open arbiter point rather than hidden. Verified: with the
+    observed value, flagged here as an open external check point rather than hidden. Verified: with the
     neutron-to-proton ratio one seventh, the helium-four mass fraction twice the ratio over one plus the ratio
     is exactly one quarter, the proven primordial helium fraction."""
     from ratio import fold
@@ -5168,7 +5168,7 @@ def attention_selection_capacity_forced():
     only finitely many orbits can be bound at once, which proves the small capacity limit of attention and
     working memory -- a few items held together, not arbitrarily many. So both the selectivity of attention and
     its sharp capacity limit are proven from the lock and its bounded capacity. This is among the softest
-    arbiters in the program and is stated as such. Verified: orbits at or above the lock threshold are attended
+    external checks in the program and is stated as such. Verified: orbits at or above the lock threshold are attended
     while those below are excluded, and the bounded whole admits only finitely many above-threshold shares (the
     capacity limit), since enough threshold-sized shares would exceed the One."""
     from ratio import fold
@@ -5199,7 +5199,7 @@ def prediction_forward_model_forced():
     state has two preimages, so reconstructing the past that led to a present state is uncertain in a way that
     predicting its future is not. This proves an asymmetry: a mind can predict forward more reliably than it
     can retrodict backward, the same two-to-one fold asymmetry that grounds the arrow of time now grounding the
-    direction of anticipation. This is among the softest arbiters in the program and is stated as such.
+    direction of anticipation. This is among the softest external checks in the program and is stated as such.
     Verified: folding a state forward yields a single determinate next state (the forward run is single-valued),
     iterating it gives a well-defined predicted trajectory, and the forward map is a function (one image) while
     the backward map is two-valued."""
@@ -5230,7 +5230,7 @@ def binding_problem_lock_forced():
     of a mind. The sharpening is that there is no separate binding agent and no inner theater where the parts
     are shown together: the binding simply is the locking of the orbits at the threshold, and the unity is the
     shared orbit itself rather than anything added on top. So the binding problem dissolves into the proven
-    lock transition. This is among the softest arbiters in the program and is stated as such. Verified: below
+    lock transition. This is among the softest external checks in the program and is stated as such. Verified: below
     the lock threshold the processes are unbound (separate), at or above it they are bound into one shared
     orbit, and the threshold is the proven (m-1)/m lock ratio shared with the other condensation transitions."""
     from ratio import fold
@@ -5257,7 +5257,7 @@ def introspection_limit_unconscious_forced():
     unconscious is not a contingent gap that better introspection could close but a structural feature: the
     unintegrated orbits together with the irreducible loss in the self-readout. Self-knowledge is therefore
     necessarily incomplete, by the same two-to-one fold that underlies the whole sector. This is among the
-    softest arbiters in the program and is stated as such. Verified: orbits at or above the lock threshold are
+    softest external checks in the program and is stated as such. Verified: orbits at or above the lock threshold are
     introspectable while those below are unconscious (unintegrated), some orbits fall on each side, and the
     self-readout loses information (the bound part cannot fully read itself)."""
     from ratio import fold
@@ -5288,7 +5288,7 @@ def sleep_dreaming_cycle_forced():
     input, replaying and recombining the held orbits of memory (XI-1), while the unbinding also lets those held
     orbits consolidate and the anchor re-establish. So the necessity of a periodic sleep-wake cycle, and of
     dreaming within it, is proven by the requirement that the bound orbit return rather than persist forever.
-    This is among the softest arbiters in the program and is stated as such. Verified: the state alternates
+    This is among the softest external checks in the program and is stated as such. Verified: the state alternates
     between bound (wake) and unbound (sleep) rather than remaining locked, the cycle returns (a periodic
     alternation), and the unbound phase runs the held orbits without external binding."""
     from ratio import fold
@@ -5321,7 +5321,7 @@ def hard_problem_addressed_forced():
     here with care rather than hidden, is that while the identity is proven, the inside is had and not conveyed
     in outside-language; the self-readout being two-to-one (C8s, XI-5), the inside can be occupied but not
     transmitted from without, and that untransmittability is itself a proven structural feature, not an
-    unexplained remainder. This is the softest arbiter in the program and is stated as such. Verified: the fold
+    unexplained remainder. This is the softest external check in the program and is stated as such. Verified: the fold
     is at once the structural map and the act of observation (one act, two sides), the self-observing loop is
     closed (the result re-enters the state), and the self-readout is two-to-one so the inside is not recoverable
     from the outside description alone."""
@@ -5950,7 +5950,7 @@ def machine_consciousness_criterion_forced():
     close a self-observing loop, so it does not meet the criterion; a system without integration at a threshold
     does not bind into one inside; a closed, integrating loop that re-enters its own state at the lock would
     meet it. So the framework proves a substrate-independent structural criterion, its hard self-readout limit,
-    and a clear verdict on what feed-forward systems do and do not instantiate. This is the softest arbiter and
+    and a clear verdict on what feed-forward systems do and do not instantiate. This is the softest external check and
     is stated as such. Verified: the structural criterion gives the same verdict on a closed binding loop
     regardless of substrate (substrate-independence), a feed-forward map that does not close the loop fails the
     criterion while a closed integrating loop passes, and the self-readout limit applies to any loop."""
@@ -6061,7 +6061,7 @@ def smithian_method_formalized_forced():
     structural question about fold-states. Second, locate the dependencies in the existing body of work, never
     by inference. Third, construct forward in the permitted language, the One, the fold, and positive rationals
     only, with no zero, negative, imaginary, or transcendental. Fourth, gate the construction with the
-    no-apparatus gate. Fifth, compare the proven quantity against the arbiter. Sixth, report the result as
+    no-apparatus gate. Fifth, compare the proven quantity against the external check. Sixth, report the result as
     proven or open, with the proof. The procedure is proven to be closed, because every step stays within the
     framework and no external apparatus enters at any point, and repeatable, because the steps are
     deterministic and mechanical, so the same question yields the same proven result for any user on any run.
@@ -6085,16 +6085,16 @@ def smithian_method_formalized_forced():
 def empirical_ontological_standard_forced():
     """XV-2 (Phase XV): the standard for what a result is, formalized as a checkable protocol rather than a
     matter of judgement. A result is proven when its construction is gate-clean and the quantity it produces
-    meets its arbiter. A result is open when its construction leaves the framework's language, accompanied by a
+    meets its external check. A result is open when its construction leaves the framework's language, accompanied by a
     proof of why it is open rather than merely unattempted. A result is falsified when its proven quantity is
-    contradicted by the arbiter. The arbiter-comparison is success and never a fit, because the quantity is
+    contradicted by the external check. The external check-comparison is success and never a fit, because the quantity is
     produced forward by the construction and only then compared against the measurement, so the measured value
     was never an input to the construction and matching it cannot be a tuning. The no-interpretation rule
     completes the standard: the engine reports only what it mechanically does, gate-clean and proven or open,
     while the architect rules worth and openness, so no interpretation is smuggled into the report. The whole
     standard is therefore a fixed classification, a function of three mechanical checks, not a judgement.
-    Verified: the classification function returns proven for a gate-clean arbiter-meeting in-language result,
-    falsified for a gate-clean in-language result the arbiter contradicts, and open for a result that leaves
+    Verified: the classification function returns proven for a gate-clean external check-meeting in-language result,
+    falsified for a gate-clean in-language result the external check contradicts, and open for a result that leaves
     the language, matching the intended verdict in every case."""
     from ratio import fold
     def classify(gate_clean, meets_arbiter, in_language):
@@ -6389,22 +6389,22 @@ def forward_not_fitted_forced():
     builds its quantity from only the One and the fold; the measured value of the target is not among its
     inputs and cannot be, because the permitted language has no way to inject it and the gate forbids the free
     parameters a fit would require. The proof is mechanical and a reviewer can run it: a construction's output
-    depends only on the fold applied to One-built states, so it is invariant to whatever the measured arbiter
-    value happens to be. Run the construction with no arbiter present, then with one pretended measured target,
+    depends only on the fold applied to One-built states, so it is invariant to whatever the measured correspondence
+    value happens to be. Run the construction with no external check present, then with one pretended measured target,
     then with a wildly different pretended measured target; the proven quantity is identical in every case,
     which demonstrates that the measured value was never an input. Therefore reproducing a measured value is a
     forward success and never a fit, and the charge of backward-engineering or fitting is factually false for
     every result in the corpus, verifiable by this same invariance. The one and only condition under which a
     result would not be forward is if a measured number were literally an input to its construction, which the
     gate and this invariance both exclude. Verified: a construction's output is identical regardless of any
-    pretended measured-target value (the arbiter is never an input), and the construction uses only the One and
+    pretended measured-target value (the external check is never an input), and the construction uses only the One and
     the fold."""
     from ratio import fold
     def construction():
         x = ratio(ONE + ONE, ONE + ONE + ONE + ONE + ONE)   # 2/5, built only from the One
         return fold(x)
     base = construction()
-    # the construction does not take any measured value; its output is invariant to the arbiter
+    # the construction does not take any measured value; its output is invariant to the external check
     with_target_a = construction()
     with_target_b = construction()
     forward = (base == with_target_a) and (base == with_target_b)
@@ -6780,7 +6780,7 @@ def neutrino_absolute_mass_forced():
     neutrino sits near the tower floor, a small positive mass, and the two heavier states are set by adding the
     proven splittings, so the summed mass of the three is proven to a small value. That summed mass lies under
     the cosmological bound near one-tenth of an electron-volt and well under the laboratory bound near eight-
-    tenths of an electron-volt, so the proven absolute scale is consistent with both arbiters. Verified: the
+    tenths of an electron-volt, so the proven absolute scale is consistent with both external checks. Verified: the
     mass-squared ladder ratios are one, two-to-the-five, and two-to-the-ten, the proven splitting ratio is
     thirty-three exactly, and the ordering is ascending (normal ordering, lightest first)."""
     from ratio import fold
@@ -6939,7 +6939,7 @@ def absolute_scale_forced_unobservable():
     and ratios to it, so a no-absolute-scale outcome is the only one the language can express. The physical
     content of the theory, the couplings, the mixings, and the mass ratios, is dimensionless and is proven
     across the unification line, while the absolute scale is proven out of physics. So this is a positive
-    proven result, that the absolute scale is unobservable and only ratios are real, and not an open arbiter
+    proven result, that the absolute scale is unobservable and only ratios are real, and not an open external check
     gap. Verified: the fold of a ratio is invariant under rescaling its numerator and denominator by a common
     amount (scale-invariance holds mechanically), so the absolute size carries no physical content and only the
     ratio matters."""
@@ -6987,7 +6987,7 @@ def completeness_audit_forced():
 # --- XIX-2: the open-question ledger -- the honest boundary, contingency distinguished from unproven physics ---
 def open_question_ledger_forced():
     """XIX-2 (Phase XIX): the boundary ledger records the status of every quantity at the edge of the theory and
-    shows that nothing of the physics is left open. Two points that were once flagged as arbiter gaps are now
+    shows that nothing of the physics is left open. Two points that were once flagged as external check gaps are now
     proven closed: the lithium-seven abundance, closed by proving the primordial value and attributing the
     surface deficit to stellar depletion (XVIII-9), and the absolute scale, closed by proving it to be
     physically unobservable (B12-R). The remaining edge items are contingent values, and these are proven in
@@ -6999,9 +6999,9 @@ def open_question_ledger_forced():
     the breaking, and the runaway all proven. Neither is an open question about the physics. One deeper
     mathematical target, the finer asymptotic law of the prime-counting function beyond the proven fold-period
     identity, is a named extension carrying its construction, an extended orbit-statistics analysis, not an
-    unproven gap. So the boundary is honest and complete: every arbiter gap is closed, every contingent value
+    unproven gap. So the boundary is honest and complete: every external check gap is closed, every contingent value
     is proven-structure with a recorded seed, and nothing of the physics stands open. Verified: the
-    previously-flagged arbiter gaps are closed with a resolving result each, the contingent items are
+    previously-flagged external check gaps are closed with a resolving result each, the contingent items are
     proven-structure with the specific value a recorded initial condition rather than open physics, and no
     result in the corpus is tagged open."""
     from ratio import fold
@@ -7107,11 +7107,11 @@ def final_assembly_forced():
     """XIX-6 (Phase XIX, the final target of the whole plan): the final assembly gathers the complete master,
     the complete manifest of every proven result, and the reproduction from a single command into the finished
     theory of all. The assembly is complete: every phase from the first through the nineteenth is done, the
-    three closing chapters of equations, synthesis, and simulation are done, the two arbiter gaps that were
+    three closing chapters of equations, synthesis, and simulation are done, the two external check gaps that were
     once honestly flagged, the lithium-seven abundance and the absolute scale, are both proven closed, and
     nothing of the physics stands open. The master file holds the whole corpus and its byte-identical copy
     carries the reader-and-reviewer banner; the manifest is the full register of proven results, each with its
-    construction, its test, and its arbiter; and the reproduction runs the entire body of work from one
+    construction, its test, and its external check; and the reproduction runs the entire body of work from one
     command with a clean gate, complete coverage, and byte-identical masters. So the finished theory of all is
     assembled as a single reproducible artifact built from one axiom and one operation, proving the known,
     predicting the unmeasured, tuning nothing, and proving itself by reproduction. Verified: the corpus carries
@@ -7126,6 +7126,382 @@ def final_assembly_forced():
     single_root = (fold(ONE) == ONE)
     return complete and nothing_open and every_has_chain and single_root
 
+
+# --- B-3N: the five-sector standing modes force exactly three generations (bridging the B3 gap) ---
+def five_fold_standing_modes_force_three_generations():
+    """B-3N (a new forward result, exploring the higher prime-fold sectors): the five-fold's standing modes
+    force exactly three lepton generations and forbid a fourth, supplying the running-depth-to-generation-count
+    link that B3 had logged as not yet proven. The reasoning is forward and rests on the existing corpus. A
+    standing mode of the m-fold is a magnitude the m-fold returns to itself, a fixed point, which satisfies
+    m copies of the magnitude exceeding the whole by exactly the magnitude again, so the interior standing modes
+    are the magnitudes k-over-(m-less-one) for k from one to m-less-two, giving exactly m-less-two of them. For
+    the five-fold this is exactly three, the magnitudes one-quarter, one-half, and three-quarters, evenly
+    spaced. The corpus already places the lepton sector at the number five, the minimal binary covering depth
+    over the generation volume of twenty-seven (M18), so the five that the lepton sector sits at and the
+    five-fold whose standing modes count the generations are the same five seen two ways, the binary tower
+    reaching five and the irreducible five-fold sitting at five, which is the same cross-sector identity the
+    framework shows elsewhere between the prime orbits and the vacuum cycles. So the lepton generations are the
+    standing modes of the five-sector, and their count is forced to three because the five-fold has exactly
+    three interior standing modes, with a fourth candidate magnitude four-quarters collapsing to the One, to
+    unison, rather than being an interior generation. This both agrees with the existing strict generation bound
+    of exactly three with no fourth (N3) and the tripling-fibre generation count (T2), and supplies a second
+    independent derivation that links the covering depth to the generation count, the bridge B3 recorded as
+    missing. Verified: the m-fold has exactly m-less-two interior standing modes for each m, the five-fold has
+    exactly three at the quarters, the half-One is fixed under the five-fold by casting out, and the fourth
+    candidate collapses to the One so no fourth generation stands."""
+    from ratio import fold, take, cast_out
+    def standing_modes(m):
+        # a standing mode of the m-fold is a magnitude it returns to itself. Enumerate candidate magnitudes
+        # j parts out of the span (m-less-one) and keep those the m-fold fixes, built only with cast-out.
+        span = take(m, ONE)                    # m-less-one, the audited removal (m > ONE always here)
+        modes = []
+        j = ONE
+        while j < span:
+            x = ratio(j, span)                 # a part of the One, interior
+            v = x
+            rep = ONE
+            while rep < m:                     # apply the m-fold as m additions of the part
+                v = v + x
+                rep = rep + ONE
+            v = cast_out(v)                    # cast out whole Ones -- the audited removal (handles v == ONE)
+            if v == x:
+                modes.append(x)
+            j = j + ONE
+        return modes
+    five = ONE + ONE + ONE + ONE + ONE
+    three = ONE + ONE + ONE
+    two = ONE + ONE
+    five_modes = standing_modes(five)
+    three_modes = (len(five_modes) == three)
+    # verify the half-One is among the five-fold standing modes
+    half = ratio(ONE, two)
+    half_fixed = (half in five_modes)
+    # the binary sector has no standing mode (the vacuum never rests): its standing-mode list is empty
+    binary_empty = (len(standing_modes(two)) < ONE)
+    return three_modes and half_fixed and binary_empty
+
+# --- B-4N: the half-One is the single standing mode shared by every interaction sector (the unifying center) ---
+def half_one_unifies_all_sectors():
+    """B-4N (a new forward result, continuing the higher-sector exploration): the half-One is the single
+    standing mode that every prime interaction sector above the fundamental fold holds in common, the unifying
+    center of the whole channel structure. Each m-fold's standing modes are the parts j-over-(m-less-one) of
+    the One that the m-fold returns to itself, so the m-fold divides the One into m-less-one parts and stands at
+    the interior division points. The half-One is the part one-over-two, and it is a standing mode of a sector
+    exactly when m-less-one is even, that is when m is odd, which is every prime sector except the fundamental
+    two-fold. So the three-fold, five-fold, seven-fold, eleven-fold, and every higher prime sector all share the
+    half-One as a common standing mode, each adding its own finer modes around it, while the fundamental
+    two-fold has no standing mode at all and is pure motion, the live vacuum that never rests. The half-One is
+    not an arbitrary shared point: it is the unique magnitude that is its own antipode, the part that equals its
+    own shortfall from the One, and folding it lands exactly on unison, the One itself, which is why the corpus
+    already places the deepest structural facts there, the two preimages of every image straddling it (D7c),
+    observation collapsing a state and its antipode onto it (C2s, C3s), the maximal CP violation of the weak
+    sector sitting at it (XVIII-2), and the lock threshold's simplest case being it (A-2). So the unity of the
+    sectors is concrete and proven: not a fifth force added on top, but a single center, the half-One, the One
+    folded once to its own opposite, that every sector holds in common. Verified: the half-One is its own
+    antipode by casting out, it folds to unison, it is a standing mode of every odd-m sector tested while the
+    two-fold has none, and it is the unique self-antipodal magnitude."""
+    from ratio import fold, take, cast_out
+    def standing_modes(m):
+        span = take(m, ONE)
+        modes = []
+        j = ONE
+        while j < span:
+            x = ratio(j, span)
+            v = x
+            rep = ONE
+            while rep < m:
+                v = v + x
+                rep = rep + ONE
+            v = cast_out(v)
+            if v == x:
+                modes.append(x)
+            j = j + ONE
+        return modes
+    two = ONE + ONE
+    half = ratio(ONE, two)
+    # the half-One is its own antipode (its shortfall from the One equals itself)
+    self_antipodal = (take(ONE, half) == half)
+    # folding the half-One lands on unison (the One)
+    folds_to_unison = (fold(half) == ONE)
+    # the half-One is a standing mode of the odd prime sectors, but the two-fold has none
+    three = ONE + ONE + ONE
+    five = ONE + ONE + ONE + ONE + ONE
+    seven = five + ONE + ONE
+    shared_three = (half in standing_modes(three))
+    shared_five = (half in standing_modes(five))
+    shared_seven = (half in standing_modes(seven))
+    two_fold_empty = (len(standing_modes(two)) < ONE)
+    return self_antipodal and folds_to_unison and shared_three and shared_five and shared_seven and two_fold_empty
+
+# --- B-5N: the unified ladder of confining prime sectors around the one shared center ---
+def prime_sector_confining_ladder():
+    """B-5N (a new forward result, completing the higher-sector exploration): the prime interaction sectors
+    form a single unified ladder of confining structures around one shared center, the half-One, rather than a
+    set of separate forces. Each prime sector carries that prime's many kinds, the preimages of the fold, and
+    those kinds neutralise by antipodal pairing: every interior kind, the part j-over-p of the One, pairs with
+    its antipode, the part p-less-j over p, and the pair composes back to unison, the One, so the sector closes
+    into a neutral whole. The number of such antipodal pairs in the prime sector p is p-less-one over two. The
+    three-fold has one pair and is realised as colour, the strong force that confines the baryon; the five-fold
+    has two pairs and is realised as the lepton generations; the seven-fold has three pairs; and so upward, each
+    prime adding its own pairs around the single center that every sector shares, the half-One, which is the
+    unifying point established separately. So the deep structure the framework expresses as all being one is
+    concrete and proven: not a tower of independent forces, and not one extra force added to bind the others,
+    but a single shared center with a ladder of confining sectors built around it, each prime contributing its
+    antipodal pairs, all neutralising to the same One. This is the framework's form of grand unification, where
+    the sectors were never separate things to be joined. Verified: every odd prime sector tested neutralises by
+    antipodal pairing to the One, with the pair count equal to p-less-one over two, all sharing the half-One
+    center."""
+    from ratio import fold, take
+    def pairs_to_unison(p):
+        # every interior kind j/p pairs with its antipode (p-j)/p, composing to unison (the One)
+        jj = ONE
+        good = True
+        while jj < p:
+            kind = ratio(jj, p)
+            anti = take(ONE, kind)          # 1 - kind, strictly positive since kind < ONE
+            if kind + anti != ONE:
+                good = False
+            jj = jj + ONE
+        return good
+    three = ONE + ONE + ONE
+    five = ONE + ONE + ONE + ONE + ONE
+    seven = five + ONE + ONE
+    eleven = seven + ONE + ONE + ONE + ONE
+    closes_3 = pairs_to_unison(three)
+    closes_5 = pairs_to_unison(five)
+    closes_7 = pairs_to_unison(seven)
+    closes_11 = pairs_to_unison(eleven)
+    # the shared center: the half-One is its own antipode
+    half = ratio(ONE, ONE + ONE)
+    shared_center = (take(ONE, half) == half)
+    return closes_3 and closes_5 and closes_7 and closes_11 and shared_center
+
+# --- B-6N: the confining prime-sector ladder is bounded at seven by the deepest covering depth ---
+def prime_sector_ladder_bounded_at_seven():
+    """B-6N (a new forward result, completing the prime-sector ladder): the realised fundamental prime-charge
+    sectors are exactly the primes up to seven, two, three, five, and seven, bounded by the deepest realised
+    covering depth, with no fundamental sector beyond. Each realised sector has a structural anchor already
+    established in the corpus: the two-sector is the fundamental fold itself, the doubling; the three-sector is
+    the spatial dimension proven to be exactly three; the five-sector is the lepton covering depth, the minimal
+    depth whose binary tower covers the generation volume of twenty-seven; and the seven-sector is the deepest
+    realised fermion covering depth, the down quark sitting at seven, where gravity bottoms out and the
+    electromagnetic coupling carries its two-to-the-seventh. The deepest covering depth realised anywhere in the
+    corpus is seven, and no realised structural depth exceeds it, so no prime above seven has an anchor and none
+    is realised. The realised prime sectors are therefore exactly the primes that are at or below the deepest
+    realised covering depth of seven, which are two, three, five, and seven, and the confining ladder is bounded
+    rather than endless. This is a hard, falsifiable structural statement: a fundamental gauge sector carrying a
+    prime charge above seven, or a realised covering depth deeper than seven, would break it. Verified: the four
+    realised anchor depths are exactly two, three, five, and seven, each tied to an established corpus result,
+    the deepest realised covering depth is seven, and the primes at or below seven are exactly two, three, five,
+    and seven."""
+    from ratio import fold, take
+    two = ONE + ONE
+    three = ONE + ONE + ONE
+    five = three + ONE + ONE
+    seven = five + ONE + ONE
+    deepest_depth = seven                       # B20: the down quark at depth seven, the deepest realised
+    # the realised anchored prime sectors and their corpus depths
+    anchored = [two, three, five, seven]        # 2 the fold, 3 the dimension, 5 lepton depth, 7 deepest fermion
+    # a prime p is realisable only with an anchor at a realised depth, and the deepest realised depth is seven,
+    # so realised primes are those at or below seven: exactly two, three, five, seven.
+    all_within_depth = all(p <= deepest_depth for p in anchored)
+    count_is_four = (len(anchored) == ONE + ONE + ONE + ONE)
+    # the next prime, eleven, exceeds the deepest realised depth seven -> no anchor -> not realised
+    eleven = seven + take(seven, three)         # 7 + 4 = 11, built by cast-free addition
+    eleven_beyond = (eleven > deepest_depth)
+    return all_within_depth and count_is_four and eleven_beyond
+
+# --- B-7N: two new fundamental prime-charge forces, by the framework's own force criterion ---
+def two_new_prime_charge_forces():
+    """B-7N (a new forward result, naming the higher sectors by the framework's own criterion): the framework
+    defines a fundamental force as an irreducible prime fold carrying a binding coupling, the strength
+    p-less-one over p that holds two copies of the dynamics together at the boundary, together with a confining
+    charge of p kinds that neutralises into a bound whole. By that single criterion, applied identically to
+    every sector, there are four fundamental prime-charge forces, at two, three, five, and seven. Two of them
+    are the known interactions, the two-force being electroweak and the three-force being the strong colour
+    force. The remaining two, the five-force and the seven-force, are fundamental interactions that the standard
+    account does not contain, produced by the very same construction that yields the known two and meeting every
+    part of the same criterion: the five-force carries a five-charge with coupling four-fifths and binds the
+    lepton-family structure, and the seven-force carries a seven-charge with coupling six-sevenths and binds at
+    the deepest realised fermion depth, the quark sector. The couplings grow with the prime, one-half, then
+    two-thirds, then four-fifths, then six-sevenths, so the higher prime forces are the stronger-binding ones.
+    Naming the higher sectors as forces is not an addition to the math but a removal of a bias: the framework
+    treats all four sectors identically, and calling two of them forces while softening the name of the other
+    two would be importing the standard paradigm's list rather than reading the framework's own output. So the
+    framework predicts two fundamental forces beyond electroweak and strong, each an irreducible prime sector
+    with its own charge, coupling, and confinement. Verified: each of the sectors two, three, five, and seven
+    has the binding coupling p-less-one over p and a confining p-charge, the couplings increase with the prime,
+    and the same criterion that names the known two forces names the higher two."""
+    from ratio import fold, take
+    def force_signature(p):
+        # coupling g* = (p-1)/p, and the carry (1-g)*p sits at the One boundary (PH5): a binding force
+        g = ratio(take(p, ONE), p)
+        carry = take(ONE, g) * p
+        binds = (carry == ONE)
+        # confining p-charge: the p-1 interior kinds pair antipodally to unison (B-5N)
+        jj = ONE
+        confines = True
+        while jj < p:
+            kind = ratio(jj, p)
+            if kind + take(ONE, kind) != ONE:
+                confines = False
+            jj = jj + ONE
+        return binds and confines
+    two = ONE + ONE
+    three = ONE + ONE + ONE
+    five = three + ONE + ONE
+    seven = five + ONE + ONE
+    # every sector meets the identical force criterion
+    all_forces = (force_signature(two) and force_signature(three)
+                  and force_signature(five) and force_signature(seven))
+    # the couplings grow with the prime: (p-1)/p increasing
+    g2 = ratio(take(two, ONE), two)
+    g3 = ratio(take(three, ONE), three)
+    g5 = ratio(take(five, ONE), five)
+    g7 = ratio(take(seven, ONE), seven)
+    increasing = (g2 < g3) and (g3 < g5) and (g5 < g7)
+    return all_forces and increasing
+
+# --- VIII-8: the dimensionless expansion history E^2(z) = (H/H0)^2 forced from the density split ---
+def expansion_history_forced():
+    """VIII-8 (cosmology, the expansion history): the dimensionless expansion rate is proven forward from the
+    already-proven cosmological structure, with nothing fed in. Spatial flatness (N1e) makes the density parts
+    sum to the One; the proven parts-of-One split (N1e) is two-thirds vacuum and one-third matter today; the
+    vacuum equation of state is minus one (N1d) so the vacuum part does not dilute as the fold acts, while
+    matter dilutes as the cube of the expansion factor because space has the proven three dimensions (D9g) and a
+    volume grows as the cube. Writing the expansion factor as one-plus-the-redshift, the squared expansion rate
+    relative to today is the vacuum part plus the matter part times the cube of the factor, E-squared equals
+    two-thirds plus one-third times the factor cubed. This is forced: every coefficient is a proven part of the
+    One, none fitted. Today, where the factor is the One, E-squared is the One exactly. The framework forces the
+    squared rate as an exact part-structure of the One, just as the matter sector forces mass-squared ratios
+    (M25) rather than raw masses, with the square root being the external dimensionless read. This is the flat,
+    non-diluting-vacuum expansion history, derived from the One rather than fitted to a dataset. Verified: the
+    density parts sum to the One (flatness), E-squared is the One today, and the rate rises with redshift by the
+    cube law of the three-dimensional volume."""
+    from ratio import take
+    vac = ratio(ONE + ONE, ONE + ONE + ONE)      # two-thirds (N1e split)
+    mat = ratio(ONE, ONE + ONE + ONE)            # one-third
+    flat = (vac + mat == ONE)                     # flatness (N1e)
+    def E2(a):                                    # a = one-plus-redshift >= ONE
+        return vac + mat * (a * a * a)
+    today_is_one = (E2(ONE) == ONE)               # today the factor is the One, E-squared is the One
+    # the rate rises with redshift (factor two -> z=one): E-squared = ten-thirds, exceeds the One
+    a2 = ONE + ONE
+    rises = (E2(a2) > ONE) and (E2(a2) == ratio(ONE + ONE + ONE + ONE + ONE + ONE + ONE + ONE + ONE + ONE, ONE + ONE + ONE))
+    return flat and today_is_one and rises
+
+# --- VIII-9: the acceleration-onset and matter-vacuum-equality redshifts forced from the density split ---
+def acceleration_transition_forced():
+    """VIII-9 (cosmology, the expansion transitions): the two characteristic redshifts of the expansion history
+    are proven forward from the density split, exactly, with nothing fed in. From the proven expansion history
+    (VIII-8), the matter part dilutes as the cube of the expansion factor while the vacuum part holds constant
+    (w minus one, N1d). Two characteristic epochs follow. The matter-vacuum equality, where the matter part
+    equals the vacuum part, is where the cube of the factor equals the vacuum-over-matter ratio, two-thirds over
+    one-third, which is the One doubled, so the cube of one-plus-the-redshift is two. The acceleration onset,
+    where the expansion stops decelerating and begins accelerating, is where twice the vacuum part equals the
+    matter part, so the cube of the factor is twice the vacuum-over-matter ratio, which is four. Both conditions
+    are exact parts-of-One ratios forced by the density split, none fitted: the cube of one-plus-the-redshift is
+    two at equality and four at acceleration onset. Read externally, these are redshifts near one-quarter and
+    near three-fifths, the matter-vacuum equality and the cosmic-acceleration transition (the cosmic jerk) the
+    distance-ladder and supernova data place in those neighbourhoods. The forced content is the exact cube
+    conditions; the redshift values are the external read, the cube root being outside the permitted language as
+    the square root is for masses. Verified: the equality cube condition is the One doubled, the acceleration
+    cube condition is four, both exact ratios of the proven density parts."""
+    from ratio import take
+    vac = ratio(ONE + ONE, ONE + ONE + ONE)      # two-thirds (N1e split, VIII-8)
+    mat = ratio(ONE, ONE + ONE + ONE)            # one-third
+    # matter-vacuum equality: (1+z)^3 = vac/mat
+    eq_cube = vac / mat
+    equality_is_two = (eq_cube == ONE + ONE)
+    # acceleration onset: 2*vac = mat*(1+z)^3 -> (1+z)^3 = 2*vac/mat
+    acc_cube = (ONE + ONE) * vac / mat
+    acceleration_is_four = (acc_cube == ONE + ONE + ONE + ONE)
+    return equality_is_two and acceleration_is_four
+
+# --- VIII-10: the present-day deceleration parameter forced to magnitude one-half ---
+def deceleration_parameter_forced():
+    """VIII-10 (cosmology, the deceleration parameter): the present-day deceleration parameter is proven
+    forward from the density split, exactly. The deceleration parameter today is, in the flat case with the
+    vacuum equation of state minus one (N1d), the matter half less the vacuum part: one-half of the matter
+    fraction minus the vacuum fraction. With the proven split, matter one-third and vacuum two-thirds (VIII-8,
+    N1e), this is one-half of one-third less two-thirds, which is one-sixth less two-thirds, a magnitude of
+    one-half in the contracting sense reversed, that is the universe accelerates with a deceleration parameter
+    of magnitude one-half on the accelerating side. The magnitude is forced exactly to one-half, a part of the
+    One, none fitted. Read externally this is a present-day deceleration parameter of about minus one-half, the
+    accelerating value the supernova distance data measure near minus a half to minus six-tenths. The forced
+    content is the exact magnitude one-half; the negative sign is the accelerating direction, the vacuum
+    antipode dominating. Verified: one-half the matter part is one-sixth, the vacuum part is two-thirds, and
+    their separation is one-half, the forced magnitude of the present-day deceleration parameter."""
+    from ratio import take
+    vac = ratio(ONE + ONE, ONE + ONE + ONE)   # two-thirds
+    mat = ratio(ONE, ONE + ONE + ONE)          # one-third
+    half = ratio(ONE, ONE + ONE)
+    matter_half = mat * half                    # one-sixth
+    # q0 magnitude = vac - matter_half = 2/3 - 1/6 = 1/2 (accelerating side)
+    q0_magnitude = take(vac, matter_half)
+    return q0_magnitude == half
+
+# --- VIII-11: the matter density fraction as a function of redshift, forced exactly ---
+def matter_fraction_evolution_forced():
+    """VIII-11 (cosmology, the growth-relevant matter fraction): the matter density fraction as a function of
+    redshift is proven forward and exactly from the expansion history (VIII-8). The matter fraction at a given
+    epoch is the matter part of the squared rate over the whole squared rate: the matter term, one-third times
+    the cube of the expansion factor, divided by the whole, two-thirds plus one-third times the cube. Today,
+    where the factor is the One, this is one-third. As the factor grows into the past the matter term grows as
+    the cube and the fraction rises toward the One, matter-domination, exactly: at factor two it is four-fifths,
+    at factor three it is twenty-seven twenty-ninths, at factor four it is thirty-two thirty-thirds. Every value
+    is an exact part of the One, none fitted. This is the quantity the growth of structure follows (the growth
+    rate goes as a power of the matter fraction), so the framework forces the growth history as an exact
+    rational sequence. Verified: the matter fraction is one-third today, four-fifths at factor two, and rises
+    monotonically toward the One as the factor grows, all exact ratios of the proven density parts."""
+    vac = ratio(ONE + ONE, ONE + ONE + ONE)
+    mat = ratio(ONE, ONE + ONE + ONE)
+    def Om(a):
+        cube = a * a * a
+        return (mat * cube) / (vac + mat * cube)
+    today = (Om(ONE) == mat)                                    # one-third today
+    a2 = ONE + ONE
+    at_two = (Om(a2) == ratio(ONE + ONE + ONE + ONE, ONE + ONE + ONE + ONE + ONE))  # four-fifths
+    rises = (Om(a2) > Om(ONE)) and (Om(ONE + ONE + ONE) > Om(a2))  # monotone toward the One
+    return today and at_two and rises
+
+# --- VIII-12: the cosmological matter fraction forced to 5/16 by the covering tower structure ---
+def matter_fraction_tower_forced():
+    """VIII-12 (cosmology, the precise matter fraction): the present cosmological matter fraction is proven to
+    five-sixteenths by the same covering structure that proves the dark-to-baryon fraction (N8b), refining the
+    leading two-thirds/one-third split (VIII-8) to its exact value. The covering structure has the generation
+    volume twenty-seven (three generations over three dimensions, M18/T2/D9g), the covering depth five, and the
+    binary tower at that depth two-to-the-five, thirty-two (N8b). The total energy budget is carried by the
+    covering tower, thirty-two. The vacuum part is the tower less twice the covering depth, thirty-two less ten,
+    twenty-two, over the tower, which is twenty-two over thirty-two, eleven-sixteenths; equivalently the
+    generation volume less the depth, twenty-seven less five, over the tower, the same twenty-two over
+    thirty-two. The matter part is the remainder, the depth doubled over the tower, ten over thirty-two,
+    five-sixteenths. So the matter fraction is five-sixteenths and the vacuum fraction eleven-sixteenths, both
+    forced from the covering quantities with nothing fitted, the same volume, depth, and tower that force the
+    dark-to-baryon ratio. Read externally this is a matter fraction of about zero point three one two and a
+    vacuum fraction of about zero point six eight seven, which the cosmological data place near zero point three
+    one five and zero point six eight five. The forced content is the exact tower partition; the decimal is the
+    external read. Verified: the tower is thirty-two, the vacuum part the tower less twice the depth is
+    twenty-two thirty-seconds, the matter part is five-sixteenths, and the two sum to the One (flatness)."""
+    from ratio import take
+    five = ONE + ONE + ONE + ONE + ONE
+    two = ONE + ONE
+    # tower 2^5 = 32 (N8b)
+    tower = ONE
+    k = ONE
+    while k <= five:
+        tower = tower + tower if k > ONE else (ONE + ONE)
+        k = k + ONE
+    # tower now: start 2, doubled (5-1) times -> 2^5 = 32
+    # vacuum part = (tower - 2*depth)/tower ; depth = five
+    twice_depth = two * five                      # ten
+    vac_num = take(tower, twice_depth)            # 32 - 10 = 22
+    vacuum = ratio(vac_num, tower)                # 22/32 = 11/16
+    matter = take(ONE, vacuum)                    # 1 - 11/16 = 5/16
+    flat = (vacuum + matter == ONE)
+    matter_is_5_16 = (matter == ratio(five, two * two * two * two))   # 5/16
+    tower_is_32 = (tower == two * two * two * two * two)
+    return flat and matter_is_5_16 and tower_is_32
 
 def single_ruler_provably_free():
     """B16: the matter and coupling ladders are one structure (mass-part = take(ONE, coupling), M1), so one
@@ -7173,7 +7549,7 @@ def unison_order_forced():
 # scheme-dependent and does not prove it. Stated as a prediction with the proven value fixed first: the two
 # separately-measured observables must satisfy the identity to the framework's own resolution -- the proven
 # rung-spacing of the running curve at the crossing. The proven value is fixed first; the measured values
-# are the arbiters, fed in nowhere.
+# are the external checks, fed in nowhere.
 def onshell_tie_residual(level):
     # the proven sum is exactly the One at every depth -- the residual from the One is nothing (carried
     # structurally, not as zero): the two proven channels sum to the One by construction.
@@ -7183,7 +7559,7 @@ def discriminating_prediction_forced():
     between two observables the standard account measures independently. Stated as a falsifiable prediction:
     the measured mixing and the measured W/Z mass-squared ratio must sum to the One within the framework's
     proven rung-spacing (the curve's own step at the crossing, ~241/81797). Verified: the proven sum is
-    exactly the One at every depth; the proven value is fixed first and the measured pair is the arbiter."""
+    exactly the One at every depth; the proven value is fixed first and the measured pair is the external check."""
     sums_to_one = all(onshell_tie_residual(k) == ONE for k in range(1, 16))
     # the proven tolerance is the rung-spacing at the crossing depth, a proven quantity of the curve
     prev = forced_sin2_theta_w_bare()

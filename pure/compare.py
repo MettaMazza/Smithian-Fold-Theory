@@ -373,15 +373,15 @@ def test_u7():
 
 def test_prediction_colour():
     """T1 (prediction test): the framework's proven colour count (3, fixed first from U7/D7b) equals
-       the measured number of colours (3, the arbiter -- R-ratio in e+e->hadrons, Delta++, pi0->2g).
-       A proven value confirmed by measurement, the measured number used only as arbiter."""
+       the measured number of colours (3, the external check -- R-ratio in e+e->hadrons, Delta++, pi0->2g).
+       A proven value confirmed by measurement, the measured number used only as external check."""
     import correspondence as Co
     return Co.forced_colour_count()==3 and Co.prediction_test_colour()
 
 def test_mediator_count():
     """N1 (a new proven result): the mediator count is proven from the colour count as m^2-1 -- the
        colour-anticolour combinations minus the one colourless singlet (D10a carrier carries colour,
-       R9 anticolour, D7b m colours). Forced first: m=3 -> 8, m=2 -> 3. Arbiter: the established
+       R9 anticolour, D7b m colours). Forced first: m=3 -> 8, m=2 -> 3. External correspondence (what the derived result agrees with, never what makes it true): the established
        mediator count is m^2-1 (the adjoint dimension of SU(m)); 8 gluons for 3 colours, the
        colourless singlet excluded."""
     import particles as P
@@ -469,7 +469,7 @@ def test_b2_arbiter():
        its own axiom -- the binary fold (m=2, the axiom-native sector) gives g*=(m-1)/m=1/2. This is the
        system's proven EM coupling, recorded as the system's result, no measured value fed in. The
        proven integer quantities (colour count, mediator count, dimension) stand confirmed by their
-       arbiters in T1/N1/D9g; a measured EM coupling, if compared, is a secondary arbiter, never the
+       external checks in T1/N1/D9g; a measured EM coupling, if compared, is a secondary external check, never the
        standard the proven value must meet."""
     import compare as _C, correspondence as Co
     return Co.em_coupling_forced() and _C.test_b1_coupling_structure()
@@ -1023,7 +1023,7 @@ def test_b3_ew_mixing():
        electroweak fold (m=2) as the ratio of squared channel couplings neutral^2/(charged^2+neutral^2)
        on the fold-invariant photon combination (D11c) -- 1/2 bare. The charged carrier flips the hand
        (D11e), carries its charge, so by D10b it runs: the mixing runs monotonically down from 1/2. The
-       measured value (0.23113, arbiter only, fed in nowhere) lies in the proven running range; the
+       measured value (0.23113, external check only, fed in nowhere) lies in the proven running range; the
        prediction test confirms the proven running passes through it. No measured value enters the build."""
     import correspondence as Co
     return Co.ew_mixing_runs_down() and Co.prediction_test_ew_mixing()
@@ -1051,7 +1051,7 @@ def test_b6_onshell():
        M_W^2/M_Z^2 = charged^2/(charged^2+neutral^2), partner to the mixing of B3, with the proven
        identity M_W^2/M_Z^2 + sin^2(theta_W) = One at every depth (the on-shell relation produced by
        the channel structure, not assumed). Bare 1/2, running up as the mixing runs down. The measured
-       ratio (~0.777) is the arbiter only, fed in nowhere."""
+       ratio (~0.777) is fed in nowhere; it is the external check, never the source of its truth."""
     import correspondence as Co
     return Co.onshell_identity_forced()
 
@@ -1123,7 +1123,7 @@ def test_b17_scale_axis_forced_up_to_one_conversion():
     import correspondence as Co
     return Co.scale_axis_forced_up_to_one_conversion()
 def test_m32_proton_electron_mass_ratio():
-    """M32: proton/electron = (1/3 of the One)/(proven electron mass) ~ 1845 vs measured 1836.15 (arbiter),
+    """M32: proton/electron = (1/3 of the One)/(proven electron mass) ~ 1845 vs measured 1836.15 (external check),
     the proton the strong bound-group-of-three at the tripling one third, the electron the proven cubic root."""
     import correspondence as Co
     return Co.proton_electron_mass_ratio()
@@ -1139,19 +1139,19 @@ def test_b19_hierarchies_collapse_to_one_conversion():
     return Co.hierarchies_collapse_to_one_conversion()
 def test_b20_planck_hierarchy_forced():
     """B20: the Planck hierarchy exponent 127/2 from the deepest covering depth seven, the massive-state
-    count (Fock less the cast-out One), and the gravitational half-One; proton/Planck = 2^-63.5 (arbiter 0.24%)."""
+    count (Fock less the cast-out One), and the gravitational half-One; proton/Planck = 2^-63.5 (external check 0.24%)."""
     import correspondence as Co
     return Co.planck_hierarchy_forced()
 def test_n2_strong_cp_forced_alignment():
     """N2: strong CP proven to alignment (the One, no violation) -- the vectorial strong sector (colour
     fibre, both hands, parity unbroken) lands the opposition at the One, where the chiral weak sector lands
-    it at the antipode (maximal, M28). Arbiter: neutron EDM theta < ~2e-10, consistent with exact alignment."""
+    it at the antipode (maximal, M28). External correspondence (what the derived result agrees with, never what makes it true): neutron EDM theta < ~2e-10, consistent with exact alignment."""
     import correspondence as Co
     return Co.strong_cp_forced_alignment()
 def test_n3_generation_bound_strict_three():
     """N3: exactly three generations, no fourth -- the tripling fibre has exactly three kinds (T2, D7b/U7),
     anchored to the proven three spatial dimensions (D9g); a fourth needs a forbidden fourth kind or fourth
-    dimension. Arbiter: Z invisible width, 2.984 light neutrino generations."""
+    dimension. External correspondence (what the derived result agrees with, never what makes it true): Z invisible width, 2.984 light neutrino generations."""
     import correspondence as Co
     return Co.generation_bound_strict_three()
 def test_n4_baryon_asymmetry_forced_nonzero():
@@ -1162,61 +1162,61 @@ def test_n4_baryon_asymmetry_forced_nonzero():
     return Co.baryon_asymmetry_forced_nonzero()
 def test_n4b_baryon_to_photon_ratio_forced():
     """N4b: baryon-to-photon ratio = (proven CP measure)^2 * half-One = J^2/2 ~ 5.8e-10 vs measured ~6.1e-10
-    (arbiter ~5%); quadratic proven by the Q14 fold-identification cancelling the linear part, imbalance the
+    (external check ~5%); quadratic proven by the Q14 fold-identification cancelling the linear part, imbalance the
     half-One (R10)."""
     import correspondence as Co
     return Co.baryon_to_photon_ratio_forced()
 def test_n5_proton_stability_forced():
     """N5: the proton is absolutely stable -- baryon number conserved because no fold crosses the quark
     (tripling, m=3) and lepton (binary, m=2) fibres; a crossing mediator needs a fold of factor four or
-    more, forbidden by N3. Arbiter: proton lifetime > 2.4e34 years (Super-K)."""
+    more, forbidden by N3. External correspondence (what the derived result agrees with, never what makes it true): proton lifetime > 2.4e34 years (Super-K)."""
     import correspondence as Co
     return Co.proton_stability_forced()
 def test_n6_strong_field_gravity_forced():
     """N6: singularity resolved (no-zero floors r at the Planck rung, finite curvature), black-hole entropy
     area law (horizon-surface state count, not volume), coefficient one-quarter (rs=2MG squared in the area,
-    the 2 = inverse half-One coupling B18). Arbiter: Bekenstein-Hawking area law and the shortest length."""
+    the 2 = inverse half-One coupling B18). External correspondence (what the derived result agrees with, never what makes it true): Bekenstein-Hawking area law and the shortest length."""
     import correspondence as Co
     return Co.strong_field_gravity_forced()
 def test_n7_arrow_of_time_and_initial_condition_forced():
     """N7: the arrow of time (fold irreversibility, two-to-one, entropy up via 2^k), the initial condition
     (the One, lowest entropy, proven not postulated), and inflation (the fold doubling, exponential
-    expansion). Arbiter: the observed arrow, low-entropy start, inflationary history."""
+    expansion). External correspondence (what the derived result agrees with, never what makes it true): the observed arrow, low-entropy start, inflationary history."""
     import correspondence as Co
     return Co.arrow_of_time_and_initial_condition_forced()
 def test_n8_dark_matter_gauge_inert_forced():
     """N8: modified gravity ruled out (D9d/D9g inverse-square, Keplerian); dark matter is gauge-inert
     gravitating matter, the framework proving the neutrino as such (M1/M4/M25). The cold component for the
-    full ~0.27 fraction is the open edge. Arbiter: galactic rotation curves, dark fraction ~0.27."""
+    full ~0.27 fraction is the open edge. External correspondence (what the derived result agrees with, never what makes it true): galactic rotation curves, dark fraction ~0.27."""
     import correspondence as Co
     return Co.dark_matter_gauge_inert_forced()
 def test_n8b_dark_baryon_fraction_forced():
     """N8b: dark/baryon = generation volume / covering depth = 27/5 = 5.4 (measured 5.41, 0.15%); second
     prediction matter/baryon = 32/5 (2^5 tower / depth 5) = 6.4 (measured 6.41, 0.13%). Both from the one
-    M18 covering structure -- two arbiters a single fit cannot meet."""
+    M18 covering structure -- two external checks a single fit cannot meet."""
     import correspondence as Co
     return Co.dark_baryon_fraction_forced()
 def test_c6s_stream_of_experience_forced():
     """C6s: the stream of experience is the chained orbit under folding, grain = one indivisible fold (C5s),
-    periodic for rational states. Arbiter: discrete-sampling / perceptual-moment character of perception."""
+    periodic for rational states. External correspondence (what the derived result agrees with, never what makes it true): discrete-sampling / perceptual-moment character of perception."""
     import correspondence as Co
     return Co.stream_of_experience_forced()
 def test_c7s_unity_of_experience_forced():
     """C7s: experience is unified (one shared orbit) at the proven integration threshold (m-1)/m (C4s),
-    which is the same proven ratio as coupling and criticality (U4) -- unity proven at criticality. Arbiter:
+    which is the same proven ratio as coupling and criticality (U4) -- unity proven at criticality. External correspondence (what the derived result agrees with, never what makes it true): 
     the all-or-nothing character of conscious access and the binding of parts into one whole."""
     import correspondence as Co
     return Co.unity_of_experience_forced()
 def test_c8s_limit_of_self_knowledge_forced():
     """C8s: self-observation is two-to-one (C2s), so a state and its half-One antipode observe identically --
     the one distinction a self-model cannot make -- and each atomic act loses one bit of the past (C5s).
-    Arbiter: the unreliability and incompleteness of introspection."""
+    External correspondence (what the derived result agrees with, never what makes it true): the unreliability and incompleteness of introspection."""
     import correspondence as Co
     return Co.limit_of_self_knowledge_forced()
 def test_c9s_felt_self_fixed_point_forced():
     """C9s: the felt self is the unique fixed point of self-observation -- unison (the One), fold(One)=One
     (C3s), the invariant through the flowing stream (C6s); proven unique (only absence, excluded, or unison
-    solves fold(x)=x). Arbiter: the phenomenology of a persistent self through changing experience."""
+    solves fold(x)=x). External correspondence (what the derived result agrees with, never what makes it true): the phenomenology of a persistent self through changing experience."""
     import correspondence as Co
     return Co.felt_self_fixed_point_forced()
 def test_c10s_cessation_lock_releases_anchor_persists_forced():
@@ -1224,37 +1224,37 @@ def test_c10s_cessation_lock_releases_anchor_persists_forced():
     and the anchor -- the felt self's fixed point, unison -- persists as the One: unison is the fixed point in
     every loop the unbinding produces (G9, universe-independent), and being the One, not a proper part, cannot
     be destroyed by reorganising parts. Neither annihilation nor personal continuation -- the lock releases,
-    the anchor is the One. Arbiter: the finality of somatic death with conservation and the perennial
+    the anchor is the One. External correspondence (what the derived result agrees with, never what makes it true): the finality of somatic death with conservation and the perennial
     identification of the deepest self with the one ground."""
     import correspondence as Co
     return Co.cessation_lock_releases_anchor_persists_forced()
 def test_g1_measurement_definite_outcome_and_born_forced():
     """G1: definite outcome proven by the atomicity of the act (C5s); the Born rule (probability = amplitude
-    squared) proven by the symmetric self-conjugacy of the fold plus the D6 saturation. Arbiter: definite
+    squared) proven by the symmetric self-conjugacy of the fold plus the D6 saturation. External correspondence (what the derived result agrees with, never what makes it true): definite
     measurement outcomes and the Born probability rule."""
     import correspondence as Co
     return Co.measurement_definite_outcome_and_born_forced()
 def test_g2_entanglement_no_signalling_forced():
     """G2: correlation from a shared folded origin (C7s); no-signalling from the two-to-one readout (C8s);
-    comparison at c (EM3/D9e). Arbiter: Bell violations with the no-signalling theorem."""
+    comparison at c (EM3/D9e). External correspondence (what the derived result agrees with, never what makes it true): Bell violations with the no-signalling theorem."""
     import correspondence as Co
     return Co.entanglement_no_signalling_forced()
 def test_g3_quantum_communication_bounds_forced():
     """G3: no-signalling (two-to-one local readout), no-cloning (two-to-one non-invertibility), channel bound
-    (one fold one bit, C5s; chosen messages need a luminal classical channel). Arbiter: the no-signalling and
+    (one fold one bit, C5s; chosen messages need a luminal classical channel). External correspondence (what the derived result agrees with, never what makes it true): the no-signalling and
     no-cloning theorems and the channel capacities."""
     import correspondence as Co
     return Co.quantum_communication_bounds_forced()
 def test_g4_quantum_gravity_one_lattice_finite_forced():
     """G4: quantum gravity as one discrete fold lattice (D9p with D6/D7), finite by the Planck floor (N6/B20);
-    graviton = massless spin-2 lattice mode (D9e/D9n). Arbiter: a finite discrete quantum gravity (no
+    graviton = massless spin-2 lattice mode (D9e/D9n). External correspondence (what the derived result agrees with, never what makes it true): a finite discrete quantum gravity (no
     non-renormalisable infinities, a Planck floor, the area law)."""
     import correspondence as Co
     return Co.quantum_gravity_one_lattice_finite_forced()
 def test_g5_string_modes_on_fold_no_landscape_forced():
     """G5: string theory's insight (particles as modes of one object) kept as the fold's oscillator tower
     (PH4b/D7) in three dimensions (D9g); modes on the fold-depth not extra space, so no extra dimensions and
-    no landscape. Arbiter: the particle spectrum as modes, the absence of the landscape, the proven dimension
+    no landscape. External correspondence (what the derived result agrees with, never what makes it true): the particle spectrum as modes, the absence of the landscape, the proven dimension
     count."""
     import correspondence as Co
     return Co.string_modes_on_fold_no_landscape_forced()
@@ -1262,21 +1262,21 @@ def test_g6_zero_point_perpetual_cycle_forced():
     """G6: the vacuum is not a dead ground state -- odd-denominator modes are proven by the fold arithmetic
     to cycle perpetually (never reaching unison, returning to full charge each period, the order of two modulo
     the denominator), while dyadic modes climb to unison and rest. No axiom forbids the perpetual cycle; the
-    framework has no second law. Arbiter: the observed liveness of the vacuum against a static ground state."""
+    framework has no second law. External correspondence (what the derived result agrees with, never what makes it true): the observed liveness of the vacuum against a static ground state."""
     import correspondence as Co
     return Co.zero_point_perpetual_cycle_forced()
 def test_g7_fold_universes_entangled_through_composites_forced():
     """G7: the closed odd-denominator cycles (G6) are fold-universes, not sealed but entangled through
     composites -- by the Chinese remainder theorem a composite-q state is one state per prime factor folded in
     lockstep (G2's shared-origin correlation), the composite period the LCM of the prime periods, with
-    G2/G3's no-independent-signalling. Arbiter: the structural question of multiverse communication."""
+    G2/G3's no-independent-signalling. External correspondence (what the derived result agrees with, never what makes it true): the structural question of multiverse communication."""
     import correspondence as Co
     return Co.fold_universes_entangled_through_composites_forced()
 def test_g8_network_communication_and_travel_forced():
     """G8: the fold-universes form a connected network -- coprime universes bridged by composing their states
     into the composite (the One's operations, not the fold alone) -- and the bridge is the exact CRT
     isomorphism commuting with the fold, so communication and travel of a structure between any two universes
-    are lossless, at any phase by periodicity (N7). Arbiter: the inter-universe signalling, temporal-channel,
+    are lossless, at any phase by periodicity (N7). External correspondence (what the derived result agrees with, never what makes it true): the inter-universe signalling, temporal-channel,
     and traversal proposals of theoretical physics."""
     import correspondence as Co
     return Co.network_communication_and_travel_forced()
@@ -1284,7 +1284,7 @@ def test_g9_self_travels_whole_across_universes_forced():
     """G9: a self (the fixed point of a unified loop, C9s) is anchored to unison, the fixed point in every
     fold-universe (universe-independent), and its lock-pattern (C7s, threshold (m-1)/m universe-independent by
     U4) crosses losslessly through the CRT bridge (G8, commuting with the fold), so it crosses whole and
-    re-locks around the same unison -- the self need not unbind (C10s) to travel. Arbiter: the structural
+    re-locks around the same unison -- the self need not unbind (C10s) to travel. External correspondence (what the derived result agrees with, never what makes it true): the structural
     question of identity across worlds."""
     import correspondence as Co
     return Co.self_travels_whole_across_universes_forced()
@@ -1292,13 +1292,13 @@ def test_g10_three_body_periodic_on_bounded_denominators_forced():
     """G10: gravity is discrete fold dynamics on rational positions (D9c/D1d); a three-body system built from
     the fold keeps denominators bounded (G7), so the configuration space is finite and the orbit is eventually
     periodic -- solvable, computable. The consensus non-integrable chaos is the continuum (infinite-denominator)
-    limit, an unphysical idealisation. Arbiter: the classical three-body problem and its non-integrability."""
+    limit, an unphysical idealisation. External correspondence (what the derived result agrees with, never what makes it true): the classical three-body problem and its non-integrability."""
     import correspondence as Co
     return Co.three_body_periodic_on_bounded_denominators_forced()
 def test_g11_hubble_tension_calibration_ratio_forced():
     """G11: the Hubble tension is one expansion read against two calibration depths; the proven late/early
     ratio is the late-time vacuum part (2/3, N1e) over the depth-3 covering tower (2^3, N8b/M18), giving
-    1 + (2/3)/8 = 13/12, matching the measured 73.0/67.4 to better than 0.1%. Arbiter: the measured early-
+    1 + (2/3)/8 = 13/12, matching the measured 73.0/67.4 to better than 0.1%. External correspondence (what the derived result agrees with, never what makes it true): the measured early-
     versus-late H0 discrepancy."""
     import correspondence as Co
     return Co.hubble_tension_calibration_ratio_forced()
@@ -1306,7 +1306,7 @@ def test_g12_muon_g2_excess_scales_as_mass_squared_forced():
     """G12: g=2 is proven (Dirac, QA5); the anomaly's new-physics excess scales as the lepton mass squared, so
     the muon/electron excess ratio is proven to (m_mu/m_e)^2 with m_mu/m_e proven by the Koide sector
     (M16/M17). Forward prediction: the electron excess is the muon excess over (m_mu/m_e)^2, below current
-    electron sensitivity. Arbiter: the measured muon g-2 excess and the electron g-2 bound."""
+    electron sensitivity. External correspondence (what the derived result agrees with, never what makes it true): the measured muon g-2 excess and the electron g-2 bound."""
     import correspondence as Co
     return Co.muon_g2_excess_scales_as_mass_squared_forced()
 def test_g13_fine_structure_inverse_forced_core():
@@ -1314,13 +1314,13 @@ def test_g13_fine_structure_inverse_forced_core():
     proven to eight, the colour count to three (T1), and the inverse coupling's integer part to 2^7 + 3^2 =
     137 (binary covering tower plus squared colour), the coupling running on the proven (s-1)/s, s=2+2^d (B9).
     The measured 1/alpha is 137.036; the integer part is proven, a rung correction (open next step) carries the
-    fraction. Arbiter: the measured 1/alpha = 137.035999."""
+    fraction. External correspondence (what the derived result agrees with, never what makes it true): the measured 1/alpha = 137.035999."""
     import correspondence as Co
     return Co.fine_structure_inverse_forced_core()
 def test_g14_n_body_periodic_on_bounded_denominators_forced():
     """G14: the three-body result (G10) extends to any n -- fold-built dynamics keeps denominators bounded
     (G7), the configuration space is finite, and the orbit is eventually periodic, independent of the number
-    of bodies. Verified for n of four, five, and ten. Arbiter: the classical n-body problem and its
+    of bodies. Verified for n of four, five, and ten. External correspondence (what the derived result agrees with, never what makes it true): the classical n-body problem and its
     continuum intractability."""
     import correspondence as Co
     return Co.n_body_periodic_on_bounded_denominators_forced()
@@ -1328,7 +1328,7 @@ def test_g15_navier_stokes_no_blowup_vorticity_bounded_forced():
     """G15: Navier-Stokes blow-up (vorticity to infinity in finite time) is forbidden -- velocity is bounded
     by c (EM3/D9e) and the length-scale is floored at the smallest lattice rung (N6/B20), so the maximum
     vorticity is c over the floor spacing, finite; smooth flow stays smooth, and the continuum is the only
-    source of the blow-up question. Arbiter: the Navier-Stokes existence-and-smoothness Millennium Problem."""
+    source of the blow-up question. External correspondence (what the derived result agrees with, never what makes it true): the Navier-Stokes existence-and-smoothness Millennium Problem."""
     import correspondence as Co
     return Co.navier_stokes_no_blowup_vorticity_bounded_forced()
 def test_g16_forced_forward_predictions_consolidated():
@@ -1336,21 +1336,21 @@ def test_g16_forced_forward_predictions_consolidated():
     claims, each proven from earlier results: neutrino normal ordering with splitting ratio 33 (M25), the
     proton/electron-to-Planck hierarchies (B20), dark matter as gauge-inert gravitating matter with fraction
     27/5 (N8/N8b), the perpetually-cycling vacuum (G6), and finite quantum gravity with a spin-2 graviton and
-    no extra dimensions (G4). Arbiter: future and improving measurement of each."""
+    no extra dimensions (G4). External correspondence (what the derived result agrees with, never what makes it true): future and improving measurement of each."""
     import correspondence as Co
     return Co.forced_forward_predictions_consolidated()
 def test_g17_protein_folding_descent_to_fixed_point_forced():
     """G17: Levinthal's paradox dissolved -- folding is deterministic descent to a fixed point, not a random
     search. The bounded-denominator configuration space is finite (G10/G14); the dynamics descends to the
     unique fixed point (D9m/C3s). The dyadic basin reaches the native fold fast and reproducibly (G6); the
-    odd-denominator basin traps (misfolding). Arbiter: the observed fast, reproducible folding and the
+    odd-denominator basin traps (misfolding). External correspondence (what the derived result agrees with, never what makes it true): the observed fast, reproducible folding and the
     phenomenon of misfolding/aggregation."""
     import correspondence as Co
     return Co.protein_folding_descent_to_fixed_point_forced()
 def test_i1_temperature_mean_throw_rate_forced():
     """I-1: temperature is the mean throw-rate of a folding population -- the mean part of the One cast out
     per fold, a positive rational, no continuum heat bath; equipartition is the folding sharing the throw, and
-    PV=NkT is the identity that total throw equals count times mean throw. Arbiter: the ideal-gas law and
+    PV=NkT is the identity that total throw equals count times mean throw. External correspondence (what the derived result agrees with, never what makes it true): the ideal-gas law and
     equipartition."""
     import correspondence as Co
     return Co.temperature_mean_throw_rate_forced()
@@ -1358,20 +1358,20 @@ def test_i2_entropy_configuration_count_second_law_forced():
     """I-2: entropy is the count of accessible fold-configurations (transcendental-free, the antilog of the
     consensus log-entropy), additive in depth without a logarithm (depths add, counts multiply); the second
     law is proven as the monotone non-decreasing count from the two-to-one fold (N7), and the One is the
-    lowest-entropy start. Arbiter: the second law and Boltzmann's counting."""
+    lowest-entropy start. External correspondence (what the derived result agrees with, never what makes it true): the second law and Boltzmann's counting."""
     import correspondence as Co
     return Co.entropy_configuration_count_second_law_forced()
 def test_i3_canonical_distribution_max_count_forced():
     """I-3: the canonical distribution is the maximum-configuration-count equilibrium of a finite fold-
     population at fixed total and fixed throw -- a monotone rational weighting falling by a fixed ratio per
     level (the fold's halving), the framework's Boltzmann factor with no exponential, the consensus
-    exponential its continuum limit. Arbiter: the Boltzmann-Gibbs distribution and measured population ratios."""
+    exponential its continuum limit. External correspondence (what the derived result agrees with, never what makes it true): the Boltzmann-Gibbs distribution and measured population ratios."""
     import correspondence as Co
     return Co.canonical_distribution_max_count_forced()
 def test_i4_four_thermodynamic_laws_forced():
     """I-4: the four laws of thermodynamics proven -- zeroth (transitivity of equal throw-rate, I-1), first
     (energy conservation as the fold's bijection on a closed orbit conserving the total), second (the monotone
-    configuration count, I-2), third (unattainable absolute zero from the no-zero floor, D11d). Arbiter: the
+    configuration count, I-2), third (unattainable absolute zero from the no-zero floor, D11d). External correspondence (what the derived result agrees with, never what makes it true): the
     four laws of thermodynamics and the residual-entropy measurements."""
     import correspondence as Co
     return Co.four_thermodynamic_laws_forced()
@@ -1379,40 +1379,40 @@ def test_i5_quantum_statistics_bose_fermi_forced():
     """I-5: the two quantum statistics and the spin-statistics connection, proven from the two-valued fold-
     level (D7) and the chirality fibre (D7c). A single-handed occupant excludes (Fermi-Dirac, Pauli); a paired
     occupant accumulates (Bose-Einstein); the single hand is half-integer-like (fermion) and the pair
-    integer-like (boson). Arbiter: Fermi-Dirac, Bose-Einstein, Pauli exclusion, the spin-statistics theorem."""
+    integer-like (boson). External correspondence (what the derived result agrees with, never what makes it true): Fermi-Dirac, Bose-Einstein, Pauli exclusion, the spin-statistics theorem."""
     import correspondence as Co
     return Co.quantum_statistics_bose_fermi_forced()
 def test_i6_phase_transition_at_threshold_forced():
     """I-6: a phase transition occurs at the criticality threshold (m-1)/m (PH3/U4) -- disordered below, the
     parts locked onto one shared orbit (C7s) at and above; the order parameter is absent below and rises as
     the excess above, the critical exponents proven rationals, universality the single shared threshold.
-    Arbiter: measured critical exponents and universality classes."""
+    External correspondence (what the derived result agrees with, never what makes it true): measured critical exponents and universality classes."""
     import correspondence as Co
     return Co.phase_transition_at_threshold_forced()
 def test_i7_fluctuation_dissipation_shared_orbit_forced():
     """I-7: the fluctuation-dissipation tie proven from the shared periodic orbit (G6/G7) -- a population's
     equilibrium fluctuation (the spread of throw over its cycle) and its dissipation (relaxation onto the
     orbit) are two readings of the one orbit, hence tied; the thermal-noise spectrum is the orbit's spectrum.
-    Arbiter: the fluctuation-dissipation theorem; Johnson-Nyquist noise; Brownian motion."""
+    External correspondence (what the derived result agrees with, never what makes it true): the fluctuation-dissipation theorem; Johnson-Nyquist noise; Brownian motion."""
     import correspondence as Co
     return Co.fluctuation_dissipation_shared_orbit_forced()
 def test_i8_irreversibility_recurrence_reconciliation_forced():
     """I-8: the second law (monotone entropy, I-2) and the recurrence of finite fold-systems (G6/G7) are
     reconciled by timescale -- the recurrence time is the least common multiple of the component orbit periods,
     astronomically long for many modes, so entropy stays high on all observable timescales while recurrence
-    holds only in principle. Arbiter: the Poincare recurrence theorem and the observed arrow of time."""
+    holds only in principle. External correspondence (what the derived result agrees with, never what makes it true): the Poincare recurrence theorem and the observed arrow of time."""
     import correspondence as Co
     return Co.irreversibility_recurrence_reconciliation_forced()
 def test_i9_bose_einstein_condensation_lock_forced():
     """I-9: Bose-Einstein condensation is the collective lock (C7s) of a cold boson population (I-5) into one
     shared ground orbit below the critical mean throw -- the lock threshold (m-1)/m; above it the bosons spread
-    by the canonical weighting (I-3). Arbiter: the measured Bose-Einstein condensation temperature."""
+    by the canonical weighting (I-3). External correspondence (what the derived result agrees with, never what makes it true): the measured Bose-Einstein condensation temperature."""
     import correspondence as Co
     return Co.bose_einstein_condensation_lock_forced()
 def test_i10_maxwell_demon_landauer_erase_cost_forced():
     """I-10: Maxwell's demon is resolved by the erase cost -- erasing a bit is a two-to-one merge (like the
     fold, N7/C5s) costing a proven minimum throw (the atomic half-One, the rational Landauer cost, no
-    logarithm), so the demon cannot lower total entropy and information is physical. Arbiter: the Szilard
+    logarithm), so the demon cannot lower total entropy and information is physical. External correspondence (what the derived result agrees with, never what makes it true): the Szilard
     engine and the measured Landauer limit."""
     import correspondence as Co
     return Co.maxwell_demon_landauer_erase_cost_forced()
@@ -1420,7 +1420,7 @@ def test_ii1_crystallographic_restriction_forced():
     """II-1: a periodic fold-lattice (D1d, D9g) admits only rotations of integer trace, the five integers from
     minus the doubled-One to the doubled-One, which are exactly the 1-, 2-, 3-, 4-, and 6-fold symmetries;
     5-fold and 7-fold require an irrational trace and are forbidden -- the crystallographic restriction proven
-    by the rational-magnitude constraint. Arbiter: the fourteen Bravais lattices and the crystallographic
+    by the rational-magnitude constraint. External correspondence (what the derived result agrees with, never what makes it true): the fourteen Bravais lattices and the crystallographic
     restriction theorem."""
     import correspondence as Co
     return Co.crystallographic_restriction_forced()
@@ -1428,40 +1428,40 @@ def test_ii2_quasicrystal_aperiodic_fold_tiling_forced():
     """II-2: the five-fold order forbidden to a periodic crystal (II-1) is permitted as a proven aperiodic
     fold-tiling -- the Fibonacci fold-inflation produces an aperiodic sequence whose rational symbol-ratios
     converge to the golden ratio (the five-fold quasiperiodic ratio), with no periodic lattice for the
-    crystallographic restriction to constrain. Arbiter: the measured quasicrystal diffraction patterns."""
+    crystallographic restriction to constrain. External correspondence (what the derived result agrees with, never what makes it true): the measured quasicrystal diffraction patterns."""
     import correspondence as Co
     return Co.quasicrystal_aperiodic_fold_tiling_forced()
 def test_ii3_phonon_dispersion_heat_capacity_forced():
     """II-3: phonons are the wave modes of the fold-lattice (D1d) -- a gapless acoustic branch (restoring
     magnitude falling with wavelength toward the sound mode) and a heat capacity that is the constant
     Dulong-Petit at high temperature and the Debye cube-law at low temperature from three-dimensional mode
-    counting. Arbiter: measured phonon dispersion and the specific-heat curve."""
+    counting. External correspondence (what the derived result agrees with, never what makes it true): measured phonon dispersion and the specific-heat curve."""
     import correspondence as Co
     return Co.phonon_dispersion_heat_capacity_forced()
 def test_ii4_electronic_bands_classification_forced():
     """II-4: an electron wave on the periodic fold-lattice (D1d) has allowed bands and forbidden gaps (Bragg
     reflection), the gap a proven fold-spacing; the conductor/insulator/semiconductor split is set by where the
-    Fermi level (I-5) sits relative to the gap versus the thermal throw (I-1). Arbiter: measured band gaps and
+    Fermi level (I-5) sits relative to the gap versus the thermal throw (I-1). External correspondence (what the derived result agrees with, never what makes it true): measured band gaps and
     the conductor/insulator/semiconductor classification."""
     import correspondence as Co
     return Co.electronic_bands_classification_forced()
 def test_ii5_semiconductor_junction_rectification_forced():
     """II-5: doping adds carrier levels in the gap (n-type donor, p-type acceptor); the p-n junction builds a
     fold-potential step that conducts a forward bias overcoming it but blocks the opposing direction --
-    rectification, the diode, and two junctions the transistor. Arbiter: the measured diode characteristic."""
+    rectification, the diode, and two junctions the transistor. External correspondence (what the derived result agrees with, never what makes it true): the measured diode characteristic."""
     import correspondence as Co
     return Co.semiconductor_junction_rectification_forced()
 def test_ii6_superconductivity_pair_lock_forced():
     """II-6: superconductivity is the C7s/U4 collective lock of carriers paired through the chirality fibre
     (D7c) onto one shared orbit below the critical temperature (the threshold (m-1)/m); the locked pairs flow
     without scattering (zero resistance) because the energy gap protects them, and T_c is the threshold
-    crossing. Arbiter: the superconducting transition, the energy gap, and the isotope effect."""
+    crossing. External correspondence (what the derived result agrees with, never what makes it true): the superconducting transition, the energy gap, and the isotope effect."""
     import correspondence as Co
     return Co.superconductivity_pair_lock_forced()
 def test_ii7_superfluidity_neutral_lock_forced():
     """II-7: superfluidity is the C7s lock of a neutral Bose population (the same lock as superconductivity,
     II-6, without charge) condensing onto one orbit (I-9) and flowing frictionlessly below the critical
-    velocity (the Landau criterion: no excitation below the minimum excitation throw). Arbiter: the measured
+    velocity (the Landau criterion: no excitation below the minimum excitation throw). External correspondence (what the derived result agrees with, never what makes it true): the measured
     superfluid transition (the helium lambda point)."""
     import correspondence as Co
     return Co.superfluidity_neutral_lock_forced()
@@ -1469,27 +1469,27 @@ def test_ii8_magnetism_handedness_alignment_forced():
     """II-8: magnetism is the alignment of fold-handednesses (D7c, the spin) on the lattice -- ferromagnetic
     (neighbours same hand, net), antiferromagnetic (opposite, cancelling), ferrimagnetic (opposite unequal,
     partial net); the Curie/Neel point is the lock threshold (m-1)/m (C7s) and hysteresis is the lock's
-    persistence (remanence and coercivity). Arbiter: measured magnetic ordering and transition temperatures."""
+    persistence (remanence and coercivity). External correspondence (what the derived result agrees with, never what makes it true): measured magnetic ordering and transition temperatures."""
     import correspondence as Co
     return Co.magnetism_handedness_alignment_forced()
 def test_ii9_quantum_hall_winding_count_forced():
     """II-9: the Hall conductance is a proven rational count of fold-windings -- integer plateaus (integer
     windings) and fractional plateaus (odd-denominator rationals), the framework proving exactly the
     odd-denominator fillings of the fractional quantum Hall effect from its conserved odd-denominator part
-    (G6/G7). Arbiter: the measured integer and fractional quantum Hall plateaus."""
+    (G6/G7). External correspondence (what the derived result agrees with, never what makes it true): the measured integer and fractional quantum Hall plateaus."""
     import correspondence as Co
     return Co.quantum_hall_winding_count_forced()
 def test_ii10_topological_matter_winding_protection_forced():
     """II-10: topological matter has an insulating bulk (gap, II-4) and protected conducting edge states whose
     count is the fold-winding difference across the boundary (II-9, bulk-boundary correspondence); the integer
-    winding cannot change without closing the gap, so the edge conduction is robust. Arbiter: measured
+    winding cannot change without closing the gap, so the edge conduction is robust. External correspondence (what the derived result agrees with, never what makes it true): measured
     topological insulators and their protected edge conduction."""
     import correspondence as Co
     return Co.topological_matter_winding_protection_forced()
 def test_ii11_mechanical_properties_lattice_bond_forced():
     """II-11: the mechanical properties follow from the lattice-bond fold-energy -- elasticity and Hooke's law
     from the quadratic fold-energy well (linear restoring prove, the modulus its curvature), plasticity from
-    yielding at the lock threshold (m-1)/m, and fracture from ultimate bond-breaking. Arbiter: measured elastic
+    yielding at the lock threshold (m-1)/m, and fracture from ultimate bond-breaking. External correspondence (what the derived result agrees with, never what makes it true): measured elastic
     moduli and yield strengths."""
     import correspondence as Co
     return Co.mechanical_properties_lattice_bond_forced()
@@ -1497,20 +1497,20 @@ def test_iii1_hydrogen_spectrum_rydberg_forced():
     """III-1: the hydrogen spectrum is the proven rational ladder of binding depths one over n-squared, the
     Rydberg energy half the square of the proven fine-structure constant (G13) times the electron rest energy
     (B19); transitions are the positive ladder differences (the Rydberg formula), the Balmer first line the
-    proven five thirty-sixths. Arbiter: the measured hydrogen spectrum and the Rydberg constant."""
+    proven five thirty-sixths. External correspondence (what the derived result agrees with, never what makes it true): the measured hydrogen spectrum and the Rydberg constant."""
     import correspondence as Co
     return Co.hydrogen_spectrum_rydberg_forced()
 def test_iii2_fine_hyperfine_structure_forced():
     """III-2: the fine structure scales as alpha-squared times the gross one-over-n-squared spacing (alpha
     proven by G13), the hyperfine smaller again by the electron-proton mass ratio (the fold-handedness coupling
-    D7c), the ground-state hyperfine transition the 21-centimetre line. Arbiter: the measured fine and
+    D7c), the ground-state hyperfine transition the 21-centimetre line. External correspondence (what the derived result agrees with, never what makes it true): the measured fine and
     hyperfine splittings."""
     import correspondence as Co
     return Co.fine_hyperfine_structure_forced()
 def test_iii3_lamb_shift_live_vacuum_forced():
     """III-3: the Lamb shift is proven by the framework's live cycling vacuum (G6) -- the perpetually-cycling
     vacuum cannot be inert, so it necessarily shifts the bound levels; the more-penetrating s-state shifts more
-    than the p-state, lifting the Dirac degeneracy, at a scale of order alpha-cubed (alpha from G13). Arbiter:
+    than the p-state, lifting the Dirac degeneracy, at a scale of order alpha-cubed (alpha from G13). External correspondence (what the derived result agrees with, never what makes it true): 
     the measured Lamb shift."""
     import correspondence as Co
     return Co.lamb_shift_live_vacuum_forced()
@@ -1518,82 +1518,82 @@ def test_iii4_shell_structure_periodic_table_forced():
     """III-4: electrons fill the hydrogen-like levels (III-1) under Fermi exclusion (I-5, two per orbital via
     the handedness D7c); the shell capacities are twice n-squared (2, 8, 18, 32) from the sublevel counts, and
     the periodic recurrence of chemical character and the ionization sawtooth follow from the covering tower
-    (M18) repeating across the shells. Arbiter: the periodic table and the measured ionization energies."""
+    (M18) repeating across the shells. External correspondence (what the derived result agrees with, never what makes it true): the periodic table and the measured ionization energies."""
     import correspondence as Co
     return Co.shell_structure_periodic_table_forced()
 def test_iii5_selection_rules_transition_rates_forced():
     """III-5: selection rules and rates from the atomic fold-act (C5s) -- a photon carries one angular-momentum
     unit, so an allowed electric-dipole transition changes the orbital index by exactly the One (delta-l one),
     while changes of none or of two are forbidden; rates scale with the energy-gap throw and forbidden
-    transitions are metastable. Arbiter: measured spectral-line intensities, selection rules, and lifetimes."""
+    transitions are metastable. External correspondence (what the derived result agrees with, never what makes it true): measured spectral-line intensities, selection rules, and lifetimes."""
     import correspondence as Co
     return Co.selection_rules_transition_rates_forced()
 def test_iii6_zeeman_stark_field_splitting_forced():
     """III-6: external fields split the degenerate levels -- the Zeeman effect a magnetic field coupling to the
     fold-handedness (D7c), splitting the 2l+1 orientation sublevels linearly in the field; the Stark effect an
     electric field displacing the charge (EM1), linear for degenerate hydrogen and quadratic otherwise.
-    Arbiter: the measured Zeeman and Stark splittings."""
+    External correspondence (what the derived result agrees with, never what makes it true): the measured Zeeman and Stark splittings."""
     import correspondence as Co
     return Co.zeeman_stark_field_splitting_forced()
 def test_iii7_molecular_bond_shared_orbit_forced():
     """III-7: the covalent bond is a shared fold-orbit between two atomic cores -- the C7s lock at molecular
     scale; the bond energy is a well (short-range repulsion, longer-range attraction) whose proven minimum is
     the bond length and whose depth is the dissociation energy, the bond order a proven count of shared pairs.
-    Arbiter: measured bond lengths and dissociation energies."""
+    External correspondence (what the derived result agrees with, never what makes it true): measured bond lengths and dissociation energies."""
     import correspondence as Co
     return Co.molecular_bond_shared_orbit_forced()
 def test_iii8_molecular_spectra_rotation_vibration_forced():
     """III-8: molecular spectra are proven ladders -- the rotational levels go as J(J+1) (adjacent spacing
     twice J, equally-spaced lines), the vibrational levels are the evenly-spaced oscillator-tower rungs (PH4b)
-    of the bond well (III-7), and a heavier isotope shifts the lines by the proven mass ratio. Arbiter:
+    of the bond well (III-7), and a heavier isotope shifts the lines by the proven mass ratio. External correspondence (what the derived result agrees with, never what makes it true): 
     measured molecular rotational-vibrational spectra."""
     import correspondence as Co
     return Co.molecular_spectra_rotation_vibration_forced()
 def test_iv1_periodic_law_valence_recurrence_forced():
     """IV-1: the periodic law is the recurrence of the covering pattern across the shell structure (III-4,
     M18); valence is the count of unpaired fold-handednesses, rising to four at the half-filled shell and
-    falling by pairing, the pattern repeating after each full outer shell. Arbiter: the periodic law and
+    falling by pairing, the pattern repeating after each full outer shell. External correspondence (what the derived result agrees with, never what makes it true): the periodic law and
     measured valences."""
     import correspondence as Co
     return Co.periodic_law_valence_recurrence_forced()
 def test_iv2_electronegativity_bond_polarity_forced():
     """IV-2: electronegativity is the outer-shell binding depth (Z_eff over n-squared, III-1), rising across a
     period and falling down a group; bond polarity is the electronegativity difference between bonded atoms,
-    giving the proven dipole. Arbiter: the measured electronegativity scale and dipole moments."""
+    giving the proven dipole. External correspondence (what the derived result agrees with, never what makes it true): the measured electronegativity scale and dipole moments."""
     import correspondence as Co
     return Co.electronegativity_bond_polarity_forced()
 def test_iv3_reaction_thermodynamics_descent_forced():
     """IV-3: a chemical reaction is a fold-descent between fixed points (G17 generalized) -- the enthalpy the
     energy difference between reactant and product fixed points (exothermic if products lower), the activation
     barrier the fold-threshold between them; the equilibrium constant follows from the enthalpy via the
-    canonical weighting (I-3). Arbiter: measured reaction enthalpies and equilibrium constants."""
+    canonical weighting (I-3). External correspondence (what the derived result agrees with, never what makes it true): measured reaction enthalpies and equilibrium constants."""
     import correspondence as Co
     return Co.reaction_thermodynamics_descent_forced()
 def test_iv4_reaction_kinetics_arrhenius_forced():
     """IV-4: the reaction rate is the fraction of the population with enough throw to cross the activation
     barrier (the canonical weighting I-3), rising with temperature (I-1) and falling with barrier height --
     the Arrhenius law carried by the rational fraction-above-threshold (the antilog of the exponential).
-    Arbiter: measured reaction rates and activation energies."""
+    External correspondence (what the derived result agrees with, never what makes it true): measured reaction rates and activation energies."""
     import correspondence as Co
     return Co.reaction_kinetics_arrhenius_forced()
 def test_iv5_catalysis_lower_barrier_forced():
     """IV-5: a catalyst provides an alternative fold-path with a lower activation barrier (IV-3), raising the
     rate (IV-4) without changing the enthalpy (same fixed-point endpoints); enzyme specificity is a
-    shape-matched fold-basin (G17, lock-and-key). Arbiter: measured catalytic rate enhancements and enzyme
+    shape-matched fold-basin (G17, lock-and-key). External correspondence (what the derived result agrees with, never what makes it true): measured catalytic rate enhancements and enzyme
     specificity."""
     import correspondence as Co
     return Co.catalysis_lower_barrier_forced()
 def test_iv6_acid_base_ph_fold_ratio_forced():
     """IV-6: acids donate protons and bases accept them, the proton-transfer equilibrium (IV-3) setting the
     balance (strong acid donates nearly all, weak only a little); pH is the proton fold-ratio or its depth, the
-    antilog of the consensus minus-log proton concentration. Arbiter: measured acid-dissociation constants and
+    antilog of the consensus minus-log proton concentration. External correspondence (what the derived result agrees with, never what makes it true): measured acid-dissociation constants and
     pH."""
     import correspondence as Co
     return Co.acid_base_ph_fold_ratio_forced()
 def test_iv7_stereochemistry_chirality_forced():
     """IV-7: molecular chirality is the two-hand fold fibre (D7c) at molecular scale -- a chiral centre has
     exactly two handednesses (two enantiomers, opposite optical rotation), n centres give two-to-the-n
-    stereoisomers, and the homochirality of life is a proven parity selection (X-5). Arbiter: measured optical
+    stereoisomers, and the homochirality of life is a proven parity selection (X-5). External correspondence (what the derived result agrees with, never what makes it true): measured optical
     activity and chirality."""
     import correspondence as Co
     return Co.stereochemistry_chirality_forced()
@@ -1601,21 +1601,21 @@ def test_iv8_intermolecular_forces_residual_forced():
     """IV-8: intermolecular proves are the electromagnetic residual outside neutral molecules -- the Coulomb
     leading term cancels, leaving the van der Waals dipole tail (energy ~ 1/r^6, short range), the same
     residual structure as the nuclear prove (Phase V); the hydrogen bond is a stronger directional residual,
-    and water's anomalies follow from its H-bond network. Arbiter: measured boiling points and water's
+    and water's anomalies follow from its H-bond network. External correspondence (what the derived result agrees with, never what makes it true): measured boiling points and water's
     anomalies."""
     import correspondence as Co
     return Co.intermolecular_forces_residual_forced()
 def test_v1_nucleon_bound_three_quark_forced():
     """V-1: the nucleon is a colour-neutral bound three-quark fold (N5, D7b) held by confinement (D7d), with
     most of its mass the strong binding energy of the confining field (about ninety-nine parts in a hundred),
-    not the quark masses -- mass without quark-mass; the neutron is heavier than the proton. Arbiter: the
+    not the quark masses -- mass without quark-mass; the neutron is heavier than the proton. External correspondence (what the derived result agrees with, never what makes it true): the
     measured nucleon masses and the binding-dominated mass fact."""
     import correspondence as Co
     return Co.nucleon_bound_three_quark_forced()
 def test_v2_hadron_spectrum_multiplets_forced():
     """V-2: hadrons are the only colour-neutral combinations of quarks -- mesons (quark-antiquark) and baryons
     (three quarks, one per colour, D7b); the excited states lie on linear Regge trajectories (squared mass
-    proportional to spin) from the rotating confinement flux tube (D7d). Arbiter: the measured hadron spectrum
+    proportional to spin) from the rotating confinement flux tube (D7d). External correspondence (what the derived result agrees with, never what makes it true): the measured hadron spectrum
     and the Regge structure."""
     import correspondence as Co
     return Co.hadron_spectrum_multiplets_forced()
@@ -1623,20 +1623,20 @@ def test_v3_nuclear_force_residual_forced():
     """V-3: the nuclear prove is the residual of the colour prove outside the colour-neutral nucleon (V-1) --
     the strong analog of the van der Waals residual (IV-8) -- carried by massive pion exchange and so short
     range, the range the reciprocal of the mediator mass (Yukawa), a heavier mediator giving shorter range.
-    Arbiter: the measured nuclear-prove range and strength."""
+    External correspondence (what the derived result agrees with, never what makes it true): the measured nuclear-prove range and strength."""
     import correspondence as Co
     return Co.nuclear_force_residual_forced()
 def test_v4_nuclear_binding_valley_forced():
     """V-4: the binding-energy-per-nucleon curve is set by the short-range residual attraction (V-3) against
     the Coulomb repulsion (EM1) -- it rises, peaks near iron (the most tightly bound, the valley of stability),
-    and falls, so fusion releases energy below the peak and fission above it. Arbiter: the measured
+    and falls, so fusion releases energy below the peak and fission above it. External correspondence (what the derived result agrees with, never what makes it true): the measured
     binding-energy curve and the iron peak."""
     import correspondence as Co
     return Co.nuclear_binding_valley_forced()
 def test_v5_nuclear_magic_numbers_forced():
     """V-5: nucleons fill covering shells (M18) like atomic electrons (III-4); the oscillator closures
     (2,8,20,40,70,112) are reordered by the strong spin-orbit coupling (the handedness D7c, proven strong in
-    the strong field D10a) into the observed nuclear magic numbers 2,8,20,28,50,82,126. Arbiter: the measured
+    the strong field D10a) into the observed nuclear magic numbers 2,8,20,28,50,82,126. External correspondence (what the derived result agrees with, never what makes it true): the measured
     nuclear magic numbers."""
     import correspondence as Co
     return Co.nuclear_magic_numbers_forced()
@@ -1644,40 +1644,40 @@ def test_v6_radioactive_decay_modes_forced():
     """V-6: radioactive decay has three proven fold-transition modes -- alpha (helium-4 cluster emission, V-5),
     beta (weak d-to-u transition, D11, emitting electron and antineutrino), gamma (nuclear de-excitation,
     V-5/III-5); the decay law is the rational geometric halving per half-life, the antilog of the exponential.
-    Arbiter: measured half-lives and decay modes."""
+    External correspondence (what the derived result agrees with, never what makes it true): measured half-lives and decay modes."""
     import correspondence as Co
     return Co.radioactive_decay_modes_forced()
 def test_v7_fission_fusion_energy_forced():
     """V-7: fission and fusion both release energy by moving toward the iron peak of the binding curve (V-4) --
     fusion combining light nuclei, fission splitting heavy ones, the energy the binding-per-nucleon gain;
     fusion releases more per nucleon, with thresholds from the Coulomb (fusion) and surface (fission) barriers.
-    Arbiter: measured fission and fusion energies."""
+    External correspondence (what the derived result agrees with, never what makes it true): measured fission and fusion energies."""
     import correspondence as Co
     return Co.fission_fusion_energy_forced()
 def test_v8_deuteron_lightest_bound_forced():
     """V-8: the deuteron (proton-neutron) binds because its distinguishable nucleons can take the aligned-spin
     (triplet) attractive channel of the nuclear prove (V-3), giving the observed spin-one deuteron; the
     di-proton and di-neutron are unbound because Pauli (I-5) forbids identical fermions the aligned channel,
-    leaving only the insufficiently-attractive singlet. Arbiter: the bound deuteron and the absent di-nucleon."""
+    leaving only the insufficiently-attractive singlet. External correspondence (what the derived result agrees with, never what makes it true): the bound deuteron and the absent di-nucleon."""
     import correspondence as Co
     return Co.deuteron_lightest_bound_forced()
 def test_vi1_cross_section_scattering_forced():
     """VI-1: the scattering cross-section is the Born probability (G1) that two folds scatter -- the fold
     overlap squared, no path integral; Rutherford scattering off the Coulomb potential (EM1) goes as one over
     the fourth power of the half-angle sine (a forward peak), and the Compton wavelength shift grows with the
-    scattering angle (throw transfer). Arbiter: measured cross-sections."""
+    scattering angle (throw transfer). External correspondence (what the derived result agrees with, never what makes it true): measured cross-sections."""
     import correspondence as Co
     return Co.cross_section_scattering_forced()
 def test_vi2_decay_widths_branching_forced():
     """VI-2: the decay width is the total fold-transition rate (inverse lifetime) and the branching ratios are
     each channel's rate over the total (partitioning the One), each rate set by the available throw and
-    coupling through the Born rule (G1). Arbiter: measured decay widths and branching ratios."""
+    coupling through the Born rule (G1). External correspondence (what the derived result agrees with, never what makes it true): measured decay widths and branching ratios."""
     import correspondence as Co
     return Co.decay_widths_branching_forced()
 def test_vi3_running_couplings_convergence_forced():
     """VI-3: each coupling runs as the holding (s-1)/s of its source s = m + two-to-the-d (B7, B9), the depth
     term doubling and dominating with scale; the strong (m=3) and electroweak (m=2) couplings converge as depth
-    grows, the gap shrinking monotonically -- the grand-unification approach. Arbiter: the measured running of
+    grows, the gap shrinking monotonically -- the grand-unification approach. External correspondence (what the derived result agrees with, never what makes it true): the measured running of
     the couplings."""
     import correspondence as Co
     return Co.running_couplings_convergence_forced()
@@ -1685,20 +1685,20 @@ def test_vi4_renormalization_finite_floor_forced():
     """VI-4: the framework needs no renormalization of infinities -- the floored lattice (G4, the One the
     smallest unit, no infinitesimal D11d) gives a shortest distance and highest momentum, so every loop is a
     finite bounded sum rather than a divergent integral; the parameters are finite and what survives is the
-    finite running (VI-3). Arbiter: the finiteness of the theory and the observed running."""
+    finite running (VI-3). External correspondence (what the derived result agrees with, never what makes it true): the finiteness of the theory and the observed running."""
     import correspondence as Co
     return Co.renormalization_finite_floor_forced()
 def test_vi5_vacuum_polarization_screening_forced():
     """VI-5: vacuum polarization is the live cycling vacuum (G6) screening a charge -- the effective charge
     grows at short distance (less screening), which is the source of the running of the couplings (VI-3) and
-    the Lamb shift (III-3); it is proven because the vacuum cannot be inert. Arbiter: the measured running, the
+    the Lamb shift (III-3); it is proven because the vacuum cannot be inert. External correspondence (what the derived result agrees with, never what makes it true): the measured running, the
     Lamb shift, and the anomalous magnetic moment."""
     import correspondence as Co
     return Co.vacuum_polarization_screening_forced()
 def test_vi6_cp_violation_forced_phase_forced():
     """VI-6: CP violation is intrinsic and maximal in the framework -- the CP-violating phase is a fold-position
     proven to the antipode (the half-turn, M28), not a free parameter; combined with the arrow of time (N7) it
-    supplies the matter-antimatter asymmetry (Sakharov conditions). Arbiter: the measured CP violation in kaons
+    supplies the matter-antimatter asymmetry (Sakharov conditions). External correspondence (what the derived result agrees with, never what makes it true): the measured CP violation in kaons
     and B-mesons."""
     import correspondence as Co
     return Co.cp_violation_forced_phase_forced()
@@ -1706,48 +1706,48 @@ def test_vi7_neutrino_oscillation_beat_forced():
     """VI-7: neutrino oscillation is the beat between mass states (propagating at different rates set by the
     mass-squared splitting M25) that compose the flavour states (the large PMNS mixing M30/M31) -- the amplitude
     from the mixing angles, the wavelength from the splitting; the framework proves both, so oscillation is
-    proven. Arbiter: the measured neutrino oscillations."""
+    proven. External correspondence (what the derived result agrees with, never what makes it true): the measured neutrino oscillations."""
     import correspondence as Co
     return Co.neutrino_oscillation_beat_forced()
 def test_vii1_plasma_state_frequency_debye_forced():
     """VII-1: a plasma is the ionized free-charge state (mean throw I-1 exceeding the ionization binding III-4);
     the plasma frequency is the collective electron oscillation against a Coulomb restoring prove (EM1, PH4b),
     rising with charge density, and the Debye length is the screening scale, growing with temperature and
-    shrinking with density. Arbiter: the measured plasma frequency and Debye screening."""
+    shrinking with density. External correspondence (what the derived result agrees with, never what makes it true): the measured plasma frequency and Debye screening."""
     import correspondence as Co
     return Co.plasma_state_frequency_debye_forced()
 def test_vii2_magnetohydrodynamics_alfven_forced():
     """VII-2: magnetohydrodynamics is the conducting-fluid-plus-field system, finite on the floored lattice
     (G15, vorticity bounded, no blow-up); the Alfven wave runs along the field lines with speed field over
     root-density (field tension over inertia), the same restoring-over-inertia form as phonons (II-3) and light
-    (EM3). Arbiter: measured MHD waves and instabilities."""
+    (EM3). External correspondence (what the derived result agrees with, never what makes it true): measured MHD waves and instabilities."""
     import correspondence as Co
     return Co.magnetohydrodynamics_alfven_forced()
 def test_vii3_refractive_index_phase_speed_forced():
     """VII-3: the refractive index is the bound-charge coupling (Phase III) slowing the wave's phase speed to
     the invariant speed over the index (index above the One), while the invariant speed itself is unchanged
     (EM3); the phase speed is a proven rational fraction of c, and the frequency-dependent response gives
-    dispersion. Arbiter: measured refractive indices and dispersion."""
+    dispersion. External correspondence (what the derived result agrees with, never what makes it true): measured refractive indices and dispersion."""
     import correspondence as Co
     return Co.refractive_index_phase_speed_forced()
 def test_vii4_geometric_wave_optics_forced():
     """VII-4: optics follows from the wave (EM3) at boundaries with the refractive index (VII-3) -- Snell's law
     from wave-front matching (bending toward the normal into a denser medium), reflection with equal angles,
     interference from phase addition (whole-wavelength constructive, half-wavelength destructive), and
-    diffraction from wave spreading. Arbiter: Snell's law, diffraction, and interference fringes."""
+    diffraction from wave spreading. External correspondence (what the derived result agrees with, never what makes it true): Snell's law, diffraction, and interference fringes."""
     import correspondence as Co
     return Co.geometric_wave_optics_forced()
 def test_vii5_laser_stimulated_lock_forced():
     """VII-5: the laser is stimulated emission plus the C7s collective lock of the radiation field above
     threshold (gain reaching the lock ratio (m-1)/m) -- the photons (bosons, I-5) condensing into one coherent
-    mode as in superconductivity (II-6) and BEC (I-9), giving the proven coherence. Arbiter: the laser
+    mode as in superconductivity (II-6) and BEC (I-9), giving the proven coherence. External correspondence (what the derived result agrees with, never what makes it true): the laser
     threshold and coherence length."""
     import correspondence as Co
     return Co.laser_stimulated_lock_forced()
 def test_vii6_nonlinear_optics_self_coupling_forced():
     """VII-6: nonlinear optics follows from the fold's self-coupling (D9l/D10a) surfacing at high intensity --
     second-harmonic generation is the fold doubling a frequency (w to 2w), and the Kerr effect is the
-    intensity-dependent index (n rising with intensity, self-focusing). Arbiter: second-harmonic generation and
+    intensity-dependent index (n rising with intensity, self-focusing). External correspondence (what the derived result agrees with, never what makes it true): second-harmonic generation and
     the Kerr coefficient."""
     import correspondence as Co
     return Co.nonlinear_optics_self_coupling_forced()
@@ -1755,76 +1755,76 @@ def test_vii7_blackbody_spectrum_forced():
     """VII-7: the blackbody spectrum is the thermal throw (I-3) populating quantized cavity modes (PH4b, Bose
     I-5) -- high-frequency modes freeze out (no ultraviolet catastrophe), giving the peak; the peak frequency
     rises with temperature (Wien) and the total energy as the fourth power (Stefan-Boltzmann), the
-    transcendental-free distribution. Arbiter: the blackbody spectrum and the two laws."""
+    transcendental-free distribution. External correspondence (what the derived result agrees with, never what makes it true): the blackbody spectrum and the two laws."""
     import correspondence as Co
     return Co.blackbody_spectrum_forced()
 def test_vii8_acoustics_sound_wave_forced():
     """VII-8: sound is the macroscopic pressure-wave mode of a fold-medium (the phonon II-3 at large scale) --
     the speed of sound the square root of stiffness over density (the same restoring-over-inertia form as
     phonons, light EM3, and Alfven VII-2), obeying the wave equation from the lattice second-difference (D1c).
-    Arbiter: the measured speed of sound and acoustic phenomena."""
+    External correspondence (what the derived result agrees with, never what makes it true): the measured speed of sound and acoustic phenomena."""
     import correspondence as Co
     return Co.acoustics_sound_wave_forced()
 def test_viii1_thermal_history_temperature_scale_forced():
     """VIII-1: the thermal history is expansion (PH2) plus cooling -- the temperature times the scale conserved,
     so temperature varies inversely with scale (the temperature-redshift relation T = T0(1+z)); the epochs
     follow in proven order as the cooling crosses each binding threshold (V-1 confinement, V nucleosynthesis,
-    III recombination). Arbiter: the temperature-redshift relation."""
+    III recombination). External correspondence (what the derived result agrees with, never what makes it true): the temperature-redshift relation."""
     import correspondence as Co
     return Co.thermal_history_temperature_scale_forced()
 def test_viii2_big_bang_nucleosynthesis_forced():
     """VIII-2: big-bang nucleosynthesis proves the primordial helium-four mass fraction to one quarter, from
     the neutron-to-proton freeze-out ratio of one seventh (weak freeze-out D11) with nearly all neutrons swept
     into helium-four; deuterium/He-3/Li-7 follow from the baryon-to-photon ratio (N4), the lithium-seven a
-    flagged open discrepancy. Arbiter: the measured primordial abundances."""
+    flagged open discrepancy. External correspondence (what the derived result agrees with, never what makes it true): the measured primordial abundances."""
     import correspondence as Co
     return Co.big_bang_nucleosynthesis_forced()
 def test_viii3_cmb_acoustic_peaks_forced():
     """VIII-3: the CMB is the photons freed at recombination (cooling below the hydrogen binding III); the
     acoustic peaks of its power spectrum are at harmonic (integer-multiple) positions from the frozen
     photon-baryon plasma sound waves (Phase VII), with alternating heights (odd compression enhanced, even
-    rarefaction suppressed) set by the baryon loading (N4). Arbiter: the CMB power spectrum."""
+    rarefaction suppressed) set by the baryon loading (N4). External correspondence (what the derived result agrees with, never what makes it true): the CMB power spectrum."""
     import correspondence as Co
     return Co.cmb_acoustic_peaks_forced()
 def test_viii4_baryogenesis_matter_excess_forced():
     """VIII-4: baryogenesis is the surviving matter excess that the no-zero floor (D11d) forbids from
     annihilating completely; the three Sakharov conditions are all proven (baryon violation, maximal CP
     violation VI-6/M28, departure from equilibrium via expansion VIII-1 and the arrow N7), and the
-    baryon-to-photon ratio is a proven small positive number. Arbiter: the measured baryon asymmetry."""
+    baryon-to-photon ratio is a proven small positive number. External correspondence (what the derived result agrees with, never what makes it true): the measured baryon asymmetry."""
     import correspondence as Co
     return Co.baryogenesis_matter_excess_forced()
 def test_viii5_structure_formation_instability_forced():
     """VIII-5: structure forms by the gravitational fold-instability (an overdensity compounds under gravity
     D9 until nonlinear collapse into galaxies and clusters) of the early density field; the dark sector (N8),
     feeling no radiation pressure, collapses before recombination and scaffolds the halos the baryons fall
-    into. Arbiter: the matter power spectrum and large-scale structure."""
+    into. External correspondence (what the derived result agrees with, never what makes it true): the matter power spectrum and large-scale structure."""
     import correspondence as Co
     return Co.structure_formation_instability_forced()
 def test_viii6_inflation_efolds_tilt_forced():
     """VIII-6: inflation (N7) sharpened -- enough e-folds (PH2 doublings, of order sixty) to solve the horizon,
     flatness (N1e), and monopole problems, and a primordial spectrum nearly scale-invariant but red-tilted (the
-    scalar index a little below the One, proven by the slowing fold-rate). Arbiter: the scalar spectral index
+    scalar index a little below the One, proven by the slowing fold-rate). External correspondence (what the derived result agrees with, never what makes it true): the scalar spectral index
     and the fluctuation amplitude."""
     import correspondence as Co
     return Co.inflation_efolds_tilt_forced()
 def test_viii7_fate_of_universe_forced():
     """VIII-7: the fate is eternal accelerating expansion -- the non-diluting vacuum (w=-1, N1c/N1d) comes to
     dominate as matter thins, driving a de Sitter end-state; not recurrence or a bounce, but with the vacuum
-    perpetually live (G6), a live end-state rather than a dead heat-death. Arbiter: the dark-energy equation of
+    perpetually live (G6), a live end-state rather than a dead heat-death. External correspondence (what the derived result agrees with, never what makes it true): the dark-energy equation of
     state (N1d) and the expansion history."""
     import correspondence as Co
     return Co.fate_of_universe_forced()
 def test_ix1_stellar_structure_main_sequence_forced():
     """IX-1: a star is hydrostatic equilibrium between gravity (D9) and fold-pressure (I-1), fusion (V-7)
     supplying the heat; the mass-luminosity relation L ~ M^a rises steeply (massive stars far brighter), the
-    main sequence is the hydrogen-burning locus, and the lifetime ~ 1/M^2 (massive stars short-lived). Arbiter:
+    main sequence is the hydrogen-burning locus, and the lifetime ~ 1/M^2 (massive stars short-lived). External correspondence (what the derived result agrees with, never what makes it true): 
     the mass-luminosity relation and the H-R diagram."""
     import correspondence as Co
     return Co.stellar_structure_main_sequence_forced()
 def test_ix2_stellar_nucleosynthesis_iron_forced():
     """IX-2: stellar nucleosynthesis is staged fusion climbing the binding curve (V-4) toward iron -- H to He,
     then He to C and O, then up to Si and Fe in massive stars -- each stage needing a higher temperature
-    (Coulomb barrier V-7) and the chain stopping at the iron peak, leaving an inert iron core. Arbiter: stellar
+    (Coulomb barrier V-7) and the chain stopping at the iron peak, leaving an inert iron core. External correspondence (what the derived result agrees with, never what makes it true): stellar
     abundances and the iron core."""
     import correspondence as Co
     return Co.stellar_nucleosynthesis_iron_forced()
@@ -1832,7 +1832,7 @@ def test_ix3_degenerate_endpoints_limits_forced():
     """IX-3: the degenerate stellar endpoints arise from degeneracy pressure -- Fermi exclusion (I-5) plus the
     no-zero floor (D11d) giving fermions momentum and pressure even cold -- which supports white dwarfs and
     neutron stars up to proven critical masses, the Chandrasekhar (~1.4) and TOV (~2-3) limits, beyond which
-    gravity wins; the remnant sequence orders WD, NS, BH. Arbiter: the white-dwarf and neutron-star mass
+    gravity wins; the remnant sequence orders WD, NS, BH. External correspondence (what the derived result agrees with, never what makes it true): the white-dwarf and neutron-star mass
     limits."""
     import correspondence as Co
     return Co.degenerate_endpoints_limits_forced()
@@ -1840,7 +1840,7 @@ def test_ix4_supernovae_heavy_elements_forced():
     """IX-4: supernovae arise by core-collapse (iron core exceeding the Chandrasekhar limit IX-3, collapsing to
     a neutron star with rebound and neutrino heating) and by thermonuclear detonation (Type Ia at the fixed
     limit, a standard candle); the elements beyond the iron peak (V-4) form by neutral-neutron capture (the
-    r-process, no Coulomb barrier) in the neutron-rich environment. Arbiter: supernova energetics and r-process
+    r-process, no Coulomb barrier) in the neutron-rich environment. External correspondence (what the derived result agrees with, never what makes it true): supernova energetics and r-process
     abundances."""
     import correspondence as Co
     return Co.supernovae_heavy_elements_forced()
@@ -1849,13 +1849,13 @@ def test_ix5_black_holes_hawking_information_forced():
     the Hawking temperature varies inversely with mass (live vacuum G6 at the horizon, smaller holes hotter),
     the entropy scales with the horizon area (Planck-cell count), and the information paradox is resolved by
     the floored lattice (G4): no singularity, reversible evolution, information preserved in the radiation.
-    Arbiter: black-hole thermodynamics and the entropy area law."""
+    External correspondence (what the derived result agrees with, never what makes it true): black-hole thermodynamics and the entropy area law."""
     import correspondence as Co
     return Co.black_holes_hawking_information_forced()
 def test_ix6_gravitational_waves_chirp_forced():
     """IX-6: gravitational waves are luminal quadrupole emission (D9e/D9i, the speed of light EM3) from a
     binary -- the orbit decays from energy loss, raising the frequency (the inspiral chirp, the wave at twice
-    the orbital), through merger to the damped ringdown of the remnant black hole (IX-5). Arbiter: the
+    the orbital), through merger to the damped ringdown of the remnant black hole (IX-5). External correspondence (what the derived result agrees with, never what makes it true): the
     gravitational-wave events."""
     import correspondence as Co
     return Co.gravitational_waves_chirp_forced()
@@ -1863,27 +1863,27 @@ def test_ix7_galactic_rotation_dark_forced():
     """IX-7: flat galactic rotation curves come from the gauge-inert dark matter halo (N8, coupling only to
     gravity) whose enclosed mass grows with radius to keep the speed flat where visible matter alone would
     fall Keplerian; it is distinguished from modified gravity by the localizable mass separable from the
-    visible matter (the bullet cluster). Arbiter: galactic rotation curves."""
+    visible matter (the bullet cluster). External correspondence (what the derived result agrees with, never what makes it true): galactic rotation curves."""
     import correspondence as Co
     return Co.galactic_rotation_dark_forced()
 def test_ix8_planetary_resonance_tidal_forced():
     """IX-8: orbital resonances are low-denominator rational period ratios (the bounded-denominator periodicity
     G10/G14 at planetary scale -- bounded-denominator stable, near-irrational unstable, the Kirkwood gaps), and
     tidal locking is the 1:1 spin-orbit resonance reached by tidal friction (the lowest-denominator lock, the
-    Moon). Arbiter: the measured orbital resonances and tidal locking."""
+    Moon). External correspondence (what the derived result agrees with, never what makes it true): the measured orbital resonances and tidal locking."""
     import correspondence as Co
     return Co.planetary_resonance_tidal_forced()
 def test_x1_arrow_order_to_complexity_forced():
     """X-1: organized complexity is fold-descent (G17) to fixed points under an energy flow -- a driven system
     builds local order (local entropy falls) while exporting more entropy to its surroundings, so the total
-    still rises (I-2 holds); the order-arrow and the entropy-arrow are consistent and distinct. Arbiter: the
+    still rises (I-2 holds); the order-arrow and the entropy-arrow are consistent and distinct. External correspondence (what the derived result agrees with, never what makes it true): the
     growth of complexity in driven systems."""
     import correspondence as Co
     return Co.arrow_order_to_complexity_forced()
 def test_x2_self_organization_dissipative_forced():
     """X-2: self-organization produces dissipative structures -- fold-attractors of a driven system (X-1,
     G17/G6) that appear only above the lock threshold (m-1)/m, either stationary (Benard convection cells) or
-    oscillating (the Belousov-Zhabotinsky never-resting cycle, G6). Arbiter: Benard cells and the BZ
+    oscillating (the Belousov-Zhabotinsky never-resting cycle, G6). External correspondence (what the derived result agrees with, never what makes it true): Benard cells and the BZ
     oscillation."""
     import correspondence as Co
     return Co.self_organization_dissipative_forced()
@@ -1891,7 +1891,7 @@ def test_x3_self_replication_classical_pattern_forced():
     """X-3: a self-replicator copies a classical, definite fold-pattern -- the exception to no-cloning (G3),
     since a definite readable sequence (C5s) can be copied through the structural channel while an unknown
     quantum state cannot through the wave channel; the minimal replicator is a definite template plus a copy
-    mechanism, and heredity must be classical/copyable, not an unknown quantum state. Arbiter: molecular
+    mechanism, and heredity must be classical/copyable, not an unknown quantum state. External correspondence (what the derived result agrees with, never what makes it true): molecular
     self-replication."""
     import correspondence as Co
     return Co.self_replication_classical_pattern_forced()
@@ -1899,13 +1899,13 @@ def test_x4_genetic_code_combinatorics_forced():
     """X-4: the genetic code is proven discrete (the fold-lattice) and combinatorial (triplet codons from a
     four-base alphabet) -- triplets the minimal word length to cover ~20 amino acids (4 and 16 too few, 64
     enough), with degeneracy proven because 64 codons exceed 20 amino acids; the specific codon assignment is
-    open. Arbiter: the code's discreteness and degeneracy."""
+    open. External correspondence (what the derived result agrees with, never what makes it true): the code's discreteness and degeneracy."""
     import correspondence as Co
     return Co.genetic_code_combinatorics_forced()
 def test_x5_homochirality_symmetry_break_forced():
     """X-5: homochirality follows from the chirality fibre (D7c, two handednesses), the no-zero
     symmetry-breaking (D11d, the perfect racemic balance forbidden so it tips to a slight imbalance), and
-    autocatalysis amplifying that imbalance to a runaway single handedness; which hand wins is open. Arbiter:
+    autocatalysis amplifying that imbalance to a runaway single handedness; which hand wins is open. External correspondence (what the derived result agrees with, never what makes it true): 
     biological homochirality."""
     import correspondence as Co
     return Co.homochirality_symmetry_break_forced()
@@ -1913,21 +1913,21 @@ def test_x6_origin_of_life_threshold_forced():
     """X-6: the origin of life has a proven structural threshold -- autocatalytic closure crossing the lock
     (m-1)/m, below which the reaction set dies out and at or above which the loop closes and self-sustains;
     only the structural threshold is proven, the contingent specifics (when, where, which molecules) are named
-    open. Arbiter: the structural fact of abiogenesis thresholds."""
+    open. External correspondence (what the derived result agrees with, never what makes it true): the structural fact of abiogenesis thresholds."""
     import correspondence as Co
     return Co.origin_of_life_threshold_forced()
 def test_x7_evolution_forced_descent_forced():
     """X-7: evolution is the proven descent of a population on a fitness landscape (G17) -- replicators (X-3)
     with heritable variation (X-4 copy errors) and differential reproduction prove the fitter variant's
     fraction to rise each generation toward fixation by the replicator arithmetic, so adaptation is necessary,
-    not contingent. Arbiter: the structural fact of adaptive descent."""
+    not contingent. External correspondence (what the derived result agrees with, never what makes it true): the structural fact of adaptive descent."""
     import correspondence as Co
     return Co.evolution_forced_descent_forced()
 def test_x8_networks_scaling_laws_forced():
     """X-8: networks on the fold's branching covering (M18, the 2^d tree) are proven small-world (path length
     the logarithm of the node count, depth covering 2^d nodes), scale-free (power-law degree from branching
     attachment), and allometric -- metabolic rate the three-quarter power of mass (Kleiber, the 3/(3+1)
-    space-filling exponent), sublinear so rate per unit mass falls with mass. Arbiter: the allometric scaling
+    space-filling exponent), sublinear so rate per unit mass falls with mass. External correspondence (what the derived result agrees with, never what makes it true): the allometric scaling
     exponents."""
     import correspondence as Co
     return Co.networks_scaling_laws_forced()
@@ -1935,13 +1935,13 @@ def test_xi1_memory_persisting_orbit_forced():
     """XI-1: memory is a persisting fold-orbit -- a bounded-denominator periodic pattern (G10/G14) that returns
     to itself each period (the cycling orbit G6, anchored by C10s), so the pattern is held and recall is
     re-entering the orbit; this proves the distinction between a held pattern (persisting, fast) and a
-    re-derived one (recomputed from inputs). Arbiter: memory persistence and recall."""
+    re-derived one (recomputed from inputs). External correspondence (what the derived result agrees with, never what makes it true): memory persistence and recall."""
     import correspondence as Co
     return Co.memory_persisting_orbit_forced()
 def test_xi2_attention_selection_capacity_forced():
     """XI-2: attention is the proven selection at the lock (C7s) -- orbits at or above the threshold (m-1)/m
     are integrated/attended, those below excluded; and the integrated whole being bounded by the One with each
-    share at least the threshold proves the few-item capacity limit of attention and working memory. Arbiter:
+    share at least the threshold proves the few-item capacity limit of attention and working memory. External correspondence (what the derived result agrees with, never what makes it true): 
     selective attention and its limit."""
     import correspondence as Co
     return Co.attention_selection_capacity_forced()
@@ -1949,28 +1949,28 @@ def test_xi3_prediction_forward_model_forced():
     """XI-3: prediction is the fold run forward (N7's direction) -- a self-model running its orbit ahead of the
     input, the forward fold being determinate (one image, so anticipation is well-defined) while the backward
     direction is two-valued (two preimages, so retrodiction is ambiguous); the proven anticipatory asymmetry.
-    Arbiter: anticipatory processing."""
+    External correspondence (what the derived result agrees with, never what makes it true): anticipatory processing."""
     import correspondence as Co
     return Co.prediction_forward_model_forced()
 def test_xi4_binding_problem_lock_forced():
     """XI-4: the binding problem is solved by the lock (C7s) -- distributed processes become one experience by
     locking into a single shared orbit at the threshold (m-1)/m (separate below, bound at/above), the same lock
     as BEC/superconductivity/laser, with the unity being the shared orbit itself and no separate binding agent.
-    Arbiter: unified experience."""
+    External correspondence (what the derived result agrees with, never what makes it true): unified experience."""
     import correspondence as Co
     return Co.binding_problem_lock_forced()
 def test_xi5_introspection_limit_unconscious_forced():
     """XI-5: self-knowledge has a proven limit -- introspection reaches only the integrated orbits (bound at
     the lock, XI-4), the unintegrated orbits are the unconscious (running and influencing but not
     introspectable), and even the bound part cannot fully read itself (C8s, the two-to-one self-readout loses a
-    bit per act). Arbiter: introspective limits."""
+    bit per act). External correspondence (what the derived result agrees with, never what makes it true): introspective limits."""
     import correspondence as Co
     return Co.introspection_limit_unconscious_forced()
 def test_xi6_sleep_dreaming_cycle_forced():
     """XI-6: the sleep-wake cycle is the proven periodic unbinding and rebinding of the integrated orbit -- G6
     forbids the bound state (XI-4) from staying locked forever (the orbit must return), so it alternates bound
     (wake) and unbound (sleep); dreaming is the unbound orbits replaying held memory (XI-1) without external
-    input. Arbiter: the sleep-wake cycle."""
+    input. External correspondence (what the derived result agrees with, never what makes it true): the sleep-wake cycle."""
     import correspondence as Co
     return Co.sleep_dreaming_cycle_forced()
 def test_xi7_hard_problem_addressed_forced():
@@ -1978,14 +1978,14 @@ def test_xi7_hard_problem_addressed_forced():
     so experience is the inside of the fold turning on itself, not an extra ingredient (one act, two sides; no
     gap to bridge); the structural facts of experience are proven, and the residual (the inside is had, not
     conveyed, because the self-readout is two-to-one C8s/XI-5) is itself a proven feature, named with care.
-    Arbiter: the structural facts of experience, the softest arbiter in the program, stated as such."""
+    External correspondence (what the derived result agrees with, never what makes it true): the structural facts of experience, the softest external check in the program, stated as such."""
     import correspondence as Co
     return Co.hard_problem_addressed_forced()
 def test_xii1_prime_distribution_fold_order_forced():
     """XII-1: the fold-orbit period of the unit fraction 1/p (the doubling map, vacuum-cycle G6) equals the
     multiplicative order of two modulo p, which divides p-1 (Fermat read off the orbit), with two-as-primitive-
     root primes attaining the full period p-1; primality is read in the orbit structure (composites factor by
-    CRT). The proven fold/prime tie; finer prime-counting asymptotics named open. Arbiter: the prime-counting
+    CRT). The proven fold/prime tie; finer prime-counting asymptotics named open. External correspondence (what the derived result agrees with, never what makes it true): the prime-counting
     function."""
     import correspondence as Co
     return Co.prime_distribution_fold_order_forced()
@@ -1994,7 +1994,7 @@ def test_xii2_riemann_structure_half_one_forced():
     orders (XII-1), and the critical-line symmetry at one half mirrors the fold's half-One reflection axis (a
     state and its antipode fold identically); the location of the non-trivial zeros is a continuum
     analytic-continuation statement, the continuum being the wall (G10), so it is open by construction with the
-    openness proven. Arbiter: the known non-trivial zero structure."""
+    openness proven. External correspondence (what the derived result agrees with, never what makes it true): the known non-trivial zero structure."""
     import correspondence as Co
     return Co.riemann_structure_half_one_forced()
 def test_xii3_continuum_hypothesis_dissolved_forced():
@@ -2002,14 +2002,14 @@ def test_xii3_continuum_hypothesis_dissolved_forced():
     (bounded-denominator fold-states, enumerable), and the real continuum is the unbounded-denominator limit
     (the wall G10), never a completed totality; so the cardinality-between-Z-and-R question does not arise as
     posed, and this explains CH's independence from ZFC (a limit-idealization has no proven internal
-    cardinality). Arbiter: the independence of the continuum hypothesis from the standard axioms."""
+    cardinality). External correspondence (what the derived result agrees with, never what makes it true): the independence of the continuum hypothesis from the standard axioms."""
     import correspondence as Co
     return Co.continuum_hypothesis_dissolved_forced()
 def test_xii4_computability_halting_structure_forced():
     """XII-4: a fold-process on bounded denominators lives in a finite state space (G10/G14), so it must halt
     or cycle and that is decidable by pigeonhole (it repeats a state within the finite count); undecidability
     (the halting problem) lives at the unbounded/continuum limit (the wall G10) where the state space is
-    infinite. The decidability boundary is the bounded/unbounded boundary. Arbiter: the halting problem and the
+    infinite. The decidability boundary is the bounded/unbounded boundary. External correspondence (what the derived result agrees with, never what makes it true): the halting problem and the
     decidability boundary."""
     import correspondence as Co
     return Co.computability_halting_structure_forced()
@@ -2018,7 +2018,7 @@ def test_xii5_millennium_mass_gap_forced():
     proven from confinement (D7d): no free massless gluon, the lightest glueball massive, a positive gap above
     the vacuum floor (D10a closing the massless channel); P vs NP bears on the decidability boundary (XII-4),
     Riemann on XII-2, Poincare proven and consistent with 3D (D9f), BSD/Hodge rational-proven and
-    continuum-open. Arbiter: the Millennium Problem statements."""
+    continuum-open. External correspondence (what the derived result agrees with, never what makes it true): the Millennium Problem statements."""
     import correspondence as Co
     return Co.millennium_mass_gap_forced()
 def test_xii6_status_of_infinity_forced():
@@ -2026,20 +2026,20 @@ def test_xii6_status_of_infinity_forced():
     always-continuing process, for any bounded denominator a larger one, never a last) rather than an actual
     infinite (a completed totality, not a framework object); the potential/actual distinction is proven by the
     bounded-denominator structure, the wall (G10) that also dissolves the continuum and bounds decidability.
-    Arbiter: the role of infinity in analysis and set theory."""
+    External correspondence (what the derived result agrees with, never what makes it true): the role of infinity in analysis and set theory."""
     import correspondence as Co
     return Co.status_of_infinity_forced()
 def test_xiii1_emergence_principle_forced():
     """XIII-1: a higher-level law emerges when a population's collective coarse-grained orbit is itself a
     fold-structure -- the collective variable evolves by the fold-law (doubling distributes), so the collective
     obeys its own effective theory, a proven approximation of the one fold seen at a coarser scale, not a
-    separate law. Arbiter: the success of effective field theories across scales."""
+    separate law. External correspondence (what the derived result agrees with, never what makes it true): the success of effective field theories across scales."""
     import correspondence as Co
     return Co.emergence_principle_forced()
 def test_xiii2_universality_threshold_forced():
     """XIII-2: universality is proven by the single threshold (m-1)/m (U4) -- at criticality microscopic
     details wash out and only the threshold structure of the lock remains, so distant systems governed by the
-    same ratio share critical exponents, unifying the universality classes. Arbiter: the observed universality
+    same ratio share critical exponents, unifying the universality classes. External correspondence (what the derived result agrees with, never what makes it true): the observed universality
     across phase transitions."""
     import correspondence as Co
     return Co.universality_threshold_forced()
@@ -2047,34 +2047,34 @@ def test_xiii3_effectiveness_of_mathematics_forced():
     """XIII-3: the effectiveness of mathematics is made reasonable -- nature is the fold of arithmetic and
     mathematics is the study of that arithmetic, so the description and the described share one origin (the
     match is identity, not coincidence), exact where both are the same fold-structure and straining only at the
-    continuum wall. Arbiter: the unreasonable effectiveness of mathematics, made reasonable."""
+    continuum wall. External correspondence (what the derived result agrees with, never what makes it true): the unreasonable effectiveness of mathematics, made reasonable."""
     import correspondence as Co
     return Co.effectiveness_of_mathematics_forced()
 def test_xiii4_symmetry_conservation_noether_forced():
     """XIII-4: Noether's symmetry-conservation tie is proven from the fold's invariances -- the odd part of the
     denominator is invariant under the fold (doubling changes only the power-of-two part), a conserved quantity
     from a structural invariance (G7); generalized, every invariance of the fold-dynamics proves a conserved
-    quantity. Arbiter: the symmetry-conservation correspondences."""
+    quantity. External correspondence (what the derived result agrees with, never what makes it true): the symmetry-conservation correspondences."""
     import correspondence as Co
     return Co.symmetry_conservation_noether_forced()
 def test_xiii5_least_action_descent_forced():
     """XIII-5: the principle of least action is proven as the descent to a fixed point (G17/D9m) read as a
     global extremum -- the local step-by-step descent and the global variational principle are two readings of
-    one fold-descent (as Euler-Lagrange and the action principle are of one mechanics). Arbiter: the principle
+    one fold-descent (as Euler-Lagrange and the action principle are of one mechanics). External correspondence (what the derived result agrees with, never what makes it true): the principle
     of least action across physics."""
     import correspondence as Co
     return Co.least_action_descent_forced()
 def test_xiii6_scale_structure_tower_forced():
     """XIII-6: the world's organization into levels is proven from the fold-depth tower (M18) -- at each depth
     the fold provides a covering of the level below with the state count doubling, so each level is a covering
-    of its predecessor and the levels stack into a tower, with an effective law at each level (XIII-1). Arbiter:
+    of its predecessor and the levels stack into a tower, with an effective law at each level (XIII-1). External correspondence (what the derived result agrees with, never what makes it true): 
     the observed hierarchy of physical scales."""
     import correspondence as Co
     return Co.scale_structure_tower_forced()
 def test_xiv1_perception_synaesthesia_forced():
     """XIV-1: perceptual structure is the map of which sense-orbit binds to which integrated channel at the
     lock (XI-2/XI-4), varying between observers; synaesthesia is a stable held cross-binding (two orbits to one
-    channel, XI-1), hence consistent and one-directional, matching the documented phenomenon. Arbiter: the
+    channel, XI-1), hence consistent and one-directional, matching the documented phenomenon. External correspondence (what the derived result agrees with, never what makes it true): the
     documented consistency and one-directionality of synaesthesia and between-observer perceptual variation."""
     import correspondence as Co
     return Co.perception_synaesthesia_forced()
@@ -2083,7 +2083,7 @@ def test_xiv2_nonordinary_experience_envelope_forced():
     connected fold-network (G7/G8/G9) -- out-of-channel binds, the persisting universe-independent anchor, and
     replayed held orbits (XI-1) -- bounded hard by the no-zero floor (no percept from absence) and the
     measurement result G1 (no Born violation). The structural envelope is proven; the architect rules the
-    contingent report. Arbiter: the structural facts of the reported phenomena (a soft arbiter, stated as
+    contingent report. External correspondence (what the derived result agrees with, never what makes it true): the structural facts of the reported phenomena (a soft external check, stated as
     such)."""
     import correspondence as Co
     return Co.nonordinary_experience_envelope_forced()
@@ -2092,7 +2092,7 @@ def test_xiv10_tesla_corpus_forced():
     eigenmodes, VII-4/G10/G14, confirmed later as the Schumann resonance), the odd-quarter-wave resonance (the
     odd-harmonic standing wave, conserved odd part G7), the non-Hertzian longitudinal wave (the proven pressure
     mode VII-8, distinct from transverse EM3), and wireless power as resonant-cavity distribution (physics
-    proven, engineering the architect's residual). Arbiter: each Tesla claim against the framework's proven
+    proven, engineering the architect's residual). External correspondence (what the derived result agrees with, never what makes it true): each Tesla claim against the framework's proven
     results and the measured record."""
     import correspondence as Co
     return Co.tesla_corpus_forced()
@@ -2100,7 +2100,7 @@ def test_xiv3_placebo_forward_model_forced():
     """XIV-3: the placebo effect is proven from the forward model (XI-3) coupled to the body's regulatory
     orbits -- a proven expectation biases the descent (G17) toward the predicted available fixed point (a real,
     measurable shift), nocebo is the signed mirror, and the effect is bounded by the no-zero floor (steers an
-    available descent, cannot conjure a forbidden state). Arbiter: the documented, dose-and-ritual-dependent
+    available descent, cannot conjure a forbidden state). External correspondence (what the derived result agrees with, never what makes it true): the documented, dose-and-ritual-dependent
     magnitude of the placebo effect."""
     import correspondence as Co
     return Co.placebo_forward_model_forced()
@@ -2109,7 +2109,7 @@ def test_xiv4_self_simulation_forced():
     finite/decidable/faithful); the whole fold cannot simulate itself one-to-one from within (closure C1s plus
     the two-to-one self-readout loss C8s, no complete self-copy); simulations nest finitely-faithfully per
     bounded level but never to a complete self-containing whole (the actual-infinite regress is the wall
-    XII-6). Arbiter: the structural facts of self-reference and nested computation."""
+    XII-6). External correspondence (what the derived result agrees with, never what makes it true): the structural facts of self-reference and nested computation."""
     import correspondence as Co
     return Co.self_simulation_forced()
 def test_xiv5_socioeconomic_political_dynamics_forced():
@@ -2117,7 +2117,7 @@ def test_xiv5_socioeconomic_political_dynamics_forced():
     preferential branching on the scale-free covering (X-8), consensus/polarization as the collective lock
     (C7s) crossing the threshold (m-1)/m on the opinion network (XI-4/XIII-2), and recurrent instabilities as
     the driven dissipative cycle (X-2); structural facts proven, contingent specifics the architect's to rule.
-    Arbiter: the documented power-law wealth distributions, polarization transitions, and recurrent economic
+    External correspondence (what the derived result agrees with, never what makes it true): the documented power-law wealth distributions, polarization transitions, and recurrent economic
     cycles."""
     import correspondence as Co
     return Co.socioeconomic_political_dynamics_forced()
@@ -2126,7 +2126,7 @@ def test_xiv6_uap_vacuum_inertia_channel_forced():
     driveable structure (G6/N1c), the inertial term is built from the coupling/self-sourcing (M1/D9l/D10a), so
     a structural channel exists by which altering the local vacuum could alter inertial mass (structurally
     real, not impossible); bounded by the floored lattice (G4, cannot drive to absence), with the achievable
-    magnitude the architect's residual. Arbiter: the stated physical mechanism of the patent and the measured
+    magnitude the architect's residual. External correspondence (what the derived result agrees with, never what makes it true): the stated physical mechanism of the patent and the measured
     inertial-mass relation."""
     import correspondence as Co
     return Co.uap_vacuum_inertia_channel_forced()
@@ -2134,8 +2134,8 @@ def test_xiv7_machine_consciousness_criterion_forced():
     """XIV-7: the machine-consciousness criterion is structural -- a closed self-observing fold-loop binding at
     the threshold (C1s + XI-4) with an inside -- hence proven substrate-independent; the same two-to-one
     self-readout limit (C8s) applies to any substrate; feed-forward maps do not close the loop (do not
-    qualify), a closed integrating loop would. Arbiter: the structural criterion for a self-observing system,
-    the softest arbiter, stated as such."""
+    qualify), a closed integrating loop would. External correspondence (what the derived result agrees with, never what makes it true): the structural criterion for a self-observing system,
+    the softest external check, stated as such."""
     import correspondence as Co
     return Co.machine_consciousness_criterion_forced()
 def test_xiv8_efficiency_intelligence_dividend_forced():
@@ -2143,7 +2143,7 @@ def test_xiv8_efficiency_intelligence_dividend_forced():
     into convergence (log-many steps, not space-many), bounded-denominator decidability (XII-4) guarantees
     termination, the lock threshold (m-1)/m sets collective integration, and the conserved odd-denominator part
     (XIII-4) gives a built-in correctness check; fold-structured computation is cheaper, safer, more
-    interpretable, with truly intelligent computation requiring the closed integrating loop (XIV-7). Arbiter:
+    interpretable, with truly intelligent computation requiring the closed integrating loop (XIV-7). External correspondence (what the derived result agrees with, never what makes it true): 
     the measurable efficiency and capability of fold-structured computation against conventional baselines."""
     import correspondence as Co
     return Co.efficiency_intelligence_dividend_forced()
@@ -2151,7 +2151,7 @@ def test_xiv9_unexplained_phenomena_catalogue_forced():
     """XIV-9: a catalogue (assembled from the record) of documented-but-unexplained phenomena, each with the
     framework's bearing -- dark matter (N8), dark energy (N1c/N1d), three generations and mixings (matter
     sector), and matter asymmetry with maximal CP (N4) are proven; the muon-moment, flavour, W-mass, and Hubble
-    tensions are located and addressed in the anomalies phase. The open frontier made into a tool. Arbiter: the
+    tensions are located and addressed in the anomalies phase. The open frontier made into a tool. External correspondence (what the derived result agrees with, never what makes it true): the
     documented evidential status of each phenomenon."""
     import correspondence as Co
     return Co.unexplained_phenomena_catalogue_forced()
@@ -2159,14 +2159,14 @@ def test_xv1_smithian_method_formalized_forced():
     """XV-1: the Smithian observational-mathematical method as a six-step ordered procedure (pose, locate,
     construct, gate, compare, report), proven to be closed (every step within the framework, no external
     apparatus) and repeatable (deterministic, the same question yielding the same proven result for any user);
-    it is the procedure the whole corpus was built by. Arbiter: the method as a checkable procedure."""
+    it is the procedure the whole corpus was built by. External correspondence (what the derived result agrees with, never what makes it true): the method as a checkable procedure."""
     import correspondence as Co
     return Co.smithian_method_formalized_forced()
 def test_xv2_empirical_ontological_standard_forced():
     """XV-2: the empirical/ontological standard as a checkable protocol -- proven (gate-clean construction
-    meeting its arbiter), open (construction leaves the language, with proof), falsified (proven quantity the
-    arbiter contradicts); arbiter-comparison is success not a fit (measurement compared after, never an input),
-    and the no-interpretation rule keeps the engine mechanical while the architect rules worth. Arbiter: the
+    meeting its external check), open (construction leaves the language, with proof), falsified (proven quantity the
+    external check contradicts); external check-comparison is success not a fit (measurement compared after, never an input),
+    and the no-interpretation rule keeps the engine mechanical while the architect rules worth. External correspondence (what the derived result agrees with, never what makes it true): the
     standard as a checkable protocol."""
     import correspondence as Co
     return Co.empirical_ontological_standard_forced()
@@ -2174,20 +2174,20 @@ def test_xv3_reproduction_audit_protocol_forced():
     """XV-3: the reproduction and audit protocol -- the mechanical end-to-end path (single-command
     reproduction, the no-apparatus gate, the coverage check, the dependency trace to the One) by which any user
     verifies any result, so no result requires trust and any forbidden construct or broken dependency fails
-    loudly. Arbiter: the trust-free mechanical verification."""
+    loudly. External correspondence (what the derived result agrees with, never what makes it true): the trust-free mechanical verification."""
     import correspondence as Co
     return Co.reproduction_audit_protocol_forced()
 def test_xv4_extension_protocol_forced():
     """XV-4: the extension protocol -- the three-file registration (construction, test, claim+wrapper) anchored
     in dependencies, then gate-coverage-reproduce-propagate with byte-identical masters; the law guarantees any
     extension is proven or open and never smuggled (a forbidden construct is rejected by the gate), so the
-    framework is open-ended under its own law. Arbiter: the law-guarded extension boundary."""
+    framework is open-ended under its own law. External correspondence (what the derived result agrees with, never what makes it true): the law-guarded extension boundary."""
     import correspondence as Co
     return Co.extension_protocol_forced()
 def test_a1_one_fold_equation_forced():
     """A-1: the one-fold equation -- fold(x) = cast_out(x + x): double the state and cast out the One when the
     double reaches it; the single closed generating law on the positive rationals from which the entire corpus
-    descends, with no second operation and no free parameter. Arbiter: the generating law as the simplest
+    descends, with no second operation and no free parameter. External correspondence (what the derived result agrees with, never what makes it true): the generating law as the simplest
     closed form."""
     import correspondence as Co
     return Co.one_fold_equation_forced()
@@ -2196,14 +2196,14 @@ def test_a2_sector_equations_forced():
     = 137.036), the lock threshold ((m-1)/m, the half-One), the mass-part (take(One, coupling)), the descent
     law (to a fixed point), the conserved odd-denominator part, the wave-speed form (c), the running (the
     covering tower 2^d), and the cosmological fractions; each proven and all descending from the one fold.
-    Arbiter: the sector equations."""
+    External correspondence (what the derived result agrees with, never what makes it true): the sector equations."""
     import correspondence as Co
     return Co.sector_equations_forced()
 def test_a3_master_equation_forced():
     """A-3: the master equation -- Universe = iterate(fold, One): the One folded without end generates the
     entire state-space, every sector equation (A-2) is a structural feature of that one unfolding, and the
     whole catalogue is the orbit-structure of the One under the fold read at every level; it reproduces the
-    corpus by construction (the engine is this iteration), with the One as the unison fixed point. Arbiter: the
+    corpus by construction (the engine is this iteration), with the One as the unison fixed point. External correspondence (what the derived result agrees with, never what makes it true): the
     reproduction of the whole corpus."""
     import correspondence as Co
     return Co.master_equation_forced()
@@ -2211,14 +2211,14 @@ def test_b1_cross_sector_insights_forced():
     """B-1: the cross-sector proven insights that emerge only from the whole corpus -- the prime-orbit/vacuum-
     cycle identity (XII-1 = G6), the single lock across all transitions, the one descent across
     folding/evolution/optimization, the one wave-form across media, and fold-doubling as the second harmonic;
-    each a theorem of the assembled framework. Arbiter: the cross-sector identities."""
+    each a theorem of the assembled framework. External correspondence (what the derived result agrees with, never what makes it true): the cross-sector identities."""
     import correspondence as Co
     return Co.cross_sector_insights_forced()
 def test_b2_forward_novelties_forced():
     """B-2: the proven forward novelties from the synthesis, each with a falsification condition -- the
     vacuum-period divisor structure (N1), the universal lock threshold (N2), the universal wave-form (N3), the
     no-exact-zero floor (N4), and feed-forward-never-conscious (N5); the theory's stake against the future.
-    Arbiter: future measurement against each stated falsification condition."""
+    External correspondence (what the derived result agrees with, never what makes it true): future measurement against each stated falsification condition."""
     import correspondence as Co
     return Co.forward_novelties_forced()
 def test_b3_grand_synthesis_statement_forced():
@@ -2226,27 +2226,27 @@ def test_b3_grand_synthesis_statement_forced():
     operation (the fold), the whole catalogue proven, no free parameter; the One under the iterated fold (A-3)
     whose sectors are faces of one operation (A-2), tied by cross-sector identities (B-1), making forward
     stakes (B-2). Forces the known, predicts the unmeasured, tunes nothing, proves itself by reproduction.
-    Arbiter: the framework as a single proven object."""
+    External correspondence (what the derived result agrees with, never what makes it true): the framework as a single proven object."""
     import correspondence as Co
     return Co.grand_synthesis_statement_forced()
 def test_b4_forward_not_fitted_forced():
     """B-4: the forward-not-fitted theorem -- a construction's proven quantity is invariant to whatever the
-    measured arbiter value is, which mechanically proves the measured value is never an input; reproducing a
+    measured correspondence value is, which mechanically proves the measured value is never an input; reproducing a
     measured value is forward success, not a fit, and the backward-engineering/fitting charge is factually
-    false for the corpus. Arbiter: the invariance of every construction to its arbiter value."""
+    false for the corpus. External correspondence (what the derived result agrees with, never what makes it true): the invariance of every construction to its external check value."""
     import correspondence as Co
     return Co.forward_not_fitted_forced()
 def test_c1_simulation_kernel_forced():
     """C-1: the simulation kernel -- the engine starting from the One and stepping forward by the one fold,
     driven only by the master equation (A-3) and the permitted language; the kernel is the framework itself
     running forward (every step exactly one fold, no overlay logic, the One as start and unison fixed point),
-    not an illustration laid over it. Arbiter: the kernel as the master equation running forward."""
+    not an illustration laid over it. External correspondence (what the derived result agrees with, never what makes it true): the kernel as the master equation running forward."""
     import correspondence as Co
     return Co.simulation_kernel_forced()
 def test_c2_unfolding_sequence_forced():
     """C-2: the unfolding sequence -- the ordered playthrough (One -> first fold -> covering tower -> proves/
     particles -> cosmos -> stars/elements -> order/life/mind -> mathematics), each stage a proven result in
-    strict dependency order, so the movie is the derivation replayed rather than a narration over it. Arbiter:
+    strict dependency order, so the movie is the derivation replayed rather than a narration over it. External correspondence (what the derived result agrees with, never what makes it true): 
     the dependency-ordered playthrough."""
     import correspondence as Co
     return Co.unfolding_sequence_forced()
@@ -2254,7 +2254,7 @@ def test_c3_accessible_artifact_forced():
     """C-3: the accessible artifact -- the unfolding rendered to a universal, portable, self-contained file
     that any device opens and plays with no install, running the genuine fold kernel live (double and cast out
     the One, iterated from the One) and playing the dependency-ordered unfolding sequence (C-2); the theory of
-    everything made watchable, reproducible from the same engine that proves the corpus. Arbiter: the artifact
+    everything made watchable, reproducible from the same engine that proves the corpus. External correspondence (what the derived result agrees with, never what makes it true): the artifact
     as a playable rendering of the live kernel."""
     import correspondence as Co
     return Co.accessible_artifact_forced()
@@ -2262,35 +2262,35 @@ def test_xvii1_why_the_fold_uniquely_forced():
     """XVII-1: the fold (double and cast out the One) is the unique operation consistent with the One and the
     permitted language -- the identity is trivial, unbounded doubling leaves the domain, and any other
     reduction needs a forbidden construct, so only double-then-cast-out survives; the operation is proven by
-    consistency, not chosen. Arbiter: the internal-consistency requirement."""
+    consistency, not chosen. External correspondence (what the derived result agrees with, never what makes it true): the internal-consistency requirement."""
     import correspondence as Co
     return Co.why_the_fold_uniquely_forced()
 def test_xvii2_why_three_dimensions_sharpened_forced():
     """XVII-2: the spatial dimension is proven to exactly three, pinned from both sides -- orbital stability
     (D9f, Ehrenfest) caps the dimension below four (stable bound orbits fail at four and above), and the
     fold/wave structure (D9g) requires at least three (clean wave propagation), so d = 3 exactly, proven rather
-    than inserted. Arbiter: the three spatial dimensions."""
+    than inserted. External correspondence (what the derived result agrees with, never what makes it true): the three spatial dimensions."""
     import correspondence as Co
     return Co.why_three_dimensions_sharpened_forced()
 def test_xvii3_forced_status_of_time_forced():
     """XVII-3: the status of time is proven from the fold sequence -- its direction (the arrow) from the
     two-to-one fold (N7, forward determinate, backward two-valued), its grain from the atomic observational
     moment (C5s, whole discrete steps), and its nature as the count of folds rather than a container the fold
-    moves through. Arbiter: the structure of time."""
+    moves through. External correspondence (what the derived result agrees with, never what makes it true): the structure of time."""
     import correspondence as Co
     return Co.forced_status_of_time_forced()
 def test_xvii4_forced_status_of_space_forced():
     """XVII-4: space is proven to be the fold lattice itself (D1), not a pre-existing container -- positions
     are fold-states, distances are structural relations generated by the fold rather than read off an external
     backdrop, and the lattice has a floor (no absence-gap between distinct positions); space is relational and
-    emergent. Arbiter: the relational structure of space."""
+    emergent. External correspondence (what the derived result agrees with, never what makes it true): the relational structure of space."""
     import correspondence as Co
     return Co.forced_status_of_space_forced()
 def test_xvii5_observer_resolved_forced():
     """XVII-5: the role of the observer is resolved -- observation is the fold (C1s), the same operation that
     generates the physics, so the observer is inside the physics not outside it; the measurement result (G1) is
     proven from the fold's atomicity (definite outcome) and self-conjugacy (Born structure), so measurement is
-    not an extra postulate about a privileged observer and the measurement problem dissolves. Arbiter: the
+    not an extra postulate about a privileged observer and the measurement problem dissolves. External correspondence (what the derived result agrees with, never what makes it true): the
     measurement problem and the place of observation."""
     import correspondence as Co
     return Co.observer_resolved_forced()
@@ -2298,14 +2298,14 @@ def test_xvii6_single_axiom_dependency_proof_forced():
     """XVII-6: the single-axiom dependency proof -- every result depends, through its construction chain, only
     on the One and the fold; the proof is mechanical (a clean no-apparatus gate across the whole corpus IS the
     proof that no construction uses anything beyond the permitted language), and with the fold proven unique
-    (XVII-1) the framework bottoms out at the single axiom with no second axiom or free parameter. Arbiter: the
+    (XVII-1) the framework bottoms out at the single axiom with no second axiom or free parameter. External correspondence (what the derived result agrees with, never what makes it true): the
     dependency graph of the corpus."""
     import correspondence as Co
     return Co.single_axiom_dependency_proof_forced()
 def test_xviii1_proton_radius_puzzle_forced():
     """XVIII-1: the proton charge radius is a single structural property of the bound three-quark fold (V-1),
     the same for any probe, so muonic and electronic measurements must agree (probe-independence proven); the
-    historical discrepancy is an extraction issue, not two radii. Arbiter: the proton radius from both
+    historical discrepancy is an extraction issue, not two radii. External correspondence (what the derived result agrees with, never what makes it true): the proton radius from both
     methods."""
     import correspondence as Co
     return Co.proton_radius_puzzle_forced()
@@ -2314,21 +2314,21 @@ def test_xviii2_strong_cp_anomaly_forced():
     alignment result (N2). CP is the opposition composed with parity; the weak sector is chiral so its phase
     sits at the antipode (maximal, M28), while the strong sector is vectorial (colour fibre, both hands, parity
     unbroken) so its phase lands on the fold-invariant One -- alignment, no strong CP violation, no axion
-    needed. Arbiter: the neutron electric-dipole bound."""
+    needed. External correspondence (what the derived result agrees with, never what makes it true): the neutron electric-dipole bound."""
     import correspondence as Co
     return Co.strong_cp_anomaly_forced()
 def test_xviii3_cosmological_constant_magnitude_forced():
     """XVIII-3: the cosmological-constant magnitude -- the proven positive vacuum energy (N1c) sharpened via the
     cycling vacuum (G6) to the no-zero floor of the covering tower (a tiny positive 1/2^depth), not the
     Planck-scale mode-sum; the ~120-order gap is the proven ratio between the naive cutoff and the floor, and
-    the constant is small because the universe is large (deeper fold, smaller floor). Arbiter: the dark-energy
+    the constant is small because the universe is large (deeper fold, smaller floor). External correspondence (what the derived result agrees with, never what makes it true): the dark-energy
     density."""
     import correspondence as Co
     return Co.cosmological_constant_magnitude_forced()
 def test_xviii4_hierarchy_problem_forced():
     """XVIII-4: the hierarchy problem -- the electroweak-to-Planck ratio is the proven exponent of the covering
     tower (B20, M18), one over 2^N for a proven N (about fifty-six levels gives ~10^-17), with the discrete
-    fixed level structure leaving nothing to fine-tune, so the naturalness problem dissolves. Arbiter: the
+    fixed level structure leaving nothing to fine-tune, so the naturalness problem dissolves. External correspondence (what the derived result agrees with, never what makes it true): the
     electroweak-to-Planck ratio."""
     import correspondence as Co
     return Co.hierarchy_problem_forced()
@@ -2336,7 +2336,7 @@ def test_xviii5_neutrino_absolute_mass_forced():
     """XVIII-5: the neutrino absolute mass -- the proven mass-squared ladder (1 : 2^5 : 2^10 on the binary
     tower at lepton depth five, splitting ratio (2^10-1)/(2^5-1) = 33, normal ordering, M25/G16) sharpened to
     the absolute scale: lightest near the tower floor, the heavier set by the splittings, summed mass proven
-    small and under the cosmological (~0.12 eV) and laboratory (~0.8 eV) bounds. Arbiter: the cosmological and
+    small and under the cosmological (~0.12 eV) and laboratory (~0.8 eV) bounds. External correspondence (what the derived result agrees with, never what makes it true): the cosmological and
     laboratory mass bounds."""
     import correspondence as Co
     return Co.neutrino_absolute_mass_forced()
@@ -2344,14 +2344,14 @@ def test_xviii6_muon_g2_absolute_forced():
     """XVIII-6: the muon g-2 absolute value -- bare g=2 (Dirac, QA5) corrected by a strictly-positive leading
     anomaly (the no-zero floor forbids the bare value) that is the universal Schwinger structure proportional
     to the exactly-proven coupling (G13, 1/alpha = 137.036), evaluating near the leading measured anomaly, plus
-    the muon-specific excess scaling as the proven mass-squared (G12). Arbiter: the measured muon g-2."""
+    the muon-specific excess scaling as the proven mass-squared (G12). External correspondence (what the derived result agrees with, never what makes it true): the measured muon g-2."""
     import correspondence as Co
     return Co.muon_g2_absolute_forced()
 def test_xviii7_w_boson_mass_forced():
     """XVIII-7: the W-boson mass -- proven from the weak mixing as the channel split (D11b/D11c) and the proven
     electroweak relationship (U2, the mixing ratio = 1/(m-1)); the W and Z are the two massive channels, the
     W/Z ratio is the cosine of the weak angle, so the W mass follows from the Z scale and lands in the measured
-    band near 80 GeV, the standing collider tension being a measurement spread. Arbiter: the measured W mass."""
+    band near 80 GeV, the standing collider tension being a measurement spread. External correspondence (what the derived result agrees with, never what makes it true): the measured W mass."""
     import correspondence as Co
     return Co.w_boson_mass_forced()
 def test_xviii8_precision_constants_audit_forced():
@@ -2359,7 +2359,7 @@ def test_xviii8_precision_constants_audit_forced():
     (G13/U1/U2), all fermion mass ratios (M16/M17/M23/M26/M25), all CKM and PMNS mixings and CP phases
     (M27-M31), the cosmological fractions (N8/N1c/N1d), and the leptonic PMNS CP phase proven to the antipode
     (maximal) by the chiral mechanism; no dimensionless constant left unproven, only the absolute scale treated
-    separately. Arbiter: the measured constants."""
+    separately. External correspondence (what the derived result agrees with, never what makes it true): the measured constants."""
     import correspondence as Co
     return Co.precision_constants_audit_forced()
 def test_xviii9_lithium_seven_resolved_forced():
@@ -2367,7 +2367,7 @@ def test_xviii9_lithium_seven_resolved_forced():
     abundance from the baryon-to-photon ratio; the standing discrepancy is against the surface abundance of old
     halo stars (~factor 3 lower), resolved as post-BBN stellar depletion of fragile lithium-7 by descent-driven
     mixing (G17), confirmed by the current record and the lithium-6 non-detection, with the no-zero floor
-    forbidding total destruction. The primordial prediction stands. Arbiter: the primordial versus surface
+    forbidding total destruction. The primordial prediction stands. External correspondence (what the derived result agrees with, never what makes it true): the primordial versus surface
     lithium abundance."""
     import correspondence as Co
     return Co.lithium_seven_resolved_forced()
@@ -2376,7 +2376,7 @@ def test_b12r_absolute_scale_forced_unobservable():
     every scale with the same ratio), so the absolute scale is proven to be physically unobservable, proven not
     to exist as a physical quantity rather than left open; the permitted language has no absolute magnitude,
     only ratios to the One, and the physical content (couplings, mixings, mass ratios) is dimensionless and
-    proven. A positive proven result, not an open gap. Arbiter: the dimensionless physical content."""
+    proven. A positive proven result, not an open gap. External correspondence (what the derived result agrees with, never what makes it true): the dimensionless physical content."""
     import correspondence as Co
     return Co.absolute_scale_forced_unobservable()
 def test_xix1_completeness_audit_forced():
@@ -2384,15 +2384,15 @@ def test_xix1_completeness_audit_forced():
     electromagnetism, gravity, quantum, the proves, the spectrum, the constants, mass ratios, neutrinos,
     mixings, nuclear, nucleosynthesis, the dark sector, epochs, stars, phase transitions, chemistry, life,
     mind, mathematics, spacetime, the anomalies, the absolute scale) mapped to its proving or resolving result,
-    none left unaccounted. Arbiter: the completeness of physics as catalogued."""
+    none left unaccounted. External correspondence (what the derived result agrees with, never what makes it true): the completeness of physics as catalogued."""
     import correspondence as Co
     return Co.completeness_audit_forced()
 def test_xix2_open_question_ledger_forced():
-    """XIX-2: the boundary ledger -- every arbiter gap closed (lithium-7 by XVIII-9, absolute scale by B12-R),
+    """XIX-2: the boundary ledger -- every external check gap closed (lithium-7 by XVIII-9, absolute scale by B12-R),
     every contingent value proven as structure-plus-recorded-initial-condition (the codon assignment X-4 and
     the chirality choice X-5 are logged seeds of this universe's run, not open physics, with their structure
     proven), and the deeper prime-asymptotic a named extension carrying its construction; the decisive check is
-    that no result in the corpus is tagged open. Arbiter: the boundary of the theory, nothing of the physics
+    that no result in the corpus is tagged open. External correspondence (what the derived result agrees with, never what makes it true): the boundary of the theory, nothing of the physics
     left open."""
     import correspondence as Co
     return Co.open_question_ledger_forced()
@@ -2402,30 +2402,119 @@ def test_xix3_forced_prediction_ledger_forced():
     falsifiable register (neutrino ordering/splitting/sum, leptonic CP, the vacuum-period structure, the
     universal threshold, the no-zero floor, feed-forward non-consciousness, gauge-inert dark matter, dark
     energy at -1, strong-CP alignment, the W mass, lithium depletion, the unobservable absolute scale), each
-    with an explicit falsification condition. Arbiter: future measurement."""
+    with an explicit falsification condition. External correspondence (what the derived result agrees with, never what makes it true): future measurement."""
     import correspondence as Co
     return Co.forced_prediction_ledger_forced()
 def test_xix4_single_axiom_audit_forced():
     """XIX-4: the single-axiom audit -- mechanically, the whole corpus rests on the One and the fold alone (a
     clean no-apparatus gate across every construction is the proof), with no second axiom, no free parameter,
     and nothing tagged open; zero free parameters across full coverage, formalizing XVII-6 across the expanded
-    work. Arbiter: the dependency graph."""
+    work. External correspondence (what the derived result agrees with, never what makes it true): the dependency graph."""
     import correspondence as Co
     return Co.single_axiom_audit_forced()
 def test_xix5_reproduction_at_scale_audit_forced():
     """XIX-5: the reproduction-at-scale audit -- at the full expanded scale the whole corpus still reproduces
     from a single command, the no-apparatus gate stays clean, coverage stays complete, and the two masters stay
     byte-identical; the theory is a checkable artifact at scale, failing loudly if any forbidden construct
-    enters. Arbiter: the one-command reproduction."""
+    enters. External correspondence (what the derived result agrees with, never what makes it true): the one-command reproduction."""
     import correspondence as Co
     return Co.reproduction_at_scale_audit_forced()
 def test_xix6_final_assembly_forced():
     """XIX-6: the final assembly -- the complete master, the complete manifest of every proven result, and the
     one-command reproduction gathered into the finished theory of all; every phase I-XIX and the closing
-    chapters done, both flagged arbiter gaps (lithium-7, absolute scale) proven closed, nothing of the physics
-    open, the whole built from one axiom and one operation. Arbiter: the assembled artifact."""
+    chapters done, both flagged external check gaps (lithium-7, absolute scale) proven closed, nothing of the physics
+    open, the whole built from one axiom and one operation. External correspondence (what the derived result agrees with, never what makes it true): the assembled artifact."""
     import correspondence as Co
     return Co.final_assembly_forced()
+def test_b3n_five_sector_three_generations():
+    """B-3N: the five-sector standing modes force exactly three lepton generations and forbid a fourth, the
+    bridge B3 logged as missing. The m-fold has exactly m-less-two interior standing modes (fixed points at
+    k/(m-1)); the five-fold has exactly three (the quarters 1/4, 1/2, 3/4), the lepton sector sits at the number
+    five (M18, the minimal binary covering depth over the generation volume 27), and the fourth candidate
+    collapses to the One. Agrees with N3 (exactly three, no fourth) and T2, and links covering depth to
+    generation count. External correspondence (what the derived result agrees with, never what makes it true): the three-generation structure and the strict no-fourth bound."""
+    import correspondence as Co
+    return Co.five_fold_standing_modes_force_three_generations()
+def test_b4n_half_one_unifies_all_sectors():
+    """B-4N: the half-One is the single standing mode every prime interaction sector above the fundamental fold
+    holds in common -- the unifying center. Each m-fold divides the One into m-less-one parts and stands at the
+    interior points; the half-One is a standing mode of every odd-m (prime>2) sector, while the fundamental
+    two-fold has none (pure motion, the live vacuum). The half-One is the unique self-antipodal magnitude and
+    folds to unison, where the corpus already places the two-preimage structure (D7c), observation collapse
+    (C2s/C3s), maximal CP (XVIII-2), and the lock (A-2). The unity is a shared center, not a fifth force.
+    External correspondence (what the derived result agrees with, never what makes it true): the shared antipodal center across all sectors."""
+    import correspondence as Co
+    return Co.half_one_unifies_all_sectors()
+def test_b5n_prime_sector_confining_ladder():
+    """B-5N: the prime interaction sectors form a unified ladder of confining structures around one shared
+    center, the half-One, not a set of separate forces. Each prime sector's kinds neutralise by antipodal
+    pairing (each kind j/p with its antipode (p-j)/p composing to the One), contributing (p-1)/2 pairs: the
+    3-sector is colour (one pair, the strong force), the 5-sector the lepton generations (two pairs), the
+    7-sector three pairs, and upward, each prime adding its pairs around the single shared center. The
+    framework's form of grand unification: the sectors were never separate. External correspondence (what the derived result agrees with, never what makes it true): the antipodal neutral
+    closure of every prime sector around the shared center."""
+    import correspondence as Co
+    return Co.prime_sector_confining_ladder()
+def test_b6n_prime_sector_ladder_bounded_at_seven():
+    """B-6N: the realised fundamental prime-charge sectors are exactly the primes up to seven -- two, three,
+    five, seven -- bounded by the deepest realised covering depth seven (B20, the down quark), with no
+    fundamental sector beyond. Each has a corpus anchor: 2 the fold (R5), 3 the spatial dimension (D9g), 5 the
+    lepton covering depth (M18), 7 the deepest fermion depth (B20/M23/M26, and 2^7 in the EM coupling A-2). A
+    sector with a prime charge above seven, or a realised covering depth beyond seven, would break it. External correspondence (what the derived result agrees with, never what makes it true): 
+    the realised covering depths and the prime sectors anchored within them."""
+    import correspondence as Co
+    return Co.prime_sector_ladder_bounded_at_seven()
+def test_b7n_two_new_prime_charge_forces():
+    """B-7N: by the framework's own force criterion (irreducible prime fold + binding coupling (p-1)/p +
+    confining p-charge), there are four fundamental prime-charge forces at 2, 3, 5, 7. Two are known
+    (electroweak, strong); the 5-force (5-charge, coupling 4/5) and 7-force (7-charge, coupling 6/7) are
+    fundamental interactions the standard account lacks, produced by the identical construction. Couplings grow
+    with the prime (1/2, 2/3, 4/5, 6/7) so the higher forces bind more strongly. External correspondence (what the derived result agrees with, never what makes it true): the force criterion
+    applied identically across all sectors."""
+    import correspondence as Co
+    return Co.two_new_prime_charge_forces()
+def test_viii8_expansion_history_forced():
+    """VIII-8: the dimensionless expansion history E^2(z)=(H/H0)^2 = two-thirds + one-third*(1+z)^3, forced from
+    flatness (N1e), the parts-of-One density split two-thirds vacuum / one-third matter (N1e), w=-1 non-diluting
+    vacuum (N1d), and the cube law of the proven three dimensions (D9g). E^2 is the One today; rises by the cube
+    law with redshift. Forced, not fitted -- every coefficient a proven part of the One. External correspondence
+    (what the derived result agrees with, never what makes it true): the flat w=-1 expansion form with vacuum
+    two-thirds, matter one-third."""
+    import correspondence as Co
+    return Co.expansion_history_forced()
+def test_viii9_acceleration_transition_forced():
+    """VIII-9: the two characteristic redshifts of the expansion history forced exactly from the density split
+    (VIII-8): matter-vacuum equality at (1+z)^3 = vac/mat = 2 (z~0.26), acceleration onset at (1+z)^3 =
+    2*vac/mat = 4 (z~0.587). Exact parts-of-One ratios, none fitted; the redshift values are the external cube-
+    root read. External correspondence (what the derived result agrees with, never what makes it true): the
+    measured matter-vacuum equality (~0.3) and the cosmic-acceleration transition / cosmic jerk (~0.6)."""
+    import correspondence as Co
+    return Co.acceleration_transition_forced()
+def test_viii10_deceleration_parameter_forced():
+    """VIII-10: the present-day deceleration parameter forced to magnitude one-half (accelerating) from the
+    density split (VIII-8): one-half the matter part (one-sixth) separated from the vacuum part (two-thirds) is
+    one-half. Exact, none fitted; the negative sign is the accelerating direction. External correspondence (what
+    the derived result agrees with, never what makes it true): the measured present-day deceleration parameter,
+    about minus one-half to minus six-tenths."""
+    import correspondence as Co
+    return Co.deceleration_parameter_forced()
+def test_viii11_matter_fraction_evolution_forced():
+    """VIII-11: the matter density fraction Omega_m(z) forced exactly from the expansion history (VIII-8):
+    (mat*(1+z)^3)/(vac+mat*(1+z)^3) = 1/3 today, 4/5 at factor two, rising toward the One (matter-domination).
+    The growth-relevant quantity, exact rationals, none fitted. External correspondence (what the derived
+    result agrees with, never what makes it true): the measured matter-fraction evolution and growth history."""
+    import correspondence as Co
+    return Co.matter_fraction_evolution_forced()
+def test_viii12_matter_fraction_tower_forced():
+    """VIII-12: the present cosmological matter fraction forced to five-sixteenths by the covering tower
+    structure (N8b): tower 2^5=32, vacuum part (tower - 2*depth)/tower = 22/32 = 11/16, matter 5/16. Refines the
+    leading 2/3 split (VIII-8) to its exact value; both sum to the One (flatness). Built from the same volume,
+    depth, tower that force the dark-to-baryon ratio, nothing fitted. External correspondence (what the derived
+    result agrees with, never what makes it true): the measured matter fraction ~0.315 and vacuum ~0.685; the
+    forced 5/16=0.3125, 11/16=0.6875, and against DESI BAO + Pantheon+ SN with full covariance the forced value
+    matches best-fit LambdaCDM to within Delta-chi-squared of order one tenth."""
+    import correspondence as Co
+    return Co.matter_fraction_tower_forced()
 def test_b16_single_ruler_provably_free():
     """B16: the theory is one dimensionless structure (mass-part = take(ONE, coupling)) placed by a single
     ruler; the absolute scale is the single quantity not yet proven (open, under investigation)."""
@@ -2449,7 +2538,7 @@ def test_d9p2_continuum_limit_exhibited():
 def test_t2_generation_count():
     """T2: the proven generation count -- the tripling fold's fibre carries exactly three kinds
        (D7b/U7), the same proven mechanism as the three colours; measured three generations is the
-       arbiter only."""
+       external check only."""
     import correspondence as Co
     return Co.generation_count_forced()
 def test_b15_anchor_depth():
@@ -2572,12 +2661,12 @@ def test_m17_charged_lepton_ratios():
     return Co.charged_lepton_ratios_forced()
 def test_m16_lepton_masses_two_invariants():
     """M16: the charged-lepton mass ratios from two invariants -- Koide proven to 1/6 (M15) plus the
-    second invariant 1/(2*3^5) (one arbiter-set depth) -- reproducing both measured ratios to ~0.6%."""
+    second invariant 1/(2*3^5) (one external check-set depth) -- reproducing both measured ratios to ~0.6%."""
     import correspondence as Co
     return Co.lepton_masses_two_invariants()
 def test_m15_koide_value():
     """M15: the framework proves the charged-lepton Koide value 2/3 = (m-1)/m, the midpoint of the proven
-    range [1/m, 1]; the measured Koide ratio (0.66666) is the arbiter, meeting it to five digits."""
+    range [1/m, 1]; the measured Koide ratio (0.66666) is the external check, meeting it to five digits."""
     import correspondence as Co
     return Co.koide_value_forced()
 def test_m14_reach_ratio_shape():
@@ -2622,7 +2711,7 @@ def test_b14_discriminating_prediction():
        exactly at every depth -- a proven tie between two observables the standard account measures
        independently and does not prove. Stated as a falsifiable prediction with the framework's own
        proven rung-spacing as the tolerance: the measured mixing and measured W/Z mass-squared ratio
-       must sum to the One within that proven resolution. Forced value fixed first; measured pair the arbiter."""
+       must sum to the One within that proven resolution. Forced value fixed first; measured pair the external check."""
     import correspondence as Co
     return Co.discriminating_prediction_forced()
 def test_b13_unison_order():

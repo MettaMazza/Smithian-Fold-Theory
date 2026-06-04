@@ -2,6 +2,7 @@
 every claim covered, scale to ceiling, one-pass derivation all-proven."""
 import subprocess, sys
 gates=[("gate integrity","gate_integrity.py"),
+       ("discovery integrity","discovery_integrity.py"),
        ("no apparatus","no_apparatus_gate.py"),
        ("claim coverage","coverage_pure.py"),
        ("scale to ceiling","stress_pure.py"),
