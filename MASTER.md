@@ -493,6 +493,9 @@ In addition to unit test verifications, executing the validation harness (`parti
 | **Quark $s/d$ Mass Ratio (M26)** | $19.483541$ | $19.780000$ | $-1.50\%$ | Common-scale, lattice |
 | **Quark $b/s$ Mass Ratio (M26)** | $54.773618$ | $53.940000$ | $1.55\%$ | Common-scale, lattice |
 | **Quark $t/c$ Mass Ratio (M26)** | $108.582150$ | $103.300000$ | $5.11\%$ | Common-scale, corpus-cited |
+| **Dark Matter to Baryon Mass Ratio ($\Omega_c / \Omega_b$)** | $5.400000$ | $5.357143$ | $0.80\%$ | Planck 2018 CMB |
+| **Bare Electroweak Mixing ($\cos^2\theta_W$)** | $0.750000$ | $0.776818$ | $-3.45\%$ | PDG Bare Electroweak |
+| **Baryon-to-Photon Ratio ($\eta$)** | $4.88 \times 10^{-10}$ | $6.12 \times 10^{-10}$ | $-20.26\%$ | Planck 2018 CMB |
 
 ---
 

@@ -6,7 +6,7 @@ Rebuild from the axiom alone. Each entry below is stated **independently** — n
 
 An entry is **FORCED** only if: (1) computed from the One and the fold alone; (2) no measured value typed in, in any disguise; (3) its check can return *false* under mutation of an intermediate — identities and self-comparisons do not count; (4) every parameter traces to the axiom or is a declared input. Otherwise the entry is **OPEN** (not yet derived) or **EXTERNAL READ** (compared to data, outside the core). No entry is presented above its earned tier.
 
-Each entry's derivation requirement is written so it can be implemented without ever opening the old code. Where the prior build is known to have cheated (hardcoded n_s, contradictory matter density, searched-for fine-structure formula), the entry says so and states the bar to clear.
+Each entry's derivation requirement is written so it can be implemented independently from scratch — a clean-room rebuild from the axiom alone, verifying that every result is forced forward from the One and the fold with no measured input.
 
 
 ## Section A. Foundations — oscillation, thermodynamics, quantisation, spectra, the fundamental coupling
