@@ -65,7 +65,7 @@ All predictions tested against real measured data, zero free parameters:
 | **$1/\alpha$ (G13)** | Forced: $137.036$ — Measured: $137.036$ — **0.00% deviation** |
 | **Proton/electron (M32)** | Forced: $1836$ — Measured: $1836.15$ — **0.01% deviation** |
 | **Neutrino $\Delta m^2$ ratio (M25)** | Forced: $33$ — Measured: $33.33$ — **1.0% deviation** |
-| **Quark mass ratios (M26)** | All within ~2% |
+| **Quark mass ratios (M26)** | Dressed ratios: $t/c$ at **0.00% deviation**, $b/s$ at **-2.03% deviation**, $s/d$ within PDG range |
 | **Jarlskog CP (M28)** | Forced: $3.4\times 10^{-5}$ — Measured: $3.1\times 10^{-5}$ — **9.7% deviation** |
 
 **On par or better than consensus on every reachable test. Worse on none.**

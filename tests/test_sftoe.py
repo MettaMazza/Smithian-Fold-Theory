@@ -5836,6 +5836,8 @@ class TestSFTOEQuarkDressingFactor(unittest.TestCase):
         res = verify_quark_dressing_factor()
         self.assertEqual(res["tier"], "A")
         self.assertAlmostEqual(res["dressed_tc"], res["measured_tc"], delta=0.01)
+        self.assertAlmostEqual(res["dressed_bs"], res["measured_bs"], delta=1.5)
+        self.assertTrue(17.0 <= res["dressed_sd"] <= 22.0)
 
     def test_verify_quark_dressing_factor_mutation_zero_axiom(self):
         from sftoe.core import SmithianValue

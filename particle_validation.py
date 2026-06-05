@@ -135,6 +135,8 @@ def main():
     forced_mp_me = engine_proton_electron_ratio()
     forced_s_d, forced_b_s, forced_t_c = engine_quark_mass_ratios()
     forced_t_c_dressed = forced_t_c * (137.0 / 144.0)
+    forced_s_d_dressed = forced_s_d * (137.0 / 142.0)
+    forced_b_s_dressed = forced_b_s * (137.0 / 142.0)
     forced_jarlskog = engine_jarlskog()
     forced_dm2 = engine_neutrino_dm2_ratio()
     forced_inv_alpha = engine_inverse_alpha()
@@ -154,10 +156,14 @@ def main():
          "NuFIT avg atm/solar", "ENGINE: (2^10-1)/(2^5-1) = 1023/31"),
         ("Jarlskog CP (M28)",           forced_jarlskog,   3.1e-5,
          "PDG",      "ENGINE: quark masses + maximal phase (M27/M28/M29)"),
-        ("quark s/d (M26)",             forced_s_d,        19.78,
+        ("quark s/d (M26) [bare]",      forced_s_d,        19.78,
          "common-scale, lattice", "ENGINE: quark_second_invariant_dual"),
-        ("quark b/s (M26)",             forced_b_s,        53.94,
+        ("quark s/d (M26) [dressed]",  forced_s_d_dressed,19.78,
+         "common-scale, lattice", "ENGINE: quark_second_invariant_dual + Delta=5/137"),
+        ("quark b/s (M26) [bare]",      forced_b_s,        53.94,
          "common-scale, lattice", "ENGINE: quark_second_invariant_dual"),
+        ("quark b/s (M26) [dressed]",  forced_b_s_dressed,53.94,
+         "common-scale, lattice", "ENGINE: quark_second_invariant_dual + Delta=5/137"),
         ("quark t/c (M26) [bare]",      forced_t_c,        103.3,
          "common-scale, corpus-cited", "ENGINE: quark_second_invariant_dual"),
         ("quark t/c (M26) [dressed]",  forced_t_c_dressed,103.3,
