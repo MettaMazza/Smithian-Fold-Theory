@@ -108,6 +108,7 @@ from sftoe import (
     verify_quark_mass_confinement_lift,
     verify_neutrino_mass_ladder,
     verify_quark_second_invariant,
+    verify_quark_dressing_factor,
     verify_ckm_magnitudes,
     verify_cp_phase_antipode,
     verify_ckm_third_entry_closed,
@@ -5828,6 +5829,27 @@ class TestSFTOEQuarkSecondInvariant(unittest.TestCase):
             self.assertFalse(res.get("external_read_matched", True))
         finally:
             proof.Fraction = original_fraction
+
+
+class TestSFTOEQuarkDressingFactor(unittest.TestCase):
+    def test_verify_quark_dressing_factor_success(self):
+        res = verify_quark_dressing_factor()
+        self.assertEqual(res["tier"], "A")
+        self.assertAlmostEqual(res["dressed_tc"], res["measured_tc"], delta=0.01)
+
+    def test_verify_quark_dressing_factor_mutation_zero_axiom(self):
+        from sftoe.core import SmithianValue
+        original_init = SmithianValue.__init__
+        try:
+            def bad_init(self_obj, value, trace=None):
+                from fractions import Fraction
+                self_obj.value = Fraction(value)
+                self_obj.trace = None
+            SmithianValue.__init__ = bad_init
+            with self.assertRaises(VerificationError):
+                verify_quark_dressing_factor()
+        finally:
+            SmithianValue.__init__ = original_init
 
 
 class TestSFTOECKMMagnitudes(unittest.TestCase):

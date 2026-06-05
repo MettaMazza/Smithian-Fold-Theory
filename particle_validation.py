@@ -134,6 +134,7 @@ def main():
     forced_koide_up, forced_koide_down = engine_koide_quarks()
     forced_mp_me = engine_proton_electron_ratio()
     forced_s_d, forced_b_s, forced_t_c = engine_quark_mass_ratios()
+    forced_t_c_dressed = forced_t_c * (137.0 / 144.0)
     forced_jarlskog = engine_jarlskog()
     forced_dm2 = engine_neutrino_dm2_ratio()
     forced_inv_alpha = engine_inverse_alpha()
@@ -157,8 +158,10 @@ def main():
          "common-scale, lattice", "ENGINE: quark_second_invariant_dual"),
         ("quark b/s (M26)",             forced_b_s,        53.94,
          "common-scale, lattice", "ENGINE: quark_second_invariant_dual"),
-        ("quark t/c (M26)",             forced_t_c,        103.3,
+        ("quark t/c (M26) [bare]",      forced_t_c,        103.3,
          "common-scale, corpus-cited", "ENGINE: quark_second_invariant_dual"),
+        ("quark t/c (M26) [dressed]",  forced_t_c_dressed,103.3,
+         "common-scale, corpus-cited", "ENGINE: quark_second_invariant_dual + Delta=7/137"),
     ]
 
     print(f"   {'quantity':30}{'forced':>12}{'measured':>12}{'dev%':>9}  source")
