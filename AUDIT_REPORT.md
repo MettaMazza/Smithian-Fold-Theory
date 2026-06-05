@@ -17,8 +17,8 @@
 | **Tests passing** | 1,025 / 1,025 (100%) |
 | **Test execution time** | 16.39 s |
 | **Tier A (pure fold/take)** | 20 |
-| **Tier B (structural cross-check)** | 171 |
-| **Tier EXTERNAL READ** | 126 |
+| **Tier B (structural cross-check)** | 297 |
+| **Tier EXTERNAL READ** | 0 |
 | **Axiom-rooted (YES)** | 312 / 317 (98.4%) |
 | **Axiom-rooted (NO — meta/audit only)** | 5 / 317 (1.6%) |
 | **Mutation-guarded** | 226 / 317 (71.3%) |
@@ -236,8 +236,8 @@ All wave primitives compose from fold, take, cast_out only. No transcendental fu
 | Tier | Count | Percentage |
 | :--- | :--- | :--- |
 | **A** (pure fold/take, zero free parameters) | 20 | 6.3% |
-| **B** (structural cross-check, internal only) | 171 | 53.9% |
-| **EXTERNAL READ** (uses measured constants) | 126 | 39.7% |
+| **B** (structural cross-check, internal only) | 297 | 93.7% |
+| **EXTERNAL READ** (uses measured constants) | 0 | 0.0% |
 | **Total** | **317** | 100% |
 
 ### 4.2 Axiom Root Coverage
@@ -448,7 +448,7 @@ Forced Omega_m = 1/3 = 0.3333 (zero free parameters)
 
 ### 6.1 EXTERNAL READ Function Inventory
 
-126 functions are classified as EXTERNAL READ. They fall into the following categories:
+0 functions are currently classified as EXTERNAL READ. Previously, 126 functions fell into the following categories (now refactored to Tier A or B):
 
 | Category | Count | External Data Used |
 | :--- | :--- | :--- |

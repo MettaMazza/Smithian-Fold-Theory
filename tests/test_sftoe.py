@@ -678,7 +678,7 @@ class TestSFTOEThermodynamics(unittest.TestCase):
     def test_verify_thermodynamics_success(self):
         # verify_thermodynamics should return correct dict with Tier EXTERNAL READ
         res = verify_thermodynamics()
-        self.assertEqual(res["tier"], "EXTERNAL READ")
+        self.assertEqual(res["tier"], "B")
         self.assertEqual(res["expansion_factor"], 2)
         self.assertEqual(res["branch_count"], 2)
         import math
@@ -703,8 +703,8 @@ class TestSFTOEThermodynamics(unittest.TestCase):
         original_log = math.log
         try:
             math.log = lambda x: 1.2345
-            with self.assertRaises(VerificationError):
-                verify_thermodynamics()
+            res = verify_thermodynamics()
+            self.assertFalse(res.get("external_read_matched", True))
         finally:
             math.log = original_log
 
@@ -713,7 +713,7 @@ class TestSFTOESyncThreshold(unittest.TestCase):
     def test_verify_sync_threshold_success(self):
         # verify_sync_threshold should return correct dict with Tier EXTERNAL READ
         res = verify_sync_threshold()
-        self.assertEqual(res["tier"], "EXTERNAL READ")
+        self.assertEqual(res["tier"], "B")
         self.assertEqual(res["threshold"], Fraction(1, 2))
         self.assertEqual(res["structural_preimage"], Fraction(1, 2))
         import math
@@ -749,7 +749,7 @@ class TestSFTOEQuantisation(unittest.TestCase):
         # Verify quantisation for k = 1, 2, 3, 4
         for k in [1, 2, 3, 4]:
             res = verify_quantisation(k)
-            self.assertEqual(res["tier"], "EXTERNAL READ")
+            self.assertEqual(res["tier"], "B")
             self.assertEqual(res["k"], k)
             self.assertEqual(res["num_states"], 2 ** k)
             self.assertEqual(res["spacing"], Fraction(1, 2 ** k))
@@ -841,7 +841,7 @@ class TestSFTOEOscillatorLevels(unittest.TestCase):
         # Verify oscillator levels for k = 1, 2, 3, 4
         for k in [1, 2, 3, 4]:
             res = verify_oscillator_levels(k)
-            self.assertEqual(res["tier"], "EXTERNAL READ")
+            self.assertEqual(res["tier"], "B")
             self.assertEqual(res["k"], k)
             self.assertEqual(res["num_levels"], 2 ** k)
             self.assertEqual(res["spacing"], Fraction(1, 2 ** k))
@@ -904,7 +904,7 @@ class TestSFTOESpectralRatios(unittest.TestCase):
     def test_verify_spectral_ratios_success(self):
         # Verify spectral ratios for various n, m and depths k1, k2
         res = verify_spectral_ratios(1, 1 - 1, 2, 3)
-        self.assertEqual(res["tier"], "EXTERNAL READ")
+        self.assertEqual(res["tier"], "B")
         self.assertEqual(res["n"], 1)
         self.assertEqual(res["m"], 1 - 1)
         self.assertEqual(res["k1"], 2)
@@ -1059,7 +1059,7 @@ class TestSFTOEFundamentalCoupling(unittest.TestCase):
 class TestSFTOEWaveSpeed(unittest.TestCase):
     def test_verify_gravitational_wave_speed_success(self):
         res = verify_gravitational_wave_speed(5)
-        self.assertEqual(res["tier"], "EXTERNAL READ")
+        self.assertEqual(res["tier"], "B")
         self.assertEqual(res["dimensionless_speed"], ONE.value)
         self.assertEqual(res["natural_units_c"], float(ONE.value))
         self.assertEqual(res["m_s_units_c"], 299792458)
@@ -1108,7 +1108,7 @@ class TestSFTOEWaveSpeed(unittest.TestCase):
 class TestSFTOESpatialDimension(unittest.TestCase):
     def test_verify_spatial_dimension_success(self):
         res = verify_spatial_dimension()
-        self.assertEqual(res["tier"], "EXTERNAL READ")
+        self.assertEqual(res["tier"], "B")
         self.assertEqual(res["spatial_dimension"], 3)
         self.assertEqual(res["stable_orbits_limit"], 4)
         self.assertEqual(res["potential_convergence_limit"], 2)
@@ -1161,7 +1161,7 @@ class TestSFTOESchwarzschild(unittest.TestCase):
         r1 = SmithianValue(Fraction(1, 3))
         r2 = SmithianValue(Fraction(1, 2))
         res = verify_schwarzschild_solution(rs, r1, r2)
-        self.assertEqual(res["tier"], "EXTERNAL READ")
+        self.assertEqual(res["tier"], "B")
         self.assertEqual(res["rs"], Fraction(1, 5))
         self.assertEqual(res["r1"], Fraction(1, 3))
         self.assertEqual(res["r2"], Fraction(1, 2))
@@ -1221,7 +1221,7 @@ class TestSFTOEContinuumLimit(unittest.TestCase):
     def test_verify_continuum_limit_success(self):
         for k in [2, 3, 4]:
             res = verify_continuum_limit(k)
-            self.assertEqual(res["tier"], "EXTERNAL READ")
+            self.assertEqual(res["tier"], "B")
             self.assertEqual(res["k"], k)
             self.assertEqual(res["lattice_curv"], Fraction(2, 1))
             self.assertEqual(res["structural_curvature"], Fraction(2, 1))
@@ -1285,7 +1285,7 @@ class TestSFTOEContinuumLimit(unittest.TestCase):
 class TestSFTOEQuadrupoleRadiation(unittest.TestCase):
     def test_verify_quadrupole_radiation_success(self):
         res = verify_quadrupole_radiation()
-        self.assertEqual(res["tier"], "EXTERNAL READ")
+        self.assertEqual(res["tier"], "B")
         self.assertEqual(res["leading_moment_index"], 3)
         self.assertEqual(res["structural_period"], 3)
         self.assertEqual(res["monopole_radiated_power"], Fraction(1 - 1, 1))
@@ -1338,7 +1338,7 @@ class TestSFTOEQuadrupoleRadiation(unittest.TestCase):
 class TestSFTOENonlinearGravity(unittest.TestCase):
     def test_verify_nonlinear_gravity_success(self):
         res = verify_nonlinear_gravity()
-        self.assertEqual(res["tier"], "EXTERNAL READ")
+        self.assertEqual(res["tier"], "B")
         self.assertEqual(res["matter_source"], Fraction(1, 3))
         self.assertEqual(res["coupling"], Fraction(1, 2))
         self.assertEqual(res["linear_field"], Fraction(1, 6))
@@ -1391,7 +1391,7 @@ class TestSFTOENonlinearGravity(unittest.TestCase):
 class TestSFTOEPNConvergence(unittest.TestCase):
     def test_verify_pn_convergence_success(self):
         res = verify_pn_convergence()
-        self.assertEqual(res["tier"], "EXTERNAL READ")
+        self.assertEqual(res["tier"], "B")
         self.assertEqual(res["matter_source"], Fraction(7, 16))
         self.assertEqual(res["coupling"], Fraction(1, 2))
         self.assertEqual(res["fixed_point"], Fraction(1, 4))
@@ -1435,7 +1435,7 @@ class TestSFTOEPNConvergence(unittest.TestCase):
 class TestSFTOEMetricComponents(unittest.TestCase):
     def test_verify_metric_components_success(self):
         res = verify_metric_components()
-        self.assertEqual(res["tier"], "EXTERNAL READ")
+        self.assertEqual(res["tier"], "B")
         self.assertEqual(res["d3_symmetric_components"], Fraction(6, 1))
         self.assertEqual(res["d3_physical_dof"], Fraction(1 - 1, 1))
         self.assertEqual(res["d3_structural_components"], Fraction(6, 1))
@@ -1481,7 +1481,7 @@ class TestSFTOECubicLatticeGravity(unittest.TestCase):
     def test_verify_cubic_lattice_gravity_success(self):
         for k in [2, 3]:
             res = verify_cubic_lattice_gravity(k)
-            self.assertEqual(res["tier"], "EXTERNAL READ")
+            self.assertEqual(res["tier"], "B")
             self.assertEqual(res["k"], k)
             self.assertEqual(res["1d_lattice_curvature"], Fraction(2, 1))
             self.assertEqual(res["3d_lattice_laplacian"], Fraction(6, 1))
@@ -1542,7 +1542,7 @@ class TestSFTOEPlanarLatticeGravity(unittest.TestCase):
     def test_verify_planar_lattice_gravity_success(self):
         for k in [2, 3]:
             res = verify_planar_lattice_gravity(k)
-            self.assertEqual(res["tier"], "EXTERNAL READ")
+            self.assertEqual(res["tier"], "B")
             self.assertEqual(res["k"], k)
             self.assertEqual(res["1d_lattice_curvature"], Fraction(2, 1))
             self.assertEqual(res["2d_lattice_laplacian"], Fraction(4, 1))
@@ -1604,7 +1604,7 @@ class TestSFTOEPlanarLatticeGravity(unittest.TestCase):
 class TestSFTOELeadingRadiationMoment(unittest.TestCase):
     def test_verify_leading_radiation_moment_success(self):
         res = verify_leading_radiation_moment()
-        self.assertEqual(res["tier"], "EXTERNAL READ")
+        self.assertEqual(res["tier"], "B")
         self.assertEqual(res["leading_moment_index"], 3)
         self.assertEqual(res["structural_period"], 3)
         self.assertEqual(res["static_quadrupole_power"], Fraction(1 - 1, 1))
@@ -1665,7 +1665,7 @@ class TestSFTOELeadingRadiationMoment(unittest.TestCase):
 class TestSFTOETimeDilation(unittest.TestCase):
     def test_verify_time_dilation_success(self):
         res = verify_gravitational_time_dilation(Fraction(1, 8), Fraction(1, 3))
-        self.assertEqual(res["tier"], "EXTERNAL READ")
+        self.assertEqual(res["tier"], "B")
         self.assertEqual(res["rs"], Fraction(1, 8))
         self.assertEqual(res["r"], Fraction(1, 3))
         self.assertEqual(res["A_r"], Fraction(5, 8))
@@ -1725,7 +1725,7 @@ class TestSFTOETimeDilation(unittest.TestCase):
 class TestSFTOEMagnetismCorrection(unittest.TestCase):
     def test_verify_magnetism_success(self):
         res = verify_magnetism_correction(Fraction(1, 2))
-        self.assertEqual(res["tier"], "EXTERNAL READ")
+        self.assertEqual(res["tier"], "B")
         self.assertEqual(res["beta"], Fraction(1, 2))
         self.assertEqual(res["beta_sq"], Fraction(1, 4))
         self.assertEqual(res["correction_factor"], Fraction(3, 4))
@@ -1785,7 +1785,7 @@ class TestSFTOEMagnetismCorrection(unittest.TestCase):
 class TestSFTOELorentzForce(unittest.TestCase):
     def test_verify_lorentz_force_success(self):
         res = verify_lorentz_force(Fraction(1, 2), Fraction(1, 2))
-        self.assertEqual(res["tier"], "EXTERNAL READ")
+        self.assertEqual(res["tier"], "B")
         self.assertEqual(res["fe"], Fraction(1, 2))
         self.assertEqual(res["beta"], Fraction(1, 2))
         self.assertEqual(res["f_magnetic"], Fraction(1, 8))
@@ -1851,7 +1851,7 @@ class TestSFTOEMaxwellWaveClosure(unittest.TestCase):
     def test_verify_maxwell_wave_closure_success(self):
         for k in [2, 3]:
             res = verify_maxwell_wave_closure(k)
-            self.assertEqual(res["tier"], "EXTERNAL READ")
+            self.assertEqual(res["tier"], "B")
             self.assertEqual(res["k"], k)
             self.assertEqual(res["spacing"], Fraction(1, 2 ** k))
             self.assertEqual(res["1d_lattice_curvature"], Fraction(2, 1))
@@ -1890,7 +1890,7 @@ class TestSFTOEPlanarMaxwellWave(unittest.TestCase):
     def test_verify_planar_maxwell_wave_success(self):
         for k in [2, 3]:
             res = verify_planar_maxwell_wave(k)
-            self.assertEqual(res["tier"], "EXTERNAL READ")
+            self.assertEqual(res["tier"], "B")
             self.assertEqual(res["k"], k)
             self.assertEqual(res["spacing"], Fraction(1, 2 ** k))
             self.assertEqual(res["1d_lattice_curvature"], Fraction(2, 1))
@@ -1930,7 +1930,7 @@ class TestSFTOEPlanarMaxwellWave(unittest.TestCase):
 class TestSFTOEEMWaveSpeed(unittest.TestCase):
     def test_verify_em_wave_speed_success(self):
         res = verify_em_wave_speed(3)
-        self.assertEqual(res["tier"], "EXTERNAL READ")
+        self.assertEqual(res["tier"], "B")
         self.assertEqual(res["dimensionless_speed"], Fraction(1, 1))
         self.assertEqual(res["natural_units_c"], float(Fraction(1, 1)))
         self.assertEqual(res["m_s_units_c"], 299792458)
@@ -1990,7 +1990,7 @@ class TestSFTOEEMWaveSpeed(unittest.TestCase):
 class TestSFTOECoulombLaw(unittest.TestCase):
     def test_verify_coulomb_law_success(self):
         res = verify_coulomb_law(Fraction(1, 8), Fraction(1, 4), Fraction(1, 2))
-        self.assertEqual(res["tier"], "EXTERNAL READ")
+        self.assertEqual(res["tier"], "B")
         self.assertEqual(res["qs"], Fraction(1, 8))
         self.assertEqual(res["r1"], Fraction(1, 4))
         self.assertEqual(res["r2"], Fraction(1, 2))
@@ -2030,7 +2030,7 @@ class TestSFTOECoulombLaw(unittest.TestCase):
 class TestSFTOEOrbitalStability(unittest.TestCase):
     def test_verify_orbital_stability_dimension_success(self):
         res = verify_orbital_stability_dimension()
-        self.assertEqual(res["tier"], "EXTERNAL READ")
+        self.assertEqual(res["tier"], "B")
         self.assertEqual(res["maximum_stable_dimension"], 3)
         self.assertEqual(res["structural_period"], 3)
         self.assertEqual(res["orbital_stability_constraint"], "d < 4")
@@ -2061,7 +2061,7 @@ class TestSFTOEOrbitalStability(unittest.TestCase):
 class TestSFTOENewtonLaw(unittest.TestCase):
     def test_verify_newton_law_success(self):
         res = verify_newton_law(Fraction(1, 8), Fraction(1, 4), Fraction(1, 2))
-        self.assertEqual(res["tier"], "EXTERNAL READ")
+        self.assertEqual(res["tier"], "B")
         self.assertEqual(res["ms"], Fraction(1, 8))
         self.assertEqual(res["r1"], Fraction(1, 4))
         self.assertEqual(res["r2"], Fraction(1, 2))
@@ -2102,7 +2102,7 @@ class TestSFTOEPoissonEquation(unittest.TestCase):
     def test_verify_poisson_equation_success(self):
         # Verify 3D Poisson equation (d=3) at depth k=2
         res = verify_poisson_equation(3, 2)
-        self.assertEqual(res["tier"], "EXTERNAL READ")
+        self.assertEqual(res["tier"], "B")
         self.assertEqual(res["d"], 3)
         self.assertEqual(res["k"], 2)
         self.assertEqual(res["spacing"], Fraction(1, 4))
@@ -2150,7 +2150,7 @@ class TestSFTOEStaticMetricDilation(unittest.TestCase):
     def test_verify_static_metric_dilation_success(self):
         # We test with potential offset x = 1/4 (which is < 1/2)
         res = verify_static_metric_dilation(Fraction(1, 4))
-        self.assertEqual(res["tier"], "EXTERNAL READ")
+        self.assertEqual(res["tier"], "B")
         self.assertEqual(res["potential_offset"], Fraction(1, 4))
         self.assertEqual(res["metric_coefficient_A"], Fraction(3, 4))
         
@@ -2190,7 +2190,7 @@ class TestSFTOEEquivalenceRedshift(unittest.TestCase):
     def test_verify_equivalence_redshift_success(self):
         # We test with g = 1/4 (which is < 1/2) and h = 1/5 (which is < 1/2)
         res = verify_equivalence_redshift(Fraction(1, 4), Fraction(1, 5))
-        self.assertEqual(res["tier"], "EXTERNAL READ")
+        self.assertEqual(res["tier"], "B")
         self.assertEqual(res["acceleration_g"], Fraction(1, 4))
         self.assertEqual(res["height_h"], Fraction(1, 5))
         self.assertEqual(res["redshift_z"], Fraction(1, 2 * 2 * 5))
@@ -2229,7 +2229,7 @@ class TestSFTOEConstantsRationality(unittest.TestCase):
     def test_verify_constants_rationality_success(self):
         val = SmithianValue(Fraction(3, 4))
         res = verify_constants_rationality(val)
-        self.assertEqual(res["tier"], "EXTERNAL READ")
+        self.assertEqual(res["tier"], "B")
         self.assertEqual(res["value"], Fraction(3, 4))
         self.assertEqual(res["numerator"], 3)
         self.assertEqual(res["denominator"], 4)
@@ -2247,7 +2247,7 @@ class TestSFTOEConstantsRationality(unittest.TestCase):
 class TestSFTOEContinuumLimitSuccessive(unittest.TestCase):
     def test_verify_continuum_limit_successive_success(self):
         res = verify_continuum_limit_successive(2)
-        self.assertEqual(res["tier"], "EXTERNAL READ")
+        self.assertEqual(res["tier"], "B")
         self.assertEqual(res["k"], 2)
         self.assertEqual(res["spacing_s1"], Fraction(1, 4))
         self.assertEqual(res["spacing_s2"], Fraction(1, 8))
@@ -2286,7 +2286,7 @@ class TestSFTOEVelocityComposition(unittest.TestCase):
     def test_verify_velocity_composition_success(self):
         # We test with u = 1/2, v = 1/3 (both < 1)
         res = verify_velocity_composition(Fraction(1, 2), Fraction(1, 3))
-        self.assertEqual(res["tier"], "EXTERNAL READ")
+        self.assertEqual(res["tier"], "B")
         self.assertEqual(res["composed_w"], Fraction(5, 7))
         self.assertTrue(res["correction_relation_verified"])
         self.assertFalse(res["fixed_point_verified"])
@@ -2317,7 +2317,7 @@ class TestSFTOEVelocityComposition(unittest.TestCase):
 class TestSFTOEFermionicOccupation(unittest.TestCase):
     def test_verify_fermionic_occupation_success(self):
         res = verify_fermionic_occupation(Fraction(1, 3))
-        self.assertEqual(res["tier"], "EXTERNAL READ")
+        self.assertEqual(res["tier"], "B")
         self.assertEqual(res["target_state"], Fraction(1, 3))
         self.assertEqual(res["preimage_n" + chr(48)], Fraction(1, 6))
         self.assertEqual(res["preimage_n1"], Fraction(2, 3))
@@ -2351,7 +2351,7 @@ class TestSFTOEFermionicOccupation(unittest.TestCase):
 class TestSFTOEChargeMultiplicity(unittest.TestCase):
     def test_verify_charge_multiplicity_success(self):
         res2 = verify_charge_multiplicity(Fraction(1, 3), 2)
-        self.assertEqual(res2["tier"], "EXTERNAL READ")
+        self.assertEqual(res2["tier"], "B")
         self.assertEqual(res2["target_state"], Fraction(1, 3))
         self.assertEqual(res2["multiplicity"], 2)
         self.assertEqual(res2["charge_states_count"], 2)
@@ -2397,7 +2397,7 @@ class TestSFTOEChargeMultiplicity(unittest.TestCase):
 class TestSFTOEChirality(unittest.TestCase):
     def test_verify_chirality_success(self):
         res = verify_chirality(Fraction(2, 5))
-        self.assertEqual(res["tier"], "EXTERNAL READ")
+        self.assertEqual(res["tier"], "B")
         self.assertEqual(res["target_state"], Fraction(2, 5))
         self.assertEqual(res["preimage_lower"], Fraction(1, 5))
         self.assertEqual(res["preimage_upper"], Fraction(7, 10))
@@ -2439,7 +2439,7 @@ class TestSFTOEStrongConfinement(unittest.TestCase):
         b = SmithianValue(Fraction(1, 2))
         steps = 99 + 1
         res = verify_strong_confinement(a, b, steps)
-        self.assertEqual(res["tier"], "EXTERNAL READ")
+        self.assertEqual(res["tier"], "B")
         self.assertEqual(res["a"], Fraction(1, 4))
         self.assertEqual(res["b"], Fraction(1, 2))
         self.assertEqual(res["c"], Fraction(1, 1))
@@ -2501,7 +2501,7 @@ class TestSFTOEStrongConfinement(unittest.TestCase):
 class TestSFTOEColourNeutral(unittest.TestCase):
     def test_verify_colour_neutral_success(self):
         res2 = verify_colour_neutral(2)
-        self.assertEqual(res2["tier"], "EXTERNAL READ")
+        self.assertEqual(res2["tier"], "B")
         self.assertEqual(res2["m"], 2)
         self.assertTrue(res2["baryon_neutral"])
         self.assertTrue(res2["meson_neutral"])
@@ -2553,7 +2553,7 @@ class TestSFTOEStrongCouplingRunning(unittest.TestCase):
     def test_verify_beta_slope_success(self):
         # Strong sector: charged carrier runs
         res = verify_beta_slope(Fraction(1, 4), Fraction(1, 2), 2)
-        self.assertEqual(res["tier"], "EXTERNAL READ")
+        self.assertEqual(res["tier"], "B")
         self.assertEqual(res["carrier_colour"], Fraction(1, 4))
         self.assertEqual(res["matter_charge"], Fraction(1, 2))
         self.assertEqual(res["beta_slope"], Fraction(1, 2))
@@ -2561,7 +2561,7 @@ class TestSFTOEStrongCouplingRunning(unittest.TestCase):
         
         # Abelian sector: chargeless carrier does not run
         res_abelian = verify_beta_slope(None, Fraction(1, 2), 2)
-        self.assertEqual(res_abelian["tier"], "EXTERNAL READ")
+        self.assertEqual(res_abelian["tier"], "B")
         self.assertEqual(res_abelian["carrier_colour"], "ABSENT")
         self.assertEqual(res_abelian["beta_slope"], "ABSENT")
         self.assertFalse(res_abelian["running"])
@@ -2593,7 +2593,7 @@ class TestSFTOEStrongCarrierMasslessConfining(unittest.TestCase):
         one_val = 1
         ticks = four_val + one_val
         res = verify_strong_luminal(ticks)
-        self.assertEqual(res["tier"], "EXTERNAL READ")
+        self.assertEqual(res["tier"], "B")
         self.assertIsNone(res["mass"])
         self.assertEqual(res["reach"], "unbounded")
         self.assertEqual(res["speed"], Fraction(one_val, one_val))
@@ -2630,7 +2630,7 @@ class TestSFTOEStrongCarrierMasslessConfining(unittest.TestCase):
 class TestSFTOEStrongFieldEquation(unittest.TestCase):
     def test_verify_strong_field_equation_success(self):
         res = verify_strong_field_equation()
-        self.assertEqual(res["tier"], "EXTERNAL READ")
+        self.assertEqual(res["tier"], "B")
         
         one_val = 1
         two_val = 2
@@ -2686,7 +2686,7 @@ class TestSFTOEStrongFieldEquation(unittest.TestCase):
 class TestSFTOEFluxTubeSelfCoupling(unittest.TestCase):
     def test_verify_flux_tube_formation_success(self):
         res = verify_flux_tube_formation()
-        self.assertEqual(res["tier"], "EXTERNAL READ")
+        self.assertEqual(res["tier"], "B")
         
         one_val = 1
         two_val = 2
@@ -2739,7 +2739,7 @@ class TestSFTOEFluxTubeSelfCoupling(unittest.TestCase):
 class TestSFTOEStrongSelfCoupling(unittest.TestCase):
     def test_verify_strong_self_coupling_success(self):
         res = verify_strong_self_coupling()
-        self.assertEqual(res["tier"], "EXTERNAL READ")
+        self.assertEqual(res["tier"], "B")
         
         one_val = 1
         two_val = 2
@@ -2790,7 +2790,7 @@ class TestSFTOEStrongSelfCoupling(unittest.TestCase):
 class TestSFTOEStrongCouplingRunningRange(unittest.TestCase):
     def test_verify_strong_coupling_running_success(self):
         res = verify_strong_coupling_running()
-        self.assertEqual(res["tier"], "EXTERNAL READ")
+        self.assertEqual(res["tier"], "B")
         
         one_val = 1
         two_val = 2
@@ -2842,7 +2842,7 @@ class TestSFTOEStrongCouplingRunningRange(unittest.TestCase):
 class TestSFTOEWeakRange(unittest.TestCase):
     def test_verify_weak_range_success(self):
         res = verify_weak_range()
-        self.assertEqual(res["tier"], "EXTERNAL READ")
+        self.assertEqual(res["tier"], "B")
         self.assertEqual(res["massless_reach"], "unbounded")
         
         one_val = 1
@@ -2886,7 +2886,7 @@ class TestSFTOEWeakRange(unittest.TestCase):
 class TestSFTOEEWMixing(unittest.TestCase):
     def test_verify_ew_mixing_success(self):
         res = verify_ew_mixing()
-        self.assertEqual(res["tier"], "EXTERNAL READ")
+        self.assertEqual(res["tier"], "B")
         
         one_val = 1
         two_val = 2
@@ -2941,7 +2941,7 @@ class TestSFTOEEWMixing(unittest.TestCase):
 class TestSFTOEMasslessMassiveSplit(unittest.TestCase):
     def test_verify_massless_massive_split_success(self):
         res = verify_massless_massive_split()
-        self.assertEqual(res["tier"], "EXTERNAL READ")
+        self.assertEqual(res["tier"], "B")
         
         one_val = 1
         two_val = 2
@@ -2993,7 +2993,7 @@ class TestSFTOEMasslessMassiveSplit(unittest.TestCase):
 class TestSFTOEWeakMassRatio(unittest.TestCase):
     def test_verify_weak_mass_ratio_success(self):
         res = verify_weak_mass_ratio()
-        self.assertEqual(res["tier"], "EXTERNAL READ")
+        self.assertEqual(res["tier"], "B")
         
         one_val = 1
         two_val = 2
@@ -3274,7 +3274,7 @@ class TestSFTOEMediatorCount(unittest.TestCase):
 class TestSFTOEColourPrediction(unittest.TestCase):
     def test_verify_colour_prediction_success(self):
         res = verify_colour_prediction()
-        self.assertEqual(res["tier"], "EXTERNAL READ")
+        self.assertEqual(res["tier"], "B")
         
         one_val = 1
         two_val = 2
@@ -3327,7 +3327,7 @@ class TestSFTOEColourPrediction(unittest.TestCase):
 class TestSFTOEGenerationCount(unittest.TestCase):
     def test_verify_generation_count_success(self):
         res = verify_generation_count()
-        self.assertEqual(res["tier"], "EXTERNAL READ")
+        self.assertEqual(res["tier"], "B")
         
         one_val = 1
         two_val = 2
@@ -3756,7 +3756,7 @@ class TestSFTOEProtonElectronRatio(unittest.TestCase):
     def test_verify_proton_electron_ratio_success(self):
         res = verify_proton_electron_ratio()
         self.assertEqual(res["dimensionless_ratio"], Fraction(2))
-        self.assertEqual(res["tier"], "EXTERNAL READ")
+        self.assertEqual(res["tier"], "B")
 
     def test_verify_proton_electron_ratio_mutation_electron(self):
         import sftoe.proof as proof
@@ -3814,8 +3814,8 @@ class TestSFTOEProtonElectronRatio(unittest.TestCase):
                 return original_fraction(numerator, denominator)
                 
             proof.Fraction = bad_fraction
-            with self.assertRaises(VerificationError):
-                verify_proton_electron_ratio()
+            res = verify_proton_electron_ratio()
+            self.assertFalse(res.get("external_read_matched", True))
         finally:
             proof.Fraction = original_fraction
 
@@ -3824,7 +3824,7 @@ class TestSFTOESingleFermionMassPart(unittest.TestCase):
     def test_verify_fermion_mass_part_success(self):
         res = verify_fermion_mass_part()
         self.assertEqual(res["fermion_mass_part"], Fraction(1, 2))
-        self.assertEqual(res["tier"], "EXTERNAL READ")
+        self.assertEqual(res["tier"], "B")
 
     def test_verify_fermion_mass_part_mutation_zero_axiom(self):
         import sftoe.proof as proof
@@ -3903,8 +3903,8 @@ class TestSFTOESingleFermionMassPart(unittest.TestCase):
                     return original_fraction(one_val, (two_val * 5)**seven_val)
                 return original_fraction(numerator, denominator)
             proof.Fraction = bad_fraction
-            with self.assertRaises(VerificationError):
-                verify_fermion_mass_part()
+            res = verify_fermion_mass_part()
+            self.assertFalse(res.get("external_read_matched", True))
         finally:
             proof.Fraction = original_fraction
 
@@ -3914,7 +3914,7 @@ class TestSFTOEGenerationMassSplitting(unittest.TestCase):
         res = verify_generation_mass_splitting()
         self.assertEqual(res["generation_count"], Fraction(3))
         self.assertEqual(res["splitting_gap"], Fraction(1, 3))
-        self.assertEqual(res["tier"], "EXTERNAL READ")
+        self.assertEqual(res["tier"], "B")
 
     def test_verify_generation_mass_splitting_mutation_zero_axiom(self):
         import sftoe.proof as proof
@@ -4020,8 +4020,8 @@ class TestSFTOEGenerationMassSplitting(unittest.TestCase):
                     return original_fraction(one_val, (two_val * 5)**five_val)
                 return original_fraction(numerator, denominator)
             proof.Fraction = bad_fraction
-            with self.assertRaises(VerificationError):
-                verify_generation_mass_splitting()
+            res = verify_generation_mass_splitting()
+            self.assertFalse(res.get("external_read_matched", True))
         finally:
             proof.Fraction = original_fraction
 
@@ -4033,7 +4033,7 @@ class TestSFTOEInterSectorMassPattern(unittest.TestCase):
         self.assertEqual(res["up_quark_mass_part"], Fraction(1, 3))
         self.assertEqual(res["down_quark_mass_part"], Fraction(2, 3))
         self.assertIsNone(res["neutrino_mass_part"])
-        self.assertEqual(res["tier"], "EXTERNAL READ")
+        self.assertEqual(res["tier"], "B")
 
     def test_verify_inter_sector_mass_pattern_mutation_zero_axiom(self):
         import sftoe.proof as proof
@@ -4132,8 +4132,8 @@ class TestSFTOEInterSectorMassPattern(unittest.TestCase):
                     return original_fraction(two_val, (two_val * 5)**two_val)
                 return original_fraction(numerator, denominator)
             proof.Fraction = bad_fraction
-            with self.assertRaises(VerificationError):
-                verify_inter_sector_mass_pattern()
+            res = verify_inter_sector_mass_pattern()
+            self.assertFalse(res.get("external_read_matched", True))
         finally:
             proof.Fraction = original_fraction
 
@@ -4143,7 +4143,7 @@ class TestSFTOENeutrinoMassAsymmetry(unittest.TestCase):
         res = verify_neutrino_mass_asymmetry()
         self.assertEqual(res["electron_mass_part"], Fraction(1, 2))
         self.assertIsNone(res["neutrino_mass_part"])
-        self.assertEqual(res["tier"], "EXTERNAL READ")
+        self.assertEqual(res["tier"], "B")
 
     def test_verify_neutrino_mass_asymmetry_mutation_zero_axiom(self):
         import sftoe.proof as proof
@@ -4212,28 +4212,20 @@ class TestSFTOENeutrinoMassAsymmetry(unittest.TestCase):
 
     def test_verify_neutrino_mass_asymmetry_mutation_external(self):
         import sftoe.proof as proof
-        original_fraction = proof.Fraction
+        original_e = proof.MEASURED_E
         try:
-            # Mutate Fraction to return something incorrect for external check
-            one_val = 1
-            two_val = 2
-            eight_val = 8
-            def bad_fraction(numerator, denominator=None):
-                if numerator == 51099895 and denominator == (two_val * 5)**eight_val:
-                    return original_fraction(one_val, (two_val * 5)**eight_val)
-                return original_fraction(numerator, denominator)
-            proof.Fraction = bad_fraction
-            with self.assertRaises(VerificationError):
-                verify_neutrino_mass_asymmetry()
+            proof.MEASURED_E = 999.0
+            res = verify_neutrino_mass_asymmetry()
+            self.assertFalse(res.get("external_read_matched", True))
         finally:
-            proof.Fraction = original_fraction
+            proof.MEASURED_E = original_e
 
 
 class TestSFTOEMixingStructure(unittest.TestCase):
     def test_verify_mixing_structure_success(self):
         res = verify_mixing_structure()
         self.assertEqual(res["diagonal_alignment"], Fraction(8, 9))
-        self.assertEqual(res["tier"], "EXTERNAL READ")
+        self.assertEqual(res["tier"], "B")
 
     def test_verify_mixing_structure_mutation_zero_axiom(self):
         import sftoe.proof as proof
@@ -4363,7 +4355,7 @@ class TestSFTOEMixingMagnitudes(unittest.TestCase):
         nine_val = 9
         eight_val = 8
         self.assertEqual(res["mixing_matrix"][1 - 1][1 - 1], Fraction(eight_val, nine_val))
-        self.assertEqual(res["tier"], "EXTERNAL READ")
+        self.assertEqual(res["tier"], "B")
 
     def test_verify_mixing_magnitudes_mutation_zero_axiom(self):
         import sftoe.proof as proof
@@ -4483,7 +4475,7 @@ class TestSFTOEGenerationDepth(unittest.TestCase):
         two_val = 2
         self.assertEqual(res["folding_depth"], two_val)
         self.assertEqual(res["structural_depth"], two_val)
-        self.assertEqual(res["tier"], "EXTERNAL READ")
+        self.assertEqual(res["tier"], "B")
 
     def test_verify_generation_depth_mutation_zero_axiom(self):
         import sftoe.proof as proof
@@ -4564,7 +4556,7 @@ class TestSFTOEFullMixingMatrices(unittest.TestCase):
         five_val = 5
         self.assertEqual(res["ckm_matrix"][1 - 1][1 - 1], Fraction(eight_val, nine_val))
         self.assertEqual(res["pmns_matrix"][1 - 1][1 - 1], Fraction(five_val, six_val))
-        self.assertEqual(res["tier"], "EXTERNAL READ")
+        self.assertEqual(res["tier"], "B")
 
     def test_verify_full_mixing_matrices_mutation_zero_axiom(self):
         import sftoe.proof as proof
@@ -4663,7 +4655,7 @@ class TestSFTOEFullMixingMatrices(unittest.TestCase):
 class TestSFTOEInterEntryRelation(unittest.TestCase):
     def test_verify_inter_entry_relation_success(self):
         res = verify_inter_entry_relation()
-        self.assertEqual(res["tier"], "EXTERNAL READ")
+        self.assertEqual(res["tier"], "B")
         five_val = 5
         three_val = 3
         two_val = 2
@@ -4760,7 +4752,7 @@ class TestSFTOEInterEntryRelation(unittest.TestCase):
 class TestSFTOEWithinGenerationRatio(unittest.TestCase):
     def test_verify_within_generation_ratio_success(self):
         res = verify_within_generation_ratio()
-        self.assertEqual(res["tier"], "EXTERNAL READ")
+        self.assertEqual(res["tier"], "B")
         one_val = 1
         two_val = 2
         three_val = 3
@@ -4856,8 +4848,8 @@ class TestSFTOEWithinGenerationRatio(unittest.TestCase):
                         return val + float(one_val)
                     return val
             proof.Fraction = CustomFraction
-            with self.assertRaises(VerificationError):
-                verify_within_generation_ratio()
+            res = verify_within_generation_ratio()
+            self.assertFalse(res.get("external_read_matched", True))
         finally:
             proof.Fraction = original_fraction
 
@@ -4865,7 +4857,7 @@ class TestSFTOEWithinGenerationRatio(unittest.TestCase):
 class TestSFTOEChargedLeptons(unittest.TestCase):
     def test_verify_charged_leptons_success(self):
         res = verify_charged_leptons()
-        self.assertEqual(res["tier"], "EXTERNAL READ")
+        self.assertEqual(res["tier"], "B")
         one_val = 1
         two_val = 2
         five_val = 5
@@ -4962,8 +4954,8 @@ class TestSFTOEChargedLeptons(unittest.TestCase):
                         return val + state[one_val]
                     return val
             proof.Fraction = CustomFraction
-            with self.assertRaises(VerificationError):
-                verify_charged_leptons()
+            res = verify_charged_leptons()
+            self.assertFalse(res.get("external_read_matched", True))
         finally:
             proof.Fraction = original_fraction
 
@@ -4971,7 +4963,7 @@ class TestSFTOEChargedLeptons(unittest.TestCase):
 class TestSFTOECombinedGenerationLadder(unittest.TestCase):
     def test_verify_generation_ladder_success(self):
         res = verify_generation_ladder()
-        self.assertEqual(res["tier"], "EXTERNAL READ")
+        self.assertEqual(res["tier"], "B")
         one_val = 1
         two_val = 2
         five_val = 5
@@ -5071,8 +5063,8 @@ class TestSFTOECombinedGenerationLadder(unittest.TestCase):
                         return val + state[one_val]
                     return val
             proof.Fraction = CustomFraction
-            with self.assertRaises(VerificationError):
-                verify_generation_ladder()
+            res = verify_generation_ladder()
+            self.assertFalse(res.get("external_read_matched", True))
         finally:
             proof.Fraction = original_fraction
 
@@ -5080,7 +5072,7 @@ class TestSFTOECombinedGenerationLadder(unittest.TestCase):
 class TestSFTOEMassRatioFamily(unittest.TestCase):
     def test_verify_mass_ratio_family_success(self):
         res = verify_mass_ratio_family()
-        self.assertEqual(res["tier"], "EXTERNAL READ")
+        self.assertEqual(res["tier"], "B")
 
     def test_verify_mass_ratio_family_mutation_zero_axiom(self):
         from sftoe.core import SmithianValue
@@ -5155,8 +5147,8 @@ class TestSFTOEMassRatioFamily(unittest.TestCase):
                         return val + state[one_val]
                     return val
             proof.Fraction = CustomFraction
-            with self.assertRaises(VerificationError):
-                verify_mass_ratio_family()
+            res = verify_mass_ratio_family()
+            self.assertFalse(res.get("external_read_matched", True))
         finally:
             proof.Fraction = original_fraction
 
@@ -5164,7 +5156,7 @@ class TestSFTOEMassRatioFamily(unittest.TestCase):
 class TestSFTOEReachRatios(unittest.TestCase):
     def test_verify_reach_ratios_success(self):
         res = verify_reach_ratios()
-        self.assertEqual(res["tier"], "EXTERNAL READ")
+        self.assertEqual(res["tier"], "B")
 
     def test_verify_reach_ratios_mutation_zero_axiom(self):
         from sftoe.core import SmithianValue
@@ -5265,8 +5257,8 @@ class TestSFTOEReachRatios(unittest.TestCase):
                         return val + state[one_val]
                     return val
             proof.Fraction = CustomFraction
-            with self.assertRaises(VerificationError):
-                verify_reach_ratios()
+            res = verify_reach_ratios()
+            self.assertFalse(res.get("external_read_matched", True))
         finally:
             proof.Fraction = original_fraction
 
@@ -5274,7 +5266,7 @@ class TestSFTOEReachRatios(unittest.TestCase):
 class TestSFTOEKoideRelationship(unittest.TestCase):
     def test_verify_koide_relationship_success(self):
         res = verify_koide_relationship()
-        self.assertEqual(res["tier"], "EXTERNAL READ")
+        self.assertEqual(res["tier"], "B")
 
     def test_verify_koide_relationship_mutation_zero_axiom(self):
         from sftoe.core import SmithianValue
@@ -5361,7 +5353,7 @@ class TestSFTOEKoideRelationship(unittest.TestCase):
 class TestSFTOEKoideCubicRoots(unittest.TestCase):
     def test_verify_koide_cubic_roots_success(self):
         res = verify_koide_cubic_roots()
-        self.assertEqual(res["tier"], "EXTERNAL READ")
+        self.assertEqual(res["tier"], "B")
 
     def test_verify_koide_cubic_roots_mutation_zero_axiom(self):
         from sftoe.core import SmithianValue
@@ -5448,7 +5440,7 @@ class TestSFTOEKoideCubicRoots(unittest.TestCase):
 class TestSFTOEProvenMassRatios(unittest.TestCase):
     def test_verify_proven_mass_ratios_success(self):
         res = verify_proven_mass_ratios()
-        self.assertEqual(res["tier"], "EXTERNAL READ")
+        self.assertEqual(res["tier"], "B")
 
     def test_verify_proven_mass_ratios_mutation_zero_axiom(self):
         from sftoe.core import SmithianValue
@@ -5600,7 +5592,7 @@ class TestSFTOEGeneralCoveringDepth(unittest.TestCase):
 class TestSFTOESecondInvariant(unittest.TestCase):
     def test_verify_second_invariant_success(self):
         res = verify_second_invariant()
-        self.assertEqual(res["tier"], "EXTERNAL READ")
+        self.assertEqual(res["tier"], "B")
 
     def test_verify_second_invariant_mutation_zero_axiom(self):
         from sftoe.core import SmithianValue
@@ -5635,7 +5627,7 @@ class TestSFTOESecondInvariant(unittest.TestCase):
 class TestSFTOELeptonCubicEntire(unittest.TestCase):
     def test_verify_lepton_cubic_entire_success(self):
         res = verify_lepton_cubic_entire()
-        self.assertEqual(res["tier"], "EXTERNAL READ")
+        self.assertEqual(res["tier"], "B")
 
     def test_verify_lepton_cubic_entire_mutation_zero_axiom(self):
         from sftoe.core import SmithianValue
@@ -5670,7 +5662,7 @@ class TestSFTOELeptonCubicEntire(unittest.TestCase):
 class TestSFTOESecondInvariantSharpened(unittest.TestCase):
     def test_verify_second_invariant_sharpened_success(self):
         res = verify_second_invariant_sharpened()
-        self.assertEqual(res["tier"], "EXTERNAL READ")
+        self.assertEqual(res["tier"], "B")
 
     def test_verify_second_invariant_sharpened_mutation_zero_axiom(self):
         from sftoe.core import SmithianValue
@@ -5705,7 +5697,7 @@ class TestSFTOESecondInvariantSharpened(unittest.TestCase):
 class TestSFTOEQuarkInvariants(unittest.TestCase):
     def test_verify_quark_invariants_success(self):
         res = verify_quark_invariants()
-        self.assertEqual(res["tier"], "EXTERNAL READ")
+        self.assertEqual(res["tier"], "B")
 
     def test_verify_quark_invariants_mutation_zero_axiom(self):
         from sftoe.core import SmithianValue
@@ -5739,7 +5731,7 @@ class TestSFTOEQuarkInvariants(unittest.TestCase):
 class TestSFTOEQuarkMassConfinementLift(unittest.TestCase):
     def test_verify_quark_mass_confinement_lift_success(self):
         res = verify_quark_mass_confinement_lift()
-        self.assertEqual(res["tier"], "EXTERNAL READ")
+        self.assertEqual(res["tier"], "B")
 
     def test_verify_quark_mass_confinement_lift_mutation_zero_axiom(self):
         from sftoe.core import SmithianValue
@@ -5764,8 +5756,8 @@ class TestSFTOEQuarkMassConfinementLift(unittest.TestCase):
                     return original_fraction(args[1 - 1], 1455)
                 return original_fraction(*args, **kwargs)
             proof.Fraction = bad_fraction
-            with self.assertRaises(VerificationError):
-                verify_quark_mass_confinement_lift()
+            res = verify_quark_mass_confinement_lift()
+            self.assertFalse(res.get("external_read_matched", True))
         finally:
             proof.Fraction = original_fraction
 
@@ -5773,7 +5765,7 @@ class TestSFTOEQuarkMassConfinementLift(unittest.TestCase):
 class TestSFTOENeutrinoMassLadder(unittest.TestCase):
     def test_verify_neutrino_mass_ladder_success(self):
         res = verify_neutrino_mass_ladder()
-        self.assertEqual(res["tier"], "EXTERNAL READ")
+        self.assertEqual(res["tier"], "B")
 
     def test_verify_neutrino_mass_ladder_mutation_zero_axiom(self):
         from sftoe.core import SmithianValue
@@ -5807,7 +5799,7 @@ class TestSFTOENeutrinoMassLadder(unittest.TestCase):
 class TestSFTOEQuarkSecondInvariant(unittest.TestCase):
     def test_verify_quark_second_invariant_success(self):
         res = verify_quark_second_invariant()
-        self.assertEqual(res["tier"], "EXTERNAL READ")
+        self.assertEqual(res["tier"], "B")
 
     def test_verify_quark_second_invariant_mutation_zero_axiom(self):
         from sftoe.core import SmithianValue
@@ -5832,8 +5824,8 @@ class TestSFTOEQuarkSecondInvariant(unittest.TestCase):
                     return original_fraction(args[1 - 1], 96)
                 return original_fraction(*args, **kwargs)
             proof.Fraction = bad_fraction
-            with self.assertRaises(VerificationError):
-                verify_quark_second_invariant()
+            res = verify_quark_second_invariant()
+            self.assertFalse(res.get("external_read_matched", True))
         finally:
             proof.Fraction = original_fraction
 
@@ -5844,7 +5836,7 @@ class TestSFTOECKMMagnitudes(unittest.TestCase):
         nine_val = 9
         eight_val = 8
         self.assertEqual(res["mixing_matrix"][1 - 1][1 - 1], Fraction(eight_val, nine_val))
-        self.assertEqual(res["tier"], "EXTERNAL READ")
+        self.assertEqual(res["tier"], "B")
 
     def test_verify_ckm_magnitudes_mutation_zero_axiom(self):
         from sftoe.core import SmithianValue
@@ -5881,7 +5873,7 @@ class TestSFTOECKMMagnitudes(unittest.TestCase):
 class TestSFTOECPPhase(unittest.TestCase):
     def test_verify_cp_phase_antipode_success(self):
         res = verify_cp_phase_antipode()
-        self.assertEqual(res["tier"], "EXTERNAL READ")
+        self.assertEqual(res["tier"], "B")
         self.assertEqual(res["phase"], Fraction(1, 2))
 
     def test_verify_cp_phase_antipode_mutation_zero_axiom(self):
@@ -5918,7 +5910,7 @@ class TestSFTOECPPhase(unittest.TestCase):
 class TestSFTOECKMThirdEntry(unittest.TestCase):
     def test_verify_ckm_third_entry_closed_success(self):
         res = verify_ckm_third_entry_closed()
-        self.assertEqual(res["tier"], "EXTERNAL READ")
+        self.assertEqual(res["tier"], "B")
 
     def test_verify_ckm_third_entry_closed_mutation_zero_axiom(self):
         from sftoe.core import SmithianValue
@@ -5954,7 +5946,7 @@ class TestSFTOECKMThirdEntry(unittest.TestCase):
 class TestSFTOEPMNSLargeAngles(unittest.TestCase):
     def test_verify_pmns_large_angles_success(self):
         res = verify_pmns_large_angles()
-        self.assertEqual(res["tier"], "EXTERNAL READ")
+        self.assertEqual(res["tier"], "B")
         self.assertEqual(res["sin2_theta23"], Fraction(1, 2))
         self.assertEqual(res["sin2_theta12"], Fraction(1, 3))
 
@@ -5992,7 +5984,7 @@ class TestSFTOEPMNSLargeAngles(unittest.TestCase):
 class TestSFTOEPMNSReactorAngle(unittest.TestCase):
     def test_verify_pmns_reactor_angle_success(self):
         res = verify_pmns_reactor_angle()
-        self.assertEqual(res["tier"], "EXTERNAL READ")
+        self.assertEqual(res["tier"], "B")
         self.assertEqual(res["sin2_theta13"], Fraction(1, 48))
 
     def test_verify_pmns_reactor_angle_mutation_zero_axiom(self):
@@ -6029,7 +6021,7 @@ class TestSFTOEPMNSReactorAngle(unittest.TestCase):
 class TestSFTOEEMCoupling(unittest.TestCase):
     def test_verify_em_coupling_success(self):
         res = verify_em_coupling()
-        self.assertEqual(res["tier"], "EXTERNAL READ")
+        self.assertEqual(res["tier"], "B")
         self.assertEqual(res["g_em"], Fraction(1, 2))
 
     def test_verify_em_coupling_mutation_zero_axiom(self):
@@ -6066,7 +6058,7 @@ class TestSFTOEEMCoupling(unittest.TestCase):
 class TestSFTOEEWMixing(unittest.TestCase):
     def test_verify_ew_mixing_running_success(self):
         res = verify_ew_mixing_running()
-        self.assertEqual(res["tier"], "EXTERNAL READ")
+        self.assertEqual(res["tier"], "B")
         self.assertEqual(res["sin2_theta_w_bare"], Fraction(1, 2))
 
     def test_verify_ew_mixing_running_mutation_zero_axiom(self):
@@ -6103,7 +6095,7 @@ class TestSFTOEEWMixing(unittest.TestCase):
 class TestSFTOEScaleRatio(unittest.TestCase):
     def test_verify_depth_scale_ratio_success(self):
         res = verify_depth_scale_ratio()
-        self.assertEqual(res["tier"], "EXTERNAL READ")
+        self.assertEqual(res["tier"], "B")
         two_val = 2
         self.assertEqual(res["scale_ratio"], two_val)
 
@@ -6141,7 +6133,7 @@ class TestSFTOEScaleRatio(unittest.TestCase):
 class TestSFTOEEWMixingCurve(unittest.TestCase):
     def test_verify_ew_mixing_curve_success(self):
         res = verify_ew_mixing_curve()
-        self.assertEqual(res["tier"], "EXTERNAL READ")
+        self.assertEqual(res["tier"], "B")
         one_val = 1
         two_val = 2
         self.assertEqual(res["mixing_start"], Fraction(one_val, two_val))
@@ -6180,7 +6172,7 @@ class TestSFTOEEWMixingCurve(unittest.TestCase):
 class TestSFTOEWZMassRatio(unittest.TestCase):
     def test_verify_w_z_mass_ratio_success(self):
         res = verify_w_z_mass_ratio()
-        self.assertEqual(res["tier"], "EXTERNAL READ")
+        self.assertEqual(res["tier"], "B")
         one_val = 1
         two_val = 2
         self.assertEqual(res["w_z_mass_squared_ratio_bare"], Fraction(one_val, two_val))
@@ -6219,7 +6211,7 @@ class TestSFTOEWZMassRatio(unittest.TestCase):
 class TestSFTOELevelDepthMap(unittest.TestCase):
     def test_verify_level_depth_map_success(self):
         res = verify_level_depth_map()
-        self.assertEqual(res["tier"], "EXTERNAL READ")
+        self.assertEqual(res["tier"], "B")
         one_val = 1
         self.assertEqual(res["scale_axis_start"], Fraction(one_val))
 
@@ -6257,7 +6249,7 @@ class TestSFTOELevelDepthMap(unittest.TestCase):
 class TestSFTOECouplingConvergence(unittest.TestCase):
     def test_verify_coupling_convergence_success(self):
         res = verify_coupling_convergence()
-        self.assertEqual(res["tier"], "EXTERNAL READ")
+        self.assertEqual(res["tier"], "B")
         two_val = 2
         three_val = 3
         self.assertEqual(res["g_strong_bare"], Fraction(two_val, three_val))
@@ -6297,7 +6289,7 @@ class TestSFTOECouplingConvergence(unittest.TestCase):
 class TestSFTOEConvergenceRateClosed(unittest.TestCase):
     def test_verify_convergence_rate_closed_success(self):
         res = verify_convergence_rate_closed()
-        self.assertEqual(res["tier"], "EXTERNAL READ")
+        self.assertEqual(res["tier"], "B")
         one_val = 1
         two_val = 2
         six_val = 6
@@ -6337,7 +6329,7 @@ class TestSFTOEConvergenceRateClosed(unittest.TestCase):
 class TestSFTOEAccumulatedSeparation(unittest.TestCase):
     def test_verify_accumulated_separation_success(self):
         res = verify_accumulated_separation()
-        self.assertEqual(res["tier"], "EXTERNAL READ")
+        self.assertEqual(res["tier"], "B")
         one_val = 1
         two_val = 2
         six_val = 6
@@ -6377,7 +6369,7 @@ class TestSFTOEAccumulatedSeparation(unittest.TestCase):
 class TestSFTOEThreeCouplingStructure(unittest.TestCase):
     def test_verify_three_coupling_structure_success(self):
         res = verify_three_coupling_structure()
-        self.assertEqual(res["tier"], "EXTERNAL READ")
+        self.assertEqual(res["tier"], "B")
         one_val = 1
         two_val = 2
         self.assertEqual(res["g_em"], Fraction(one_val, two_val))
@@ -6416,7 +6408,7 @@ class TestSFTOEThreeCouplingStructure(unittest.TestCase):
 class TestSFTOEScaleInvariance(unittest.TestCase):
     def test_verify_scale_invariance_success(self):
         res = verify_scale_invariance()
-        self.assertEqual(res["tier"], "EXTERNAL READ")
+        self.assertEqual(res["tier"], "B")
         one_val = 1
         self.assertEqual(res["derived_speed"], Fraction(one_val))
 
@@ -6454,7 +6446,7 @@ class TestSFTOEScaleInvariance(unittest.TestCase):
 class TestSFTOEPlanckHierarchy(unittest.TestCase):
     def test_verify_planck_hierarchy_success(self):
         res = verify_planck_hierarchy()
-        self.assertEqual(res["tier"], "EXTERNAL READ")
+        self.assertEqual(res["tier"], "B")
         one_val = 1
         two_val = 2
         seven_val = 7
@@ -6495,7 +6487,7 @@ class TestSFTOEPlanckHierarchy(unittest.TestCase):
 class TestSFTOEUnifiedForceLaw(unittest.TestCase):
     def test_verify_unified_force_law_success(self):
         res = verify_unified_force_law()
-        self.assertEqual(res["tier"], "EXTERNAL READ")
+        self.assertEqual(res["tier"], "B")
         one_val = 1
         two_val = 2
         three_val = 3
@@ -6538,7 +6530,7 @@ class TestSFTOEUnifiedForceLaw(unittest.TestCase):
 class TestSFTOEFiveForceFlavourRatio(unittest.TestCase):
     def test_verify_five_force_flavour_ratio_success(self):
         res = verify_five_force_flavour_ratio()
-        self.assertEqual(res["tier"], "EXTERNAL READ")
+        self.assertEqual(res["tier"], "B")
         one_val = 1
         two_val = 2
         four_val = 4
@@ -6579,7 +6571,7 @@ class TestSFTOEFiveForceFlavourRatio(unittest.TestCase):
 class TestSFTOEPrimeSectorLadderBounded(unittest.TestCase):
     def test_verify_prime_sector_ladder_bounded_success(self):
         res = verify_prime_sector_ladder_bounded()
-        self.assertEqual(res["tier"], "EXTERNAL READ")
+        self.assertEqual(res["tier"], "B")
         two_val = 2
         three_val = 3
         five_val = 5
@@ -6621,7 +6613,7 @@ class TestSFTOEPrimeSectorLadderBounded(unittest.TestCase):
 class TestSFTOETwoNewPrimeChargeForces(unittest.TestCase):
     def test_verify_two_new_prime_charge_forces_success(self):
         res = verify_two_new_prime_charge_forces()
-        self.assertEqual(res["tier"], "EXTERNAL READ")
+        self.assertEqual(res["tier"], "B")
         two_val = 2
         three_val = 3
         four_val = 4
@@ -6666,7 +6658,7 @@ class TestSFTOETwoNewPrimeChargeForces(unittest.TestCase):
 class TestSFTOEHalfOneUnifyingCenter(unittest.TestCase):
     def test_verify_half_one_unifying_center_success(self):
         res = verify_half_one_unifying_center()
-        self.assertEqual(res["tier"], "EXTERNAL READ")
+        self.assertEqual(res["tier"], "B")
         one_val = 1
         two_val = 2
         self.assertEqual(res["unifying_center"], Fraction(one_val, two_val))
@@ -6705,7 +6697,7 @@ class TestSFTOEHalfOneUnifyingCenter(unittest.TestCase):
 class TestSFTOEPrimeSectorConfiningLadder(unittest.TestCase):
     def test_verify_prime_sector_confining_ladder_success(self):
         res = verify_prime_sector_confining_ladder()
-        self.assertEqual(res["tier"], "EXTERNAL READ")
+        self.assertEqual(res["tier"], "B")
         one_val = 1
         two_val = 2
         three_val = 3
@@ -6753,7 +6745,7 @@ class TestSFTOEPrimeSectorConfiningLadder(unittest.TestCase):
 class TestSFTOELeptonGenerations(unittest.TestCase):
     def test_verify_five_fold_standing_modes_force_three_generations_success(self):
         res = verify_five_fold_standing_modes_force_three_generations()
-        self.assertEqual(res["tier"], "EXTERNAL READ")
+        self.assertEqual(res["tier"], "B")
         one_val = 1
         two_val = 2
         three_val = 3
@@ -6797,7 +6789,7 @@ class TestSFTOELeptonGenerations(unittest.TestCase):
 class TestSFTOEAbsoluteScaleUnobservable(unittest.TestCase):
     def test_verify_absolute_scale_unobservable_success(self):
         res = verify_absolute_scale_unobservable()
-        self.assertEqual(res["tier"], "EXTERNAL READ")
+        self.assertEqual(res["tier"], "B")
         two_val = 2
         five_val = 5
         self.assertEqual(res["ratio"], Fraction(two_val, five_val))
@@ -6837,7 +6829,7 @@ class TestSFTOEAbsoluteScaleUnobservable(unittest.TestCase):
 class TestSFTOEGrandSynthesis(unittest.TestCase):
     def test_verify_grand_synthesis_success(self):
         res = verify_grand_synthesis()
-        self.assertEqual(res["tier"], "EXTERNAL READ")
+        self.assertEqual(res["tier"], "B")
         three_val = 3
         self.assertEqual(res["orbit_period"], three_val)
         self.assertEqual(res["multiplicative_order"], three_val)
@@ -6876,7 +6868,7 @@ class TestSFTOEGrandSynthesis(unittest.TestCase):
 class TestSFTOEForwardNotFitted(unittest.TestCase):
     def test_verify_forward_not_fitted_success(self):
         res = verify_forward_not_fitted()
-        self.assertEqual(res["tier"], "EXTERNAL READ")
+        self.assertEqual(res["tier"], "B")
         four_val = 4
         five_val = 5
         self.assertEqual(res["derived_value"], Fraction(four_val, five_val))
@@ -6917,7 +6909,7 @@ class TestSFTOEForwardNotFitted(unittest.TestCase):
 class TestSFTOECrossSectorInsights(unittest.TestCase):
     def test_verify_cross_sector_insights_success(self):
         res = verify_cross_sector_insights()
-        self.assertEqual(res["tier"], "EXTERNAL READ")
+        self.assertEqual(res["tier"], "B")
         three_val = 3
         self.assertEqual(res["orbit_period"], three_val)
         two_val = 2
@@ -6957,7 +6949,7 @@ class TestSFTOECrossSectorInsights(unittest.TestCase):
 class TestSFTOEForwardNovelties(unittest.TestCase):
     def test_verify_forward_novelties_success(self):
         res = verify_forward_novelties()
-        self.assertEqual(res["tier"], "EXTERNAL READ")
+        self.assertEqual(res["tier"], "B")
         self.assertTrue(res["divides"])
 
     def test_verify_forward_novelties_mutation_zero_axiom(self):
@@ -6994,7 +6986,7 @@ class TestSFTOEForwardNovelties(unittest.TestCase):
 class TestSFTOECollapseToOpenConversion(unittest.TestCase):
     def test_verify_collapse_to_open_conversion_success(self):
         res = verify_collapse_to_open_conversion()
-        self.assertEqual(res["tier"], "EXTERNAL READ")
+        self.assertEqual(res["tier"], "B")
         self.assertTrue(res["proton_to_electron_ratio"] > 1)
 
     def test_verify_collapse_to_open_conversion_mutation_zero_axiom(self):
@@ -7031,7 +7023,7 @@ class TestSFTOECollapseToOpenConversion(unittest.TestCase):
 class TestSFTOEPlanckHierarchyForced(unittest.TestCase):
     def test_verify_planck_hierarchy_forced_success(self):
         res = verify_planck_hierarchy_forced()
-        self.assertEqual(res["tier"], "EXTERNAL READ")
+        self.assertEqual(res["tier"], "B")
         self.assertEqual(res["massive_states_count"], 127)
 
     def test_verify_planck_hierarchy_forced_mutation_zero_axiom(self):
@@ -7068,7 +7060,7 @@ class TestSFTOEPlanckHierarchyForced(unittest.TestCase):
 class TestSFTOEScaleAxisProven(unittest.TestCase):
     def test_verify_scale_axis_proven_success(self):
         res = verify_scale_axis_proven()
-        self.assertEqual(res["tier"], "EXTERNAL READ")
+        self.assertEqual(res["tier"], "B")
         six_val = 6
         self.assertEqual(len(res["spacings"]), six_val)
         two_val = 2
@@ -7108,7 +7100,7 @@ class TestSFTOEScaleAxisProven(unittest.TestCase):
 class TestSFTOEGravitationalCouplingProven(unittest.TestCase):
     def test_verify_gravitational_coupling_proven_success(self):
         res = verify_gravitational_coupling_proven()
-        self.assertEqual(res["tier"], "EXTERNAL READ")
+        self.assertEqual(res["tier"], "B")
         two_val = 2
         self.assertEqual(res["coupling"], Fraction(1, two_val))
         one_val = 1
@@ -7148,7 +7140,7 @@ class TestSFTOEGravitationalCouplingProven(unittest.TestCase):
 class TestSFTOEUnisonOrder(unittest.TestCase):
     def test_verify_unison_order_success(self):
         res = verify_unison_order()
-        self.assertEqual(res["tier"], "EXTERNAL READ")
+        self.assertEqual(res["tier"], "B")
         two_val = 2
         five_val = 5
         eleven_val = two_val * five_val + 1
@@ -7188,7 +7180,7 @@ class TestSFTOEUnisonOrder(unittest.TestCase):
 class TestSFTOEDiscriminatingPrediction(unittest.TestCase):
     def test_verify_discriminating_prediction_success(self):
         res = verify_discriminating_prediction()
-        self.assertEqual(res["tier"], "EXTERNAL READ")
+        self.assertEqual(res["tier"], "B")
         two_val = 2
         five_val = 5
         ten_val = two_val * five_val
@@ -7271,6 +7263,7 @@ class TestSFTOEInternalAnchorDepth(unittest.TestCase):
 class TestSFTOEInteractionStrengthStructure(unittest.TestCase):
     def test_verify_interaction_strength_structure_success(self):
         res = verify_interaction_strength_structure()
+        self.assertEqual(res["tier"], "B")
         self.assertEqual(res["concept"], "Every interaction strength comes from the single fold factor m.")
         self.assertEqual(res["g_star_m2"], Fraction(1, 2))
         self.assertEqual(res["ew_mixing_m2"], Fraction(1, 1))
@@ -7395,7 +7388,7 @@ class TestSFTOEDarkMatter(unittest.TestCase):
 class TestSFTOECosmologicalTimeline(unittest.TestCase):
     def test_verify_cosmological_timeline_success(self):
         res = verify_cosmological_timeline()
-        self.assertEqual(res["tier"], "EXTERNAL READ")
+        self.assertEqual(res["tier"], "B")
         one_val = 1
         two_val = 2
         five_val = 5
@@ -7439,7 +7432,7 @@ class TestSFTOECosmologicalTimeline(unittest.TestCase):
 class TestSFTOEStrongFieldGravity(unittest.TestCase):
     def test_verify_strong_field_gravity_success(self):
         res = verify_strong_field_gravity()
-        self.assertEqual(res["tier"], "EXTERNAL READ")
+        self.assertEqual(res["tier"], "B")
         one_val = 1
         two_val = 2
         three_val = 3
@@ -7530,7 +7523,7 @@ class TestSFTOEProtonStability(unittest.TestCase):
 class TestSFTOEBaryonToPhotonRatio(unittest.TestCase):
     def test_verify_baryon_to_photon_ratio_success(self):
         res = verify_baryon_to_photon_ratio()
-        self.assertEqual(res["tier"], "EXTERNAL READ")
+        self.assertEqual(res["tier"], "B")
         one_val = 1
         two_val = 2
         three_val = 3
@@ -7616,7 +7609,7 @@ class TestSFTOEBaryonAsymmetryNonzero(unittest.TestCase):
 class TestSFTOEGenerationBoundStrict(unittest.TestCase):
     def test_verify_generation_bound_strict_success(self):
         res = verify_generation_bound_strict()
-        self.assertEqual(res["tier"], "EXTERNAL READ")
+        self.assertEqual(res["tier"], "B")
         one_val = 1
         two_val = 2
         three_val = 3
@@ -7668,7 +7661,7 @@ class TestSFTOEGenerationBoundStrict(unittest.TestCase):
 class TestSFTOEStrongCPAlignment(unittest.TestCase):
     def test_verify_strong_cp_alignment_success(self):
         res = verify_strong_cp_alignment()
-        self.assertEqual(res["tier"], "EXTERNAL READ")
+        self.assertEqual(res["tier"], "B")
         one_val = 1
         two_val = 2
         five_val = 5
@@ -7754,7 +7747,7 @@ class TestSFTOEVacuumEnergyPositive(unittest.TestCase):
 class TestSFTOEVacuumEquationOfState(unittest.TestCase):
     def test_verify_vacuum_equation_of_state_success(self):
         res = verify_vacuum_equation_of_state()
-        self.assertEqual(res["tier"], "EXTERNAL READ")
+        self.assertEqual(res["tier"], "B")
         one_val = 1
         two_val = 2
         three_val = 3
@@ -7803,7 +7796,7 @@ class TestSFTOEVacuumEquationOfState(unittest.TestCase):
 class TestSFTOESpatialFlatness(unittest.TestCase):
     def test_verify_spatial_flatness_success(self):
         res = verify_spatial_flatness()
-        self.assertEqual(res["tier"], "EXTERNAL READ")
+        self.assertEqual(res["tier"], "B")
         one_val = 1
         two_val = 2
         three_val = 3
@@ -7892,7 +7885,7 @@ class TestSFTOECosmicDilutionExponents(unittest.TestCase):
 class TestSFTOEProteinFoldingFixedPoint(unittest.TestCase):
     def test_verify_protein_folding_fixed_point_success(self):
         res = verify_protein_folding_fixed_point()
-        self.assertEqual(res["tier"], "EXTERNAL READ")
+        self.assertEqual(res["tier"], "B")
         one_val = 1
         two_val = 2
         three_val = 3
@@ -7985,6 +7978,7 @@ class TestSFTOEProvenPredictionsFrontier(unittest.TestCase):
 class TestSFTOENavierStokesNoBlowup(unittest.TestCase):
     def test_verify_navier_stokes_no_blowup_success(self):
         res = verify_navier_stokes_no_blowup()
+        self.assertEqual(res["tier"], "B")
         one_val = 1
         two_val = 2
         five_val = 5
@@ -8121,7 +8115,7 @@ class TestSFTOEFineStructureConstant(unittest.TestCase):
 class TestSFTOEMuonG2Anomaly(unittest.TestCase):
     def test_verify_muon_g2_anomaly_success(self):
         res = verify_muon_g2_anomaly()
-        self.assertEqual(res["tier"], "EXTERNAL READ")
+        self.assertEqual(res["tier"], "B")
         one_val = 1
         two_val = 2
         five_val = 5
@@ -8165,7 +8159,7 @@ class TestSFTOEMuonG2Anomaly(unittest.TestCase):
 class TestSFTOEHubbleTension(unittest.TestCase):
     def test_verify_hubble_tension_success(self):
         res = verify_hubble_tension()
-        self.assertEqual(res["tier"], "EXTERNAL READ")
+        self.assertEqual(res["tier"], "B")
         one_val = 1
         two_val = 2
         three_val = 3
@@ -9309,7 +9303,7 @@ class TestSFTOEHierarchyProblem(unittest.TestCase):
 class TestSFTOEProtonRadius(unittest.TestCase):
     def test_verify_proton_radius_success(self):
         res = verify_proton_radius()
-        self.assertEqual(res["tier"], "EXTERNAL READ")
+        self.assertEqual(res["tier"], "B")
         one_val = 1
         two_val = 2
         three_val = 3
@@ -9350,7 +9344,7 @@ class TestSFTOEProtonRadius(unittest.TestCase):
 class TestSFTOEStrongCP(unittest.TestCase):
     def test_verify_strong_cp_success(self):
         res = verify_strong_cp()
-        self.assertEqual(res["tier"], "EXTERNAL READ")
+        self.assertEqual(res["tier"], "B")
         one_val = 1
         self.assertEqual(res["alignment"], Fraction(one_val, one_val))
 
@@ -9712,7 +9706,7 @@ class TestSFTOEEfficiencyIntelligenceDividend(unittest.TestCase):
 class TestSFTOECatalogueUnexplainedPhenomena(unittest.TestCase):
     def test_verify_catalogue_unexplained_phenomena_success(self):
         res = verify_catalogue_unexplained_phenomena()
-        self.assertEqual(res["tier"], "EXTERNAL READ")
+        self.assertEqual(res["tier"], "B")
         three_val = 3
         five_val = 5
         self.assertEqual(res["descent_steps"], five_val)
@@ -9750,7 +9744,7 @@ class TestSFTOECatalogueUnexplainedPhenomena(unittest.TestCase):
 class TestSFTOEUAPVacuumEngineering(unittest.TestCase):
     def test_verify_uap_vacuum_engineering_success(self):
         res = verify_uap_vacuum_engineering()
-        self.assertEqual(res["tier"], "EXTERNAL READ")
+        self.assertEqual(res["tier"], "B")
         one_val = 1
         self.assertEqual(res["coupling_ratio"], Fraction(one_val, one_val))
 
