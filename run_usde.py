@@ -26,6 +26,7 @@ Options:
   --daemon         Run autonomously at maximum capacity, incrementing N and exporting results.
   --report-every N Set the number of new alignments required to trigger inference (default: 1).
   --max-denom N    Set the maximum denominator depth (default: 60).
+  --analytical     Use analytical resolution instead of sweeps (for large N).
   --help           Show this help message.
 """)
 
@@ -45,6 +46,7 @@ def main():
             print("Error: --max-denom requires an integer argument.")
             sys.exit(1)
 
+    analytical = "--analytical" in args
     usde = SmithianUSDE(max_denom_limit=max_denom)
 
     if "--sweep" in args:
@@ -73,11 +75,11 @@ def main():
 
     elif "--prove" in args:
         print(f"Running T1-T12 proof matrix on candidate sectors up to N={max_denom}...")
-        usde.autonomous_loop(console_output=True)
+        usde.autonomous_loop(console_output=True, analytical=analytical)
 
     elif "--align" in args:
         print(f"Running eigenvalue solver and cross-referencing against live PDG databases...")
-        res = usde.autonomous_loop(console_output=False)
+        res = usde.autonomous_loop(console_output=False, analytical=analytical)
         print(f"Found {len(res['alignments'])} alignments:")
         for m in res['alignments']:
             print(f"  Sector m={m['sector']} -> Match: {m['name']} (calculated: {m['calculated']:.6f}, measured: {m['measured']:.6f}, dev: {m['deviation_pct']:.4f}%)")
@@ -136,7 +138,7 @@ def main():
                 t0 = time.time()
                 # Run USDE for current_n
                 run_usde = SmithianUSDE(max_denom_limit=current_n)
-                res = run_usde.autonomous_loop(console_output=False)
+                res = run_usde.autonomous_loop(console_output=False, analytical=analytical or (current_n > 99))
                 
                 log_line = f"[{time.strftime('%Y-%m-%d %H:%M:%S')}] N={current_n:3} | Scanned={res['coordinates_scanned']:5} | Proven={res['sectors_proven']:2} | Alignments={len(res['alignments'])} | Time={time.time()-t0:.2f}s\n"
                 print(log_line, end="")
