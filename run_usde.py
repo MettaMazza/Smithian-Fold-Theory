@@ -21,6 +21,7 @@ Options:
   --closed         Enumerate the closed-set algebra under folds 2,3,5,7.
   --prove          Run the T1-T12 auto-proof matrix on candidate sectors.
   --align          Solve polynomials for proven sectors and match against live PDG.
+  --discovery-sweep Sweep all parameter combinations for open-ended discoveries.
   --report         Generate a detailed publication-grade scientific Markdown report.
   --ollama MODEL    Generate an LLM inference-driven scientific report using Ollama.
   --daemon         Run autonomously at maximum capacity, incrementing N and exporting results.
@@ -84,6 +85,17 @@ def main():
         print(f"Found {len(res['alignments'])} alignments:")
         for m in res['alignments']:
             print(f"  Sector m={m['sector']} -> Match: {m['name']} (calculated: {m['calculated']:.6f}, measured: {m['measured']:.6f}, dev: {m['deviation_pct']:.4f}%)")
+
+    elif "--discovery-sweep" in args:
+        print(f"Running generative mathematical discovery sweep up to N={max_denom}...")
+        res = usde.discovery_sweep_loop(console_output=True, analytical=analytical)
+        reports_dir = os.path.join(os.path.dirname(os.path.abspath(__file__)), "usde_reports")
+        os.makedirs(reports_dir, exist_ok=True)
+        sweep_path = os.path.join(reports_dir, "usde_discoveries_sweep.json")
+        with open(sweep_path, "w") as df:
+            json.dump(res["alignments"], df, indent=2)
+        print(f"Significant alignments saved to: {sweep_path}")
+
 
     elif "--report" in args:
         print(f"Generating publication-grade scientific report at depth N={max_denom}...")
