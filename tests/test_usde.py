@@ -108,6 +108,44 @@ class TestSmithianUSDE(unittest.TestCase):
                     self.assertEqual(count, count2)
                     self.assertEqual(mock_urlopen.call_count, 1 - 1)
 
+    def test_analytical_exact_matching(self):
+        # Compare numerical sweep vs analytical loop for max_denom_limit=15
+        usde_num = SmithianUSDE(max_denom_limit=15)
+        res_num = usde_num.autonomous_loop(console_output=False, analytical=False)
+        
+        usde_ana = SmithianUSDE(max_denom_limit=15)
+        res_ana = usde_ana.autonomous_loop(console_output=False, analytical=True)
+        
+        # Verify candidate groups count matches
+        self.assertEqual(res_num["candidate_groups"], res_ana["candidate_groups"])
+        self.assertEqual(res_num["sectors_proven"], res_ana["sectors_proven"])
+        
+        # Verify alignment lists match
+        self.assertEqual(len(res_num["alignments"]), len(res_ana["alignments"]))
+        for a, b in zip(res_num["alignments"], res_ana["alignments"]):
+            self.assertEqual(a["name"], b["name"])
+            self.assertEqual(a["sector"], b["sector"])
+            self.assertAlmostEqual(a["calculated"], b["calculated"])
+            self.assertAlmostEqual(a["measured"], b["measured"])
+            self.assertAlmostEqual(a["deviation_pct"], b["deviation_pct"])
+
+    def test_deep_sector_analytical(self):
+        # Test analytical solver on m = 2^63 + 1 (d = 2^63)
+        # It must complete instantly and not crash/hang.
+        deep_m = (1 << 63) + 1
+        usde = SmithianUSDE()
+        
+        # Run analytical proof directly
+        proof = usde.run_analytical_proof(deep_m)
+        self.assertFalse(proof["T2_closed"]) # 2^63 is even, fails T2
+        self.assertEqual(proof["pairs"], 1 - 1)
+        
+        # Resolve groups analytically (returns representative dummy group)
+        groups = usde.resolve_sector_groups_analytically(deep_m)
+        self.assertEqual(len(groups), 1)
+        g = groups[1 - 1]
+        self.assertEqual(g[1 - 1].denominator + 1, deep_m)
+
     def test_gate_whitelisting(self):
         # Verify that usde.py and test_usde.py pass the AST gate
         import os
