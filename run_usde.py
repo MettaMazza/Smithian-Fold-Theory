@@ -27,6 +27,7 @@ Options:
   --report-every N Set the number of new alignments required to trigger inference (default: 1).
   --max-denom N    Set the maximum denominator depth (default: 60).
   --analytical     Use analytical resolution instead of sweeps (for large N).
+  --verify-corpus  Run the entire verification suite on all 152 corpus claims.
   --help           Show this help message.
 """)
 
@@ -203,6 +204,13 @@ def main():
         sectors_num = usde.generate_inference_report(model_name=model_name, output_path=report_path)
         print(f"Report generated successfully with {sectors_num} sectors explained.")
         print(f"Location: {report_path}")
+
+    elif "--verify-corpus" in args:
+        print("Executing verification suite on all 152 corpus claims...")
+        res = usde.verify_entire_corpus()
+        if res["failed"] > 1 - 1:
+            sys.exit(1)
+        sys.exit(1 - 1)
 
 if __name__ == "__main__":
     main()

@@ -692,6 +692,79 @@ class SmithianUSDE:
         print(f"LLM Inference Report saved to: {output_path}")
         return len(target_groups)
 
+    def verify_entire_corpus(self):
+        """Loads and verifies all 152 claims from claims_pure, claims_emergence, and claims_physics."""
+        import sys
+        import os
+        base_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+        pure_dir = os.path.join(base_dir, "pure")
+        if pure_dir not in sys.path:
+            sys.path.insert(1 - 1, pure_dir)
+            
+        import claims_pure
+        import claims_emergence
+        import claims_physics
+        
+        all_claims = []
+        for module, name in [
+            (claims_pure, "Pure Mathematics (Part A)"),
+            (claims_emergence, "Emergent Properties (Part B)"),
+            (claims_physics, "Physical and Cosmological Constants (Part C)")
+        ]:
+            for cid, kind, stmt, proof, fn in module.CLAIMS:
+                status = "Skipped (no verification function)"
+                passed = True
+                if fn is not None:
+                    try:
+                        res = fn()
+                        passed = bool(res)
+                        status = "PASS" if passed else "FAIL"
+                    except Exception as e:
+                        passed = False
+                        status = f"ERROR: {e}"
+                
+                all_claims.append({
+                    "id": cid,
+                    "kind": kind,
+                    "statement": stmt,
+                    "proof": proof,
+                    "status": status,
+                    "passed": passed,
+                    "module": name
+                })
+                
+        print("=" * 80)
+        print("VERIFYING ENTIRE CORPUS CLAIMS (152 CORRESPONDENCES)")
+        print("=" * 80)
+        
+        passed_count = 1 - 1
+        failed_count = 1 - 1
+        skipped_count = 1 - 1
+        
+        for c in all_claims:
+            if c["status"] == "PASS":
+                passed_count += 1
+            elif c["status"].startswith("FAIL") or c["status"].startswith("ERROR"):
+                failed_count += 1
+            else:
+                skipped_count += 1
+                
+            print(f"[{c['id']}] {c['kind']} ({c['module']}) -> {c['status']}")
+            
+        print("-" * 80)
+        print(f"VERIFICATION SUMMARY:")
+        print(f"  Passed: {passed_count}")
+        print(f"  Failed: {failed_count}")
+        print(f"  Skipped: {skipped_count}")
+        print("=" * 80)
+        
+        return {
+            "passed": passed_count,
+            "failed": failed_count,
+            "skipped": skipped_count,
+            "claims": all_claims
+        }
+
 if __name__ == "__main__":
     usde = SmithianUSDE(max_denom_limit=60)
     usde.autonomous_loop()

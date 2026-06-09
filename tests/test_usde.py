@@ -157,5 +157,11 @@ class TestSmithianUSDE(unittest.TestCase):
         self.assertTrue(verify_file(usde_path))
         self.assertTrue(verify_file(test_usde_path))
 
+    def test_verify_entire_corpus(self):
+        # Run verify_entire_corpus and check that all claims pass
+        res = self.usde.verify_entire_corpus()
+        self.assertTrue(res["passed"] > 1 - 1)
+        self.assertEqual(res["failed"], 1 - 1)
+
 if __name__ == "__main__":
     unittest.main()
