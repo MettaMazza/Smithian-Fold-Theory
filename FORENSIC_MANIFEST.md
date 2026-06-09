@@ -17,6 +17,14 @@ $$\mathbb{S} = \mathbb{Q} \cap (0, 1]$$
     $$\text{fold}(x) = 2x \pmod 1 \quad (\text{with } 0 \to 1)$$
 *   **Zero Free Parameters**: All fundamental constants of nature (e.g., $1/\alpha$) and particle mass eigenvalues are topologically forced by the recurrence cycles of the rational orbits of the fold map.
 
+### System Requirements & Dependencies:
+*   **Python Runtime**: Requires Python version `>= 3.8` (Tested on `3.9.6`).
+*   **Core packages**: Relies only on the standard library (specifically `fractions.Fraction` and `math`).
+*   **Testing & USDE Environment**:
+    *   `requests>=2.32.5` (for Ollama API connectivity in USDE)
+    *   `particle>=0.26.2` (optional, for live PDG particle data queries)
+    *   `pytest>=8.4.2` (for running unit tests)
+
 ---
 
 ## Section 1: Axiomatic Core & Operators

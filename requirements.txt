@@ -1,0 +1,3 @@
+pytest>=8.4.2
+particle>=0.26.2
+requests>=2.32.5

@@ -19,6 +19,20 @@ From that, and nothing else, this corpus derives the four fundamental interactio
 
 ## Quick Start
 
+### System Requirements & Dependencies
+* **Python Version**: Python `>= 3.8` (Tested on `3.9.6`)
+* **Core Dependencies**: The core mathematics library (`sftoe/`) uses only built-in Python standard libraries (specifically `fractions.Fraction` and `math`).
+* **External Dependencies** (for testing, validation, and USDE features):
+  * `requests>=2.32.5` (for Ollama API communication in USDE report generation)
+  * `particle>=0.26.2` (optional, for live PDG database queries in `particle_validation.py` and `usde.py`)
+  * `pytest>=8.4.2` (for the test suite)
+
+To install dependencies:
+```bash
+pip install -r requirements.txt
+```
+
+### Running the Test Suite
 ```bash
 git clone https://github.com/MettaMazza/Smithian-Fold-Theory.git
 cd Smithian-Fold-Theory
