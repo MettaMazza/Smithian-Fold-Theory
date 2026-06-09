@@ -237,16 +237,31 @@ class SmithianUSDE:
             return []
             
         matches = []
-        # Lepton ratio checks (electron, muon, tau)
+        
         try:
+            # Query live PDG masses
             me = Particle.from_evtgen_name('e-').mass
             mmu = Particle.from_evtgen_name('mu-').mass
             mtau = Particle.from_evtgen_name('tau-').mass
             
-            ref_ratios = [mmu / me, mtau / mmu]
-            calc_ratios = [eigenvalues[1] / eigenvalues[1 - 1], eigenvalues[2] / eigenvalues[1]]
+            mu = Particle.from_evtgen_name('u').mass
+            mc = Particle.from_evtgen_name('c').mass
+            mt = Particle.from_evtgen_name('t').mass
             
-            for ref, calc, name in zip(ref_ratios, calc_ratios, ["mu/e", "tau/mu"]):
+            md = Particle.from_evtgen_name('d').mass
+            ms = Particle.from_evtgen_name('s').mass
+            mb = Particle.from_evtgen_name('b').mass
+            
+            mw = Particle.from_evtgen_name('W+').mass
+            mz = Particle.from_evtgen_name('Z0').mass
+            
+            # Ratios from eigenvalues
+            calc_r1 = eigenvalues[1] / eigenvalues[1 - 1]
+            calc_r2 = eigenvalues[2] / eigenvalues[1]
+            
+            # 1. Leptons
+            ref_lepton = [mmu / me, mtau / mmu]
+            for ref, calc, name in zip(ref_lepton, [calc_r1, calc_r2], ["mu/e", "tau/mu"]):
                 dev = abs(calc - ref) / ref
                 if dev < 0.05: # Within 5%
                     matches.append({
@@ -254,6 +269,46 @@ class SmithianUSDE:
                         "sector": sector_m,
                         "calculated": calc,
                         "measured": ref,
+                        "deviation_pct": dev * 100
+                    })
+                    
+            # 2. Up-type Quarks
+            ref_up = [mc / mu, mt / mc]
+            for ref, calc, name in zip(ref_up, [calc_r1, calc_r2], ["c/u", "t/c"]):
+                dev = abs(calc - ref) / ref
+                if dev < 0.05:
+                    matches.append({
+                        "name": f"Up Quark Mass Ratio {name}",
+                        "sector": sector_m,
+                        "calculated": calc,
+                        "measured": ref,
+                        "deviation_pct": dev * 100
+                    })
+                    
+            # 3. Down-type Quarks
+            ref_down = [ms / md, mb / ms]
+            for ref, calc, name in zip(ref_down, [calc_r1, calc_r2], ["s/d", "b/s"]):
+                dev = abs(calc - ref) / ref
+                if dev < 0.05:
+                    matches.append({
+                        "name": f"Down Quark Mass Ratio {name}",
+                        "sector": sector_m,
+                        "calculated": calc,
+                        "measured": ref,
+                        "deviation_pct": dev * 100
+                    })
+                    
+            # 4. Gauge Boson Mass Ratio
+            ref_boson = mw / mz
+            if sector_m > 2:
+                calc_boson = (float(sector_m - 2) / float(sector_m - 1)) ** 0.5
+                dev = abs(calc_boson - ref_boson) / ref_boson
+                if dev < 0.05:
+                    matches.append({
+                        "name": "W/Z Gauge Boson Mass Ratio",
+                        "sector": sector_m,
+                        "calculated": calc_boson,
+                        "measured": ref_boson,
                         "deviation_pct": dev * 100
                     })
         except Exception:
