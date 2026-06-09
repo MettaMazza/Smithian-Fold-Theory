@@ -89,19 +89,6 @@ def main():
         print(f"Report generated successfully with {sectors_num} sectors explained.")
         print(f"Location: {report_path}")
 
-    elif "--ollama" in args:
-        try:
-            idx = args.index("--ollama")
-            model_name = args[idx + 1]
-        except (ValueError, IndexError):
-            print("Error: --ollama requires a model name argument (e.g. --ollama gemma4:26b).")
-            sys.exit(1)
-        print(f"Generating LLM inference-driven scientific report using local Ollama model '{model_name}'...")
-        report_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), "usde_reports", "discovery_atlas_inference.md")
-        sectors_num = usde.generate_inference_report(model_name=model_name, output_path=report_path)
-        print(f"Report generated successfully with {sectors_num} sectors explained.")
-        print(f"Location: {report_path}")
-
     elif "--daemon" in args:
         reports_dir = os.path.join(os.path.dirname(os.path.abspath(__file__)), "usde_reports")
         os.makedirs(reports_dir, exist_ok=True)
@@ -201,6 +188,19 @@ def main():
                 time.sleep(1)
         except KeyboardInterrupt:
             print("\nUSDE Daemon stopped by user.")
+
+    elif "--ollama" in args:
+        try:
+            idx = args.index("--ollama")
+            model_name = args[idx + 1]
+        except (ValueError, IndexError):
+            print("Error: --ollama requires a model name argument (e.g. --ollama gemma4:26b).")
+            sys.exit(1)
+        print(f"Generating LLM inference-driven scientific report using local Ollama model '{model_name}'...")
+        report_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), "usde_reports", "discovery_atlas_inference.md")
+        sectors_num = usde.generate_inference_report(model_name=model_name, output_path=report_path)
+        print(f"Report generated successfully with {sectors_num} sectors explained.")
+        print(f"Location: {report_path}")
 
 if __name__ == "__main__":
     main()
