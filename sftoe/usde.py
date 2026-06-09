@@ -253,9 +253,15 @@ class SmithianUSDE:
             
         # Bracket boundaries
         try:
-            x1 = bisect(1.0 - 1.0, Fraction(5, 100))
-            x2 = bisect(Fraction(5, 100), Fraction(35, 100))
-            x3 = bisect(Fraction(7, 10), Fraction(99, 100))
+            # We calculate critical points to dynamically define root brackets
+            # x_minus, x_plus are critical points separating root regions
+            det = (1.0 - 3.0 * e2) ** Fraction(1, 2)
+            x_minus = (1.0 - det) / 3.0
+            x_plus = (1.0 + det) / 3.0
+            
+            x1 = bisect(1.0 - 1.0, x_minus)
+            x2 = bisect(x_minus, x_plus)
+            x3 = bisect(x_plus, 1.0)
             return [x1**2, x2**2, x3**2]
         except Exception:
             return []
