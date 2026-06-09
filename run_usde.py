@@ -21,6 +21,7 @@ Options:
   --closed      Enumerate the closed-set algebra under folds 2,3,5,7.
   --prove       Run the T1-T12 auto-proof matrix on candidate sectors.
   --align       Solve polynomials for proven sectors and match against live PDG.
+  --report      Generate a detailed publication-grade scientific Markdown report.
   --daemon      Run autonomously at maximum capacity, incrementing N and exporting results.
   --max-denom N Set the maximum denominator depth (default: 60).
   --help        Show this help message.
@@ -78,6 +79,13 @@ def main():
         print(f"Found {len(res['alignments'])} alignments:")
         for m in res['alignments']:
             print(f"  Sector m={m['sector']} -> Match: {m['name']} (calculated: {m['calculated']:.6f}, measured: {m['measured']:.6f}, dev: {m['deviation_pct']:.4f}%)")
+
+    elif "--report" in args:
+        print(f"Generating publication-grade scientific report at depth N={max_denom}...")
+        report_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), "usde_reports", "discovery_atlas.md")
+        sectors_num = usde.generate_academic_report(output_path=report_path)
+        print(f"Report generated successfully with {sectors_num} sectors explained.")
+        print(f"Location: {report_path}")
 
     elif "--daemon" in args:
         reports_dir = os.path.join(os.path.dirname(os.path.abspath(__file__)), "usde_reports")
