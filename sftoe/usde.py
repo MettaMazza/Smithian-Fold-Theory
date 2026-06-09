@@ -943,12 +943,18 @@ class SmithianUSDE:
                 lines.append("### LLM Analysis")
                 lines.append(analysis)
                 lines.append("\n---\n")
+                try:
+                    with open(output_path, "w", encoding="utf-8") as f:
+                        f.write("\n".join(lines))
+                except Exception:
+                    pass
                 
         with open(output_path, "w", encoding="utf-8") as f:
             f.write("\n".join(lines))
             
         print(f"Sweep Inference Report saved to: {output_path}")
         return len(target_alignments)
+
 
     def generate_inference_report(self, model_name, output_path="usde_reports/discovery_atlas_inference.md", limit_to_matches=True):
         """Generates a non-heuristic report using a local Ollama model prompted with the master theory."""
