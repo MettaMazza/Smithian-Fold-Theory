@@ -22,6 +22,7 @@ Options:
   --prove       Run the T1-T12 auto-proof matrix on candidate sectors.
   --align       Solve polynomials for proven sectors and match against live PDG.
   --report      Generate a detailed publication-grade scientific Markdown report.
+  --ollama MODEL Generate an LLM inference-driven scientific report using Ollama.
   --daemon      Run autonomously at maximum capacity, incrementing N and exporting results.
   --max-denom N Set the maximum denominator depth (default: 60).
   --help        Show this help message.
@@ -84,6 +85,19 @@ def main():
         print(f"Generating publication-grade scientific report at depth N={max_denom}...")
         report_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), "usde_reports", "discovery_atlas.md")
         sectors_num = usde.generate_academic_report(output_path=report_path)
+        print(f"Report generated successfully with {sectors_num} sectors explained.")
+        print(f"Location: {report_path}")
+
+    elif "--ollama" in args:
+        try:
+            idx = args.index("--ollama")
+            model_name = args[idx + 1]
+        except (ValueError, IndexError):
+            print("Error: --ollama requires a model name argument (e.g. --ollama gemma4:26b).")
+            sys.exit(1)
+        print(f"Generating LLM inference-driven scientific report using local Ollama model '{model_name}'...")
+        report_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), "usde_reports", "discovery_atlas_inference.md")
+        sectors_num = usde.generate_inference_report(model_name=model_name, output_path=report_path)
         print(f"Report generated successfully with {sectors_num} sectors explained.")
         print(f"Location: {report_path}")
 
