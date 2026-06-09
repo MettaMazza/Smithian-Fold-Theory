@@ -2,7 +2,7 @@
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 [![Python 3.9+](https://img.shields.io/badge/Python-3.9+-green.svg)](https://python.org)
-[![Tests: 1,025 PASS](https://img.shields.io/badge/Tests-1%2C025%20PASS-brightgreen.svg)](#quick-start)
+[![Tests: 1,032 PASS](https://img.shields.io/badge/Tests-1%2C032%20PASS-brightgreen.svg)](#quick-start)
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.20515256.svg)](https://doi.org/10.5281/zenodo.20515256)
 
 **Author:** Maria Smith, [Ernos Labs](https://discord.gg/Fm8aMyWD) — independent researcher, autodidact. Scotland.
@@ -28,7 +28,7 @@ python3 -m pytest
 Expected output:
 
 ```
-============================ 1025 passed in 16.77s =============================
+============================ 1032 passed in 16.00s =============================
 ```
 
 ---
@@ -51,6 +51,44 @@ The Standard Model has roughly two dozen numbers no theory explains — particle
 - **Proton stability** — proven absolute
 - **Three spatial dimensions** — proven, not assumed
 - **Consciousness** — self-observation as fold fixed point, stream of experience, unity threshold
+
+---
+
+## Universal Self-Discovery Engine (USDE)
+
+The USDE is an autonomous exploration tool that sweeps the dyadic fold space, partitions coordinate orbits, solves eigenvalues, and cross-references matches against live particle databases (`particle` PDG). It runs on the unified emergence equation:
+
+$$\mathcal{M}_{\text{physical}} = \left\{ \lambda^2 \ \middle|\  \lambda^3 - \lambda^2 + \frac{1}{2m}\lambda - \frac{1}{2m^5 - 1} = 0 \right\}$$
+
+### CLI Usage
+
+The CLI script `run_usde.py` provides multiple modes:
+
+* **Sweep coordinate space**:
+  ```bash
+  python3 run_usde.py --sweep --max-denom 60
+  ```
+* **Enumerate closed-set algebra**:
+  ```bash
+  python3 run_usde.py --closed --max-denom 60
+  ```
+* **Test T1-T12 invariants**:
+  ```bash
+  python3 run_usde.py --prove --max-denom 60
+  ```
+* **Match eigenvalues to particle data**:
+  ```bash
+  python3 run_usde.py --align --max-denom 60
+  ```
+* **Generate human-readable discovery report**:
+  ```bash
+  python3 run_usde.py --report --max-denom 60
+  ```
+  Generates a comprehensive scientific explanation of all coordinates and alignments at `usde_reports/discovery_atlas.md`.
+* **Run autonomously in background**:
+  ```bash
+  python3 run_usde.py --daemon
+  ```
 
 ---
 
