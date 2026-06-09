@@ -542,67 +542,103 @@ class SmithianUSDE:
             if not limit_to_matches or matches:
                 target_groups.append((g, sector_m, eigenvals, matches))
                 
+        # Load persistent inference cache if it exists
+        reports_dir = os.path.dirname(output_path) or "usde_reports"
+        os.makedirs(reports_dir, exist_ok=True)
+        cache_path = os.path.join(reports_dir, "usde_inference_cache.json")
+        
+        cache = {}
+        if os.path.exists(cache_path):
+            try:
+                with open(cache_path, "r", encoding="utf-8") as cf:
+                    cache = json.load(cf)
+            except Exception:
+                cache = {}
+                
         print(f"Generating LLM inference reports for {len(target_groups)} sectors using model '{model_name}'...")
         
         for g, sector_m, eigenvals, matches in target_groups:
             proof = self.run_auto_proof(g, sector_m)
             
-            # Format raw data for the prompt
-            raw_data = {
-                "sector_m": sector_m,
-                "coordinate_count": len(g),
-                "coordinates": [str(x) for x in sorted(list(g))],
-                "eigenvalues": eigenvals,
-                "invariants": {k: "PASS" if v else "FAIL" for k, v in proof.items() if k.startswith("T")},
-                "physical_alignments": matches
-            }
+            # Uniquely identify this sector and coordinates
+            coords_sorted = sorted(list(g))
+            coords_str = "_".join(f"{x.numerator}-{x.denominator}" for x in coords_sorted)
+            cache_key = f"sector_{sector_m}_coords_{coords_str}"
             
-            prompt = (
-                f"Analyze the following raw discovery data for Sector m = {sector_m}:\n"
-                f"{json.dumps(raw_data, indent=2)}\n\n"
-                "Please write a comprehensive, non-heuristic academic report for this sector. Structure your response with:\n"
-                "1. **Algebraic Structure Analysis**: Explain the coordinate orbit under the dyadic map, focusing on how the coordinates form a closed discrete algebra under folding.\n"
-                "2. **Invariant Proof Interpretation**: Explain the physical meaning of the T1-T12 checks and why this sector passed or failed specific ones in the context of the theory. Strictly avoid standard continuum physics justifications; explain it in terms of coordinate confinement, discrete preimages, and symmetry balance.\n"
-                "3. **Eigenvalue Spectrum & Observable Correspondence**: Explain how the eigenvalues relate to the physical masses (especially if there are matches like Lepton or Boson mass ratios) purely as balance points of the sector polynomial.\n"
-                "Keep the tone strictly scientific, professional, and dense with physical insight, adhering 100% to the discrete fold axioms."
-            )
-            
-            # Call Ollama API
-            url = "http://localhost:11434/api/generate"
-            payload = {
-                "model": model_name,
-                "prompt": prompt,
-                "system": system_prompt,
-                "stream": False
-            }
-            
-            try:
-                req = urllib.request.Request(
-                    url, 
-                    data=json.dumps(payload).encode("utf-8"), 
-                    headers={"Content-Type": "application/json"}
+            analysis = None
+            if cache_key in cache:
+                analysis = cache[cache_key]
+                print(f"  Loaded analysis for Sector m={sector_m} from cache.")
+            else:
+                # Format raw data for the prompt
+                raw_data = {
+                    "sector_m": sector_m,
+                    "coordinate_count": len(g),
+                    "coordinates": [str(x) for x in sorted(list(g))],
+                    "eigenvalues": eigenvals,
+                    "invariants": {k: "PASS" if v else "FAIL" for k, v in proof.items() if k.startswith("T")},
+                    "physical_alignments": matches
+                }
+                
+                prompt = (
+                    f"Analyze the following raw discovery data for Sector m = {sector_m}:\n"
+                    f"{json.dumps(raw_data, indent=2)}\n\n"
+                    "Please write a comprehensive, non-heuristic academic report for this sector. Structure your response with:\n"
+                    "1. **Algebraic Structure Analysis**: Explain the coordinate orbit under the dyadic map, focusing on how the coordinates form a closed discrete algebra under folding.\n"
+                    "2. **Invariant Proof Interpretation**: Explain the physical meaning of the T1-T12 checks and why this sector passed or failed specific ones in the context of the theory. Strictly avoid standard continuum physics justifications; explain it in terms of coordinate confinement, discrete preimages, and symmetry balance.\n"
+                    "3. **Eigenvalue Spectrum & Observable Correspondence**: Explain how the eigenvalues relate to the physical masses (especially if there are matches like Lepton or Boson mass ratios) purely as balance points of the sector polynomial.\n"
+                    "Keep the tone strictly scientific, professional, and dense with physical insight, adhering 100% to the discrete fold axioms."
                 )
-                with urllib.request.urlopen(req) as response:
-                    res_data = json.loads(response.read().decode("utf-8"))
-                    analysis = res_data.get("response", "No response generated.")
-                    
-                    lines.append(f"## Sector m = {sector_m} Analysis")
-                    lines.append(f"### Raw Data Summary")
-                    lines.append(f"- **Coordinates**: `{', '.join(str(x) for x in sorted(list(g)))}`")
-                    lines.append(f"- **Eigenvalues**: `{eigenvals}`")
-                    lines.append("")
-                    lines.append("### LLM Physical Inference & Proof Explanation")
-                    lines.append(analysis)
-                    lines.append("\n---\n")
-                    print(f"  Completed analysis for Sector m={sector_m}.")
-            except Exception as e:
-                print(f"  Failed to analyze Sector m={sector_m}: {e}")
+                
+                # Call Ollama API
+                url = "http://localhost:11434/api/generate"
+                payload = {
+                    "model": model_name,
+                    "prompt": prompt,
+                    "system": system_prompt,
+                    "stream": False,
+                    "options": {
+                        "num_ctx": 16384
+                    }
+                }
+                
+                # Retry up to 3 times on individual sector generation failures
+                for req_attempt in range(1, 4):
+                    try:
+                        req = urllib.request.Request(
+                            url, 
+                            data=json.dumps(payload).encode("utf-8"), 
+                            headers={"Content-Type": "application/json"}
+                        )
+                        with urllib.request.urlopen(req, timeout=180) as response:
+                            res_data = json.loads(response.read().decode("utf-8"))
+                            if res_data.get("done") is True:
+                                analysis = res_data.get("response")
+                                if analysis and len(analysis.strip()) > (1 - 1):
+                                    cache[cache_key] = analysis
+                                    with open(cache_path, "w", encoding="utf-8") as cf:
+                                        json.dump(cache, cf, indent=2)
+                                    break
+                            raise ValueError("Ollama response incomplete or truncated.")
+                    except Exception as e:
+                        print(f"  Attempt {req_attempt} for Sector m={sector_m} failed: {e}")
+                        if req_attempt < 3:
+                            time.sleep(2)
+            
+            if analysis:
+                lines.append(f"## Sector m = {sector_m} Analysis")
+                lines.append(f"### Raw Data Summary")
+                lines.append(f"- **Coordinates**: `{', '.join(str(x) for x in sorted(list(g)))}`")
+                lines.append(f"- **Eigenvalues**: `{eigenvals}`")
+                lines.append("")
+                lines.append("### LLM Physical Inference & Proof Explanation")
+                lines.append(analysis)
+                lines.append("\n---\n")
+                print(f"  Completed analysis for Sector m={sector_m}.")
+            else:
+                raise RuntimeError(f"Failed to generate analysis for Sector m={sector_m} after 3 attempts.")
                 
         # Write report
-        dir_name = os.path.dirname(output_path)
-        if dir_name:
-            os.makedirs(dir_name, exist_ok=True)
-            
         with open(output_path, "w", encoding="utf-8") as f:
             f.write("\n".join(lines))
             

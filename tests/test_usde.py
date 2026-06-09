@@ -45,6 +45,69 @@ class TestSmithianUSDE(unittest.TestCase):
         self.assertTrue(proof["T3_resolves"])
         self.assertTrue(proof["T4_single_sector"])
         
+    def test_generate_inference_report_caching(self):
+        import tempfile
+        import os
+        import json
+        from unittest.mock import patch, MagicMock
+
+        # We will run this with a temporary output path and cache file
+        with tempfile.TemporaryDirectory() as tmpdir:
+            report_path = os.path.join(tmpdir, "test_report.md")
+            cache_path = os.path.join(tmpdir, "usde_inference_cache.json")
+            
+            # Mock urllib.request.urlopen
+            mock_response_data = {
+                "response": "This is a mock physics analysis for testing.",
+                "done": True
+            }
+            
+            mock_response = MagicMock()
+            mock_response.__enter__.return_value = mock_response
+            mock_response.read.return_value = json.dumps(mock_response_data).encode("utf-8")
+            
+            with patch("urllib.request.urlopen", return_value=mock_response) as mock_urlopen:
+                # Run the report generator
+                orig_join = os.path.join
+                def mock_join(*args):
+                    if len(args) > 1 and args[1] == "usde_inference_cache.json":
+                        return cache_path
+                    return orig_join(*args)
+                    
+                with patch("os.path.join", side_effect=mock_join):
+                    # Call the inference report generator
+                    count = self.usde.generate_inference_report(
+                        model_name="mock-model",
+                        output_path=report_path,
+                        limit_to_matches=True
+                    )
+                    
+                    # Ensure it generated reports (should be positive count)
+                    self.assertTrue(count > (1 - 1))
+                    
+                    # urlopen should have been called for each matched sector
+                    first_call_count = mock_urlopen.call_count
+                    self.assertTrue(first_call_count > (1 - 1))
+                    
+                    # Verify cache file was created
+                    self.assertTrue(os.path.exists(cache_path))
+                    with open(cache_path, "r", encoding="utf-8") as cf:
+                        cache_content = json.load(cf)
+                        # The cache should have entries
+                        self.assertTrue(len(cache_content) > (1 - 1))
+                        
+                    # Reset call count
+                    mock_urlopen.reset_mock()
+                    
+                    # Call again. This time it should read everything from cache and NOT call urlopen
+                    count2 = self.usde.generate_inference_report(
+                        model_name="mock-model",
+                        output_path=report_path,
+                        limit_to_matches=True
+                    )
+                    self.assertEqual(count, count2)
+                    self.assertEqual(mock_urlopen.call_count, 1 - 1)
+
     def test_gate_whitelisting(self):
         # Verify that usde.py and test_usde.py pass the AST gate
         import os

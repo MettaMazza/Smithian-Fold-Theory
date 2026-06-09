@@ -85,10 +85,18 @@ The CLI script `run_usde.py` provides multiple modes:
   python3 run_usde.py --report --max-denom 60
   ```
   Generates a comprehensive scientific explanation of all coordinates and alignments at `usde_reports/discovery_atlas.md`.
-* **Run autonomously in background**:
+* **Generate LLM inference-driven scientific report (Ollama)**:
   ```bash
-  python3 run_usde.py --daemon
+  python3 run_usde.py --ollama gemma4:26b --max-denom 60
   ```
+  Uses a local Ollama model to generate a non-heuristic, inference-driven report under the strict constraints of the Smithian Fold Theory at `usde_reports/discovery_atlas_inference.md`.
+* **Run autonomously in background (Daemon mode)**:
+  ```bash
+  python3 run_usde.py --daemon --ollama gemma4:26b --report-every 1
+  ```
+  Runs autonomously, scanning deeper coordinate sets in steps of 5, logging results in `usde_reports/usde_daemon.log`, saving discoveries to `usde_reports/usde_discoveries.json`, and incrementally updating the LLM report.
+  * **Persistent Inference Caching**: The engine caches sector analyses in `usde_reports/usde_inference_cache.json`. When new sectors are discovered, Ollama is queried *only* for the new sectors. Previously generated analyses are loaded instantly, reducing latency to zero.
+  * `--report-every N`: Only triggers the LLM inference generation after `N` new alignments are accumulated (default: 1).
 
 ---
 
