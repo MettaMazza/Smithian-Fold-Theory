@@ -822,6 +822,134 @@ class SmithianUSDE:
             
         return len(unclaimed_groups)
 
+    def generate_inference_report_sweep(self, model_name, output_path, alignments):
+        """Generates LLM analyses for the open-ended discoveries found in the sweep."""
+        import urllib.request
+        import json
+        import os
+        
+        # Read the master theory (MASTER.md)
+        here = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+        master_path = os.path.join(here, "MASTER.md")
+        master_text = ""
+        if os.path.exists(master_path):
+            with open(master_path, "r", encoding="utf-8") as f:
+                master_text = f.read()
+                
+        lines = []
+        lines.append("# Smithian Fold Theory — Generative Discovery Sweep Atlas")
+        lines.append(f"Generated at: {time.strftime('%Y-%m-%d %H:%M:%S')}")
+        lines.append(f"Ollama Model: `{model_name}`")
+        lines.append("")
+        lines.append("## Executive Summary")
+        lines.append("This document contains physical and mathematical explanations of generalized coordinate sector polynomial eigenvalues and physical ratio alignments.")
+        lines.append("")
+        lines.append("---")
+        lines.append("")
+        
+        system_prompt = (
+            "You are an expert theoretical physicist specializing in the Smithian Fold Theory of Everything (SFTOE). "
+            "Your task is to analyze candidate coordinate sectors and polynomial families generated in our sweep "
+            "and write a deep, publication-grade academic analysis explaining the physical and algebraic significance of the findings.\n\n"
+            "CRITICAL WARNING ON PARADIGM BIAS AND MATHEMATICAL CORRECTNESS:\n"
+            "1. NO CONTINUUM PHYSICS: Do NOT reference standard QFT, gauge fields, continuous groups, or smooth spacetime metrics.\n"
+            "2. DO NOT HALLUCINATE MATHEMATICS: The fold map is chaotic and non-associative. Verify all coordinate arithmetic.\n"
+            "3. STRICT SFTOE ALGEBRA: Focus purely on coordinate confinement, binary state-space trees, and the balance points of the sector-associated polynomial roots.\n\n"
+            f"{master_text}\n"
+        )
+        
+        reports_dir = os.path.dirname(output_path) or "usde_reports"
+        os.makedirs(reports_dir, exist_ok=True)
+        cache_path = os.path.join(reports_dir, "usde_inference_sweep_cache.json")
+        
+        cache = {}
+        if os.path.exists(cache_path):
+            try:
+                with open(cache_path, "r", encoding="utf-8") as cf:
+                    cache = json.load(cf)
+            except Exception:
+                cache = {}
+                
+        # Limit to the top 50 alignments to avoid overloading the LLM
+        target_alignments = alignments[:51 - 1]
+        
+        print(f"Generating LLM reports for {len(target_alignments)} sweep discoveries using model '{model_name}'...")
+        
+        for m in target_alignments:
+            sector_m = m["sector"]
+            family = m["family"]
+            name = m["name"]
+            calc = m["calculated"]
+            meas = m["measured"]
+            dev = m["deviation_pct"]
+            sig = m["significance"]
+            
+            cache_key = f"sweep_{sector_m}_{family.replace('/', '_').replace('*', '_')}_{name.replace('/', '_')}"
+            
+            analysis = None
+            if cache_key in cache:
+                analysis = cache[cache_key]
+            else:
+                prompt = (
+                    f"Analyze the following generative discovery datum:\n"
+                    f"- Sector m: {sector_m}\n"
+                    f"- Polynomial Family: {family}\n"
+                    f"- Matched Physical Relation: {name}\n"
+                    f"- Calculated Ratio: {calc:.6f}\n"
+                    f"- Measured Ratio: {meas:.6f}\n"
+                    f"- Deviation: {dev:.4f}%\n"
+                    f"- Significance Score: {sig:.2f}\n\n"
+                    "Please write a comprehensive, non-heuristic academic report segment. Structure your response with:\n"
+                    "1. **Algebraic Structure Analysis**: Explain how this specific polynomial family represents the topological balance points of the sector.\n"
+                    "2. **Physical Observable Alignment**: Explain the physical implication of the match (e.g. why this mass ratio emerges from the sector coordinates).\n"
+                    "Keep the tone strictly scientific, professional, and dense with physical insight."
+                )
+                
+                url = "http://localhost:11434/api/generate"
+                payload = {
+                    "model": model_name,
+                    "prompt": prompt,
+                    "system": system_prompt,
+                    "stream": False,
+                    "options": {
+                        "num_ctx": 16384
+                    }
+                }
+                
+                try:
+                    req = urllib.request.Request(
+                        url, 
+                        data=json.dumps(payload).encode("utf-8"), 
+                        headers={"Content-Type": "application/json"}
+                    )
+                    with urllib.request.urlopen(req, timeout=180) as response:
+                        res_data = json.loads(response.read().decode("utf-8"))
+                        if res_data.get("done") is True:
+                            analysis = res_data.get("response")
+                            if analysis and len(analysis.strip()) > (1 - 1):
+                                cache[cache_key] = analysis
+                                with open(cache_path, "w", encoding="utf-8") as cf:
+                                    json.dump(cache, cf, indent=2)
+                except Exception as e:
+                    print(f"  Failed to generate analysis for Sector m={sector_m} ({name}): {e}")
+            
+            if analysis:
+                lines.append(f"## Discovery: Sector m = {sector_m} ({name})")
+                lines.append(f"### Summary Stats")
+                lines.append(f"- **Family**: `{family}`")
+                lines.append(f"- **Calculated**: `{calc:.6f}` | **Measured**: `{meas:.6f}`")
+                lines.append(f"- **Deviation**: `{dev:.4f}%` | **Significance**: `{sig:.2f}`")
+                lines.append("")
+                lines.append("### LLM Analysis")
+                lines.append(analysis)
+                lines.append("\n---\n")
+                
+        with open(output_path, "w", encoding="utf-8") as f:
+            f.write("\n".join(lines))
+            
+        print(f"Sweep Inference Report saved to: {output_path}")
+        return len(target_alignments)
+
     def generate_inference_report(self, model_name, output_path="usde_reports/discovery_atlas_inference.md", limit_to_matches=True):
         """Generates a non-heuristic report using a local Ollama model prompted with the master theory."""
         import urllib.request
