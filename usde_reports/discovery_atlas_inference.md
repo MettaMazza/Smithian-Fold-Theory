@@ -1,5 +1,5 @@
 # Smithian Fold Theory — LLM Inference Discovery Atlas
-Generated at: 2026-06-09 18:10:51
+Generated at: 2026-06-09 18:54:59
 Ollama Model: `gemma4:26b`
 Sweep Limit Depth N: 10
 

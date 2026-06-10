@@ -1,3 +1,7 @@
 .DS_Store
 __pycache__/
 *.pyc
+
+usde_reports/usde_daemon.log
+usde_reports/usde_daemon.zip
+usde_reports/usde_discoveries.json
