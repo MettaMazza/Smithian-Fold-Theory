@@ -15,7 +15,7 @@ All valid quantities in SFTOE exist within the half-open interval:
 $$\mathbb{S} = (0, 1]$$
 - **No Zero**: Zero ($0$) is not a number. Absence is not a quantity and cannot be operated upon.
 - **No Negatives**: Negative numbers do not exist. There is no sign or phase apparatus. 
-- **Antipodal Relation**: The opposite of a part $x \in \mathbb{S}$ is represented by its positive complement with respect to the One:
+- **Antipodal Relation**: The opposite of a part $x \in \mathbb{S}$ is its positive complement with respect to the One:
   $$\text{antipode}(x) = \text{take}(\text{ONE}, x) = 1 - x$$
   Since $x \in (0, 1]$, if $x \neq 1$, then $1 - x \in (0, 1)$. If $x = 1$, the antipode is undefined as subtraction is only permitted when the minuend is strictly greater than the subtrahend (see `take` below).
 
@@ -42,7 +42,7 @@ Mathematically, this is the **dyadic map** (or Bernoulli shift) adapted to $(0, 
 $$\text{fold}(x) = 2x \pmod 1 \quad (\text{with } 0 \to 1)$$
 
 ### 2.3 Take
-Subtraction is represented as **taking** a smaller part from a larger part. This is the only permitted subtraction and is strictly guarded:
+Subtraction is **taking** a smaller part from a larger part. This is the only permitted subtraction and is strictly guarded:
 $$\text{take}(a, b) = a - b \quad \text{where } a > b$$
 If $a \le b$, the operation violates the axioms of SFTOE and raises a domain assertion error.
 
@@ -71,7 +71,7 @@ where $b_i \in \{0, 1\}$.
 Applying $\text{fold}(x)$ shifts the binary sequence one place to the left and discards the integer part:
 $$\text{fold}(x) = 0.b_2 b_3 b_4 \dots_2$$
 
-This map is chaotic on reals, but exhibits periodic orbits on rational numbers:
+This map is chaotic on reals, but has periodic orbits on rational numbers:
 - **Periodic Orbit of 1/3**:
   - $1/3 = 0.010101\dots_2$
   - $\text{fold}(1/3) = 2/3 = 0.101010\dots_2$
