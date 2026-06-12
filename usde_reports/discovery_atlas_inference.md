@@ -1,7 +1,7 @@
 # Smithian Fold Theory — LLM Inference Discovery Atlas
-Generated at: 2026-06-09 18:54:59
+Generated at: 2026-06-10 16:46:18
 Ollama Model: `gemma4:26b`
-Sweep Limit Depth N: 10
+Sweep Limit Depth N: 60
 
 ## Executive Summary
 This document contains physical and mathematical explanations of coordinate sectors and physical matches, generated using a local deep neural network. The network was system-prompted with the complete mathematical and physical axiomatic structure of the Smithian Fold Theory of Everything (SFTOE).

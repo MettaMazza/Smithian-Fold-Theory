@@ -3,6 +3,8 @@
 **Author:** Maria Smith, Ernos Labs  
 **Date:** June 9, 2026  
 
+> **Provenance note:** The USDE is a prototype built *after* the core SFTOE physics and proofs were complete. It contributed nothing to the core results — no core claim was derived from its output. The discoveries documented here are the engine's independent, autonomous re-confirmation of sectors already established by the core proof engine.
+
 ---
 
 ## Abstract

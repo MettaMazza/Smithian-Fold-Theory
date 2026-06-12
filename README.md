@@ -70,6 +70,8 @@ The Standard Model has roughly two dozen numbers no theory explains — particle
 
 ## Universal Self-Discovery Engine (USDE)
 
+> **Provenance note:** The USDE is a prototype exploration tool built *after* the core physics and proofs were complete (core proofs integrated June 5, 2026; USDE first implemented June 9, 2026 — see git history). It contributed nothing to the core results: `core.py` and `proof.py` do not depend on it, and no core claim was derived from its output. Its sweeps independently re-confirm sectors already established by the core proofs.
+
 The USDE is an autonomous exploration tool that sweeps the dyadic fold space, partitions coordinate orbits, solves eigenvalues, and cross-references matches against live particle databases (`particle` PDG). It runs on the unified emergence equation:
 
 $$\mathcal{M}_{\text{physical}} = \left\{ \lambda^2 \ \middle|\  \lambda^3 - \lambda^2 + \frac{1}{2m}\lambda - \frac{1}{2m^5 - 1} = 0 \right\}$$

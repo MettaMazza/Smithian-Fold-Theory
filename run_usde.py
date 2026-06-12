@@ -1,4 +1,7 @@
 #!/usr/bin/env python3
+# CLI for the Universal Self-Discovery Engine (USDE) — a prototype exploration
+# tool built AFTER the core physics and proofs were complete. It contributed
+# nothing to the core results; sftoe.core and sftoe.proof do not depend on it.
 import sys
 import os
 import json

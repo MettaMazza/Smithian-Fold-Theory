@@ -1,3 +1,12 @@
+"""Universal Self-Discovery Engine (USDE).
+
+PROVENANCE: The USDE is a prototype exploration tool built AFTER the core
+physics and proofs were complete (core proofs integrated June 5, 2026; USDE
+first implemented June 9, 2026). It contributed nothing to the core results:
+sftoe.core and sftoe.proof do not depend on this module, and no core claim
+was derived from its output. Its sweeps independently re-confirm sectors
+already established by the core proofs.
+"""
 import sys
 import os
 import re
@@ -870,8 +879,9 @@ class SmithianUSDE:
             except Exception:
                 cache = {}
                 
-        # Limit to the top 50 alignments to avoid overloading the LLM
-        target_alignments = alignments[:51 - 1]
+        # Sort alignments by significance descending, then deviation ascending
+        sorted_alignments = sorted(alignments, key=lambda x: (-x.get("significance", float(int())), x.get("deviation_pct", float(1))))
+        target_alignments = sorted_alignments[:51 - 1]
         
         print(f"Generating LLM reports for {len(target_alignments)} sweep discoveries using model '{model_name}'...")
         
