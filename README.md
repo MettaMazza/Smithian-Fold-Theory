@@ -2,7 +2,7 @@
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 [![Python 3.9+](https://img.shields.io/badge/Python-3.9+-green.svg)](https://python.org)
-[![Tests: 1,032 PASS](https://img.shields.io/badge/Tests-1%2C032%20PASS-brightgreen.svg)](#quick-start)
+[![Tests: 1,041 PASS](https://img.shields.io/badge/Tests-1%2C041%20PASS-brightgreen.svg)](#quick-start)
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.20515256.svg)](https://doi.org/10.5281/zenodo.20515256)
 
 **Author:** Maria Smith, [Ernos Labs](https://discord.gg/Fm8aMyWD) — independent researcher, autodidact. Scotland.
@@ -42,7 +42,7 @@ python3 -m pytest
 Expected output:
 
 ```
-============================ 1032 passed in 16.00s =============================
+============================ 1041 passed in 125.19s ============================
 ```
 
 ---
@@ -52,8 +52,8 @@ Expected output:
 The Standard Model has roughly two dozen numbers no theory explains — particle masses, mixing angles, coupling strengths — measured and put in by hand. This framework **derives them all** from a single axiom:
 
 - **The four forces unified** — every coupling from the single fold factor $m$
-- **The fine-structure constant** — derived to 9 significant figures: $1/\alpha = 137.036$ (fully verified under the proof engine)
-- **The charged-lepton masses** — electron, muon, tau to parts in 100,000 via Koide cubic equation balance
+- **The fine-structure constant** — derived exactly as $1/\alpha = 34259/250 = 137.036$, matching CODATA to eight significant figures — six parts per billion (fully verified under the proof engine)
+- **The charged-lepton masses** — the Koide cubic yields $\tau/\mu$ to 7 parts in 100,000 and $\mu/e$ to 1.6 parts in 1,000
 - **The quark and neutrino spectra** — from colour and chirality structure
 - **CKM and PMNS mixing with CP violation** — every entry a bare fold separation
 - **The absolute scale** — proton-to-Planck ratio $2^{-63.5}$
@@ -140,7 +140,7 @@ All predictions tested against real measured data, zero free parameters:
 ├── sftoe/                         # The core axiomatic system package
 │   ├── core.py                    # The One, the fold, ratio, take, cast_out
 │   ├── gate.py                    # The AST compiler and language gates
-│   ├── proof.py                   # 1,025 verification routes under the proof engine
+│   ├── proof.py                   # Verification routes under the proof engine
 ├── tests/                         # Pytest unit testing suite
 ├── papers/                        # Academic LaTeX drafts for final publications
 │   ├── primitives_of_action.tex   # Paper 1: Foundations and field equations

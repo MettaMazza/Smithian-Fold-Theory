@@ -387,7 +387,7 @@ Below is the complete LaTeX source for the manuscript deriving the fine-structur
 \maketitle
 
 \begin{abstract}
-This paper presents the detailed derivations of the fundamental dimensionless constants of nature within the framework of the Smithian Fold Theory of Everything (SFTOE). By representing physical parameters as periodic orbits of the dyadic shift map over the domain $\mathbb{S} = \mathbb{Q} \cap (0, 1]$, we demonstrate that constants of nature are structurally forced. We show that the electromagnetic fine-structure constant is given exactly by $1/\alpha = 2^7 + 3^2(251/250)$, matching experimental measurements to nine significant figures. Furthermore, we solve the charged-lepton mass relation exactly via the Koide cubic equation on the rational grid, and derive the cosmological dark-to-baryon mass density ratio as $27/5$.
+This paper presents the detailed derivations of the fundamental dimensionless constants of nature within the framework of the Smithian Fold Theory of Everything (SFTOE). By representing physical parameters as periodic orbits of the dyadic shift map over the domain $\mathbb{S} = \mathbb{Q} \cap (0, 1]$, we demonstrate that constants of nature are structurally forced. We show that the electromagnetic fine-structure constant is given exactly by $1/\alpha = 2^7 + 3^2(251/250)$, matching experimental measurements to eight significant figures (six parts per billion). Furthermore, we solve the charged-lepton mass relation exactly via the Koide cubic equation on the rational grid, and derive the cosmological dark-to-baryon mass density ratio as $27/5$.
 \end{abstract}
 
 \section{Introduction}
@@ -412,7 +412,7 @@ Adding these contributions yields:
 \begin{equation}
 \frac{1}{\alpha} = 2^7 + 3^2 \left( 1 + \frac{1}{2 \cdot 5^3} \right) = 128 + 9 \left( \frac{251}{250} \right) = \frac{34259}{250} = 137.036
 \end{equation}
-This matches the experimental CODATA value $137.035999$ to nine significant figures. The derivation shows that electromagnetic coupling is exactly determined by the topological properties of the dyadic fold.
+This matches the experimental CODATA value $137.035999177$ to eight significant figures (six parts per billion). The derivation shows that electromagnetic coupling is exactly determined by the topological properties of the dyadic fold.
 
 \section{The Charged Lepton Mass Sector and the Koide Cubic}
 The mass relations of the charged leptons (electron, muon, and tau) are governed by the Koide equation:
@@ -431,7 +431,7 @@ Solving this cubic yields three distinct positive real roots $x_1, x_2, x_3$ rep
 \begin{equation}
 \frac{m_\mu}{m_e} = \left(\frac{x_2}{x_1}\right)^2 \approx 206.77, \quad \frac{m_\tau}{m_\mu} = \left(\frac{x_3}{x_2}\right)^2 \approx 16.82
 \end{equation}
-which are in precise agreement with the physical values of the electron, muon, and tau masses.
+which agree with the measured values to $7$ parts in $100{,}000$ for $m_\tau/m_\mu$ and $1.6$ parts in $1{,}000$ for $m_\mu/m_e$.
 
 \section{Cosmological Bounds and Mass Density Ratios}
 The mass density of the universe is divided into baryonic matter, dark matter, and dark energy. SFTOE models the cosmological sector fractions as partition ratios of the unit interval.
@@ -488,7 +488,7 @@ The derivation of the fine-structure constant, Koide mass relations, and cosmolo
 The author gratefully acknowledges Matthew Smith (Ernos Labs) for funding and supporting this research.
 
 \section*{Code Availability}
-The complete axiomatic code, proof engine, and 1,025-test verification suite are publicly available at:
+The complete axiomatic code, proof engine, and 1,041-test verification suite are publicly available at:
 \url{https://github.com/MettaMazza/Smithian-Fold-Theory}
 
 \begin{thebibliography}{9}
@@ -505,7 +505,7 @@ The complete axiomatic code, proof engine, and 1,025-test verification suite are
 
 ## 6. Empirical Verification & Unit Test Walkthrough
 
-The correctness of the mathematical mappings in SFTOE is verified by the unit test suite (`tests/test_sftoe.py`), which executes all 1,027 verification pathways.
+The correctness of the mathematical mappings in SFTOE is verified by the unit test suite (`tests/test_sftoe.py`), which executes all 1,041 verification pathways.
 
 ### Summary of Proof Verification Checks:
 1. **No-Zero Axiom Gate**: Verifies that constructing a `SmithianValue` of $0$ raises a domain violation.
@@ -519,11 +519,11 @@ python3 -m pytest
 ```
 ```
 platform darwin -- Python 3.9.6, pytest-8.4.2, pluggy-1.6.0
-collected 1027 items
+collected 1041 items
 
 tests/test_sftoe.py .................................................... [100%]
 
-============================ 1027 passed in 16.28s =============================
+============================ 1041 passed in 125.19s ============================
 ```
 
 ### Live Particle Validation & CODATA/PDG Comparisons

@@ -12808,9 +12808,12 @@ def verify_fine_structure_constant():
     
     Route B:
     1. Component Verification: Compares the computed parts to independent structural definitions:
-       - 128 matches the binary covering tower at depth 7.
-       - 9 matches the square of color count three.
-       - 250 matches the covering volume factor (2 * 5^3).
+       - The tower depth 7 is computed as the minimal binary covering depth of the
+         generational volume 3^4 = 81 (2^6 < 81 <= 2^7), the same covering-depth
+         principle proven in M19 and N8b, and 128 = 2^7 matches the tower.
+       - 9 matches the square of color count three (the count proven in B-colour).
+       - 250 matches the covering volume factor (2 * 5^3), 5 being the minimal
+         covering depth of 3^3 = 27 proven in N8b.
     """
     from sftoe.core import SmithianValue, ONE, fold
     
@@ -12854,6 +12857,19 @@ def verify_fine_structure_constant():
         alpha_inv = tower + color_factor * scale_factor
         
         # Route B: independent structural comparison of the components
+        # The tower depth is forced as the minimal binary covering depth of
+        # the generational volume 3^4 = 81: the smallest d with 2^d >= 81
+        # (2^6 = 64 < 81 <= 128 = 2^7), the covering-depth principle of M19/N8b.
+        volume = three_val ** four_val
+        depth = one_val
+        while two_val ** depth < volume:
+            depth = depth + one_val
+        if depth != seven_val:
+            raise VerificationError("Minimal covering depth of the 3^4 volume is not seven.")
+
+        if tower != Fraction(two_val ** depth, one_val):
+            raise VerificationError("Tower does not equal the binary tower at the forced covering depth.")
+
         expected_tower = Fraction(one_val, two_to_7_inv.value)
         if tower != expected_tower:
             raise VerificationError("Electromagnetic tower mismatch.")
@@ -12980,6 +12996,7 @@ def verify_hubble_tension():
     four_val = 4
     five_val = 5
     eight_val = 8
+    ten_val = two_val * five_val
     twelve_val = three_val * four_val
     thirteen_val = twelve_val + one_val
     
@@ -13013,18 +13030,25 @@ def verify_hubble_tension():
         if calibration_ratio != Fraction(one_val, expected_ratio_inv.value):
             raise VerificationError("Hubble tension calibration ratio mismatch.")
             
-        # External read: compare with measured H0 ratio (73.0/67.4)
-        measured_ratio = float(Fraction(73, 1) / Fraction(67, 1))
-        
+        # External read: compare the forced ratio against the measured H0
+        # calibration ratio, SH0ES 73.04 / Planck 67.36 (km/s/Mpc),
+        # within a 1/500 window (observed deviation is ~1/1010).
+        measured_ratio = Fraction(7304, 6736)
+        deviation = abs(calibration_ratio - measured_ratio)
+        tolerance = Fraction(one_val, five_val * ten_val ** two_val)
+        if deviation > tolerance:
+            raise VerificationError("Calibration ratio 13/12 does not match the measured H0 ratio.")
+
     except (AssertionError, ValueError, IndexError, ZeroDivisionError) as e:
         raise VerificationError(f"Hubble tension verification failed: {e}")
-        
+
     return {
         "tier": "B",
         "concept": "The Hubble tension -- expansion ratio of 13/12.",
         "vacuum_part": vacuum_part.value,
         "covering_tower": Fraction(one_val, tower_inv.value),
         "calibration_ratio": calibration_ratio,
+        "measured_ratio": measured_ratio,
         "absolute_scale_read_required": True
     }
 
