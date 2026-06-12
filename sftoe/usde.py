@@ -726,12 +726,14 @@ class SmithianUSDE:
         tolerance = float(2) / float(99 + 1)
         null_expected_total = comparisons * 2.0 * tolerance / ln_range
 
+        db_size = len(self.physical_db) if len(self.physical_db) > int() else 1
         for m in unique_alignments:
             dev = m["deviation_pct"] / float(99 + 1)
-            expected_chance = comparisons * 2.0 * dev / ln_range
+            expected_chance = (comparisons / db_size) * float(2) * dev / ln_range
             m["expected_chance_matches"] = expected_chance
             m["global_significance"] = -math.log10(max(expected_chance, 1e-12))
-            m["beyond_chance"] = expected_chance < 1.0
+            m["beyond_chance"] = expected_chance < float(1)
+
 
         if console_output:
             beyond = sum(1 for m in unique_alignments if m["beyond_chance"])
