@@ -25,6 +25,7 @@ Options:
   --prove          Run the T1-T12 auto-proof matrix on candidate sectors.
   --align          Solve polynomials for proven sectors and match against live PDG.
   --discovery-sweep Sweep all parameter combinations for open-ended discoveries.
+  --null-baseline  Run the sweep, then re-run it against synthetic non-physical targets to measure the chance-alignment baseline.
   --report         Generate a detailed publication-grade scientific Markdown report.
   --ollama MODEL    Generate an LLM inference-driven scientific report using Ollama.
   --daemon         Run autonomously at maximum capacity, incrementing N and exporting results.
@@ -213,6 +214,17 @@ def main():
         with open(sweep_path, "w") as df:
             json.dump(res["alignments"], df, indent=2)
         print(f"Significant alignments saved to: {sweep_path}")
+
+    elif "--null-baseline" in args:
+        print(f"Running discovery sweep and null baseline at depth N={max_denom}...")
+        res = usde.discovery_sweep_loop(console_output=True, analytical=analytical)
+        print()
+        null_res = usde.run_null_baseline(console_output=True, analytical=analytical)
+        beyond = sum(1 for m in res["alignments"] if m.get("beyond_chance"))
+        within_err = sum(1 for m in res["alignments"] if m.get("within_experimental_error"))
+        print()
+        print(f"Real alignments: {len(res['alignments'])} total | {beyond} beyond chance expectation | {within_err} within {usde.tolerance_sigmas:.0f}-sigma experimental error")
+        print(f"Null alignments (synthetic targets): {null_res['null_alignments']}")
 
     elif "--report" in args:
         print(f"Generating publication-grade scientific report at depth N={max_denom}...")

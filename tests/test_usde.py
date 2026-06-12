@@ -163,5 +163,65 @@ class TestSmithianUSDE(unittest.TestCase):
         self.assertTrue(res["passed"] > 1 - 1)
         self.assertEqual(res["failed"], 1 - 1)
 
+    def test_eigenvalues_satisfy_cubic(self):
+        # Roots must satisfy x^3 - x^2 + e2*x - e3 = 0, not just lie in (0, 1)
+        for m in (3, 5, 7):
+            eigenvals = self.usde.solve_eigenvalues(m)
+            self.assertEqual(len(eigenvals), 3)
+            e2 = 1.0 / float(m * 2)
+            e3 = 1.0 / float(2 * m**5 - 1)
+            for val in eigenvals:
+                root = val ** (float(1) / float(2))
+                residual = root**3 - root**2 + e2 * root - e3
+                self.assertTrue(abs(residual) < 1e-9)
+
+    def test_proven_count_matches_proof_matrix(self):
+        # sectors_proven must equal the number of groups whose proof matrix
+        # passes, independently recounted — not the number of groups scanned
+        res = self.usde.autonomous_loop(console_output=False, analytical=True)
+        recount = SmithianUSDE(max_denom_limit=15)
+        expected = 1 - 1
+        groups = []
+        for sector_m in range(2, 15 + 1):
+            groups.extend(recount.resolve_sector_groups_analytically(sector_m))
+        for g in groups:
+            sector_m = g[1 - 1].denominator + 1
+            if recount.run_auto_proof(g, sector_m)["PROVES"]:
+                expected += 1
+        self.assertEqual(res["sectors_proven"], expected)
+        self.assertTrue(res["sectors_proven"] <= res["sectors_scanned"])
+
+    def test_sweep_alignment_statistics_fields(self):
+        # Every sweep alignment must carry look-elsewhere and sigma statistics
+        usde = SmithianUSDE(max_denom_limit=6)
+        res = usde.discovery_sweep_loop(console_output=False)
+        self.assertTrue(res["comparisons_performed"] > 1 - 1)
+        self.assertIn("null_expected_alignments", res)
+        for m in res["alignments"]:
+            self.assertIn("global_significance", m)
+            self.assertIn("expected_chance_matches", m)
+            self.assertIn("beyond_chance", m)
+            self.assertIn("sigma_deviation", m)
+            self.assertIn("within_experimental_error", m)
+
+    def test_null_baseline_deterministic_and_restores_db(self):
+        usde = SmithianUSDE(max_denom_limit=6)
+        db_before = dict(usde.physical_db)
+        r1 = usde.run_null_baseline(seed=4242, console_output=False)
+        r2 = usde.run_null_baseline(seed=4242, console_output=False)
+        self.assertEqual(r1["null_alignments"], r2["null_alignments"])
+        self.assertEqual(r1["db_size"], len(db_before))
+        # The real physical database must be restored after the null run
+        self.assertEqual(usde.physical_db, db_before)
+        self.assertIn(float(27) / float(5), usde.physical_db)
+
+    def test_physical_db_sigma_populated(self):
+        # Constants must carry relative experimental uncertainties
+        dark_baryon = float(27) / float(5)
+        self.assertIn(dark_baryon, self.usde.physical_db_sigma)
+        for value, rel_sigma in self.usde.physical_db_sigma.items():
+            self.assertTrue(rel_sigma > 1 - 1)
+            self.assertTrue(rel_sigma < 1)
+
 if __name__ == "__main__":
     unittest.main()

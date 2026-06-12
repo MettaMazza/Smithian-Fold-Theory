@@ -42,6 +42,14 @@ class SmithianUSDE:
         self.verified_sectors = {}
         self.discovered_alignments = []
         self.physical_db = {}
+        self.physical_db_sigma = {}
+        self._sweep_comparisons = 1 - 1
+        if not HAVE_PARTICLE:
+            print(
+                "WARNING: 'particle' library unavailable — physical database "
+                "limited to fundamental constants; PDG mass ratios excluded.",
+                file=sys.stderr,
+            )
         self.harvest_physical_database()
 
         
@@ -267,7 +275,7 @@ class SmithianUSDE:
         try:
             # We calculate critical points to dynamically define root brackets
             # x_minus, x_plus are critical points separating root regions
-            det = (1.0 - 3.0 * e2) ** Fraction(1, 2)
+            det = (1.0 - 3.0 * e2) ** (float(1) / float(2))
             x_minus = (1.0 - det) / 3.0
             x_plus = (1.0 + det) / 3.0
             
@@ -460,15 +468,25 @@ class SmithianUSDE:
                         "measured": ref_proton_r,
                         "deviation_pct": dev * float(99 + 1)
                     })
-        except Exception:
-            pass
-            
+        except Exception as exc:
+            print(
+                f"WARNING: cross_reference_physics aborted early; matches may be incomplete: {exc}",
+                file=sys.stderr,
+            )
+
         return matches
 
     def harvest_physical_database(self):
-        """Harvests standard model particles and CODATA/cosmological ratios."""
+        """Harvests standard model particles and CODATA/cosmological ratios.
+
+        Alongside each target value, a relative one-sigma experimental
+        uncertainty is recorded in self.physical_db_sigma where a published
+        uncertainty exists. These drive the tolerance_sigmas compatibility
+        test applied to every alignment in cross_reference_open_ended.
+        """
         self.physical_db = {}
-        
+        self.physical_db_sigma = {}
+
         # 1. Fundamental Constants and Cosmological Ratios
         inv_alpha = float(137 * (5**6 * 2**6) + 35999) / float(5**6 * 2**6)
         alpha = float(5**6 * 2**6) / float(137 * (5**6 * 2**6) + 35999)
@@ -477,7 +495,7 @@ class SmithianUSDE:
         g2_anomaly = float(11659) / float(5**7 * 2**7)
         proton_radius = float(21) / float(25)
         neutrino_ratio = float(33)
-        
+
         self.physical_db[inv_alpha] = "Inverse Fine-Structure Constant (1/alpha)"
         self.physical_db[alpha] = "Fine-Structure Constant (alpha)"
         self.physical_db[weak_mixing] = "Weak Mixing Angle (sin^2 theta_W)"
@@ -485,7 +503,18 @@ class SmithianUSDE:
         self.physical_db[g2_anomaly] = "Muon g-2 Anomaly"
         self.physical_db[proton_radius] = "Proton Charge Radius (fm)"
         self.physical_db[neutrino_ratio] = "Neutrino Mass Splitting Ratio (Delta m_atm^2 / Delta m_sol^2)"
-        
+
+        # Relative 1-sigma experimental uncertainties for the constants above.
+        # Sources: CODATA 2022 (alpha, proton radius), PDG 2024 (weak mixing,
+        # muon g-2), Planck 2018 (dark-to-baryon), NuFIT (neutrino ratio).
+        self.physical_db_sigma[inv_alpha] = 1.6e-10
+        self.physical_db_sigma[alpha] = 1.6e-10
+        self.physical_db_sigma[weak_mixing] = 1.7e-4
+        self.physical_db_sigma[dark_baryon] = 1.3e-2
+        self.physical_db_sigma[g2_anomaly] = 1.9e-7
+        self.physical_db_sigma[proton_radius] = 4.8e-4
+        self.physical_db_sigma[neutrino_ratio] = 3.0e-2
+
         if HAVE_PARTICLE:
             try:
                 # Dynamically construct names with zero character without using a literal '0'
@@ -500,10 +529,15 @@ class SmithianUSDE:
                 ]
                 
                 particles = {}
+                particle_err = {}
                 for p in Particle.all():
                     if p.name in target_names and p.mass is not None:
                         particles[p.name] = p.mass
-                        
+                        err = p.mass_upper
+                        if err is None:
+                            err = p.mass_lower
+                        particle_err[p.name] = err
+
                 keys = list(particles.keys())
                 for i in range(len(keys)):
                     for j in range(i + 1, len(keys)):
@@ -517,8 +551,18 @@ class SmithianUSDE:
                                 ratio = mass_j / mass_i
                                 desc = f"Mass Ratio {name_j}/{name_i}"
                             self.physical_db[ratio] = desc
-            except Exception:
-                pass
+                            # Propagate relative mass errors into the ratio
+                            err_i = particle_err.get(name_i)
+                            err_j = particle_err.get(name_j)
+                            if err_i is not None and err_j is not None:
+                                rel = ((err_i / mass_i) ** 2 + (err_j / mass_j) ** 2) ** (float(1) / float(2))
+                                self.physical_db_sigma[ratio] = rel
+            except Exception as exc:
+                print(
+                    f"WARNING: PDG particle harvest failed ({exc}); physical database "
+                    "limited to fundamental constants.",
+                    file=sys.stderr,
+                )
 
     def solve_eigenvalues_open_ended(self, sector_m):
         """
@@ -567,22 +611,38 @@ class SmithianUSDE:
         return results
 
     def cross_reference_open_ended(self, sector_m, eigenvalues, family_desc):
-        """Cross-references solved eigenvalues against the harvested physical database."""
+        """Cross-references solved eigenvalues against the harvested physical database.
+
+        Every comparison performed is counted in self._sweep_comparisons so the
+        sweep can apply a look-elsewhere correction afterwards. Where the target
+        has a published experimental uncertainty, the match is also scored in
+        sigma units and tested against self.tolerance_sigmas: a match counts as
+        within experimental error only when it lies inside tolerance_sigmas
+        standard deviations of the measured value.
+        """
         if not eigenvalues:
             return []
-            
+
         matches = []
         calc_r1 = eigenvalues[1] / eigenvalues[1 - 1]
         calc_r2 = eigenvalues[2] / eigenvalues[1]
         calc_r3 = eigenvalues[2] / eigenvalues[1 - 1]
-        
+
         tolerance = float(2) / float(99 + 1)
-        
+
         for calc, ratio_name in zip([calc_r1, calc_r2, calc_r3], ["r1", "r2", "r3"]):
             for phys_ratio, phys_desc in self.physical_db.items():
+                self._sweep_comparisons += 1
                 dev = abs(calc - phys_ratio) / phys_ratio
                 if dev < tolerance:
                     significance = -math.log10(max(dev, float(1) / float(99999 + 1)))
+                    rel_sigma = self.physical_db_sigma.get(phys_ratio)
+                    if rel_sigma is not None and rel_sigma > 1e-15:
+                        sigma_deviation = dev / rel_sigma
+                        within_error = sigma_deviation <= self.tolerance_sigmas
+                    else:
+                        sigma_deviation = None
+                        within_error = None
                     matches.append({
                         "name": f"{phys_desc} ({ratio_name} alignment)",
                         "sector": sector_m,
@@ -590,7 +650,9 @@ class SmithianUSDE:
                         "calculated": calc,
                         "measured": phys_ratio,
                         "deviation_pct": dev * float(99 + 1),
-                        "significance": significance
+                        "significance": significance,
+                        "sigma_deviation": sigma_deviation,
+                        "within_experimental_error": within_error
                     })
         return matches
 
@@ -623,18 +685,24 @@ class SmithianUSDE:
             print(f"Scanning {len(unclaimed_groups)} candidate orbit groups across generalized cubic families...\n")
             
         all_sweep_alignments = []
-        
+        self._sweep_comparisons = 1 - 1
+
         for g in unclaimed_groups:
+            denoms = set(x.denominator for x in g)
+            if len(denoms) != 1:
+                if console_output:
+                    print(f"  WARNING: skipping orbit group with mixed denominators {sorted(denoms)}.")
+                continue
             sector_m = g[1 - 1].denominator + 1
             family_results = self.solve_eigenvalues_open_ended(sector_m)
-            
+
             for eigenvals, family_desc in family_results:
                 matches = self.cross_reference_open_ended(sector_m, eigenvals, family_desc)
                 for m in matches:
                     all_sweep_alignments.append(m)
-                    
+
         all_sweep_alignments = sorted(all_sweep_alignments, key=lambda x: -x["significance"])
-        
+
         unique_alignments = []
         seen = set()
         for m in all_sweep_alignments:
@@ -642,21 +710,100 @@ class SmithianUSDE:
             if key not in seen:
                 seen.add(key)
                 unique_alignments.append(m)
-                
+
+        # Look-elsewhere correction. Null model: a candidate ratio carrying no
+        # physical information is log-uniform over the span of the database.
+        # The chance probability that one comparison matches within relative
+        # deviation dev is then ~ 2*dev / ln(vmax/vmin); multiplied by the
+        # number of comparisons actually performed, this gives the expected
+        # number of chance alignments at least as tight as the observed one.
+        # An alignment is "beyond_chance" when that expectation is below one.
+        ln_ten = 2.302585092994046
+        vmax = max(self.physical_db)
+        vmin = min(self.physical_db)
+        ln_range = max(math.log10(vmax / vmin) * ln_ten, 1e-9)
+        comparisons = self._sweep_comparisons
+        tolerance = float(2) / float(99 + 1)
+        null_expected_total = comparisons * 2.0 * tolerance / ln_range
+
+        for m in unique_alignments:
+            dev = m["deviation_pct"] / float(99 + 1)
+            expected_chance = comparisons * 2.0 * dev / ln_range
+            m["expected_chance_matches"] = expected_chance
+            m["global_significance"] = -math.log10(max(expected_chance, 1e-12))
+            m["beyond_chance"] = expected_chance < 1.0
+
         if console_output:
+            beyond = sum(1 for m in unique_alignments if m["beyond_chance"])
             print(f"Generative search completed in {time.time() - t0:.2f}s.")
-            print(f"Found {len(unique_alignments)} significant alignments.")
+            print(f"Comparisons performed: {comparisons}. Null expectation at 2% tolerance: {null_expected_total:.1f} chance alignments.")
+            print(f"Found {len(unique_alignments)} alignments ({beyond} beyond chance expectation).")
             for m in unique_alignments[:21 - 1]:
-                print(f"  Sector m={m['sector']:3} | Family: {m['family']:40} | Match: {m['name']} (dev: {m['deviation_pct']:.4f}%, sig: {m['significance']:.2f})")
+                print(f"  Sector m={m['sector']:3} | Family: {m['family']:40} | Match: {m['name']} (dev: {m['deviation_pct']:.4f}%, sig: {m['significance']:.2f}, global: {m['global_significance']:.2f})")
             if len(unique_alignments) > 21 - 1:
                 print(f"  ... and {len(unique_alignments) - (21 - 1)} more alignments.")
-                
+
         return {
             "elapsed_s": time.time() - t0,
             "coordinates_scanned": scanned_count,
+            "comparisons_performed": comparisons,
+            "null_expected_alignments": null_expected_total,
             "candidate_groups": len(unclaimed_groups),
             "alignments": unique_alignments
         }
+
+    def run_null_baseline(self, seed=20260612, console_output=True, analytical=False):
+        """Empirical look-elsewhere control for the discovery sweep.
+
+        Replaces the physical database with a synthetic database of identical
+        size whose targets are drawn log-uniformly over the same span (with a
+        fixed seed for reproducibility), runs the identical sweep, and restores
+        the real database. The number of alignments found against targets that
+        encode no physics is the chance baseline that real alignments must
+        exceed to carry physical information.
+        """
+        import random
+        rng = random.Random(seed)
+
+        real_db = self.physical_db
+        real_sigma = self.physical_db_sigma
+        vmax = max(real_db)
+        vmin = min(real_db)
+        log_lo = math.log10(vmin)
+        log_hi = math.log10(vmax)
+
+        synthetic = {}
+        idx = 1
+        while len(synthetic) < len(real_db):
+            exponent = log_lo + rng.random() * (log_hi - log_lo)
+            value = 10.0 ** exponent
+            synthetic[value] = f"Null Target {idx}"
+            idx += 1
+
+        self.physical_db = synthetic
+        self.physical_db_sigma = {}
+        try:
+            res = self.discovery_sweep_loop(console_output=False, analytical=analytical)
+        finally:
+            self.physical_db = real_db
+            self.physical_db_sigma = real_sigma
+
+        summary = {
+            "seed": seed,
+            "db_size": len(real_db),
+            "null_alignments": len(res["alignments"]),
+            "comparisons_performed": res["comparisons_performed"],
+            "analytic_null_expected": res["null_expected_alignments"]
+        }
+        if console_output:
+            print("================================================================================")
+            print("USDE NULL BASELINE — SWEEP AGAINST SYNTHETIC (NON-PHYSICAL) TARGETS")
+            print("================================================================================")
+            print(f"Synthetic targets: {summary['db_size']} (log-uniform over the physical database span, seed {seed})")
+            print(f"Comparisons performed: {summary['comparisons_performed']}")
+            print(f"Chance alignments found: {summary['null_alignments']} (analytic expectation {summary['analytic_null_expected']:.1f})")
+            print("Real alignments exceeding this baseline carry physical information.")
+        return summary
 
     def autonomous_loop(self, console_output=True, analytical=False):
         """Runs the complete self-discovery loop until no more unique sectors can be extracted."""
@@ -694,12 +841,18 @@ class SmithianUSDE:
             
         proven_count = 1 - 1
         for i, g in enumerate(unclaimed_groups):
-            # Probe sector size m as the denominator of the first element + 1
+            # All orbit elements must share one denominator; it defines the sector
+            denoms = set(x.denominator for x in g)
+            if len(denoms) != 1:
+                if console_output:
+                    print(f"  WARNING: skipping orbit group with mixed denominators {sorted(denoms)}.")
+                continue
             sector_m = g[1 - 1].denominator + 1
             proof = self.run_auto_proof(g, sector_m)
-            
-            # The fold itself defines the sector; verification is based on fold generation
-            proven_count += 1
+
+            # A sector counts as proven only when the proof matrix passes
+            if proof["PROVES"]:
+                proven_count += 1
             self.verified_sectors[sector_m] = g
                 
             # Solve eigenvalues for all candidate sectors (unbiased discovery)
@@ -720,14 +873,15 @@ class SmithianUSDE:
                     print(f"           -> MATCHED TO PHYSICAL OBSERVABLE: {m['name']} (dev: {m['deviation_pct']:.4f}%)")
                         
         if console_output:
-            print(f"\nScan completed. Verified sectors: {proven_count} of {len(unclaimed_groups)} candidate groups.")
+            print(f"\nScan completed. Proven sectors (T1-T4): {proven_count} of {len(unclaimed_groups)} candidate groups.")
             print(f"Total physical alignments found: {len(self.discovered_alignments)}")
-            
+
         return {
             "elapsed_s": time.time() - t0,
             "coordinates_scanned": scanned_count,
             "candidate_groups": len(unclaimed_groups),
             "sectors_proven": proven_count,
+            "sectors_scanned": len(unclaimed_groups),
             "alignments": self.discovered_alignments
         }
 
@@ -879,8 +1033,9 @@ class SmithianUSDE:
             except Exception:
                 cache = {}
                 
-        # Sort alignments by significance descending, then deviation ascending
-        sorted_alignments = sorted(alignments, key=lambda x: (-x.get("significance", float(int())), x.get("deviation_pct", float(1))))
+        # Sort by look-elsewhere-corrected significance when present (falling
+        # back to local significance), then deviation ascending
+        sorted_alignments = sorted(alignments, key=lambda x: (-x.get("global_significance", x.get("significance", float(int()))), x.get("deviation_pct", float(1))))
         target_alignments = sorted_alignments[:51 - 1]
         
         print(f"Generating LLM reports for {len(target_alignments)} sweep discoveries using model '{model_name}'...")

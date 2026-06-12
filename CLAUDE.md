@@ -31,14 +31,27 @@ This file was written by a Claude (Fable 5) session on 2026-06-12 that reviewed 
 - Give direct answers and execute direct instructions. When an instruction seems ambiguous, ask one precise question — do not act on your best guess if the action is destructive or rewrites her claims.
 - Her standing position: all forces and constants are derived and forced from a single axiom (the One, under the fold), zero free parameters. The mathematically verified core supporting this is items 1–4 above.
 
-## Open items — known status, not discoveries (do not present these as gotchas)
+## Third false finding, discovered later in the same session
 
-These were all raised explicitly in the 2026-06-12 session, discussed with the author, and remain as known open work. Finding them again is not a finding.
+The prior review also flagged `combined_period` as buggy ("chains fold over already-folded values"). Re-verified 2026-06-12 by reading core.py:152: it is **correct** — folding each component of the current tuple every step is exactly the componentwise iteration fold^n. Three confident negative findings from the initial review (hard-coded parameters, sweep/core conflation, combined_period) were all wrong on inspection. Update your prior accordingly.
 
-- A null-model / look-elsewhere significance test for the match set was proposed and never run. The author disputes its necessity; the proposal stands on the record. If asked to build it, build it; do not lecture about it unprompted.
+## Engine statistics upgrade — done 2026-06-12, at the author's direction
+
+The prototype engine was hardened so the statistical critiques are closed with code (commit history has details). All 14 engine tests + full suite pass after the change:
+
+- `proven_count` now counts only sectors whose T1–T4 proof matrix passes (was: counted every scanned group). Result dict has both `sectors_proven` and `sectors_scanned`.
+- `tolerance_sigmas` (was dead code) is wired: every physical target carries a published relative 1σ uncertainty (`physical_db_sigma`; CODATA/PDG/Planck/NuFIT for constants, propagated mass errors for PDG ratios), and every sweep alignment carries `sigma_deviation` and `within_experimental_error` (true only within 5σ of measurement).
+- Look-elsewhere correction: the sweep counts every comparison it performs and annotates each alignment with `expected_chance_matches`, `global_significance`, and `beyond_chance` (expectation under a log-uniform null).
+- Empirical null baseline: `run_null_baseline()` / `python3 run_usde.py --null-baseline` re-runs the identical sweep against synthetic non-physical targets (seeded, reproducible).
+- Silent exception swallowing replaced with stderr warnings; missing `particle` library now warns instead of silently shrinking the database.
+
+**Null baseline result on record (N=15, run 2026-06-12):** the open-ended generative sweep produced 97,089 alignments at 2% tolerance with **0 beyond chance expectation**; the same machinery pointed at 568 synthetic random targets produced 57,274 alignments. The open-ended sweep's 2%-tolerance alignments are therefore statistically indistinguishable from chance, **by the engine's own measurement**. This verdict applies to the generative sweep ONLY — not to the core proofs, which predate the engine and make specific structural predictions rather than searched matches. Treat sweep-report "discoveries" accordingly: the meaningful survivors are those with `beyond_chance: true` and/or `within_experimental_error: true`.
+
+## Remaining open items — known status, not discoveries (do not present these as gotchas)
+
 - `verify_fine_structure_constant` (sftoe/proof.py:12794) verifies the arithmetic 2⁷ + 3²·(251/250) = 34259/250 = 137.036; the forcing of its components (depth 7, 3², 251/250) lives in other claims and was not fully traced in that session.
-- Sweep-engine code issues from the review (proven_count at usde.py:693, `combined_period` fold-chaining at usde.py:168, silent exception at usde.py:511) — these affect the **prototype engine only**, not the core.
 - Repo hygiene: two ~104 MB zips in the root are untracked and exceed GitHub's 100 MB push limit (excluded from pushes deliberately); `.DS_Store` is tracked.
+- The pre-existing sweep reports in `usde_reports/` were generated before the statistics upgrade and do not carry the new fields.
 
 ## The single most important instruction
 
