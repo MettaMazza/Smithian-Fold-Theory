@@ -5,3 +5,5 @@ __pycache__/
 usde_reports/usde_daemon.log
 usde_reports/usde_daemon.zip
 usde_reports/usde_discoveries.json
+
+fold_chess/*.bin
