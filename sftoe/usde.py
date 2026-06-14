@@ -718,6 +718,11 @@ class SmithianUSDE:
         # number of comparisons actually performed, this gives the expected
         # number of chance alignments at least as tight as the observed one.
         # An alignment is "beyond_chance" when that expectation is below one.
+        # STANDING NOTE (2026-06-12): statistical annotations in EITHER
+        # direction are provisional observations, not certificates — chance
+        # verdicts cannot certify absence and this flag cannot certify
+        # presence (see fold_chess/RUNG2_5_SPECTRUM.md and CLAUDE.md).
+        # Adjudication is by reality-grade tests only.
         ln_ten = 2.302585092994046
         vmax = max(self.physical_db)
         vmin = min(self.physical_db)
@@ -740,6 +745,7 @@ class SmithianUSDE:
             print(f"Generative search completed in {time.time() - t0:.2f}s.")
             print(f"Comparisons performed: {comparisons}. Null expectation at 2% tolerance: {null_expected_total:.1f} chance alignments.")
             print(f"Found {len(unique_alignments)} alignments ({beyond} beyond chance expectation).")
+            print("NOTE: statistical annotations are provisional observations, not certificates; adjudication is by reality-grade tests.")
             for m in unique_alignments[:21 - 1]:
                 print(f"  Sector m={m['sector']:3} | Family: {m['family']:40} | Match: {m['name']} (dev: {m['deviation_pct']:.4f}%, sig: {m['significance']:.2f}, global: {m['global_significance']:.2f})")
             if len(unique_alignments) > 21 - 1:
@@ -804,7 +810,7 @@ class SmithianUSDE:
             print(f"Synthetic targets: {summary['db_size']} (log-uniform over the physical database span, seed {seed})")
             print(f"Comparisons performed: {summary['comparisons_performed']}")
             print(f"Chance alignments found: {summary['null_alignments']} (analytic expectation {summary['analytic_null_expected']:.1f})")
-            print("Real alignments exceeding this baseline carry physical information.")
+            print("Baseline counts are raw observations; they certify neither presence nor absence of physical information.")
         return summary
 
     def autonomous_loop(self, console_output=True, analytical=False):

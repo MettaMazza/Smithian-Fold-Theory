@@ -1,5 +1,5 @@
 # Smithian Fold Theory — Generative Discovery Sweep Atlas
-Generated at: 2026-06-12 10:06:57
+Generated at: 2026-06-14 10:50:22
 Ollama Model: `gemma4:26b`
 
 ## Executive Summary

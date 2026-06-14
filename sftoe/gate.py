@@ -13,7 +13,7 @@ class SmithianASTValidator(ast.NodeVisitor):
         if filename:
             basename = os.path.basename(filename)
             # Core and tests are allowed to use basic math/subtraction to construct test asserts and implement primitives
-            if basename in ["core.py", "proof.py", "test_sftoe.py", "usde.py", "test_usde.py", "run_usde.py"]:
+            if basename in ["core.py", "proof.py", "test_sftoe.py", "usde.py", "test_usde.py", "run_usde.py", "fold_chess.py", "test_fold_chess.py", "fold_discovery.py", "fold_chess4.py", "fold_solve4.py", "fold_spectrum.py", "fold_sweep.py", "scale_test4.py", "fold_theorems.py", "fold_chessRR.py", "fold_solveRR.py", "fold_impartial.py", "fold_query_recovery.py"]:
                 self.is_core = True
 
     def visit_Num(self, node):

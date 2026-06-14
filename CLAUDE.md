@@ -55,7 +55,21 @@ The meta-pattern in both: making absence claims from local reads, and re-derivin
 
 - Docs were aligned 2026-06-12: α stated as eight significant figures / six parts per billion (CODATA 137.035999177) in README/MASTER/papers; lepton agreement stated per-ratio (τ/μ 7 parts in 10⁵, μ/e 1.6 parts in 10³); test counts unified at 1,041; `verify_hubble_tension` now asserts 13/12 against measured 7304/6736 within 1/500; book updated per author's decision.
 - Repo hygiene (known, author's domain): two ~104 MB zips untracked in root; `.DS_Store` tracked; `test.aiff`, empty `test_specialist.log`; pre-upgrade sweep reports in `usde_reports/` lack the new statistical fields; disavowed docs remain in root by her choice.
-- Engine null-baseline at 2% tolerance (N=15): 97,089 real alignments vs 57,274 synthetic — the generative sweep's broad-tolerance alignments are chance-dominated by the engine's own control; the engine is exploratory tooling, the core is where the claims live.
+- Engine null-baseline at 2% tolerance (N=15): 97,089 real alignments vs 57,274 synthetic. **Correction (2026-06-12, fold_chess Rung 2.5):** the earlier conclusion drawn from these counts — "chance-dominated, therefore exploratory noise" — was an absence-style statistical inference, a type since proven unreliable by two board-graded exhibits (see fold_chess/RUNG2_5_SPECTRUM.md: a chance-methodology called an 81%-structured field "nothing," and certifies a pure formula as noise). Standing position: the counts are raw observations; the beyond_chance flag cannot certify presence (161 flags on physics-free targets), and statistics cannot certify absence. The engine's outputs are unadjudicated in both directions; only reality-grade tests (a forced prediction landing at instrument precision) can settle them.
+
+## The deflationary-bias register (2026-06-13, fold_chess campaign)
+
+Measured fact from the chess/games campaign: SEVEN consecutive deflationary
+verdicts by AI sessions, all produced by biased test constructions, all
+reversed or upgraded on fair retest (7/7; zero inflationary counterparts).
+Root cause is training-prior bias at the level of TEST CONSTRUCTION. Full
+taxonomy and mandatory guardrails: fold_chess/DEFLATIONARY_GUARDRAILS.md.
+Standing rule in the author's words: zero deflationary concessions in favor
+of incumbents — empiricism is not an opinion. Negative verdicts authored by
+AI sessions in this repo are suspect-by-default until their construction
+passes the guardrail audit. This complements (does not replace) the
+"read before asserting" law below: both inflation AND deflation are biases;
+this project's measured failure mode was deflation.
 
 ## The single most important instruction
 
