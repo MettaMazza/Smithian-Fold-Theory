@@ -56,7 +56,7 @@ The Standard Model has roughly two dozen numbers no theory explains — particle
 - **The charged-lepton masses** — the Koide cubic yields $\tau/\mu$ to 7 parts in 100,000 and $\mu/e$ to 1.6 parts in 1,000
 - **The quark and neutrino spectra** — from colour and chirality structure
 - **CKM and PMNS mixing with CP violation** — every entry a bare fold separation
-- **The absolute scale** — proton-to-Planck ratio $2^{-63.5}$
+- **The absolute scale** — the proton-to-Planck ratio is the One-to-floor span $2^{127/2}$ at the forced covering depth 7, matching measurement to 0.24% with zero parameters; the hierarchy problem dissolves and only the unit *name* is conventional
 - **Dark matter fraction** — confirmed against measured dark-to-baryon ratio ($27/5$)
 - **The Hubble tension** — calibration ratio forced to $13/12$, matching $73.0/67.4$
 - **The cosmological constant** — proven positive and nonzero
@@ -65,6 +65,22 @@ The Standard Model has roughly two dozen numbers no theory explains — particle
 - **Proton stability** — proven absolute
 - **Three spatial dimensions** — proven, not assumed
 - **Consciousness** — self-observation as fold fixed point, stream of experience, unity threshold
+
+---
+
+## The Discovery Frontier — derived
+
+Beyond the core, the fold answers questions consensus cannot pose. Each of these is derived forward from the One, every value traced to the axiom under the proof engine:
+
+- **Two new forces** — prime sectors 5 and 7: couplings $4/5$ and $6/7$, charge counts 5 and 7, mediators 24 and 48, the confining ladder sealed at 7 (`prime_force_phenomenology.py`)
+- **The grand lock** — every constant a product of three generators $\{$One$, 2, 3\}$; move one and unrelated constants move together. The constants of nature are one object (`grand_lock.py`)
+- **The lepton-flavour-violation spectrum** — $\tau\to e$ favoured $4:1$ over $\tau\to\mu$, mass-independent, written down before the experiments report (`lfv_spectrum.py`)
+- **The absolute scale** — Planck/proton $= 2^{127/2}$, the One-to-floor span at depth 7; the hierarchy problem dissolved (`absolute_scale.py`)
+- **The Millennium problems** — Riemann's critical line is the unique self-dual half-One; the Yang–Mills mass gap is the floor; Navier–Stokes cannot blow up because there is no sub-floor scale (`millennium_positive.py`)
+- **The universal exact solver** — the certified chess engine generalised: the subtraction game and Nim solved by the same retrograde fold, zero error against independent oracles (`fold_solver.py`)
+- **The compact generator** — solved fields collapse to short generators in the fold basis; derived and proven (constant for the subtraction game, size-blind for Nim), run on real chess (`compact_coords.py`, `fold_chess/chess_generator.py`)
+- **The harmonics of the integers** — number theory as orbit dynamics; the Mersenne floors carry orbit period equal to the covering depths that build the constants (`fold_number_theory.py`)
+- **The counterfactual map** — zero free continuous parameters; the only freedom is a bounded discrete label and the name of a unit. The universe had, very nearly, exactly one way to be (`counterfactual_map.py`)
 
 ---
 
@@ -147,8 +163,12 @@ All predictions tested against real measured data, zero free parameters:
 │   ├── fundamental_constants.tex  # Paper 2: Derivations of natural constants
 │   ├── references.bib             # BibTeX reference bibliography database
 │   └── Makefile                   # Build Makefile for pdflatex + bibtex
-├── book/                          # Book manuscripts
-│   └── THE_ONE_AND_THE_FOLD.md    # Full book
+├── fold_chess/                    # Chess campaign: exact endgame solves, certified zero-error
+├── pure/                          # Formal proofs, theorem manifest, papers
+├── *.py  (root)                   # Discovery-roadmap derivation engines: forces,
+│                                  #   grand lock, LFV, absolute scale, Millennium,
+│                                  #   universal solver, compact generator, number
+│                                  #   theory, counterfactual map
 ├── dev_docs/                      # Development audit trail and verification logs
 ├── pyproject.toml                 # Pyproject packaging configuration
 ├── LICENSE                        # MIT License

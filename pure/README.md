@@ -78,8 +78,8 @@ This framework proves them. From the one axiom:
 - `manifest.py` / `THEOREM_MANIFEST.md` — claim to proof to confirmation map.
 - `run_all.py` — one-command reproduction.
 - `PAPER.md` — the paper. `MASTER.md` — the complete assembled work.
-- `THE_ONE_AND_THE_QUESTIONS.md` — the formal paper on the great open problems (quantum foundations, quantum gravity, the vacuum, the fold-universe network, the fate of a self, the three-body and n-body problems, the Hubble tension, the muon g−2, the fine-structure constant, Navier-Stokes, the proven predictions, and protein folding). `THE_QUESTIONS_AND_THE_FOLD.md` — its reflective companion.
-- `PAPER_SELF_OBSERVATION.md` — the formal paper on the self-observation sector. `THE_ONE_THAT_WATCHES_ITSELF.md` — its reflective companion.
+- `THE_ONE_AND_THE_QUESTIONS.md` — the formal paper on the great open problems (quantum foundations, quantum gravity, the vacuum, the fold-universe network, the fate of a self, the three-body and n-body problems, the Hubble tension, the muon g−2, the fine-structure constant, Navier-Stokes, the proven predictions, and protein folding).
+- `PAPER_SELF_OBSERVATION.md` — the formal paper on the self-observation sector.
 
 The parent directory holds an earlier development that modelled the same dynamics in the
 complex plane with negatives and signed operations. That development is superseded and is

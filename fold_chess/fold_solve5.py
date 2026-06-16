@@ -1,27 +1,25 @@
-"""Fold Chess — Rung 4 (phase b): complete retrograde solution of KQKRR.
+"""Fold Chess — five-piece complete retrograde solution of KQKRR.
 
 Same certified machinery as KQKR and KRRK, scaled to the five-piece cube
-(2^31 = 2,147,483,648 raw states):
-  1. SEEDING (parallel, shared-memory): every legal state gets its non-capture
-     move counter, terminal value (mate/stalemate), capture values resolved
-     against the two CERTIFIED four-piece tables (white takes a rook -> KQKR;
-     black takes the queen -> colour-flipped KRRK), and a draw floor where a
-     drawing capture exists.
+(2^31 = 2,147,483,648 raw states), using the proven return-bytes seeding
+pattern of solve4 (workers compute a span and return bytes; the main process
+assembles), under the fork start method:
+  1. SEEDING (parallel): every legal state gets its non-capture move counter,
+     terminal value (mate/stalemate), capture values resolved against the two
+     CERTIFIED four-piece tables (white takes a rook -> KQKR; black takes the
+     queen -> colour-flipped KRRK), and a draw floor where a drawing capture
+     exists.
   2. BFS by ply level with UN-MOVE (predecessor) generation, identical rules
      to the lower rungs.
   3. Survivors with moves are drawn cycles (the fortress class).
-Internal referees: full-space mirror audit AND exhaustive rook-swap
-invariance (the two black rooks are identical). 50-move/cursed status is read
-off the measured longest win exactly as at the lower rungs.
-
-Memory: five arrays over 2^31 cells = uint8 kind/counter/floor (2.1 GB each)
-+ uint16 ply/capwin (4.3 GB each) ~ 15 GB, held in POSIX shared memory so the
-parallel seeders write in place with no multi-GB IPC. Targets a 512 GB host.
+Internal referees: full-space mirror audit AND exhaustive rook-swap invariance
+(the two black rooks are identical), both numpy-accelerated. 50-move/cursed
+status is read off the measured longest win. Targets a 512 GB host.
 """
 
 import sys, os, time
 from array import array
-from multiprocessing import shared_memory
+import multiprocessing as mp
 import concurrent.futures as cf
 import numpy as np
 
@@ -41,44 +39,35 @@ U, D, W, L = Z, 1, 2, 3
 KU, KD, KW, KL = Z, 1, 2, 3
 PLY_CAP = 25 * 4                           # one hundred plies (50-move budget)
 
-_G = {}
+_G = {}                                    # per-worker globals (4-piece tables)
 
 
-# --------------------------------------------------------------- seeding
-
-def _init_worker(names):
-    _G["kind"] = shared_memory.SharedMemory(name=names["kind"])
-    _G["ply"] = shared_memory.SharedMemory(name=names["ply"])
-    _G["counter"] = shared_memory.SharedMemory(name=names["counter"])
-    _G["capwin"] = shared_memory.SharedMemory(name=names["capwin"])
-    _G["floor"] = shared_memory.SharedMemory(name=names["floor"])
-    _G["kqkr_kind"] = shared_memory.SharedMemory(name=names["kqkr_kind"])
-    _G["kqkr_ply"] = shared_memory.SharedMemory(name=names["kqkr_ply"])
-    _G["krrk_kind"] = shared_memory.SharedMemory(name=names["krrk_kind"])
-    _G["krrk_ply"] = shared_memory.SharedMemory(name=names["krrk_ply"])
-    _G["kind_mv"] = _G["kind"].buf
-    _G["ply_mv"] = _G["ply"].buf.cast("H")
-    _G["cnt_mv"] = _G["counter"].buf
-    _G["cap_mv"] = _G["capwin"].buf.cast("H")
-    _G["flr_mv"] = _G["floor"].buf
-    _G["kqkr_k"] = _G["kqkr_kind"].buf
-    _G["kqkr_p"] = _G["kqkr_ply"].buf.cast("H")
-    _G["krrk_k"] = _G["krrk_kind"].buf
-    _G["krrk_p"] = _G["krrk_ply"].buf.cast("H")
+def _init_worker(kqkr_kind, kqkr_ply, krrk_kind, krrk_ply):
+    _G["kqkr_kind"] = kqkr_kind
+    _G["kqkr_ply"] = array("H", kqkr_ply)
+    _G["krrk_kind"] = krrk_kind
+    _G["krrk_ply"] = array("H", krrk_ply)
 
 
-def seed_span(span):
+def seed_chunk(span):
+    """Seed [lo, hi): return packed bytes for kind, ply, counter, capwin,
+    floor over the span, plus the legal count."""
     lo, hi = span
-    kind_mv, ply_mv = _G["kind_mv"], _G["ply_mv"]
-    cnt_mv, cap_mv, flr_mv = _G["cnt_mv"], _G["cap_mv"], _G["flr_mv"]
-    kqkr_k, kqkr_p = _G["kqkr_k"], _G["kqkr_p"]
-    krrk_k, krrk_p = _G["krrk_k"], _G["krrk_p"]
+    kqkr_kind, kqkr_ply = _G["kqkr_kind"], _G["kqkr_ply"]
+    krrk_kind, krrk_ply = _G["krrk_kind"], _G["krrk_ply"]
+    n = hi - lo
+    kind = bytearray(n)
+    ply = array("H", bytes(2 * n))
+    counter = bytearray(n)
+    capwin = array("H", bytes(2 * n))
+    floor = bytearray(n)
     legal_n = Z
     for idx in range(lo, hi):
         wk, wq, r1, r2, bk, stm = decode5(idx)
         if not is_legal5(wk, wq, r1, r2, bk, stm):
             continue
         legal_n += 1
+        j = idx - lo
         moves = successors5(idx)
         ncap = Z
         best_cap = None
@@ -87,10 +76,10 @@ def seed_span(span):
             if isinstance(s, tuple):
                 tag, payload = s
                 if tag == CAP_WXR:
-                    k3, p3 = kqkr_k[payload], kqkr_p[payload]
+                    k3, p3 = kqkr_kind[payload], kqkr_ply[payload]
                 else:
-                    k3, p3 = krrk_k[payload], krrk_p[payload]
-                if k3 == KL:                # opponent lost after capture: win
+                    k3, p3 = krrk_kind[payload], krrk_ply[payload]
+                if k3 == KL:               # opponent lost after capture: win
                     cand = p3 + 1
                     if best_cap is None or cand < best_cap:
                         best_cap = cand
@@ -100,23 +89,25 @@ def seed_span(span):
             else:
                 ncap += 1
         if not moves:
-            if stm == BTM and white_in_check5(wk, wq, r1, r2, bk):
-                kind_mv[idx] = L
-            elif stm == WTM and black_in_check5(wk, wq, r1, r2, bk):
-                kind_mv[idx] = L
+            # the side TO MOVE with no moves is mated iff IT is in check
+            if stm == BTM and black_in_check5(wk, wq, r1, r2, bk):
+                kind[j] = L
+            elif stm == WTM and white_in_check5(wk, wq, r1, r2, bk):
+                kind[j] = L
             else:
-                kind_mv[idx] = D
+                kind[j] = D
             continue
-        cnt_mv[idx] = ncap if ncap < 256 else 255
+        counter[j] = ncap if ncap < 256 else 255
         if best_cap is not None:
-            cap_mv[idx] = best_cap
+            capwin[j] = best_cap
         if has_draw:
-            flr_mv[idx] = 1
+            floor[j] = 1
         if ncap == Z and best_cap is None:
-            kind_mv[idx] = D if has_draw else L
+            kind[j] = D if has_draw else L
             if not has_draw:
-                ply_mv[idx] = 1
-    return legal_n
+                ply[j] = 1
+    return (lo, hi, bytes(kind), ply.tobytes(), bytes(counter),
+            capwin.tobytes(), bytes(floor), legal_n)
 
 
 # ---------------------------------------------------- predecessors (un-move)
@@ -148,7 +139,7 @@ def predecessors5(idx):
         # white moved last; predecessors are WTM states needing black NOT in
         # check (the only black-checker is the white queen).
         q_aligned, q_between = _line_between(wq, bk, _QUEEN_RAYS)
-        for u in _king_zone(wk):                       # white king un-move
+        for u in _king_zone(wk):
             if u in occ or _kings_touch(u, bk):
                 continue
             check_p = (q_aligned and (r1 not in q_between) and
@@ -157,7 +148,7 @@ def predecessors5(idx):
                 continue
             out.append(encode5(u, wq, r1, r2, bk, WTM))
         q_attack_bk = _slider_attacks(bk, _QUEEN_RAYS, {wk, r1, r2}, None)
-        r, c = _rank(wq), _file(wq)                    # white queen un-move
+        r, c = _rank(wq), _file(wq)
         for dr, dc in _QUEEN_RAYS:
             rr, cc = r + dr, c + dc
             while _on_board(rr, cc):
@@ -173,7 +164,7 @@ def predecessors5(idx):
         # check (the white-checkers are the two black rooks).
         a1, b1 = _line_between(r1, wk, _ROOK_RAYS)
         a2, b2 = _line_between(r2, wk, _ROOK_RAYS)
-        for u in _king_zone(bk):                       # black king un-move
+        for u in _king_zone(bk):
             if u in occ or _kings_touch(wk, u):
                 continue
             chk1 = a1 and (wq not in b1) and (r2 not in b1) and (u not in b1)
@@ -182,7 +173,7 @@ def predecessors5(idx):
                 continue
             out.append(encode5(wk, wq, r1, r2, u, BTM))
         for which, rsq, other, a_o, b_o in ((1, r1, r2, a2, b2),
-                                            (2, r2, r1, a1, b1)):   # rook un-move
+                                            (2, r2, r1, a1, b1)):
             attack_wk = _slider_attacks(wk, _ROOK_RAYS, {wq, bk, other}, None)
             r, c = _rank(rsq), _file(rsq)
             for dr, dc in _ROOK_RAYS:
@@ -206,15 +197,12 @@ def predecessors5(idx):
 
 # ------------------------------------------------------------------ solver
 
-def _mk(size):
-    return shared_memory.SharedMemory(create=True, size=size)
-
-
 def solve5(console=True, workers=30):
+    os.chdir(os.path.dirname(os.path.abspath(__file__)))   # pin a valid cwd
     t0 = time.time()
     P = find_fold_prime(NSTATES5)
     if console:
-        print("Rung 4 — KQKRR: %d raw states (2^%d), P=%d"
+        print("KQKRR: %d raw states (2^%d), P=%d"
               % (NSTATES5, NSTATES5.bit_length() - 1, P), flush=True)
         print("loading certified 4-piece tables (KQKR, KRRK)...", flush=True)
 
@@ -222,59 +210,57 @@ def solve5(console=True, workers=30):
     from fold_solveRR import solveRR
     r_kqkr = solve4(console=False)
     r_krrk = solveRR(console=False)
-    NS4 = len(r_kqkr["kind"])
-    NSRR = len(r_krrk["kind"])
-
-    # stage everything (the five big arrays + four sub-tables) in shared memory
-    shm = {}
-    shm["kind"] = _mk(NSTATES5)
-    shm["ply"] = _mk(2 * NSTATES5)
-    shm["counter"] = _mk(NSTATES5)
-    shm["capwin"] = _mk(2 * NSTATES5)
-    shm["floor"] = _mk(NSTATES5)
-    shm["kqkr_kind"] = _mk(NS4)
-    shm["kqkr_ply"] = _mk(2 * NS4)
-    shm["krrk_kind"] = _mk(NSRR)
-    shm["krrk_ply"] = _mk(2 * NSRR)
-    # zero the seed arrays; copy sub-tables in
-    for key in ("kind", "counter", "floor"):
-        np.frombuffer(shm[key].buf, dtype=np.uint8)[:] = 0
-    for key in ("ply", "capwin"):
-        np.frombuffer(shm[key].buf, dtype=np.uint16)[:] = 0
-    shm["kqkr_kind"].buf[:] = bytes(r_kqkr["kind"])
-    shm["kqkr_ply"].buf[:] = array("H", r_kqkr["ply"]).tobytes()
-    shm["krrk_kind"].buf[:] = bytes(r_krrk["kind"])
-    shm["krrk_ply"].buf[:] = array("H", r_krrk["ply"]).tobytes()
-    names = {k: v.name for k, v in shm.items()}
+    kqkr_kind = bytes(r_kqkr["kind"])
+    kqkr_ply = array("H", r_kqkr["ply"]).tobytes()
+    krrk_kind = bytes(r_krrk["kind"])
+    krrk_ply = array("H", r_krrk["ply"]).tobytes()
 
     if console:
-        print("seeding %d states with %d workers..." % (NSTATES5, workers), flush=True)
+        print("seeding %d states with %d fork workers... (%.0fs)"
+              % (NSTATES5, workers, time.time() - t0), flush=True)
+    kind = bytearray(NSTATES5)
+    ply = array("H", bytes(2 * NSTATES5))
+    counter = bytearray(NSTATES5)
+    capwin = array("H", bytes(2 * NSTATES5))
+    floor = bytearray(NSTATES5)
+    legal_total = Z
+
+    ctx = mp.get_context("fork")
     nchunks = workers * 8
     step = (NSTATES5 + nchunks - 1) // nchunks
     spans = [(lo, min(lo + step, NSTATES5)) for lo in range(Z, NSTATES5, step)]
-    legal_total = Z
     done = Z
-    with cf.ProcessPoolExecutor(max_workers=workers, initializer=_init_worker,
-                                initargs=(names,)) as ex:
-        for ln in ex.map(seed_span, spans):
+    with cf.ProcessPoolExecutor(max_workers=workers, mp_context=ctx,
+                                initializer=_init_worker,
+                                initargs=(kqkr_kind, kqkr_ply, krrk_kind, krrk_ply)) as ex:
+        for lo, hi, kb, pb, cb, wb, fb, ln in ex.map(seed_chunk, spans):
+            kind[lo:hi] = kb
+            pv = array("H"); pv.frombytes(pb); ply[lo:hi] = pv
+            counter[lo:hi] = cb
+            cw = array("H"); cw.frombytes(wb); capwin[lo:hi] = cw
+            floor[lo:hi] = fb
             legal_total += ln
             done += 1
-            if console and done % 16 == Z:
+            if console and done % 24 == Z:
                 print("  seeded %d/%d chunks, %.0fs" % (done, len(spans), time.time() - t0),
                       flush=True)
     if console:
         print("seeded %d legal in %.0fs; building frontiers..."
               % (legal_total, time.time() - t0), flush=True)
 
-    # memoryviews for the BFS hot loop; numpy views for bulk scans
-    kind_mv = shm["kind"].buf
-    ply_mv = shm["ply"].buf.cast("H")
-    cnt_mv = shm["counter"].buf
-    cap_mv = shm["capwin"].buf.cast("H")
-    flr_mv = shm["floor"].buf
-    knp = np.frombuffer(shm["kind"].buf, dtype=np.uint8)
-    pnp = np.frombuffer(shm["ply"].buf, dtype=np.uint16)
-    cnp = np.frombuffer(shm["capwin"].buf, dtype=np.uint16)
+    # FAIL-FAST: seeding must produce checkmates (ply-0 losses). Zero means a
+    # terminal-condition bug; abort here (~minutes after seed) not after the BFS.
+    _mates0 = int(((np.frombuffer(kind, dtype=np.uint8) == L)
+                   & (np.frombuffer(ply, dtype=np.uint16) == 0)).sum())
+    if console:
+        print("  seeded checkmates (ply-0 losses): %d" % _mates0, flush=True)
+    if _mates0 == 0:
+        raise RuntimeError("SEED SANITY FAILED: zero checkmates seeded — aborting before BFS.")
+
+    # numpy views for bulk scans (writable: backing buffers are mutable)
+    knp = np.frombuffer(kind, dtype=np.uint8)
+    pnp = np.frombuffer(ply, dtype=np.uint16)
+    cnp = np.frombuffer(capwin, dtype=np.uint16)
 
     frontier_L = {}
     L_idx = np.flatnonzero(knp == L)
@@ -300,29 +286,29 @@ def solve5(console=True, workers=30):
         level += 1
         new_W = []
         for i in cap_levels.pop(level, []):
-            if kind_mv[i] == U:
-                kind_mv[i] = W
-                ply_mv[i] = level
+            if kind[i] == U:
+                kind[i] = W
+                ply[i] = level
                 new_W.append(i)
         for i in frontier_L.pop(level - 1, []):
             for p in predecessors5(i):
-                if kind_mv[p] == U:
-                    kind_mv[p] = W
-                    ply_mv[p] = level
+                if kind[p] == U:
+                    kind[p] = W
+                    ply[p] = level
                     new_W.append(p)
         assigned_W += len(new_W)
         next_L = []
         for i in new_W:
             for p in predecessors5(i):
-                if kind_mv[p] != U or cnt_mv[p] == Z:
+                if kind[p] != U or counter[p] == Z:
                     continue
-                cnt_mv[p] -= 1
-                if cnt_mv[p] == Z and cap_mv[p] == Z:
-                    if flr_mv[p]:
-                        kind_mv[p] = D
+                counter[p] -= 1
+                if counter[p] == Z and capwin[p] == Z:
+                    if floor[p]:
+                        kind[p] = D
                     else:
-                        kind_mv[p] = L
-                        ply_mv[p] = level + 1
+                        kind[p] = L
+                        ply[p] = level + 1
                         next_L.append(p)
         if next_L:
             frontier_L.setdefault(level + 1, []).extend(next_L)
@@ -335,33 +321,29 @@ def solve5(console=True, workers=30):
             print("  SAFETY STOP at level %d" % level, flush=True)
             break
 
-    # remaining undecided legal states with any move/capture/floor are drawn
-    # cycles (the fortress class). Identify them in numpy.
-    knp = np.frombuffer(shm["kind"].buf, dtype=np.uint8)
-    cnp = np.frombuffer(shm["counter"].buf, dtype=np.uint8)
-    cwp = np.frombuffer(shm["capwin"].buf, dtype=np.uint16)
-    flp = np.frombuffer(shm["floor"].buf, dtype=np.uint8)
-    draw_cycle_mask = (knp == U) & ((cnp != 0) | (cwp != 0) | (flp != 0))
-    drawn_cycles = int(draw_cycle_mask.sum())
-    knp[draw_cycle_mask] = D
-    del draw_cycle_mask
+    # remaining undecided legal states with any move/capture/floor = drawn cycles
+    knp = np.frombuffer(kind, dtype=np.uint8)
+    cnp = np.frombuffer(counter, dtype=np.uint8)
+    cwp = np.frombuffer(capwin, dtype=np.uint16)
+    flp = np.frombuffer(floor, dtype=np.uint8)
+    mask = (knp == U) & ((cnp != 0) | (cwp != 0) | (flp != 0))
+    drawn_cycles = int(mask.sum())
+    knp[mask] = D
+    del mask
 
-    pnp = np.frombuffer(shm["ply"].buf, dtype=np.uint16)
+    pnp = np.frombuffer(ply, dtype=np.uint16)
     wins = int((knp == W).sum())
     losses = int((knp == L).sum())
     draws = int((knp == D).sum())
-    w_plies = pnp[knp == W]
-    max_w = int(w_plies.max()) if w_plies.size else 0
+    wpl = pnp[knp == W]
+    max_w = int(wpl.max()) if wpl.size else 0
     mates = int(((knp == L) & (pnp == 0)).sum())
-    del w_plies
+    del wpl
 
     # ---- internal referees over the full space (chunked numpy) ----
-    def fliph_arr(s):
+    def fliph(s):
         return (s & 56) | (7 - (s & 7))
-
-    idx_all = None
-    swap_bad = 0
-    mir_bad = 0
+    swap_bad = mir_bad = 0
     CH = 1 << 26
     for base in range(0, NSTATES5, CH):
         end = min(base + CH, NSTATES5)
@@ -376,14 +358,11 @@ def solve5(console=True, workers=30):
         ki = knp[base:end]
         pi = pnp[base:end]
         dec = ki != U
-        # rook-swap: swap r1,r2 fields
         js = ((((wk * 64 + wq) * 64 + r2) * 64 + r1) * 64 + bk) * 2 + stm
         swap_bad += int(((knp[js] != ki) | (pnp[js] != pi))[dec].sum())
-        # mirror: horizontal flip of all five squares
-        jm = ((((fliph_arr(wk) * 64 + fliph_arr(wq)) * 64 + fliph_arr(r1)) * 64
-               + fliph_arr(r2)) * 64 + fliph_arr(bk)) * 2 + stm
+        jm = ((((fliph(wk) * 64 + fliph(wq)) * 64 + fliph(r1)) * 64
+               + fliph(r2)) * 64 + fliph(bk)) * 2 + stm
         mir_bad += int(((knp[jm] != ki) | (pnp[jm] != pi))[dec].sum())
-    del idx_all
 
     no_cursed = max_w <= PLY_CAP
     if console:
@@ -394,31 +373,29 @@ def solve5(console=True, workers=30):
         print("  ROOK-SWAP violations (exhaustive): %d | mirror violations: %d | %.0fs"
               % (swap_bad, mir_bad, time.time() - t0), flush=True)
 
-    # persist the solved kind+ply to disk for the external read / spectral runs
     out_dir = os.path.dirname(os.path.abspath(__file__))
     kind_path = os.path.join(out_dir, "kqkrr_kind.bin")
     ply_path = os.path.join(out_dir, "kqkrr_ply.bin")
     with open(kind_path, "wb") as fh:
-        fh.write(bytes(shm["kind"].buf))
+        fh.write(kind)
     with open(ply_path, "wb") as fh:
-        fh.write(bytes(shm["ply"].buf))
+        fh.write(ply.tobytes())
     if console:
-        print("  wrote %s (%d bytes) and %s" % (kind_path, os.path.getsize(kind_path),
-                                                 ply_path), flush=True)
+        print("  wrote %s (%d bytes) + %s | %.0fs"
+              % (kind_path, os.path.getsize(kind_path), ply_path, time.time() - t0),
+              flush=True)
 
-    result = {"P": P, "legal": legal_total, "wins": wins, "losses": losses,
-              "draws": draws, "drawn_cycles": drawn_cycles, "checkmates": mates,
-              "max_dtm_plies": max_w, "swap_violations": swap_bad,
-              "mirror_violations": mir_bad, "no_cursed_theorem": no_cursed,
-              "kind_path": kind_path, "ply_path": ply_path,
-              "elapsed_s": round(time.time() - t0, 1)}
-
-    # release shared memory
-    for v in shm.values():
-        v.close()
-        v.unlink()
-    return result
+    return {"P": P, "legal": legal_total, "wins": wins, "losses": losses,
+            "draws": draws, "drawn_cycles": drawn_cycles, "checkmates": mates,
+            "max_dtm_plies": max_w, "swap_violations": swap_bad,
+            "mirror_violations": mir_bad, "no_cursed_theorem": no_cursed,
+            "kind_path": kind_path, "ply_path": ply_path,
+            "elapsed_s": round(time.time() - t0, 1)}
 
 
 if __name__ == "__main__":
-    solve5()
+    print("SOLVE5 START", flush=True)
+    res = solve5()
+    print("SOLVE5 DONE:", {k: res[k] for k in
+          ("legal", "wins", "losses", "draws", "drawn_cycles", "checkmates",
+           "max_dtm_plies", "swap_violations", "mirror_violations")}, flush=True)

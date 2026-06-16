@@ -7,3 +7,9 @@ usde_reports/usde_daemon.zip
 usde_reports/usde_discoveries.json
 
 fold_chess/*.bin
+
+# release archives, audio, and local cruft (kept out of git / off GitHub's 100MB limit)
+*.zip
+*.m4a
+*.aiff
+test_specialist.log
