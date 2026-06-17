@@ -11,6 +11,14 @@ law or the standing ISSUES_LOG findings. Run it on every script BEFORE delivery.
 
 Exit code 0 = PASS (no FAILs). Exit code 1 = REJECTED (one or more FAILs).
 FAIL = a hard violation that blocks delivery. WARN = review-it (style/freshness).
+
+Season-2 craft checks (SEASON_1_REVIEW.md, 2026-06-17), all WARN-level:
+  - adjacent near-verbatim restatement (the EP03/04/05 Priya-tag duplication tic)
+  - meta-gloss / stage-direction-to-camera ("so watch it", "watch the Dean now"…) — #6
+  - 'Maria' in the opening frame (naming rule: Gardener in frame, Maria in intimate beats) — #5
+The craft levers that can't be mechanized (antagonist menace-ladder, persistent
+consequence, ensemble spotlight, vary-the-resolution, Danny's fingerprint) live as
+GUIDANCE in Video-Agent.MD and as the per-episode pre-flight checklist in SERIES_BIBLE.md.
 """
 import re, sys, glob, os
 from collections import defaultdict
@@ -62,6 +70,54 @@ WATCH_PHRASES = [
     "mild as milk", "the least lonely place there is", "the wee idiot",
     "which for Sol is a Tuesday", "lands like a dropped spanner",
 ]
+# ---- Season-2 craft law (SEASON_1_REVIEW.md) ----
+# #6 meta-gloss / stage-direction-to-camera / pre-announced reveal (WARN).
+# NOT the protected declarative voice or viewer-address — only "watch this, it's important".
+META_GLOSS = [
+    r"so watch it\b", r"\bnow watch\b", r"watch the \w+ now\b", r"watch this\b",
+    r"here's the bit I love", r"this took a moment to land",
+    r"the moment of the whole (episode|thing)", r"watch \w+ closely",
+    r"and this is the (whole|important) bit", r"pay attention to this",
+]
+# #4 adjacent-duplicate detector: stop/refrain words excluded so intentional
+# refrains ("it came from one… / she came from one…") don't false-positive.
+_DUP_STOP = set("""the a an and or but of to in on at by for with from into as is are was were be been
+being it its it's that this these those they them their there here he she her his him you your we our us
+not no so then than too very just only own off out up down over under back again now then once
+which who whom whose what when where why how all any each few more most other some such only own same
+she's he's they're we're i'm don't didn't won't can't a little a beat""".split())
+_DUP_REFRAIN = set("""one came counting keep count still coming fold fire night sit close hello
+gardener crew danny sol errol nadia matthew frances priya dean rupert""".split())
+
+import difflib
+
+def _sig(s):
+    return [w for w in re.findall(r"[a-z']+", s.lower())
+            if len(w) > 3 and w not in _DUP_STOP and w not in _DUP_REFRAIN]
+
+def adjacent_dupes(t):
+    """WARN on adjacent SENTENCES (same paragraph) that NEAR-VERBATIM restate the
+    same image — the EP03/04/05 Priya-tag tic. Uses sequence similarity (not mere
+    shared words) so continuing narration and intentional refrains don't fire."""
+    hits = []
+    for para in t.split("\n\n"):
+        p = para.strip()
+        if p.startswith("#"):
+            continue
+        sents = [s.strip(' *_"“”') for s in re.split(r"(?<=[.!?])\s+", p) if s.strip()]
+        for a, b in zip(sents, sents[1:]):
+            sa, sb = _sig(a), _sig(b)
+            if len(sa) < 3 or len(sb) < 3:        # skip fragments
+                continue
+            # HIGH-PRECISION: fire only on near-verbatim restatement (the tic),
+            # NOT on the show's deliberate parallelism/antithesis (different content,
+            # same structure). Egregious restatement is >=0.7 similar AND shares >=3
+            # substantive words. Subtler restatements are a guidance/review item.
+            seq = difflib.SequenceMatcher(None, a.lower(), b.lower()).ratio()
+            shared = set(sa) & set(sb)
+            if seq >= 0.7 and len(shared) >= 3:
+                hits.append((a[:50], b[:50], sorted(shared)[:6]))
+    return hits
 ATTRIB_TOKENS = re.compile(
     r"(—|\bsaid\b|\bsays\b|\basked\b|\bbreathed\b|\bmuttered\b|\bwhispered\b|"
     r"\bdemanded\b|\bgrunted\b|\bcalled\b|\bshouted\b|\bgoes\b|\bmurmur|\bsnap|"
@@ -119,6 +175,17 @@ def check_file(path, is_ep):
         n = wc(t)
         if n < 2400: fails.append(f"too short for 15 min: {n} words (need ~2,400–2,600)")
         elif n > 2900: warns.append(f"long: {n} words (target ~2,400–2,600)")
+        # ---- Season-2 craft WARNs (SEASON_1_REVIEW.md) ----
+        # #6 meta-gloss / pre-announced reveal ("watch this, it's important")
+        for p, g in find(META_GLOSS, t):
+            warns.append(f"meta-gloss/stage-direction-to-camera: '{g}' — cut it; let the beat land, trust the scene (NOT the conviction)")
+        # #4 adjacent duplicate-sentence tic (the EP03/04/05 Priya-tag defect)
+        for a, b, sh in adjacent_dupes(t):
+            warns.append(f"adjacent restated image (duplication tic): '{a}…' / '{b}…' (shared: {', '.join(sh)}) — keep the sharper one, cut the restatement")
+        # #5 naming rule — 'Maria' must never appear in the opening frame (the disclaimer is always frame narration)
+        opening = "\n\n".join(t.split("\n\n")[:3])
+        if re.search(r"\bMaria\b", opening):
+            warns.append("'Maria' in the opening frame — rule: 'the Gardener' in frame narration, 'Maria' only inside an intimate beat")
         # ---- style WARN ----
         d = emdash_density(t)
         if d > 30: warns.append(f"em-dash density {d:.1f}/1000 words (heavy; vary the rhythm)")

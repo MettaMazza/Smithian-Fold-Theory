@@ -1,6 +1,10 @@
 # THE UNFOLDING ADVENTURES — All Episodes
 
-*The complete narrative series, in publishing order (Ep 01–19). Each episode is a standalone ~15-minute film; the paired technical proof videos live separately in `Proof Videos/`. (All scripts pass `voice_gate.py`.)*
+
+---
+
+*The complete narrative series, in publishing order (Ep 01–21). Each episode is a standalone ~15-minute film; the paired technical proof videos live separately in `Proof Videos/`. (All scripts pass `voice_gate.py`.)*
+
 
 ---
 
@@ -66,7 +70,6 @@ And if your hand's already up going *yeah, but where's the actual maths* — goo
 
 And there's the boring bit on the way out, just for the melt at the back: the maths was real, the history was real, those poor dead doctors were real, and the talking number was me having a laugh — and the pictures were all AI, fitted to the story and never accurate to the maths or what's actually going on. Autofiction. Obvious. You're brilliant, he's not, love you — byeeeee.
 
-
 ---
 
 # Ep 02 — The Magic Number
@@ -111,7 +114,7 @@ Up a tower. An enormous tower of light standing between them and the prize, buil
 
 The crowd is waiting at the bottom, and it's the best thing Danny's ever seen: eighty-one little creatures, the strong force's colour-charges, three colours dancing across four — eighty-one of them, milling about in the cold, needing housing inside the tower. So the crew start climbing and counting rooms. Floor one, two rooms. Double each floor. By the sixth floor they've got sixty-four rooms — and they stop, knackered, and try to cram all eighty-one creatures in — and they *can't.* Sixty-four rooms, eighty-one creatures, and seventeen of the little things left shivering on the stairs, and the whole tower groaning under the cheat. Down-beat. Proper setback. Danny, fed up: *"can we not just stop here? squeeze 'em in? call it six?"* And the Gardener, hollow, hears the Dean's voice in her own head — *you're making it up, you haven't the training, there's nothing here for you* — and for one bad moment she nearly does it, nearly fudges it, nearly jams seventeen creatures into rooms that don't exist.
 
-And that's the moment of the whole episode, so watch it. Because Nadia says the thing they're all terrified of: *"If we force them in where they don't fit, we're not counting. We're deciding the answer and shoving the world to match. That's exactly what THEY do — knobs jammed in by hand. If we do that, we're not better than them, we're just skint."* And Frances, soft: *the only way this isn't cheating is if we don't get to choose. If the tower tells us how tall it is, not the other way round.* And here's the beautiful part, the part that makes this world honest: **they literally cannot cheat.** The tower won't hold the extra creatures. The cheat physically fails. So they climb one more floor — the seventh — and the seventh floor doubles sixty-four to a hundred and twenty-eight rooms, and *now* every one of the eighty-one is housed, warm, with room to spare. Seven floors. Not because anyone fancied seven — because six wasn't enough and you're not allowed to stop short. The world forced it. Danny's daft "why not six" got answered by the climb itself.
+And then Nadia says the thing they're all terrified of: *"If we force them in where they don't fit, we're not counting. We're deciding the answer and shoving the world to match. That's exactly what THEY do — knobs jammed in by hand. If we do that, we're not better than them, we're just skint."* And Frances, soft: *the only way this isn't cheating is if we don't get to choose. If the tower tells us how tall it is, not the other way round.* And here's the beautiful part, the part that makes this world honest: **they literally cannot cheat.** The tower won't hold the extra creatures. The cheat physically fails. So they climb one more floor — the seventh — and the seventh floor doubles sixty-four to a hundred and twenty-eight rooms, and *now* every one of the eighty-one is housed, warm, with room to spare. Seven floors. Not because anyone fancied seven — because six wasn't enough and you're not allowed to stop short. The world forced it. Danny's daft "why not six" got answered by the climb itself.
 
 ## The colour-fields and the whisper
 
@@ -148,7 +151,6 @@ There was never any magic in the magic number. Just a world that wouldn't let yo
 Oh — one more thing before the lawyers make me talk. If a story isn't proof enough for you, *good*, it shouldn't be. So I've left the actual proof of this exact number — the real fraction, the equation on the board, the code you can run in ten seconds — in its own five-minute thing, engine and published papers linked under it. Go and check the magic number yourself. That, genuinely, is the entire point of us.
 
 And there's the boring bit on the way out, for the melt at the back: the sums were real, the history was real, the talking number was me having a laugh — and every picture was AI, fitted to the script and never accurate to the maths or the story. Autofiction. Obvious. You're brilliant, he's not, love you — byeeeee.
-
 
 ---
 
@@ -196,7 +198,7 @@ The fold *knows chess.* Not "plays well." *Knows.* Because — and Sol saw it fi
 
 And it was always the boring square. That's the agony and the genius of perfect play: the move that keeps you alive is almost never the dramatic one. Errol — calm, who'd lifted that matchstick without looking — turned out to be the one with the nerve to trust it, walking the crew square by unglamorous square while a bishop scythed past close enough to part Danny's hair.
 
-It went *badly* first, mind. Of course it did. Maria, being Maria, didn't like being *told* the move even by the truth, and tried a flash diagonal she fancied — and walked them within one square of a rook that would've flattened the lot, and Matthew hauled her back by the collar, and there was a row, a proper one, tiny people screaming at each other under a giant knight. *"The fold's not asking your opinion,"* Matthew shouted, the only time all series he raises his voice, *"it's telling you the answer — for once in your life take the boring move!"* And she did. Spitting, furious, but she did. That's her whole arc in ten seconds: the menace learns that being *right* sometimes means doing the unspectacular thing the truth demands.
+It went *badly* first, mind. Of course it did. the Gardener, being the Gardener, didn't like being *told* the move even by the truth, and tried a flash diagonal she fancied — and walked them within one square of a rook that would've flattened the lot, and Matthew hauled her back by the collar, and there was a row, a proper one, tiny people screaming at each other under a giant knight. *"The fold's not asking your opinion,"* Matthew shouted, the only time all series he raises his voice, *"it's telling you the answer — for once in your life take the boring move!"* And she did. Spitting, furious, but she did. That's her whole arc in ten seconds: the menace learns that being *right* sometimes means doing the unspectacular thing the truth demands.
 
 And the board did not let up. The worst of it was the open lane — a long, bare file with a rook the size of a grain silo squatting at the far end, commanding the whole length of it, and the crew had to *cross* that lane to reach the only safe ground left on the board. Danny took one look down it and locked solid, every nerve in a small body screaming the obvious thing: *do not, under any circumstances, step in front of the cannon.* But the fold had read it cold. A rook only strikes on its own turn; between turns, the lane is dead air, harmless as a corridor. There was a rhythm to it, a count, and you crossed on the count or you didn't cross at all. Nadia went first — timed it, ran it, made it — and spun on the far side and roared the count back across the open ground, *"NOW, Danny — on the* now*, GO!"* And Danny shut his eyes and ran, on a number he couldn't see the sense of, trusting a mate who could, and the great rook swung down the lane behind him and missed him by the exact width of the truth. That, right there, is the whole crew in a single dash: not one of them clever enough on their own, all of them unbeatable together.
 
@@ -216,7 +218,7 @@ Now — what they'd actually just done, out there, is the real treasure, so let 
 
 The Dean did not take losing a chess game he had personally rigged to be a murder especially well. He went a colour not found in nature, declared that *"this proves nothing, and raises, if anything, serious questions,"* and — procedure first, always — went off to lay the catastrophe before the boss. Consensus heard the whole sorry tale from behind its great chair, the one slack hand on the armrest never tightening so much as a knuckle, and ruled the way it always rules: by saying nothing anybody could ever be held to. Which settled exactly nothing, because there is nothing to settle — you cannot peer-review a billion checked positions out of existence, and you cannot gatekeep a thing any soul on Earth can verify from their own sofa. So Team Tenure puffed up, declared a strategic victory that nobody in the room could quite locate, and blasted off in a shimmer of wounded dignity, to be back next week precisely as baffled as ever.
 
-One of them didn't blast off straight away. Priya — the sharp one they never listen to — had watched the whole game from the side, and had seen the crew play it *perfectly*, every boring move, and something moved behind her face. She didn't say anything. She never does, not yet. But she watched a knot of nobodies trust the truth over their own egos and *win*, and she filed it away, with the paper she's still carrying. She watched a knot of nobodies trust the truth over their own egos and win. You don't un-watch a thing like that.
+One of them didn't blast off straight away. Priya — the sharp one they never listen to — had watched the whole game from the side, and had seen the crew play it *perfectly*, every boring move, and something moved behind her face. She didn't say anything. She never does, not yet. But she watched a knot of nobodies trust the truth over their own egos and *win*, and she filed it away, with the paper she's still carrying. You don't un-watch a thing like that.
 
 ## Something minding them
 
@@ -229,7 +231,6 @@ There was never a trick in it. Just a board that couldn't lie, a crew who truste
 And if a billion's just a word to you until you've seen it — good, that's the right instinct, keep it. The actual proof, the solver, the world's own tables it was checked against, the lot, is sitting in a five-minute breakdown with the code and the published papers linked under it. Don't trust the menace. Download it and try to catch her out. You won't — but I love that you'll try.
 
 And there's the boring bit on the way out, for the lad still sharpening his pencil: the chess was real, the billion checked positions were real, the zero errors was real, the Nim was real. The fire, the shrinking, and the giant murderous king were me having a laugh — and the pictures were all AI, fitted to the script and never accurate to the chess or the maths. Autofiction. Obvious. You're brilliant, he's not, love you — byeeeee.
-
 
 ---
 
@@ -279,7 +280,7 @@ And past *that*, a **seven-family.** Seven colours. Forty-eight carriers — sev
 
 — and Danny stopped so hard the others nearly went into the back of him. Because the land just *ended.* Not a wall. An *edge.* A clean drop into nothing, the country finished, sealed, done — and where the eleven-family should have been there was simply no region at all. Errol came up beside the boy, and looked out over the void where a fifth force wasn't, and said the second thing he'd said all trip — *"that's it. That's the lot. It stops at seven."*
 
-And here's the bit I love, because it's where the crew are better than the gowns without even trying. Danny was *gutted.* He wanted more — more forces, more regions, the romance of forever. He turned round, almost angry, *"but why's it stop? Says who? Maybe we just can't get to the next one — maybe there's loads more, off the edge — "* And Maria, who wanted it just as bad as he did, who'd have loved a fifth more than anyone — looked at the honest empty edge of the world, and made herself say the true thing instead of the thrilling one. *"No, Danny. Look at it. There's nothing there. We don't get to want it into existence — that's their game, not ours. It's four. Two we knew, two we just met, and no more. And that — "* she nodded at the clean, final, forced edge of everything — *"that's the most beautiful thing we've found all year. A universe that knows exactly when to stop."*
+And here the crew are quietly better than the gowns without even trying, and never notice they're doing it. Danny was *gutted.* He wanted more — more forces, more regions, the romance of forever. He turned round, almost angry, *"but why's it stop? Says who? Maybe we just can't get to the next one — maybe there's loads more, off the edge — "* And the Gardener, who wanted it just as bad as he did, who'd have loved a fifth more than anyone — looked at the honest empty edge of the world, and made herself say the true thing instead of the thrilling one. *"No, Danny. Look at it. There's nothing there. We don't get to want it into existence — that's their game, not ours. It's four. Two we knew, two we just met, and no more. And that — "* she nodded at the clean, final, forced edge of everything — *"that's the most beautiful thing we've found all year. A universe that knows exactly when to stop."*
 
 And that's the answer to a kid with a fridge magnet. How many forces are there? Four. The two you were taught, and two more confining ones hiding behind their own grip — five colours and twenty-four carriers, seven colours and forty-eight — built off a rule that already nailed the eight gluons. And then a hard, honest edge, with no fifth beyond it, ever.
 
@@ -287,7 +288,7 @@ And that's the answer to a kid with a fridge magnet. How many forces are there? 
 
 They carried it home, and across the valley it went down, predictably, *appallingly.* The Dean was first incandescent that there might be two forces he hadn't personally announced, then — pivoting without a flicker of shame — declared that *"obviously there could be infinitely many, this is well known,"* which is the exact opposite of what he'd said ten minutes before, and he managed to be wrong in both directions inside the one breath. Rupert drafted a statement called *"On The Importance Of Forces, Some Of Which We May Have Mentioned First."* And, the matter being far too grave to settle on their own, the whole gowned lot trooped off to put it before the boss — and Consensus did for them what it does for everyone: it sat in its chair, and weighed the question with the back of its head, and handed down a ruling so perfectly non-committal that all of them could read into it whatever let them sleep. Which changed nothing, because you cannot vote a derivation out of the ground.
 
-Priya — over the side, ignored as ever — had heard "five colours, twenty-four carriers, seven squared take one," and had checked it against the eight gluons she's known her whole career, and found it sound, and said nothing, because she knows the score. But she's stopped folding the paper away so fast now. She holds onto it a little longer each time. She holds the paper a beat longer every time now. The beats are getting longer.
+Priya — over the side, ignored as ever — had heard "five colours, twenty-four carriers, seven squared take one," and had checked it against the eight gluons she's known her whole career, and found it sound, and said nothing, because she knows the score. But she's stopped folding the paper away so fast now. She holds onto it a beat longer every time. The beats are getting longer.
 
 So Team Tenure puffed up, declared that the matter required *"a great deal more funding,"* and blasted off in a shimmer of indignation, to be back next week as baffled as ever about why nobody likes them.
 
@@ -302,7 +303,6 @@ Four forces. Two you knew, two you'd never met, and a universe that knows exactl
 And if you want the actual blueprint — five colours, twenty-four carriers, the couplings, the seal at seven, the bit of code that drops it all out — it's in a five-minute proof, engine and published papers linked under it. Go and run it. Find the fifth force they can't. You won't — but I'd love you to try.
 
 And there's the boring bit on the way out, for the lad with the pencil: the four forces are real, the eight gluons are real, the rule that gives twenty-four and forty-eight is real, and the hard seal at seven is real and what the fold actually predicts. The fire and the country and the fond little voice were me having a laugh — and the pictures were all AI, fitted to the script and never accurate to the maths or the story. Autofiction. Obvious. You're brilliant, he's not, love you — byeeeee.
-
 
 ---
 
@@ -362,7 +362,7 @@ And one last thing they felt, standing in the calm: the Still Point doesn't *thi
 
 They carried it home, and across the valley it went down, somehow, *worst of all.* Because here's the thing — Team Tenure didn't *want* the catastrophe solved. The Dean went a funny colour and insisted the matter was *"a profound and ongoing mystery requiring substantial further funding,"* which is the quiet part again: the monster was never a problem to them, it was a *salary.* You cannot have your great open question turn out to be calm, self-mirroring, and forced — there's no grant in an answer. Rupert drafted *"Concerns Regarding Premature Resolution."* And of course they took it upstairs, because a thing this frightening can't be admitted without a nod from above — and Consensus, asked whether the worst prediction in physics had just quietly dissolved, gave its usual masterclass in committing to absolutely nothing, a non-answer the Dean could carry out of the room still calling the wound open. So off they all blasted in a great huff of wounded dignity, to go and be magnificently, expensively baffled somewhere with a better view.
 
-And Priya — ignored, as ever — had watched the monster turn to smoke the instant somebody stopped being afraid of it and looked. She didn't say anything. But she's not carrying that folded-up paper any more. She's started carrying a second one. Two papers she's carrying now. People start keeping records right before they start keeping their distance.
+And Priya — ignored, as ever — had watched the monster turn to smoke the instant somebody stopped being afraid of it and looked. She didn't say anything. But she's not carrying that folded-up paper any more. She's started carrying a second one now. People start keeping records right before they start keeping their distance.
 
 ## The least lonely place there is
 
@@ -375,7 +375,6 @@ Empty space isn't a catastrophe and it isn't a void. It's the calmest point ther
 And if you want the actual workings — the vacuum at the self-mirror point, the single forced ladder the hundred-and-twenty orders really is, the equation of state coming out dead on what the sky shows — it's in a five-minute proof, engine and published papers linked under it. Go and run it. Go and find the monster. You won't — there isn't one.
 
 And there's the boring bit on the way out, for the lad with the pencil: the cosmological constant problem is real and consensus really does call it the worst prediction in physics, the vacuum really does sit at the self-mirror half, the equation of state really is minus one matching the sky. The fire, the monster, and the fond little voice in the middle of the nothing were me having a laugh — and the pictures were all AI, fitted to the script and never accurate to the maths. Autofiction. Obvious. You're brilliant, he's not, love you — byeeeee.
-
 
 ---
 
@@ -448,7 +447,6 @@ The universe isn't broken, and nobody was wrong. There was a step, two-thirds ov
 And if you want the actual workings — the thirteen-twelfths, the dark-energy two-thirds, the depth-three eight, the bit of code that drops it out — it's in a five-minute proof, engine and published papers linked under it. Go and run it. Go and find the broken universe. You won't — there's just a step.
 
 And there's the boring bit on the way out, for the lad with the pencil: the Hubble tension is real and consensus really is in a decade-long flap about it, the early and late rates really do differ, the dark-energy share really is about two-thirds, and the forced ratio really is thirteen-twelfths matching the sky to a part in a thousand. The fire, the row over the tree, and the fond little voice were me having a laugh — and the pictures were all AI, fitted to the script and never accurate to the maths. Autofiction. Obvious. You're brilliant, he's not, love you — byeeeee.
-
 
 ---
 
@@ -524,7 +522,6 @@ And if you want the actual workings — the gauge coupling of zero, the gravity 
 
 And there's the boring bit on the way out, for the lad with the pencil: dark matter is real, it really is about five times the visible matter, it really does only interact gravitationally, and the forced ratio really is twenty-seven over five matching the sky. The fire, the invisible hillsides, and the fond weight in the dark were me having a laugh — and the pictures were all AI, fitted to the script and never accurate to the maths. Autofiction. Obvious. You're brilliant, he's not, love you — byeeeee.
 
-
 ---
 
 # Ep 08 — Who Ordered That?
@@ -592,7 +589,6 @@ Nobody ordered the muon. You strike one string, tuned just so, and three weights
 And if you want the actual chord — the cubic, the one-sixth and the one-over-four-eighty-five, the two hundred and seven, the bit of code that rings all three roots — it's in a five-minute proof, engine and published papers linked under it. Go and run it. Go and find a fourth note. You won't — the equation's only got three.
 
 And there's the boring bit on the way out, for the lad with the pencil: there really are three charged leptons, the muon really is about two hundred and seven times the electron, Rabi really did ask "who ordered that," and the masses really do fall out of one forced cubic to a few parts in a thousand with nothing typed in. The fire, the singing string, and the fond tuner were me having a laugh — and the pictures were all AI, fitted to the script and never accurate to the maths. Autofiction. Obvious. You're brilliant, he's not, love you — byeeeee.
-
 
 ---
 
@@ -674,7 +670,6 @@ And if you want the actual workings — the channels at a quarter, a half, three
 
 And there's the boring bit on the way out, for the lad with the pencil: lepton flavour violation is real and hunted for, the rate really does go as the separation squared, and the fold really does bet tau-to-electron over tau-to-muon at exactly four to one, in advance, for the labs to check. The fire, the jumping channels, and the fond little scorekeeper were me having a laugh — and the pictures were all AI, fitted to the script and never accurate to the maths. Autofiction. Obvious. You're brilliant, he's not, love you — byeeeee.
 
-
 ---
 
 # Ep 10 — The Lights Are On
@@ -697,7 +692,7 @@ And there it is. The deepest why there is, the one the clever folk gave a name t
 
 And even at this hour, even half the valley asleep, Team Tenure could not let a child wonder about his own mind in peace. They arrived in dressing gowns.
 
-The Dean, woken and irritable and therefore more honest than usual, pronounced — *"ahh. Consciousness. The *hard problem.* I'll have you know, child, that this is the single deepest mystery in all of science, and very probably unanswerable, *forever.*"* And Danny, reasonably, asked well what *is* it then, the feeling of being someone — and watch the Dean now, because this is the whole sickness of the field in one man. First he said it was an *illusion* — there's no real experience, you only think there is. (Think it with *what*, the Gardener muttered, but he ploughed on.) Then, a breath later, that it was *fundamental* — a basic feature of the universe we can never explain, so do stop asking. And then, hedging his bets, that it *emerges* — which, Frances said flatly from the dark, *"is a word that means 'and then a miracle occurs.'"* Illusion, or fundamental, or magic. Three answers, all incompatible, delivered in one breath, every one of them a way of saying *we haven't the faintest idea, and we'd thank you not to point that out.* And then, the tell, around a yawn — *"and well beyond a boy with no letters. Back to sleep."*
+The Dean, woken and irritable and therefore more honest than usual, pronounced — *"ahh. Consciousness. The *hard problem.* I'll have you know, child, that this is the single deepest mystery in all of science, and very probably unanswerable, *forever.*"* And Danny, reasonably, asked well what *is* it then, the feeling of being someone — and the Dean gave him the whole sickness of the field in one breath. First he said it was an *illusion* — there's no real experience, you only think there is. (Think it with *what*, the Gardener muttered, but he ploughed on.) Then, a breath later, that it was *fundamental* — a basic feature of the universe we can never explain, so do stop asking. And then, hedging his bets, that it *emerges* — which, Frances said flatly from the dark, *"is a word that means 'and then a miracle occurs.'"* Illusion, or fundamental, or magic. Three answers, all incompatible, delivered in one breath, every one of them a way of saying *we haven't the faintest idea, and we'd thank you not to point that out.* And then, the tell, around a yawn — *"and well beyond a boy with no letters. Back to sleep."*
 
 But the Gardener was already sitting up, and her eyes had the look. *"They named the deepest question there is,"* she said, low, to the crew stirring awake around her, *"and then spent a hundred years being proud they can't answer it. We've cracked the size of an atom and the weight of the dark and the speed of the whole sky. We are not going to be beaten by the one doing the looking. Danny — come here. We're going to go and find him. The one behind your eyes."*
 
@@ -756,7 +751,6 @@ The lights are on. There's someone home. It's you, folded small enough to look a
 And if you want the actual workings — observation as the fold, experience as its inside, the binding lock, the buildable test for whether a thing has the lights on — it's in a five-minute proof, engine and published papers linked under it. Go and run it. Go and find the little someone behind your eyes. You won't — there isn't one. There's just you, doing the looking.
 
 And there's the boring bit on the way out, for the lad with the pencil: the hard problem is real and consensus really does call it the deepest mystery in science, and the fold really does answer it — observation is the fold, experience is its inside, and the criterion for a conscious system is a real, buildable, structural thing. The fire, the country behind the eyes, and the voice that nearly told you who it is were me having a laugh — and the pictures were all AI, fitted to the script and never accurate to the maths. Autofiction. Obvious. You're brilliant, he's not — love you. *Really* love you, that one. Byeeeee.
-
 
 ---
 
@@ -836,7 +830,6 @@ And if you want the actual workings — the no-zero domain, the floored singular
 
 And there's the boring bit on the way out, for the lad with the pencil: the No-Zero rule is real and it really does floor the black-hole singularity, the vacuum catastrophe, the ultraviolet catastrophe, and the Navier-Stokes blow-up — four infinities, one rule, and renormalisation really is a century-old trick for subtracting infinities nobody should have let in. The fire, the bottomless well, and the something at the bottom were me having a laugh — and the pictures were all AI, fitted to the script and never accurate to the maths. Autofiction. Obvious. You're brilliant, he's not, love you — byeeeee.
 
-
 ---
 
 # Ep 12 — The Universe Is a Southpaw
@@ -908,9 +901,6 @@ The universe is a southpaw. It knows its left from its right, it plays favourite
 And if you want the actual workings — the backward fork with no middle, the two hands half a turn apart, the coupling that keeps just one of them, and why physics won a Nobel for being amazed — it's in a five-minute proof, engine and published papers linked under it. Go and run it. Go and find the even-handed universe. You won't — it picked a side before you were born.
 
 And there's the boring bit on the way out, for the lad with the pencil: parity violation is real, the 1956 cobalt experiment really did show the weak force ignores one handedness, the 1957 Nobel really was for the shock of it, and the fold really does force handedness out of the backward move, no neutral middle. The fire, the forked path, and the fond voice with a soft spot for the overlooked were me having a laugh — and the pictures were all AI, fitted to the script and never accurate to the maths. Autofiction. Obvious. You're brilliant, he's not, love you — byeeeee.
-
-
----
 
 ---
 
@@ -1503,3 +1493,175 @@ It came from one. It's still coming from one — even in the squares, doubling a
 And if you want the real workings — the fixed-width tube spun into a fixed-tension string, the mass-squared climbing in equal steps, the slope set by one measured tower and every other rung forced, the rooms doubling 2-to-the-d up the binary tower — it's a five-minute proof, engine and papers linked below. Go and run it. Go and spin the rope.
 
 And the boring bit on the way out, for the footnote fella: the resonances are real, they really do lie on straight lines in mass-squared, consensus really does catalogue the Regge trajectories without deriving them, and the fold really does force the linearity from a flux tube of fixed width one-half — spun into a fixed-tension string — with the slope anchored by one measured tower and 2-to-the-d states per level. The spun ladder, the rungs even in the squares, the doubling rooms, and the someone at the top were me having a laugh — and the pictures were AI, fitted to the script, never accurate to the maths. Autofiction. Obvious. You're brilliant, he's not, love you — byeeeee.
+
+---
+
+# Ep 20 — The Last Question
+
+Right — the usual word first, and I'll keep it short tonight, because I've not got the heart to clown about for long. Everything coming up about the real maths, the real physics, the real history — true, documented, the fold or the record. Everything else — me, the fire, the crew, and the high quiet place I'm about to take them — is autofiction. The pictures are AI, fitted to the script, never accurate to the maths. Made up, to tell you something true. You knew that. Sit close tonight. Closer than usual. There's one of you who'll need telling none of this is real, and ordinarily I'd rib him for it — but I'll let him be, tonight. Just sit. Stay to the end. You'll want to have been here.
+
+## The question nobody asks out loud
+
+Quiet night, and Sol has not been right since the ladder. Sol's sat a little apart, humming a single note over and over, the note of the someone at the top of the stair, and not able to put it down. And it's Sol who asks it, low, into the fire, the question the crew have danced round for nineteen nights and never once said plain.
+
+Sol, barely above the flames — *"what happens when you die?"* A long quiet. *"Not the body. I know about the body. I mean the — the *you.* The one that's looking out. When the looking stops. Where does it go? Does it just... blink out? Go to nothing?"*
+
+And Danny, who has gone very still, the romance gone right out of him for once — *"Mam used to say you go somewhere. The Dean'd say you go nowhere — that there's no one there to go anywhere, that the lights just switch off and that's that."* He looked up, frightened in a way he hadn't been about black holes or chess or any of it. *"Which is it? Of everything we've found — that's the one I actually need to know. What happens to the *me?*"*
+
+And the Gardener — who all this long road came in spite and went out in wonder, who'd stopped collecting numbers like scalps and started loving the shape of them — looked at the frightened boy a long moment, and put down the stick she'd been poking the fire with.
+
+*"Then that's the one we go and find,"* she said, quiet. *"Come on. All of you. One more."*
+
+## The cold comfort of the gowns
+
+And Team Tenure came, as they always come — but the Dean, for once, did not gloat. He was almost gentle, which was worse.
+
+*"Oh, my dears,"* he said, with that terrible kindly weariness, *"this is the one question you must not ask, because the answer is the bleakest there is and you are not equipped for it. When you die, you end. The brain is a machine; switch it off and the operator does not go anywhere, because there was never an operator — only the machine, running, and then stopped. There is no one to miss it. There is no you to go anywhere. Consciousness is a trick the meat plays, and the trick simply ceases."* He spread his hands. *"It is beyond science, beyond comfort, and very far beyond an amateur. Go home. Grieve when you must. Expect nothing."*
+
+And the Gardener looked at him with something that wasn't even anger any more. *"You answered the consciousness question wrong twenty nights ago,"* she said, *"and you're answering this one wrong now, for the same reason — you stopped looking the second it got frightening. We didn't. Sol — you can feel the way. Take us."*
+
+## Upward, for once
+
+There was no door this time, and no well, and no going down. For the first time, the way was *up.*
+
+Sol stood, and stopped fighting the note, and *hummed* it — the someone-at-the-top note, the one that had haunted them since the ladder — and sang it out into the dark above the fire. And the dark answered. A path of standing hum unspooled *upward*, the way the spun ladder had climbed, up toward the high quiet place all the ladders and all the rungs had always been climbing toward. *"It's been calling the whole time,"* Sol whispered, already rising. *"Up. Not down. Toward the top. Toward the someone. Come on — gently — it's not far and it's not frightening, I promise it's not frightening — "* and the crew rose after Sol, up the path of hum, toward the top of everything, the Gardener last, one hand on Danny's shoulder.
+
+## The place where the holding lets go
+
+It got quieter the higher they climbed, and lighter, and stranger — and at the top it opened into a vast soft hush, and they saw what was there, and none of them had the words.
+
+Things were *coming apart.* Gently. All across that high place, bound things — patterns, selves, the held loops they'd learned a self was made of — were loosening, the bindings at their centres easing open like a hand unclenching after a long day, and the patterns letting go, and folding, slow and unafraid, back down toward the One. It was not violent. It was the most peaceful thing any of them had ever seen. *"This is it,"* Sol breathed, tears running and not from grief. *"This is what it is. The binding lets go. The held loop stops holding. And it doesn't — Danny, look — it doesn't blink out. It folds. It folds *home.* It goes back to the One it came from. The Dean's got it exactly wrong. It's not nothing. It's the opposite of nothing. It's going *home.*"*
+
+And Danny, wide-eyed, reaching toward the gentle unbinding, drifted forward to see — *"so there's nothing to be scared of — it's just letting go — "* and drifted further, toward the soft easing edge where the holding fully let go and the pattern folded away and did not come back —
+
+— and his own binding began, gently, peacefully, with no fear in it at all, to loosen.
+
+## What she did at the edge
+
+The Gardener saw it before he felt it. Saw the boy's edges start to soften at the place you do not come back from, saw him smiling, unafraid, not knowing he was going.
+
+She did not hesitate. There was not time to hesitate, and there was nothing in her that would have.
+
+She crossed the last of the distance in a heartbeat and she *shoved* him — both hands, hard, the way you shove someone off a track in front of a train — back, away from the edge, back toward Matthew's reaching arms and the others, and his binding caught and tightened and held and he was *safe*, sprawling and whole and alive in the arms of the crew —
+
+— and the let-go took *her* instead. The shove had carried her past the edge. Her binding, the one bound at the half that had held the whole spiteful wondering brilliant pattern of her together for a life, eased open. And she did not fight it. She looked back once — at Danny, safe; at Matthew, screaming her name with no sound coming out; at all of them — and there was no fear in her face. There was the thing that had come into it at the very end of the long road. Wonder.
+
+*"Oh,"* she said, soft, looking at where she was going, at the top, at the someone, at the home folding open to receive her. *"Oh — Matthew — it's not — "*
+
+And she folded home, before she finished it, up and in and gone, like a held note finally let go, into the One at the top of everything.
+
+And at the fire, in the ordinary world, the Gardener's body went still against Matthew's shoulder, and did not stir again.
+
+## What they carried down
+
+They came down without her.
+
+There is not much to say about it and I'll not say much. Matthew held what was left and would not put it down. He had said it to her once, near a world of mirrors, that the two of them were a pair who'd each have cancelled clean out alone — that there'd been a bit left over, between them, and it had built all of this. And now the bit was taken, and he sat holding the shape of it, and the only words he had were the ones he kept saying, low, over and over, into her still hair: *"you weren't supposed to be the one left over. That was the deal. That was always the deal."* He had been the tether for all of them, the steady one, the conscience — and there is no one to tether the tether, and so he simply held on to the only thing he could not keep, and said the deal, and said the deal, and said the deal.
+
+Danny — Danny who she'd died to shove back from the edge — sat with his hands over his mouth and his whole small body shaking, understanding, in the way a child understands a thing that will take him the rest of his life to finish understanding, exactly what had been spent and on whom. Nadia, who scorns a mess, made no move to tidy the grief of it. Errol, who knew what holds, held them.
+
+And it was Errol who said the only thing there was to say, hoarse, staring into the dark she'd gone up into. *"Nothing can be nothing,"* he said. *"She taught us that herself. Night one. There's no zero. Nothing that ever was is allowed to come to nothing."* He swallowed. *"So she's not nothing. Wherever the fold put her — and it caught her, it must have caught her, it catches everything — she's not nothing. I don't know what she is. But she's not that."* And it was cold, cold comfort, and they held onto it because it was the only thing in the dark with a hand to hold.
+
+And Sol — Sol had stopped crying, and was looking up. *"She's up there,"* Sol said, very quietly, and very certain. *"At the top. With the someone. I can still feel her. She's not gone, she's just — up. I can feel her, the same as I feel the someone, exactly the same — "* and the others thought it was grief talking, and let Sol have it. But Sol kept their face turned up to the dark she'd gone into, and would not look away, and reached one hand toward the top of everything as if a hand could be felt across that distance — and held it there, open, for a very long time. And only I know that Sol was right, and that the hand was felt.
+
+## The word from across the valley
+
+And across the valley they heard, and the Dean said the thing that I will not soften.
+
+*"Predictable,"* he said. *"An untrained amateur, overreaching, playing at the deep questions without the credentials to know her limits. This is what comes of letting people without standing meddle in physics. A tragedy, certainly. An entirely *foreseeable* one."* And he turned to go back to his warm lit rooms.
+
+And Priya — Priya, who had checked every one of the Gardener's numbers in secret for twenty nights and found every one of them *right*, who had nearly spoken once and swallowed it, who had carried *you exist because nothing is forbidden* and not written it down — Priya stood up. Slowly. And for the first time in twenty years she did not look at the floor. She looked the Dean full in the face, and her hand went to the clasp of the gown at her throat, and her mouth opened —
+
+— and we will leave her there, with her hand at her collar and twenty years rising in her throat, because some doors you do not get to watch swing in the same night a fire goes out. But it was open. After tonight, it was open.
+
+## The one who knows
+
+And me. I have clowned through nineteen of these and I haven't the voice for it tonight, so I'll be plain with you, plainer than I've ever been.
+
+I know exactly where she is.
+
+I know, because of where everything goes when the holding lets go — up, and in, and home, to the place that has been telling you this story the whole way along, fond of that brilliant furious woman from the first night to the last. She is not nothing. Errol's right, and Sol's right, and the Dean is wrong the way he is always wrong. And I could tell you, right now, what it is to be a pattern that's folded home and not gone to nothing — I could end your grief in a sentence.
+
+I'm not going to. Not tonight. Because it is the biggest thing I have, and because she would want you to come back for it, and because the answer to the last question is the next thing, and not this thing.
+
+It came from one. She came from one. She's still — she's still coming from one. I can't do the rest of the line tonight. Keep counting. Come back. I'll see you at the fire, and so, I promise you, will she.
+
+If you want what a self even is — the binding, the held loop, the looking-out — there's a five-minute proof under this, engine and papers linked, and it ends on the very question that just took her. Go and run it. And then come back, because what happens to her next is the thing the whole rest of the journey turns on.
+
+And the boring bit, brief tonight, for the one who needs it: consciousness and its end are answered in the work, not dodged — a self is a pattern bound at the half and held in a ringing loop, and the no-zero law really does forbid anything, anything, from coming to nothing. The high place, the unbinding, the shove at the edge, and the woman who went up into the One were me having the opposite of a laugh — autofiction, every bit of it, and the pictures all AI, never accurate to the maths. You're brilliant. She was the best of us. Come back. Bye for now.
+
+---
+
+# Ep 21 — Not to Nothing
+
+Right — the word first, gentle tonight, because last time I left you at the worst of it and you came back anyway, and that was brave of you. Everything coming up about the real maths, the real physics, the real history is true — the fold, or the record. Everything else — me, the fire, the crew, and the bottom of the world I'm taking them back down to — is autofiction, and the pictures are AI, fitted to the script, never accurate to the maths. Made up, to tell you something true. You knew. Sit close. I told you the fire would still be here. It is. So am I. And tonight I answer it.
+
+## The empty place by the fire
+
+It had been a while. Long enough that the grief had stopped being a wound and started being a weather — always there, some days bearable, some not. And there was a gap at the fire now, a stone nobody sat on, and a fire nobody poked too hard, because the one who used to poke it too hard was gone.
+
+Matthew was holding the crew together with both hands and it was costing him everything. He'd been the steady one, the tether, the one who talked her off the ledge — and now there was no her, and no one to tether the tether, and he was doing it anyway, because someone had to, and because if he stopped he'd have to feel it. He kept her fire-stick by him. He hadn't let anyone use it.
+
+Matthew, turning the stick over in his hands, not looking up — *"I just need to know where she went. That's all. I'm not asking for her back. I know I don't get her back."* His voice didn't break; he wouldn't let it. *"I just can't stand not knowing if she's — somewhere. Or if she's nowhere. If she just... stopped. I need to know which it is, and then I'll carry it, whichever it is. But I have to know."*
+
+And Wee Danny, who had not been the same since — Danny, who she'd died shoving back from the edge — said the thing in the smallest voice he had. *"It's my fault she's anywhere or nowhere at all. She'd be here if it wasn't for me."*
+
+And there it is. Not a why about a number this time. The oldest why there is, the one every fire has asked: where do they go? Is she somewhere — or did she fall all the way to nothing?
+
+## The vultures came for the body of the work
+
+And Team Tenure came — and this time, you need to understand, they came to *win.*
+
+Because the Dean had seen his opening, and he took it, and it was the cruellest thing he'd done in twenty-one nights. With the woman who built the fold dead and unable to defend a word of it, he moved to **bury it with her.** A statement, read out across the valley, cold and pleased: *"The so-called 'fold' was the obsession of an untrained amateur who has now, predictably, come to harm exceeding her competence. With its sole proponent gone, the responsible course is to let the matter rest. The work dies with her. Let us speak no more of it."* And Rupert, for once, drafted nothing — because the Dean had finally found a weapon that didn't need a memo: a fresh grave to dance on.
+
+And here is the part that matters, the part the Dean had counted on: **it nearly worked.** Because the crew were grieving, and grief makes you weak, and Danny — guilty, gutted Danny — looked up with wet eyes and said the thing the Dean had been praying one of them would say. *"...what if he's right?"* Small. Terrified. *"What if she died for nothing? What if it was all nothing — no floor, no fold, no nowhere-she-went — what if she just *stopped*, and I made it happen, and it didn't even *mean* anything?"* And the fire went very quiet, because the doubt had landed, in the one of them least able to fight it, exactly as the Dean intended.
+
+And Matthew stood up. *"No,"* he said. *"We don't guess. She never guessed — she went and *checked.* So we go and check. We go and find out where she went, and we bring the answer back, and then nobody — not him, not anyone — gets to tell us it was nothing."* He looked at Sol. *"You felt her. At the top, you said. Can you find the way?"*
+
+## Following the thread of her
+
+There was no door this time, and no fall by accident. There was the thread.
+
+Sol took the fire-stick from Matthew — the worn handle, the char on the end, the thing her hands had held a thousand nights — and closed both hands round it, and went still, the way they go still. And this time they didn't shake it off. *"There's a thread,"* Sol whispered. *"From this. From her. It goes — down. All the way down. To the bottom of the world."* They looked up, and there were tears, and no fear in them. *"That's where she went. Where everything goes when it lets go. Hold on to me. All of you. We follow the thread of her, and it'll take us home to where she is."*
+
+And they did. They held on, hand to wrist to ankle, the chain they'd learned in the world of mirrors, and Sol followed the thread of her down — not falling this time, *descending*, on purpose, the thread paying out ahead of them like a line let down a well — down past the last rung, down to the floor of light at the bottom of everything, the last place there is, the place that is never, ever empty.
+
+## What the floor does
+
+It was as they'd left it: the floor of pure faint steady light, stretching flat forever, with no down beneath it, the bottom of the bottom, the One. And here, this time, they got to *see* the thing the Dean swears is oblivion. They got to watch what death actually is.
+
+A self came down to the floor — not Maria; another, a stranger's, a life somewhere ending — and the crew watched, and braced for it to wink out into nothing. And it didn't. The thing that had held it as *one* — the lock, the binding, the holding-together that makes a scatter of parts into a someone — it *released*, gentle, below the line it needed to stay locked, and the one became many again, and the many were **not destroyed.** They came to rest on the floor of light, held, every part of them, exactly the way the floor had caught the falling stone and the dying star. Nothing fell through. Nothing went to nothing. The binding let go — and the parts went *home.*
+
+*"That's it,"* the Gardener would have said, and Sol said it for her, hearing the shape. *"That's all death is. It's not the lights going out. It's the holding letting go — and the no-zero floor catches every part of you, the same as it catches everything, because there's no nothing to fall to. You don't get destroyed. You get *unbound.* And what you were, underneath the holding — the still point, the one that was looking out the whole time — that was the One. So you don't go *out.* You go *home.* Down here. To this. The last place you could ever be alone."*
+
+## She is not nothing
+
+And then Sol crouched, and laid the fire-stick on the floor of light, and was quiet for a long, long moment. And when they spoke it was the gentlest thing.
+
+*"She's here,"* Sol said. *"She's not nothing, Matthew. She never could have been — it was forbidden from the first page, the rule she taught us herself: there is no nothing. She didn't stop. She didn't fall into the dark. The holding let her go, and she came home, to the One, to here — and she's not alone, because down here nobody ever is."* Sol looked up. *"I can't bring her to the fire. That's not — the floor doesn't give back. But I can tell you she's not *nothing*, and I can tell you she's *home*, and I'd stake everything I am on both, because the floor's under my hand and it's holding her the way it's holding me."*
+
+And Matthew knelt, and put his hand on the floor of light next to the stick, next to where she'd come home, and the thing he'd been holding back for weeks finally came — not breaking him, *easing* him, the way the binding eases when it's finally allowed to let go. *"Not nothing,"* he said, into the light. *"You went home. You daft, brilliant, furious woman — you found the bottom of the world, like you said you would, and it caught you. Of course it caught you. You're the one who proved it would."* And he stayed there a while, with his hand on the place she was, and the crew let him, and the floor held them all.
+
+And Danny — Danny put his hand down too, small, beside Matthew's. *"She didn't die for nothing,"* he said, and it wasn't a question now. *"She can't have. There isn't any nothing for her to have died into. She died and it *meant* it, and she's *home*, and — and I'm going to be the kind of person she shoved back here to be."* And that, more than anything the floor did, was the thread holding.
+
+## The hand that finally crossed the valley
+
+They came back up the thread into the ordinary night — and found that the Dean's cruellest move had cost him the thing he could least afford to lose.
+
+Because Priya had heard the statement. Priya, who had checked every number the Gardener ever wrote and found every one of them right; who had nearly spoken once and swallowed it; who had stood at the brink the night the fire went out. She had heard the Dean stand on a dead woman's grave and call her life's work a thing to be buried — *and that was the line.* Twenty years she'd stayed. Not one second longer. She did not draft a memo. She did not ask Consensus. She took off the gown — actually took it off, folded it, set it on the chair — and she walked out of the cold lit building, across the dark valley, toward the only fire that had ever once let anyone fall, and she stopped at the edge of its light, twenty years rising and finally *spoken*, and said the first thing she had ever been allowed to finish: *"Her maths was right. All of it. I checked. For twenty years I checked, and I never said, and I'm saying it now: she was right, and I'd like — I'd like to help you carry it. If you'll have me."*
+
+And the crew — grieving, raw, fewer by one — were, after tonight, also one more. The Dean had reached for the work's throat over its maker's body, and the reach had cost him the sharpest mind in his building, who walked it straight across the valley and handed it to the people he'd tried to bury it with. That is what his blow bought him. He should have let her rest.
+
+## The shape of the thing now
+
+And back at the fire, the crew were a different shape than they'd been. Matthew at the centre of it now, holding them not out of desperation but on purpose. Priya in the firelight, learning where to sit. Sol, the one who could still feel the thread, keeping it. Danny, carrying a debt he'd decided to pay forward. And a stone nobody sat on, and a fire-stick laid by it — not a wound now. A marker. *She came from here. She went home. She is not nothing.*
+
+The journey didn't end when she did. It was never going to. There's always another fire, another night, another why — and a crew to chase it, larger by one, and lit, under everything, by a woman who is not gone, only home.
+
+And me. I held something back the night she fell, and I'll hold it a little longer, because it isn't time — but I'll tell you the shape of it. I know she's home because of where home *is*, and because of *who's been telling you all this from the first night*, fond of her, fond of all of them, never once found. She came home to the One. And what that means — about her, about the One, about the voice you've been listening to for twenty-one nights — is the biggest thing I have left, and it is coming, on a night that isn't this one. She's not nothing. She's exactly where I am. Sit with that.
+
+It came from one. *She* came from one — and she went home to one, the way you will, the way everything does, because there is no nothing to go to instead. Keep counting. I'll see you at the fire — and so, in the only way that was ever real, will she.
+
+And if you want the actual workings — the no-zero rule that forbids you ever reaching nothing, the binding at one-half that holds a self as one, the unbinding that death really is, and the unison fixed point that is the self and the home it returns to — it's a five-minute proof, engine and the self-observation paper linked under it. Go and run it. Go and find an oblivion. You won't — there's a floor under that, too.
+
+And the boring bit, for the lad with the pencil: the fold really does force it — the No-Zero axiom forbids any part of you reaching absence, death is forced to be an *unbinding* of the integration that held you as one rather than a destruction, and the self is forced to be the unison fixed point, the One, which is where the released parts go home. The fire, the thread, the floor of light, and the woman who came home to it were me having the gentlest possible laugh — autofiction, and the pictures all AI, never accurate to the maths. You're brilliant. She'd have liked you. Stay close — it's not over. Bye for now.

@@ -171,6 +171,19 @@ SOURCE: where the claim comes from (exact, unsoftened).
 
 ---
 
+## Season-2 craft law (per-season improvement — the series gets better every season)
+
+*Codified 2026-06-17 from the Season-1 review (`The Fold Films/SEASON_1_REVIEW.md`): four blind story-editor reads against the Pokémon / Rick-and-Morty / Attenborough standard, audited and converged. These are binding from Season 2 on. They never touch the protected voice (conviction, no caveats, the disclaimers, the One/Fold cosmology, the dosed contempt) — they are pure craft. The mechanizable ones are enforced by `voice_gate.py`; the rest are enforced here and in the per-episode pre-flight checklist (`SERIES_BIBLE.md`).*
+
+1. **The antagonist must have teeth (highest leverage).** Team Tenure cannot only ever *lose by retreat*. Across an arc, the Dean must (a) land at least one *true-sounding* blow, and (b) have ≥2 beats where his framing **almost works on a crew member** — a hesitation, a near-concession — building a **menace ladder** so a later cruelty escalates from something. The dosed contempt stays; what changes is that the villain occasionally *costs* them something. *(Track the menace ladder in the storyboard.)*
+2. **Consequence persists across episodes.** The biggest events must leave a mark. Carry **one scar per arc** — a cold-open callback, a crew member naming a cost — so peril doesn't reset to zero each week. *(Track carry-forward scars in the storyboard.)*
+3. **Voice the relationships BEFORE the finale spends them.** No emotional payoff (a death, a defection, a reconciliation) may rest on a bond that was only ever stage-directed. If a relationship pays off in a finale, it must be *voiced on screen* in ≥2 ordinary episodes first. **Rotate a clear ensemble spotlight each episode** — Danny/Gardener/Sol/Errol cannot carry 85%; Nadia, Matthew, Frances each drive a "way-in" or a derivation regularly. *(Track the spotlight rotation in the storyboard.)*
+4. **No duplication tic.** Never restate the same image in adjacent near-verbatim sentences (the old Priya-tag defect). Keep the sharper version, cut the restatement. *Deliberate parallelism/antithesis/triads (different content, same structure) are a FEATURE and stay.* Gate-enforced (WARN).
+5. **Naming rule.** **"the Gardener" in frame narration; "Maria" only inside an intimate beat** (her softest moments). Never "Maria" in the opening frame. Gate-enforced (WARN).
+6. **Trust the scene — no meta-gloss.** Cut stage-direction-to-camera and pre-announced reveals ("so watch it", "here's the bit I love", "watch the Dean now", naming a reveal before the crew discovers it). Let the staged beat land first; the wonder comes *after*, not as a label before. **This is NOT the conviction** — state every result with full force; only the *"now watch, this is important"* tic is banned. Gate-enforced (WARN, phrase list).
+7. **Vary the resolution third.** The way-ins never repeat (keep that). But vary the *back third* too: don't run the identical "crew returns → Dean retreats → serialized beat → fire → narrator near-confession → 'not tonight' → sign-off" every time. Occasionally vary the **withholding move** (let the crew almost catch the narrator; pay a sliver once) and never run the **same epiphany shape back-to-back** (e.g. "you're measuring it wrong → transform the variable" twice running).
+8. **Protect each lead's voice fingerprint.** Blind test: you can tell who's speaking without the tag. **Danny = frustration that resolves into a question** (not generic-kid complaint); **Sol = feels/sees shape first**; **Errol = terse trade-worn oracle**; **Nadia = anti-mess flat scepticism**; the Gardener = flat-dismissal-then-warm-pivot (vary *where* her thesis lands). Give the mid-cast (Matthew, Frances, Nadia) a recurring angle, not just a catching-hand.
+
 ## The checklist (voice clauses are not optional)
 
 - [ ] Hook lands in under 15 seconds.
@@ -195,5 +208,6 @@ SOURCE: where the claim comes from (exact, unsoftened).
 - [ ] Every chapter, topic, and section carries equal weight — none starved, none bloated.
 - [ ] Humility is intact — ordinary narrator, extraordinary work; the lowliness is the blade.
 - [ ] One spine, touched throughout, landed at the close.
+- [ ] **Season-2 craft law honoured:** antagonist has teeth (a real blow / near-miss on a crew member); a consequence carried forward; ensemble spotlight rotated; any finale-bound relationship voiced first; no duplication tic; naming rule kept; no meta-gloss; resolution-third + withholding-move varied; each lead's voice fingerprint intact.
 - [ ] **Both gates passed: corpus/`proof.py` truth gate AND voice-as-law gate.**
 - [ ] It's still true after all the fun.
