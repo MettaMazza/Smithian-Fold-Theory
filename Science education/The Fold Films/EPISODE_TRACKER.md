@@ -42,6 +42,8 @@ Written in the order results are mentioned in the episodes, one at a time. Each 
 
 **ARC TWO — "The Closed Inventory" — OPENED at Ep19:** ✍️ Ep19 "The Spinning Ladder" (A2-5 resonances / linear Regge; width-½ tube spun → M²=M₀²+σJ, even in the squares, 2^d rooms; **Sol's watcher-sense advanced — the someone at the top of the ladder**). Remaining A2 items: Smithions (A2-1), Closed Census (A2-2), neutrinos (A2-3), dark relic (A2-4), Complete Table to 137 / Smithium-126 (A2-6), capstone Finite Inventory (A2-7). See the **ARC TWO block** in [EPISODE_IDEAS_50.md](EPISODE_IDEAS_50.md); pre-scripting source of truth [CORPUS_MAP.md](../CORPUS_MAP.md).
 
+**★ RUN-FINALE CLIFFHANGER — Ep20 "The Last Question":** ✍️ Ep20 (death / what happens when you die; self = bound at ½ + held orbit; death = unbinding; no-zero forbids nothing). **THE GARDENER (MARIA) DIES** — folds home to the One, saving Danny, with wonder. **NOT a series end** (no series finale ever — the law). Through-lines lit for the next run: (1) where she went / **life-after-death = the EP21 payoff** (author's plan); (2) **Priya's walkout fuse LIT** (the Dean's callousness + Maria's death); (3) **Maria↔watcher↔Sol fused** (toward the Arc Six reveal); (4) Matthew's grief / army wound; (5) Danny's survivor-grief. **READ [EP20_dev.md](Episodes/_dev/EP20_dev.md) before writing EP21 — it is the resolution map.**
+
 ## Per-episode production record (copy when you start one)
 > ### Ep NN — "Title" (idea #N) — status: ✍️
 > - **Logline:** the story in one sentence

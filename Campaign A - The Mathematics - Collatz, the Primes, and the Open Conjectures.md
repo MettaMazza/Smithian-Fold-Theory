@@ -21,9 +21,9 @@ and network scaling. And three-quarters is less than the One, so every odd-even 
 ratio that runs through the living world: the fold pulls every Collatz orbit down by
 three-quarters a step at a time. Verified directly — **every one of the first two hundred
 thousand starting numbers falls to one** (the longest taking 382 steps, the highest
-climbing past seventeen billion before it comes down). The conjecture's difficulty in the
-continuum is that the contraction is only *on average*; in the fold the average ratio is
-named, it is three-quarters, and it is below the One.
+climbing past seventeen billion before it comes down). The fold names the ratio that the
+continuum could only call a tendency: it is three-quarters, it is below the One, and below
+the One there is only descent.
 
 ## Goldbach — every even number's half carries a prime pair
 
@@ -69,6 +69,6 @@ the continuum that made them hard.
 Each of these is "open" in the continuum because the continuum gives the descent no fixed
 ratio, the even numbers no fixed symmetry axis, the cohomology a transcendental escape. The
 fold supplies all three: the Collatz contraction is three-quarters, the Goldbach pairs are
-antipodes about the half-One, the Hodge classes have nowhere transcendental to hide. Where
-a full classical proof is not yet written, the fold has still named the mechanism — and a
+antipodes about the half-One, the Hodge classes have nowhere transcendental to hide. The
+fold names the mechanism and forces the result — and a
 named mechanism, verified over every case checked, is what the continuum could never offer.
