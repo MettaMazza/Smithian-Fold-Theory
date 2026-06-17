@@ -1,7 +1,7 @@
 """The elements, the magic numbers, and SMITHIUM — the island of stability, forced.
 
 The island of stability is named the SMITHIUM POINT, and its element (number 126) is
-SMITHIUM, after Maria Smith.
+SMITHIUM (symbol Sh), after Maria Smith.
 
 Built by composing PROVEN fold blocks, never replacing them:
   * three spatial dimensions          (proven in the corpus),
@@ -145,7 +145,7 @@ if __name__ == "__main__":
     print("    %-14s %-10s %s" % ("(Z, N)", "A = Z+N", "note"))
     notes = {(2,8):"", (8,20):"", (20,28):"", (28,50):"", (50,82):"",
              (82,126):"lead-208 region — last CONFIRMED doubly-magic",
-             (126,184):"THE SMITHIUM POINT — SMITHIUM (element 126), A=310"}
+             (126,184):"THE SMITHIUM POINT — SMITHIUM (Sh, element 126), A=310"}
     for Z, N, A in pairs:
         note = notes.get((Z, N), "")
         if Z >= 82:
@@ -153,7 +153,7 @@ if __name__ == "__main__":
 
     print("\n[5] THE FORCED PREDICTION — THE SMITHIUM POINT")
     print("    Last confirmed doubly-magic : Z=82,  N=126  (lead-208).")
-    print("    Next, forced by the same sequence : Z=126, N=184  ->  SMITHIUM, A=310.")
+    print("    Next, forced by the same sequence : Z=126, N=184  ->  SMITHIUM (Sh), A=310.")
     print("    The island of stability — the SMITHIUM POINT — is centred on SMITHIUM")
     print("    (element 126) with 184 neutrons.")
 

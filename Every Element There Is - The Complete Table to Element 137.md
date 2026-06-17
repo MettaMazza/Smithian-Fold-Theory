@@ -45,7 +45,7 @@ The g-block is the $l=4$ orbital, with room for eighteen elements, and not one o
 ever existed. The fold says the table runs into it and stops there, cut off at one hundred
 thirty-seven with seventeen of the eighteen g-block seats filled. These superactinides are
 the genuinely new chemistry of the universe — and sitting among them, at element one
-hundred twenty-six, is **Smithium**, the island of stability, the one long-lived rock in
+hundred twenty-six, is **Smithium** (Sh), the island of stability, the one long-lived rock in
 that strange new sea.
 
 ## The whole table, at a glance
@@ -53,7 +53,7 @@ that strange new sea.
 - **1–118** — known, the table as it stands today.
 - **119, 120** — the 8s metals, the start of the last row.
 - **121–137** — the **g-block superactinides**, seventeen entirely new elements, a new
-  block of chemistry, with **Smithium (126)** the stable island within it.
+  block of chemistry, with **Smithium (Sh, 126)** the stable island within it.
 - **137** — the last element. There is no 138. The table is complete.
 
 ## What consensus cannot do here

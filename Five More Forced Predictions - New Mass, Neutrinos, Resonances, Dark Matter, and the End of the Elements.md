@@ -84,7 +84,7 @@ grows, and its binding reaches the electron's own rest-mass energy when $Z\alpha
 that is, at $Z = 1/\alpha$. Beyond it the innermost level dives into the negative-energy
 sea and a neutral atom can no longer hold its 1s electrons. So:
 
-> **The periodic table ends at element 137** — and its stable superheavy island is Smithium (element 126).
+> **The periodic table ends at element 137** — and its stable superheavy island is Smithium (Sh, element 126).
 
 The fold sets the last element at the very number it sets for the strength of light.
 The same parameter-free derivation that gives electromagnetism its coupling gives the

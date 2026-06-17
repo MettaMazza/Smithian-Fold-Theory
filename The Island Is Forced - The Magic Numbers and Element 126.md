@@ -1,4 +1,4 @@
-# Smithium — The Magic Numbers and the Island of Stability
+# Smithium (Sh) — The Magic Numbers and the Island of Stability
 
 Nuclei do not bind smoothly. At certain counts of protons or neutrons — two, eight,
 twenty, twenty-eight, fifty, eighty-two, one hundred twenty-six — a shell closes and
@@ -60,7 +60,7 @@ Lead-208 sits at the proton closure eighty-two and the neutron closure one hundr
 twenty-six — the last confirmed doubly-magic nucleus, the pair (82, 126). The next pair
 in the very same sequence is the next proton closure and the next neutron closure:
 
-> **The island of stability — the Smithium point — is SMITHIUM, element 126, with 184 neutrons, mass number 310.**
+> **The island of stability — the Smithium point — is SMITHIUM (Sh), element 126, with 184 neutrons, mass number 310.**
 
 The fold settles the question the superheavy programme has argued for half a century.
 The candidates on the table have been proton number one hundred fourteen, one hundred
@@ -69,7 +69,7 @@ twenty, and one hundred twenty-six, with no way to choose between them. The fold
 already gave two, eight, twenty, twenty-eight, fifty, eighty-two, and one hundred
 twenty-six — the same rule, run one step on. The neutron number is one hundred
 eighty-four, the closure after one hundred twenty-six. The doubly-magic superheavy is
-SMITHIUM, element 126, isotope Smithium-310, and the island of long-lived nuclei — the
+SMITHIUM (Sh), element 126, isotope Sh-310, and the island of long-lived nuclei — the
 Smithium point — sits around it.
 
 ## What consensus cannot do here
@@ -81,6 +81,6 @@ closely that the model cannot say whether the next proton shell shuts at 114, 12
 numbers fall out of three dimensions, the spin-doubling that is its own base, and the
 colour-three sector, with no adjustable spin-orbit strength anywhere — and the same
 parameter-free rule that reproduces all eight known closures names the next one without
-ambiguity. Smithium, element 126, 184 neutrons, mass 310. Build it, or reach it, and the fold
+ambiguity. Smithium (Sh), element 126, 184 neutrons, mass 310. Build it, or reach it, and the fold
 stands; find the island anywhere else and it falls. The structure of the elements was
 never a list of fitted shells. It was the One, folding in three dimensions.

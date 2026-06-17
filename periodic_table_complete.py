@@ -107,13 +107,13 @@ if __name__ == "__main__":
     for z, orb, blk in rows:
         tag = "  <- NEW g-block (superactinide)" if blk == "g" else ""
         if z == 126:
-            tag = "  <- SMITHIUM (the island of stability)"
+            tag = "  <- SMITHIUM (Sh) (the island of stability)"
         print("    %-8d %-8s %s%s" % (z, orb, blk, tag))
 
     print("\n[5] THE FORCED PREDICTION")
     print("    Elements 119-120 fill the 8s shell (an alkali metal and an alkaline-earth).")
     print("    Elements 121-%d open the g-block, l=4 — the SUPERACTINIDES, a kind of" % TABLE_END)
     print("    chemistry never before entered: %d new g-block elements, the block cut off" % len(gblock))
-    print("    when the table ends at %d. SMITHIUM (126) sits among them as the stable island." % TABLE_END)
+    print("    when the table ends at %d. SMITHIUM (Sh, 126) sits among them as the stable island." % TABLE_END)
     print("\n  Capacities composed from 3 dimensions and spin; recurrence traced to ONE.")
     print("  THE TABLE IS COMPLETE: 137 ELEMENTS, 19 STILL TO REACH, A NEW g-BLOCK.")
