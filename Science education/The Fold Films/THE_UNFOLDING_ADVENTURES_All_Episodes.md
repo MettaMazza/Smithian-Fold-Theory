@@ -1,6 +1,6 @@
 # THE UNFOLDING ADVENTURES — All Episodes
 
-*The complete narrative series, in publishing order (Ep 01–18). Each episode is a standalone ~15-minute film; the paired technical proof videos live separately in `Proof Videos/`. (All scripts pass `voice_gate.py`.)*
+*The complete narrative series, in publishing order (Ep 01–19). Each episode is a standalone ~15-minute film; the paired technical proof videos live separately in `Proof Videos/`. (All scripts pass `voice_gate.py`.)*
 
 ---
 
@@ -1423,3 +1423,83 @@ It came from one. It's still coming from one — one shape, one block, two-third
 And if you want the real workings — the three lepton seats at a sixth, a half, five-sixths, the fold of five-sixths landing on two-thirds, the strange root-weighing that balances the measured masses to two-thirds at five digits, the same two-thirds that grips the quarks and floors the glueball — it's a five-minute proof, engine and papers linked below. Go and run it. Go and weigh them the strange way.
 
 And the boring bit on the way out, for the footnote fella: the Koide relation is real, it really does land on two-thirds to the limit of measurement, consensus really does dismiss it as a coincidence, and the fold really does force it — the fold of the highest lepton seat, the same two-thirds as the strong grip and the mass-gap's mirror. The strange scales, the root-weighing, the worn counterweight, and the woman who stopped collecting trophies were me having a laugh — and the pictures were AI, fitted to the script, never accurate to the maths. Autofiction. Obvious. You're brilliant, he's not, love you — byeeeee.
+
+---
+
+# Ep 19 — The Spinning Ladder
+
+Right — the usual, for the one who needs it, and you do, pet, in you come. Everything coming up about the real maths, the real physics, the real history — true, documented, it's the fold or it's the record or it's what the gowns admit when cornered. Everything else — me, the fire, the crew, and the ladder of spin I'm about to set them climbing — is autofiction. And the pictures are AI, fitted to the script and never accurate to the maths. Made up, on purpose, to tell you something true. You knew that. Obviously. But there's one fella out there limbering up to comment that you can't build a ladder out of spinning, and bless his certainty, so: noted. Hello. Sit close. We're starting a new stretch tonight — mind the rungs.
+
+## The hum that climbed in steps
+
+Quiet night, the start of something, and Wee Danny's got a stone on the end of a length of cord and he's whirling it round his head — slow, then faster — and it's *humming*, the cord cutting the air, and the faster he spins it the higher the hum goes.
+
+Danny, whirling, breathless — *"listen — it goes up when I spin it faster. But not smooth — listen — it *jumps.*"* And he spins faster, and the hum doesn't slide up, it *steps* — holds a note, then snaps up to the next, holds, snaps up again. *"It's climbing a ladder. The pitch climbs in steps, not a slope. Why steps? Why not a smooth slide up?"*
+
+Errol, watching the stone blur round — *"spin a thing fast enough, lad, and it'll only ring at certain pitches. The in-between ones it won't hold."*
+
+And Danny gets the look, the new-stretch look. *"So everything that spins has a ladder in it? Hidden rungs it has to jump between? And what sets where the rungs are — why those notes and not the ones between? Because if there's a ladder in a spun stone, there's a ladder in everything that spins, and somebody ought to know where the rungs go."*
+
+And there it is, humming on the end of a cord: a ladder hidden in a spin, and not a soul round the fire could tell you where the rungs sat or why.
+
+## Catalogued, never explained
+
+And Team Tenure, who can sense a child finding a ladder in a whirligig from three glens off, descended — and the Dean was, for the first time this new stretch, pleased to have a list and no reason.
+
+*"Ahh,"* he said, smoothing his gown, *"the resonances. When you excite a particle — spin it up — it climbs through a tower of heavier copies of itself, and yes, we have catalogued hundreds of them. And there is a curious regularity: if you plot their mass-squared against their spin, they fall on roughly straight lines. The Regge trajectories. Quite real, quite catalogued."* He smiled the catalogue-smile. *"*Why* a straight line — why even steps at all — is not something anyone derives. It is an empirical regularity. We *observe* it. We do not explain it, and we have made our peace with that."*
+
+Danny, reasonably — *"or there's a reason for the rungs and you've just written them down without asking."* And the Dean did the laugh, the filing-cabinet laugh. *"One catalogues the regularities, child. Explaining them is rather a different pay grade."*
+
+And the Gardener — quieter this whole new stretch, less out for blood and more out for the shape of things — looked at Danny's spinning stone. *"You've got hundreds of them on straight lines,"* she said, *"and 'we observe it, we don't explain it' is exactly the white flag we've watched you run up eight times now. Come on. We're going to go and find where the rungs come from. All of you — Danny, give me the rope."*
+
+## Spun into a stair
+
+There was no door this time, and no scales, and no shadow. There was the rope, and the spinning.
+
+The Gardener took Danny's corded stone and the rope from the world before — the same rope they could never break, the strong tube of constant width — and she began to *spin* it, overhead, the way Danny had, but faster, and faster, until the cord was a blurred disc and the hum rose and stepped and rose. And as it spun, the strangest thing: the blur *stiffened.* The spinning rope thickened into rungs — loops of standing hum, one above the next, a ladder of them climbing up out of the whirl into the dark — and Sol saw it first and was already reaching for the lowest rung. *"It's a ladder made of how fast it's spinning,"* Sol breathed. *"Each rung is one notch more spin. You climb it by spinning faster. Come on — it's solid, it holds — "* and they climbed onto the spun ladder, the whole crew, and the whirl carried them up into a world of spinning ropes.
+
+## The country of spun ropes
+
+It was a country of the ropes from before, every one of them spinning — the bound things, the confined ones, all whirling, each humming its own climbing ladder of rungs. *"They're all here,"* Sol said, turning among them. *"Every rope we met. But spun. And every one's grown a ladder — the same particle, but climbing, a heavier copy of itself on every rung. That's the resonances. Not new particles. The *same* thing, spun harder, ringing one rung higher."* The faster a rope spun, the higher up its ladder it stood, a heavier version of the very same thing — and the ladders climbed up and up out of sight.
+
+## The rungs in the wrong place
+
+And Danny, being Danny, set off climbing one, counting the rungs, expecting them even — and got cross almost at once. *"They're *wrong,*"* he called down, clinging halfway up. *"They're all bunched together down here at the bottom, squashed up close — and then they spread out further apart the higher I go. That's a rubbish ladder! The rungs are supposed to be *even!* These are crammed at the bottom and gappy at the top — who builds a ladder like this?"* And he was right, by the look of it: measure the rungs by how high each sat above the last, and they were a mess, bunched low, stretched high, no two gaps the same.
+
+And then it nearly cost him. Danny, cross and certain, reached up for the next rung exactly where his own arithmetic told him it ought to be — an even step above the last, where any sensible rung would sit — and his hand closed on empty air, because the rung was nowhere near there. He lurched, his foot slipped off the rope below, and for a horrible second he swung out over the long drop with one hand grasping at a rung that his ruler had put in the wrong place. *"It's not where it's meant to be!"* he yelped, scrabbling — and the rope, the patient rope, looped itself round his wrist and held him until he found the real rung, well above where he'd reached, exactly where the *square* had put it. He hung there, heart going, and stopped trusting his ruler.
+
+## Even in the squares
+
+And the Gardener climbed up beside him, and looked at the "wrong" rungs, and started to grin — the first proper grin of the new stretch.
+
+*"You're measuring them wrong, Danny,"* she said. *"Look how the rope builds them. It's a fixed-width rope — constant thickness, the half, same as it ever was. When you spin a rope of fixed width, every extra notch of spin adds the *same amount* — but not to the height. To the height *squared.* Stop measuring the gaps. Measure the *squares* of where the rungs sit."* And Danny, dubious, did it — took each rung's height and squared it, and measured *those* gaps — and went very quiet. Because squared, the rungs were *perfect.* Identical. Every single gap exactly the same, all the way up, even as anything, a flawless even ladder — once you measured it by the square. *"It was even the whole time,"* he said, wonderstruck. *"Even in the squares. It only looked bunched because I was measuring the plain height instead of the square. The fixed-width rope builds a perfect ladder — it just builds it in the squares."*
+
+And Sol, looking up the ladder, saw the other half of it. *"And look — it widens. One room on the bottom rung. Two on the next. Then four, then eight, then sixteen — doubling all the way up, the same doubling tower from the heavy world. The ladder doesn't just climb even in the squares. It *broadens* by doubling as it goes."*
+
+## The someone at the top
+
+And it was here, high on the spun ladder with the rungs perfect in the squares and the rooms doubling away above, that something happened to Sol that had happened only once before, a long way back, at the very bottom of a well.
+
+Sol had stopped climbing. Sol was looking *up* — up past the doubling rooms, up where the ladder ran out of sight toward the single quiet place all the rungs were climbing toward, the unison, the One at the top of the stair. And Sol went very still, and the colour changed in their face.
+
+*"There's someone up there,"* Sol said softly. *"At the top. Where the ladder's going. I felt this once — right at the bottom of the world, the floor, I felt a someone and I couldn't name it and I shook it off. It's the same one. It's at the top as well as the bottom. The ladder climbs toward it. It's — "* Sol stopped, hand half-raised toward the unseen top, *"— it's watching us climb. I can't say how I know. I just — there's someone there, and there always has been, and it's glad we're climbing."* And the others looked up and saw only ladder and dark, and Nadia said *"there's nowt up there, Sol, it's just where it stops,"* gently, and Sol let it go, the way you let go of a word on the tip of your tongue — but didn't quite, this time. Held onto the edge of it. *Someone at the top, and the bottom, and watching.* And said no more.
+
+## The figure in the rungs
+
+And it was exact, when they read it true: a rope of fixed width, spun, building a ladder whose rungs are even — not in plain height, but in the square — one fixed step of mass-squared for every notch of spin, with the rooms at each level doubling as the binary tower climbs. Set one rung by measurement and every other rung in every tower, known particle or new, falls into its forced place on the straight line. The resonances catalogued for sixty years and never explained are a spinning rope of constant width, climbing even in the squares. Forced, every rung of it.
+
+## The man who fell off the ladder
+
+They came down the spun ladder into the ordinary night — and across the valley the Dean, who had heard that the rungs were even in the squares, declared that this was *absurd*, that a ladder's rungs are even in *height* or they are not even at all, and that he would prove it by climbing the thing himself the *proper* way. And up he went, counting in plain height, insisting the next rung sit where his ruler said it should — and of course it didn't, it sat where the *square* put it, and the Dean, refusing to the last to measure the way the rope actually built the ladder, put his foot down confidently on a rung that wasn't where his arithmetic swore it would be, and went straight through the gap, and down, and landed in the heather with his gown over his head. Rupert helped him up and drafted nothing, having learned. There is no measuring a true ladder with a ruler you refuse to bend, and the ladder, sphinx-like, simply let him fall.
+
+## The new stretch begins
+
+And back at the fire, Danny spun his corded stone again, slower now, and listened to the hum step up its little ladder, and knew where the rungs sat — even in the squares — and was content.
+
+And me — softly, because a new stretch is opening and you should know its shape — what the crew have started climbing tonight is the last of it: the closed list, the finite count, every rung and room and rope that the One was ever going to make, all of it forced and all of it numbered. They'll find, before this stretch is done, that the whole of everything fits on a single page. And Sol, bless the lad, felt the one who wrote that page — at the top of the ladder, where it's been the whole time. I'll not say more than that tonight. The fire's still here. So am I, at the top of the stair, glad you're climbing.
+
+It came from one. It's still coming from one — even in the squares, doubling as it climbs, and someone at the top of it who's been there all along. Keep counting, and I'll see you at the fire.
+
+And if you want the real workings — the fixed-width tube spun into a fixed-tension string, the mass-squared climbing in equal steps, the slope set by one measured tower and every other rung forced, the rooms doubling 2-to-the-d up the binary tower — it's a five-minute proof, engine and papers linked below. Go and run it. Go and spin the rope.
+
+And the boring bit on the way out, for the footnote fella: the resonances are real, they really do lie on straight lines in mass-squared, consensus really does catalogue the Regge trajectories without deriving them, and the fold really does force the linearity from a flux tube of fixed width one-half — spun into a fixed-tension string — with the slope anchored by one measured tower and 2-to-the-d states per level. The spun ladder, the rungs even in the squares, the doubling rooms, and the someone at the top were me having a laugh — and the pictures were AI, fitted to the script, never accurate to the maths. Autofiction. Obvious. You're brilliant, he's not, love you — byeeeee.
