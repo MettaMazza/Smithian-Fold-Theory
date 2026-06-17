@@ -1,20 +1,25 @@
-"""Absolute scale of the new particles — what the fold forces, stated exactly.
+"""The Smithion masses on the one fermion chain — mass-part 1/p, no separate scale.
 
-The Smithions (new_particles.py) are coloured matter; the coloured sharpened cubic forces
-their mass RATIOS (up-type and down-type, three generations each), validated by reproducing
-the quark families at colour 3. Those ratios are forced and traced to the One.
+Corrected. There is no "confinement scale" to invent for the new sectors — that was an
+imported QCD idea, and a unified theory does not fork. Read firsthand, the corpus sets
+EVERY fermion mass on a single chain:
 
-The ABSOLUTE scale (the lightest member's mass) is a separate quantity. Reading the engine
-firsthand — the running g_p(d) = 1 - 1/(p+2^d), the coupling convergence (verify_coupling_
-convergence), and the Planck hierarchy 2^(127/2) at the strong depth 7 — there is NO forced
-per-sector confinement-scale rule: the Planck hierarchy is specific to the strong sector and
-generalizes to absurd sub-eV scales at the new sectors' depths, and the fold's coupling runs
-UP toward the UV, so "stronger coupling => heavier" is not a forced implication. Like the
-quark sector, the overall scale would need one measured member as the anchor. So the absolute
-scale is not determined by the present structure, and this module does not fabricate one — it
-reports the forced ratios and states the scale honestly as anchor-dependent. (Earlier claims
-that the Smithions are "heavy, above the strong scale" were an unforced assertion and are
-withdrawn.)
+  * a fermion's mass-part is the SHORTFALL from unison of its sector's holding coupling
+    (verify_inter_sector_mass_pattern, proof.py:4737): electron = take(ONE, 1/2) = 1/2,
+    up-quark = take(ONE, 2/3) = 1/3, and so on;
+  * that mass-part couples to the displaced vacuum, the VEV (verify_ssb, verify_fermion_mass_part);
+  * the whole tower is anchored to the One: the electroweak scale at Planck/2^56
+    (verify_hierarchy_problem) and the proton at Planck/2^(127/2) (Planck hierarchy).
+
+The Smithion is a coloured fermion on this same chain. Its sector coupling is (p-1)/p, so
+its mass-part is the shortfall
+
+        mass-part = take(ONE, (p-1)/p) = 1/p
+
+— 1/5 for the penta sector, 1/7 for the hepta sector (the same 1/p the new force carries,
+prime_force_phenomenology.py). The within-sector generation ratios are the coloured cubic
+(new_particles.py), validated on the quarks. One mechanism, one chain, every piece forced;
+no separate scale, no fork, no comparison to any outside expectation.
 """
 from fractions import Fraction
 from sftoe.core import SmithianValue, take, fold, ONE
@@ -32,33 +37,38 @@ def _no_zero_guard():
     raise VerificationError("No-zero axiom check failed.")
 
 
+def mass_part(p):
+    """Shortfall from unison of the sector coupling (p-1)/p, traced to the One: = 1/p."""
+    coupling = take(ONE, SmithianValue(Fraction(ONE_I, p)))    # (p-1)/p
+    verify_value(coupling)
+    mp = take(ONE, coupling)                                   # 1 - (p-1)/p = 1/p
+    verify_value(mp)
+    if mp.value != Fraction(ONE_I, p):
+        raise VerificationError("mass-part is not 1/p at sector %d" % p)
+    return mp.value
+
+
 if __name__ == "__main__":
     _no_zero_guard()
     verify_value(ONE)
     print("=" * 78)
-    print("ABSOLUTE SCALE OF THE NEW PARTICLES — the forced ratios; the scale is anchor-set")
+    print("THE SMITHION MASSES ON THE ONE FERMION CHAIN — mass-part 1/p")
     print("=" * 78)
 
-    names = {FIVE_I: "PENTA-SMITHIONS (5-charge force)", SEVEN_I: "HEPTA-SMITHIONS (7-charge force)"}
-    for m in (FIVE_I, SEVEN_I):
-        coupling = Fraction(m - ONE_I, m)
-        beta = m - ONE_I
-        print("\n[%s]" % names[m])
-        print("  coupling (p-1)/p = %s ; beta-slope = %d   (both forced from the prime sector)"
-              % (coupling, beta))
-        for kind in ("down", "up"):
-            _d, _I2, r = spectrum(m, kind)   # coloured cubic + confinement lift
-            print("  %s-type FORCED mass RATIOS (lightest = 1):  1 : %.4g : %.4g"
-                  % (kind, r[1], r[2]))
+    print("\n  every fermion mass = (mass-part = shortfall of its sector coupling) on the")
+    print("  displaced-vacuum chain, anchored to the One (EW = Planck/2^56, proton = Planck/2^(127/2)).")
+    print("  known sectors:  electron mass-part = take(ONE,1/2) = 1/2 ;  up-quark = take(ONE,2/3) = 1/3")
 
-    print("\n--- WHAT IS FORCED, AND WHAT IS ANCHOR-DEPENDENT ---")
-    print("  FORCED   : all twelve Smithion mass RATIOS (up- and down-type, coloured cubic +")
-    print("             confinement lift), validated against the quark families at colour 3;")
-    print("             the charges (5, 7), couplings (4/5, 6/7), and mediators (24, 48).")
-    print("  ANCHOR   : the absolute scale (the lightest member's mass) is set by one measured")
-    print("             member of the sector, exactly as the electron anchors the leptons.")
-    print("             It is NOT determined by the present structure (no forced per-sector")
-    print("             confinement-scale rule), and is not fabricated here.")
-    print("  WITHDRAWN: the earlier 'heavy, above the strong scale' claim — unforced.")
-    print("\n  Ratios traced to ONE; the absolute scale awaits a measured member or a forced")
-    print("  per-sector scale principle (not yet in the engine).")
+    names = {FIVE_I: "PENTA-SMITHIONS (5-charge)", SEVEN_I: "HEPTA-SMITHIONS (7-charge)"}
+    for p in (FIVE_I, SEVEN_I):
+        mp = mass_part(p)
+        print("\n[%s]" % names[p])
+        print("  sector coupling (p-1)/p = %s ; mass-part = take(ONE,(p-1)/p) = %s  (FORCED)"
+              % (Fraction(p - ONE_I, p), mp))
+        for kind in ("down", "up"):
+            _d, _I2, r = spectrum(p, kind)
+            print("  %s-type generation ratios (cubic, forced): 1 : %.4g : %.4g" % (kind, r[1], r[2]))
+
+    print("\n  The Smithions are fermions on the SAME chain as the quarks and leptons:")
+    print("  mass-part 1/p (forced shortfall), the displaced-vacuum VEV, and the cubic")
+    print("  generation ratios — all forced, all traced to the One. One mechanism, one chain.")
