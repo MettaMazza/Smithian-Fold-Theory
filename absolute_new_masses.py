@@ -69,6 +69,21 @@ if __name__ == "__main__":
             _d, _I2, r = spectrum(p, kind)
             print("  %s-type generation ratios (cubic, forced): 1 : %.4g : %.4g" % (kind, r[1], r[2]))
 
-    print("\n  The Smithions are fermions on the SAME chain as the quarks and leptons:")
-    print("  mass-part 1/p (forced shortfall), the displaced-vacuum VEV, and the cubic")
-    print("  generation ratios — all forced, all traced to the One. One mechanism, one chain.")
+    # CROSS-SECTOR dimensionless ratio, forced the same way as proton/electron = 2:
+    # the structural mass ratio is the ratio of mass-parts. Electron mass-part = 1/2.
+    print("\n--- CROSS-SECTOR RATIO (forced, dimensionless — like proton/electron = 2) ---")
+    e_mass_part = take(ONE, SmithianValue(Fraction(ONE_I, TWO_I))).value   # electron = 1/2
+    for p in (FIVE_I, SEVEN_I):
+        mp = mass_part(p)                                  # 1/p
+        ratio = mp / e_mass_part                           # (1/p)/(1/2) = 2/p
+        print("  lightest %s / electron = (1/%d)/(1/2) = %s  (forced from mass-parts)"
+              % (names[p].split()[0].lower(), p, ratio))
+    print("  -> the lightest Smithions are LIGHT (2/5, 2/7 of the electron structural part),")
+    print("     climbing by the cubic ratios; confined and sector-only, hence unseen.")
+
+    print("\n  WHAT IS A DERIVATION vs A UNIT CONVERSION (agent.md):")
+    print("  DERIVATION (forced, traced): the mass-part 1/p, the within-sector cubic ratios,")
+    print("    and the cross-sector ratio 2/p to the electron — the full dimensionless spectrum.")
+    print("  UNIT CONVERSION (not a derivation; 'the universe doesn't know what an MeV is'):")
+    print("    the absolute GeV value. It is a calibration read, not forced, and not invented here.")
+    print("\n  One chain, all dimensionless structure forced and traced to the One.")
