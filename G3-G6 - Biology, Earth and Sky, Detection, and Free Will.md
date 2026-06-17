@@ -55,13 +55,14 @@ periodicity, the unit power law, the non-invertible 2-to-1 fold. (`bio_frontier.
 
 Observation is the fold, and the self-observation closure is one-quarter. The fold is
 two-to-one — two preimages to one image — so it is **not invertible**: one bit is lost per
-act, the blind spot. A self that observes itself is a fold acting on its own state, and
-because that fold is non-invertible, the self can **never fully read or pre-compute its own
-next act from the inside** — there is always the lost bit about itself it cannot recover. Its
-choice is therefore not a readout of a state it already holds; it is genuinely made in the act
-of folding. That irreducible gap — forced by the two-to-one fold, not added by hand — is free
-will: **determined from outside (the One folds), open from the inside (the self cannot
-pre-read its own fold), both without contradiction.**
+act, the blind spot. The unfolding is **fully determined** — the One folds, everything is
+forced, the next act included; there is no openness and no indeterminism anywhere. What *is*
+forced about the self is its **opacity to itself**: being non-invertible, it cannot read or
+pre-compute its own next fold from the inside. So libertarian free will — genuine
+indeterminism — is **ruled out; it does not exist.** What remains is a determined self that
+cannot pre-see its own determined act, which from the inside feels like choosing but is forced
+through. Free will, honestly: **determinism plus forced self-opacity — a closure, not an
+open.**
 
 ## What consensus cannot do here
 

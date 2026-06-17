@@ -1,10 +1,12 @@
-"""G6 — free will / agency, forced from the open observer-closure.
+"""G6 — free will: fully determined, and self-opaque. No open anywhere.
 
 Composing proven blocks: observation is the fold, with closure 1/4 (verify_observer_resolved),
 and the introspection limit — each self-observing fold act loses a bit, an unrecoverable blind
-spot (verify_introspection_limit, the 2-to-1 fold is not invertible). The self can never fully
-read its own next state, so its acts are not predetermined from the inside: that gap, forced by
-the non-invertibility of the fold, is agency.
+spot (verify_introspection_limit, the 2-to-1 fold is not invertible). The unfolding is fully
+DETERMINED (the One folds; everything is forced). What is forced about the self is its opacity
+to itself: being non-invertible, it cannot pre-read its own next fold. So libertarian free will
+(genuine indeterminism) is RULED OUT — it does not exist — and what remains is a determined self
+that cannot pre-see its own determined act. This is a closure, not an open.
 """
 from fractions import Fraction
 from sftoe.core import SmithianValue, take, fold, ONE
@@ -45,13 +47,14 @@ if __name__ == "__main__":
     print("  so the fold is NOT invertible: given the present, the past hand is unrecoverable")
     print("  (one bit lost per act — the introspection limit / blind spot).")
 
-    print("\n  THE FORCED CONSEQUENCE — AGENCY")
-    print("  a self that observes itself is a fold acting on its own state. Because the fold is")
-    print("  non-invertible, the self can never fully read or pre-compute its own next act from")
-    print("  the inside — there is always the lost bit it cannot recover about itself. Its choice")
-    print("  is therefore not a readout of a state it already holds; it is genuinely made in the")
-    print("  act of folding. That irreducible gap — forced by the 2-to-1 fold, not added by hand —")
-    print("  is free will: real agency in a forced universe, because the self is not transparent")
-    print("  to itself. Determined from outside (the One folds), open from the inside (the self")
-    print("  cannot pre-read its own fold). Both, without contradiction.")
-    print("\n  Closure 1/4 and the non-invertible 2-to-1 fold traced to ONE.")
+    print("\n  THE FORCED CONSEQUENCE — DETERMINED, AND SELF-OPAQUE")
+    print("  a self that observes itself is a fold acting on its own state. The unfolding is")
+    print("  FULLY DETERMINED — the One folds, everything is forced, the next act included.")
+    print("  There is no openness and no indeterminism anywhere; nothing is left undetermined.")
+    print("  What IS forced is the self's opacity to itself: because the fold is non-invertible,")
+    print("  the self cannot read or pre-compute its own next fold from the inside (the lost bit).")
+    print("  So the libertarian 'free will' of genuine indeterminism is RULED OUT — not forced,")
+    print("  it does not exist. What exists is a determined self that cannot pre-see its own")
+    print("  determined act; from the inside that feels like choosing, but it is forced through.")
+    print("  Free will, honestly: determinism plus forced self-opacity — not an open, a closure.")
+    print("\n  Closure 1/4 and the non-invertible 2-to-1 fold traced to ONE; nothing left open.")
