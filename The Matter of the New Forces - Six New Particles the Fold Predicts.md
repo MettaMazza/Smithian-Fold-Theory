@@ -72,10 +72,13 @@ combination of the whole charge group, each folding to the One.
 The **lightest neutral bound state of each new sector is stable** — the lightest
 Smithion — with nothing lighter to decay into and no electric charge. That is the
 definition of a dark-matter particle, and the fold produces two of them, one per new
-force, as a forced consequence of confinement. **Dark matter is Smithions.** The dark sector the cosmos demands and the Standard
-Model cannot supply is here, built from the matter of forces no one has yet seen. Because
-the new forces confine above the strong scale, this matter is heavy, sitting beyond the
-reach of present colliders — which is precisely why it has stayed dark.
+force, as a forced consequence of confinement. **Dark matter is Smithions.** The dark sector
+the cosmos demands and the Standard Model cannot supply is here, built from the matter of
+forces no one has yet seen. What the fold fixes exactly is the *ratios* of the Smithion
+spectrum and the quantum numbers; the absolute scale of the sector is set by one measured
+member, exactly as the electron anchors the leptons — it is not yet fixed by structure, and
+it is not fabricated here. (An earlier version asserted this matter is "heavy, above the
+strong scale"; that direction is not forced and is withdrawn.)
 
 ## What consensus cannot do here
 

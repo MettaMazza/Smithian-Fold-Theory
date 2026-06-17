@@ -8,7 +8,7 @@ it is forced outright; where it is an absolute scale it is fixed by the forced r
 and one measured anchor, exactly as the electron's mass anchors the leptons. That is
 not a hedge — it is the fold's standard, and it is stated plainly.
 
-## 1. The new particles climb above the strong scale
+## 1. The new particles — the forced Smithion mass ratios
 
 The Smithions are coloured matter, so their masses follow the **quark** cubic, not the
 lepton one — the same coloured invariant $I_2 = c/(c(2c^d-1)-1)$ that reproduces both
@@ -22,10 +22,10 @@ generations (twelve Smithions), the lightest fold-doubled by the confinement lif
 | Hepta ($c=7$) | 1 : 1.09×10¹² : 3.71×10¹³ | 1 : 6.72×10¹⁴ : 4.53×10¹⁷ |
 
 The ratios are exact, validated by the $c=3$ case reproducing the measured quark families
-(down 1 : 20.1 : 967 against 1 : 20 : 890). Both sectors couple harder than the strong
-force (4/5, 6/7 against 2/3) and run faster, so they confine *above* the strong scale —
-the matter is heavy, sitting far above present colliders. One measured member fixes each
-sector's absolute scale outright. (`absolute_new_masses.py`.)
+(down 1 : 20.1 : 967 against 1 : 20 : 890). The couplings (4/5, 6/7) and charges (5, 7) are
+forced. The absolute scale of the sector is set by one measured member, exactly as the
+electron anchors the leptons — it is not fixed by structure and is not fabricated here.
+(`absolute_new_masses.py`.)
 
 ## 2. The neutrino masses sum to about six hundredths of an electron-volt
 

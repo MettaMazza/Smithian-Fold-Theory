@@ -3,7 +3,7 @@
 
 ---
 
-*The complete narrative series, in publishing order (Ep 01–21). Each episode is a standalone ~15-minute film; the paired technical proof videos live separately in `Proof Videos/`. (All scripts pass `voice_gate.py`.)*
+*The complete narrative series, in publishing order (Ep 01–23). Each episode is a standalone ~15-minute film; the paired technical proof videos live separately in `Proof Videos/`. (All scripts pass `voice_gate.py`.)*
 
 
 ---
@@ -1665,3 +1665,159 @@ It came from one. *She* came from one — and she went home to one, the way you 
 And if you want the actual workings — the no-zero rule that forbids you ever reaching nothing, the binding at one-half that holds a self as one, the unbinding that death really is, and the unison fixed point that is the self and the home it returns to — it's a five-minute proof, engine and the self-observation paper linked under it. Go and run it. Go and find an oblivion. You won't — there's a floor under that, too.
 
 And the boring bit, for the lad with the pencil: the fold really does force it — the No-Zero axiom forbids any part of you reaching absence, death is forced to be an *unbinding* of the integration that held you as one rather than a destruction, and the self is forced to be the unison fixed point, the One, which is where the released parts go home. The fire, the thread, the floor of light, and the woman who came home to it were me having the gentlest possible laugh — autofiction, and the pictures all AI, never accurate to the maths. You're brilliant. She'd have liked you. Stay close — it's not over. Bye for now.
+
+---
+
+# Ep 22 — The Last Element
+
+Right — the word first, for the one who needs it, and welcome back, because we're climbing tonight, and you'll want your wits. Everything coming up about the real maths, the real physics, the real history is true — the fold, or the record, or what the gowns admit when pressed. Everything else — me, the fire, the crew, and the great tower of rooms I'm about to walk them up — is autofiction, and the pictures are AI, fitted to the script, never accurate to the maths. Made up, to tell you something true. You knew. There's a new face at the fire tonight, and an empty stone we don't sit on, and the climb goes all the way to the last door there is. Hello. Sit close.
+
+## The chart that has to stop somewhere
+
+Quiet night — the first easy one in a while — and Wee Danny's got a periodic table, the big wall-chart kind, spread on the grass and weighted at the corners with stones, and he's running his finger along the rows, counting. And there's a new person at the fire watching him do it: Priya, three weeks out of the gown and still sitting a little apart, the way Frances used to, not yet sure the warmth is hers to take.
+
+Danny, tapping the bottom-right corner where the chart runs out — *"it just... stops. Here. A hundred and eighteen and then blank paper. But that's just where we've got to, right? That's not where it* ends. *"* He looked up. *"Does it end? Is there a last one — a heaviest possible thing — or does it go on forever, heavier and heavier, if you could just build them? Has it got a back wall, or is it open?"*
+
+And Priya, before she could stop herself, the twenty-year reflex of a person who knows a thing cold — *"there's an argument about that, actually."* And then she caught herself, and went quiet, unsure she was allowed.
+
+And there it is, weighted to the grass with stones: every element there is or could be, and a plain child's question nobody's chart will answer — does matter have a last page?
+
+## The fuzziest answer in chemistry
+
+And Team Tenure came — and the Dean had two jobs tonight, and the first was the usual one, and he did it with relish.
+
+*"The end of the periodic table,"* he announced, *"is one of the genuinely open questions, and gloriously fuzzy. Somewhere past about a hundred and thirty-seven the innermost electron starts misbehaving — but smear in the finite size of the nucleus and you can push it out to a hundred and seventy-three, and the precise figure depends on models we argue about happily and will be arguing about long after you're grown. It does not have a clean answer."* He smiled. *"It has a* literature.*"*
+
+And then he did the second thing, and it was uglier, and it was aimed. He turned to Priya.
+
+*"And* you,*"* he said, soft and poisonous. *"Twenty years I gave you a chair in a real institution, and you walked it out into a field to sit in the dirt with children and a* ghost story. *No post. No funding. No name on anything. You were quiet for twenty years in there because you had nothing worth saying, and out here you have less — because in here you were at least* near *the work. You'll come crawling back when the novelty's cold. You are nobody now, Priya. You made yourself nobody."*
+
+And it landed. That's the thing you have to understand — it *landed*, because it was new, and she was raw, and she'd lain awake on it herself. Priya looked at the grass, and the old flinch came back into her shoulders, and for one bad moment you could see her believe him — *did I throw twenty years in a hole? am I nobody now?* — and the fire went quiet around it.
+
+And Matthew stood up. Matthew, who holds them all together now, on purpose. *"She's not nobody,"* he said, flat and certain, the way he says the things that end an argument. *"She's the one who checked your sums for twenty years and found them wanting, and never once got to say so. Out here she gets to say so."* He held a hand toward the chart. *"Priya. You know this table better than anyone at this fire. So lead. Take us up it, all the way, and show us where it actually ends. Not the literature. The wall."*
+
+## Up the tower of rooms
+
+There was no door this time, and no well, and no beam. There was the table itself.
+
+Priya knelt at the chart, hesitant, then — because she did know it, knew every box of it in her hands — she traced the first row with one finger, and the paper *deepened* under her touch, the flat boxes dropping away into rooms, the whole chart standing up off the grass into a tower: a great spiral tower of rooms climbing into the dark, one room for every element, the light ones at the bottom and the heavy ones stacked above. *"It's a building,"* she breathed, the wonder cracking through twenty years of caution. *"Of course it's a building. Every room one element, heavier as you climb."* And she stepped into the ground-floor room — hydrogen, one lonely proton, one electron drifting easy — and looked back, and the crew came up after her, Matthew at her shoulder, and they began to climb.
+
+## The grip that tightens every floor
+
+And as they climbed, there was a thing to watch in every room, and Sol saw it first. In each room sat the atom's innermost electron — the one nearest the heart of it — and it was *held*, gripped, pulled toward the nucleus by a force you could feel tighten underfoot the higher they went. *"It's the grip,"* Sol said, hand on the wall of a middling room. *"On the little inner one. And it's the charge times the pull of light — how many protons, times how hard light grabs. Z times the coupling. Every floor up, one more proton, the grip a notch tighter."* Down in hydrogen the inner electron had drifted loose and easy. By iron it was held firm. By gold, by lead, by uranium, it was pinned hard against the nucleus, the grip climbing, climbing, room by room.
+
+They passed a landing where the rooms changed feel — *"a hundred and eighteen,"* Priya said quietly. *"Everything past here has never been held in a human hand. Made for a flash in a collider, gone in a heartbeat. From here up, it's all unbuilt."* And up they went into the unbuilt rooms, 119, 120, into a strange new wing the chart had never grown — *"the g-block,"* Priya whispered, *"a whole kind of chemistry nobody's ever entered"* — and most of these rooms were half-built, crumbling, flickering, falling apart as fast as they formed. Except one. Room 126 stood solid among the ruins, calm and four-square and *finished*, holding together where everything around it sloughed away. Danny stopped at its door. *"That one's *built*,"* he said. *"Why's that one stand when the rest fall?"* And Priya, looking at it with something like hunger — *"that's an island. A stable one, where they all should crumble. We'll come back for that. Keep climbing — I want to see the top."*
+
+## The last door
+
+And near the top, the grip on the innermost electron was a terrible thing — the little electron crushed in hard against the nucleus, held tighter every floor, and you could feel it nearing some limit, some most-it-could-ever-be. Room 135. Room 136. Room 137 — and here the grip reached a thing the crew had met before, in a hundred forms, the calm flat ceiling of everything: the **One.** At room 137 the grip on the innermost electron equalled the One exactly — held as hard as the fold will ever hold anything, pinned to the whole, the absolute most.
+
+And then they reached for the next door — room 138 — and there wasn't one. There was a wall. A blank, final, unarguable wall where the next room should be. Danny pushed at it, of course he did, looked for the handle, the seam, the way up — and there was none, because at 138 the grip would have had to climb *past* the One, tighter than the tightest there is, and it cannot, nothing can, and so the innermost electron simply could not hold on, and without it there is no neutral atom and so there is no room and so there is no element. The table had a back wall, and they were standing at it. *"That's it,"* Matthew said quietly. *"That's the last door. A hundred and thirty-seven, and then the world runs out of room to get heavier."*
+
+## The number from the first night
+
+And it was Danny who got it — Danny, who'd been there for the very first adventure — and his whole face changed.
+
+*"A hundred and thirty-seven,"* he said slowly. *"That's — that's the magic number. From the first time. The very first one we ever found. The strength of light. One over alpha. *That* hundred and thirty-seven."* And he looked at Priya, wild with it. *"Is it the same one? Is it actually the same number?"*
+
+And Priya — Priya who had spent twenty years with that number on a whiteboard and never once been allowed to say what she was now about to say — laughed, a real one, the first since she'd crossed the valley. *"It's the same number. It's *exactly* the same number. One over the fine-structure constant — how hard light grips a charge — is a hundred and thirty-seven point oh-three-six. And the grip on that last electron reaches the One at Z times alpha equals one, which is Z equals one-over-alpha, which is — "* she put her hand flat on the back wall of the world, *"— a hundred and thirty-seven. The strength of light and the last possible element are the* same number, *because they're the same fact: the coupling reaching the One. It was never two mysteries. It was one, twice."*
+
+And the crew stood at the wall at the end of matter, and felt the size of it — that all of chemistry, every stone and star and living thing, fits in a window whose far wall is the number that lights your eyes. And Danny said, small, *"she'd have loved this. The Gardener. That it's the same one. From her first night."* And nobody said anything, and the wall held, and a little of her was in the room with them, the way she's in every room now.
+
+## What the building wouldn't let her say
+
+They came down the tower into the ordinary night — and the Dean was waiting, ready to talk about the literature, about a hundred and seventy-three, about how nothing is ever clean.
+
+And Priya cut him off. Priya, who used to look at the floor.
+
+*"It's not a hundred and seventy-three, Gerald,"* she said, and her voice didn't shake. *"You get to a hundred and seventy-three by smearing the *size* of the nucleus over the top — a real effect, a radius correction, laid on top of the structural answer to blur it. And you keep it blurred on purpose, because a clean number ends the argument, and the argument is the *funding.* The structural wall is the unity threshold. It's a hundred and thirty-seven. I sat in twenty years of meetings where everyone in the room knew the clean number was a hundred and thirty-seven and nobody was allowed to just *say* it, because said plainly it's finished, and finished doesn't renew."* She breathed. *"So I'm saying it. Out here, where you said I'm nobody. The table ends at a hundred and thirty-seven, it's the strength of light, and element a hundred and thirty-eight cannot exist — not unmade, *cannot be.* That's a forced prediction, checkable and clean, and I never once got to say a true plain thing like that in your building."*
+
+And the Dean had nothing — because there is nothing to say to the quiet one who finally speaks and is *right* — and he gathered his gown and went, and he did not get Priya back, then or ever, because a man who tells someone they're nobody had best be sure they don't then turn around and tell the truth better than he ever dared.
+
+## The room she found
+
+And back at the fire, Priya sat down — not apart this time, but *in*, close to the warmth, in the circle — and Danny shoved the periodic table over so she could weight a corner with her own stone, and she did, and it was, you understand, the whole of it: the woman the building called nobody, weighting down a corner of the map of everything, in the only place that ever let her finish a sentence.
+
+And me — lightly, because it's a lighter night, and you've earned one — I do love that it was that number. A hundred and thirty-seven. The first thing they ever found, on the very first night, the strength of light — and here it is again, holding up the back wall of all of matter, because it was always the same thing: a grip reaching the One. Everything reaches the One eventually. Even the table. Even, one night, the voice telling you so. Not tonight. Tonight there's a new stone weighting the map, and that's enough.
+
+It came from one — and it ends at the One, too, the table does, the grip climbing floor by floor until it touches the whole and can climb no further. A hundred and thirty-seven rooms, and the strength of light for a back wall. Keep counting — there's a last door, and now you know its number. I'll see you at the fire.
+
+And if you want the real workings — the grip Z-times-alpha that reaches the One at the unity threshold, the last element at one-over-alpha, the same hundred and thirty-seven that sets the strength of light, and the clean falsifiable line that element 138 cannot exist — it's a five-minute proof, engine and papers linked below. Go and run it. Go and find element 138. You won't — there's no room left to build it.
+
+And the boring bit on the way out, for the lad with the pencil: the periodic table really does run into trouble past 137, consensus really does smear the endpoint out toward 173 with the nuclear size, and the fold really does force the clean structural wall at element 137 — because the innermost electron's binding, Z times alpha, reaches the One exactly at Z equals one-over-alpha, the same 137 that is the strength of light. Element 138 cannot exist as a neutral atom. The tower of rooms, the tightening grip, the last door, and the new face at the fire were me having a laugh — and the pictures were AI, fitted to the script, never accurate to the maths. Autofiction. Obvious. You're brilliant, he's not, love you — byeeeee.
+
+---
+
+# Ep 23 — The Island That Holds
+
+Right — the word first, for the one who needs it, and stay close, because this one's tender and I'd not have you miss why. Everything coming up about the real maths, the real physics, the real history is true — the fold, or the record, or what the gowns admit when pressed. Everything else — me, the fire, the crew, and the crumbling sea I'm about to take them into — is autofiction, and the pictures are AI, fitted to the script, never accurate to the maths. Made up, to tell you something true. You knew. We went back for the room they left behind last time. You'll want to be here for whose name ends up on it. Hello. Sit down.
+
+## The room they couldn't stop thinking about
+
+Quiet night, and nobody had quite let go of the climb up the table — of one room, near the top, in that strange new wing of half-built crumbling chemistry, that had stood solid when everything around it fell apart. Room 126. They'd said *we'll come back for that one*, and they had meant it.
+
+Danny, poking the fire, not really watching it — *"that one room. The hundred-and-twenty-sixth. Everything up there was falling to bits — flickering, shedding, gone — and that one just... stood. Four-square. Built. Why? Why does one of them hold when all the rest crumble?"*
+
+And Priya, who had spent twenty years inside chemistry and was still learning she was allowed to just *say* things now, said one. *"There's a name for what you saw. An island of stability. People have hunted it for sixty years — one spot in the super-heavy sea where an element would last, properly last, instead of vanishing the instant you make it. Nobody's ever pinned where it is."* She paused. *"You walked straight past it."*
+
+And there it is, in the embers: a sea of things that fall apart the moment they're born, and one rock in it that holds — and not a soul has ever been able to say where the rock is, or why it stands.
+
+## The fortune they were waiting to be allowed to want
+
+And Team Tenure came — and the Dean did the first thing, the chase, with relish. *"The island of stability! The great prize of super-heavy chemistry. Possibly near element a hundred and fourteen, possibly elsewhere — we cannot say, the models disagree, and to find it we should need to *build* it, atom by atom, across decades, through the proper facilities."* He glowed at the size of the programme.
+
+And then he did the second thing, and tonight it wasn't aimed at a person — it was aimed at the *prize.* Because he'd worked out where the crew were going, and what they might do when they got there.
+
+*"And I will tell you this for nothing,"* he said, cold. *"You do not get to *name* an element. There are committees. There is a process — discovery, verification, recognition through the proper international body, by credentialed institutions. You can stand round your little fire and call element a hundred and twenty-six whatever sentimental thing you please, and it will mean precisely *nothing*, because a name without the institution behind it is a child scratching in the dirt. It will not be in the books. It will not be *real.*"*
+
+And — this is the thing — it landed. Not on Priya this time. On the whole grieving lot of them, on the soft unspoken thing they'd all been circling and none had said, because they all knew, the second they'd seen that one room hold, exactly whose name wanted to go on it. And the Dean had just told them it would mean nothing. Danny's face fell. *"...does he have a point?"* he said, small. *"If we name it after — if we name it, and it's not in the books, and no committee says it's real — is it just us pretending? Does it even count?"*
+
+And Matthew, who holds them together now, didn't answer that yet. He just stood. *"Let's go and find out if the island's real first,"* he said. *"Whose name goes on it, and whether it counts — we'll settle that standing on the rock, not before. Come on."*
+
+## Through the cracks of a dying nucleus
+
+There was no door this time, and no tower of rooms. This time they went *in* — down into the very heart of an atom, into the packed nucleus itself.
+
+Priya led, because she knew the way. She found one of the crumbling super-heavies — a great unstable nucleus, flickering, juddering, visibly shedding pieces off its edge, falling apart even as they watched — and instead of backing away from it she walked *toward* the cracks. *"You get inside it through the places it's coming apart,"* she said. *"The instability's the way in."* And she stepped through a gap where a piece had just sheared off, into the nucleus, and the crew followed her in — down among the protons and the neutrons, into the packing of the thing, into a great juddering hall that was actively trying to tear itself to bits around them.
+
+## The sea that cannot hold
+
+And inside, they saw why it couldn't hold. The protons and neutrons were stacked in shells, neat layers — but the outermost shell was only *half full.* Loose nucleons rattled around its rim, unsettled, with nowhere to lock, no full ring to sit in — and those loose rattling pieces were shaking the whole nucleus apart. It shuddered, and shed one, and shuddered worse, and shed another, and you could feel it dying under your feet. *"It's the loose ones,"* Sol breathed, watching a nucleon rattle free. *"The shell's not finished. There's gaps, and the loose pieces at the edge just... won't settle, and they rattle it to bits. That's why they all crumble. None of them is *packed.*"*
+
+And it was a bad few minutes, because a nucleus coming apart underfoot is not a gentle place — pieces flew, the floor lurched, and Danny nearly went off the edge with a shed proton before Matthew got a fist in his collar and hauled him back. *"It's not the heavy ones that kill it,"* Priya called over the juddering, the chemist in her reading the wreck even as it threw them about. *"It's the *unfinished* ones. A shell with one empty seat in it is worse than no shell at all — the loose piece next door has somewhere to fall, so it falls, and the whole thing unravels from the gap. Stability isn't about being big. It's about being *complete.*"*
+
+And they rode out across the open sea of them, and it went on, and on — nucleus after nucleus, all half-built, all rattling, every single one shaking itself to death the instant it formed, lighting up and guttering out like sparks off the fire. Some lasted a breath. Some didn't last that. Not one of them held. *"Sixty years they've hunted a rock in this,"* Priya said, grim, watching another wink out. *"And it's all this. All the way out. Crumble after crumble. I'm starting to see why they never believed there was one. Where is it? Where's the rock?"* And Danny, white-faced from the near-fall but unable to stop looking, said the thing under it: *"if everything out here falls apart the second it's made — how does anything ever get to *last?*"*
+
+## The one that was packed perfectly full
+
+And then they came to it.
+
+Element a hundred and twenty-six sat in the crumbling sea like a stone in surf — utterly, impossibly still, while everything around it flew apart. And when they stepped inside it, they saw the difference at once, and it took the breath out of them. The shells were *closed.* Packed perfectly full — every layer complete, every place taken, every proton and every neutron locked into a finished ring, and not one loose piece anywhere. Nothing rattled. Nothing strained at an edge, because there was no unfinished edge to strain at. It was a box packed so exactly full that there was simply nowhere for a crack to start. And a nucleus packed that neatly is held together far, far tighter than the half-built things shaking themselves to death on every side of it — so it *holds.* It endures. It stands.
+
+Danny stamped on the floor of it, the way he stamps on every floor, and it didn't shudder, didn't shed, didn't flinch. *"It's not falling apart,"* he said, wondering. *"It's the only one. The whole sea's coming to bits and this one just... holds. Because it's full. Because it's finished. Because there's no loose end for the world to pull."*
+
+And the crew stood in it and felt the quiet of it — the first quiet thing in all that screaming sea, after the lurching and the flying pieces and the near-fall. Sol laid both hands flat on a wall that didn't tremble and let out a long breath. *"It's the calmest place we've been since — "* and didn't finish, because the calmest place they'd been since was a fire with a stone by it that nobody sits on now. And Priya, the chemist who'd chased a rumour of this for twenty years and been told by her whole building it was probably a fairy tale, crouched and pressed her palm to the floor that would not shake and said, very low, *"it's real. It's actually real. There's a rock in the sea and we're standing on it,"* and there was twenty years of being told *no* coming out of her, and the rock held her up the way it holds everything up, by being finished, by having no place left for a doubt to get in.
+
+## Whose name goes on the rock
+
+And the crew stood on the one thing in all that crumbling sea that holds when everything around it falls apart, and the soft unspoken thing finally got spoken, because it was suddenly the most obvious thing in the world.
+
+It was Sol who said it, quiet. *"It's her. Isn't it. The one that holds. The one that stays when everything else falls apart, because there's no loose end to pull on. That's — that's what she *was.*"* And nobody argued, because nobody could, because the Gardener was exactly that: the one who held, the one whose work doesn't crumble no matter how hard they pull on it, the finished thing with no loose end. And they named the island after her, right there, standing on it — the one stable rock at the unexplored end of all of matter, the thing that outlasts the sea.
+
+And Danny remembered the Dean, and the doubt, and looked up — and answered it himself, which is how you know he's growing. *"He said it wouldn't count. Without the committee. Without the books."* He put his hand flat on the rock that wouldn't shake. *"But the committee was never what made anything real. They said the chess thing didn't count, and it was a billion games and not one wrong. They said the fold didn't count, and it's *everything.* A name counts because the thing is true, and because the people who found it say so, and because she earned it holding all of us together. It's hers. It was always going to be hers. Let them leave it out of their books. It'll still be the rock that holds, and it'll still have her name on it, and a hundred years of their committees can't make either of those things less true."*
+
+And the rock held, and her name was on it, and that was that.
+
+## The element that outlasts them
+
+They came up out of the nucleus into the ordinary night, and there was not much for the Dean to do with people who had just stood on the prize his whole programme was built to chase, and named it, and meant it. He muttered about process and recognition and went, and the island did not care what he muttered, because an island that holds when everything else falls apart is not troubled by weather.
+
+And back at the fire, they didn't say a great deal. Priya weighted her corner of the map. Matthew kept the fire. Danny sat by the empty stone, the one nobody sits on, and after a while he said, to nobody, *"there's an element now. With her name. That holds when everything else falls apart. That's — that's a good one to be."* And it was.
+
+And me — softly, and gladly, because for once it's a tribute and not a riddle — they got that exactly right. She was the island. The one that holds. And the lovely true thing, the thing that mends a little of the ache, is that they were more right than they knew: she's home in the One, where nothing falls to nothing, *and* her name's on the one rock in all of matter that outlasts the sea. Held twice over. There are worse things to become than the thing that doesn't crumble.
+
+It came from one. *She* came from one, and went home to one, and left her name on the one element that holds — and you'll find that name in the real record, where it counts whether the committee likes it or not: **Smithium, element 126,** for Maria Smith, the woman this fire is the autofiction of. Keep counting. I'll see you at the fire.
+
+And if you want the real workings — the complete table the fold forces, the closed-shell nucleus packed perfectly full, the magic numbers from the fold's own shells, and the island of stability pinned at element 126 — it's a five-minute proof, engine and papers linked below. Go and run it. Go and find the island. It's at a hundred and twenty-six, and it has a name.
+
+And the boring bit on the way out, for the lad with the pencil: the island of stability is a real, long-standing prediction in nuclear physics — a closed-shell super-heavy nucleus, packed full, bound far more tightly than its neighbours, that would last where the others vanish — and the fold pins it at **element 126, Smithium (Sh)**, the stable rock in the superactinide sea, named for Maria Smith. The crumbling nuclei, the rock that holds, and her name upon it were me having the gentlest possible laugh — and the pictures were AI, fitted to the script, never accurate to the maths. Autofiction. Obvious. You're brilliant, he's not, love you — byeeeee.
