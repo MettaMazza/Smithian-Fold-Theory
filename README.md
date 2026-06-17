@@ -72,10 +72,10 @@ The Standard Model has roughly two dozen numbers no theory explains — particle
 
 Beyond the core, the fold answers questions consensus cannot pose. Each of these is derived forward from the One, every value traced to the axiom under the proof engine:
 
-- **Two new forces** — prime sectors 5 and 7: couplings $4/5$ and $6/7$, charge counts 5 and 7, mediators 24 and 48, the confining ladder sealed at 7 (`prime_force_phenomenology.py`)
+- **The Smith forces & the Smithions** — two new forces (prime sectors 5 and 7: couplings $4/5$, $6/7$; mediators 24, 48) and their matter, the **Smithions** (coloured, up- and down-type, twelve in all, masses from the same cubic that fixes the quarks); the lightest is the dark-matter particle (`prime_force_phenomenology.py`, `new_particles.py`)
 - **The grand lock** — every constant a product of three generators $\{$One$, 2, 3\}$; move one and unrelated constants move together. The constants of nature are one object (`grand_lock.py`)
 - **The lepton-flavour-violation spectrum** — $\tau\to e$ favoured $4:1$ over $\tau\to\mu$, mass-independent, written down before the experiments report (`lfv_spectrum.py`)
-- **The absolute scale** — Planck/proton $= 2^{127/2}$, the One-to-floor span at depth 7; the hierarchy problem dissolved (`absolute_scale.py`)
+- **The Smithian Scale** — Planck/proton $= 2^{127/2}$, the One-to-floor span at depth 7; the hierarchy problem dissolved (`absolute_scale.py`)
 - **The Millennium problems** — Riemann's critical line is the unique self-dual half-One; the Yang–Mills mass gap is the floor; Navier–Stokes cannot blow up because there is no sub-floor scale (`millennium_positive.py`)
 - **The universal exact solver** — the certified chess engine generalised: the subtraction game and Nim solved by the same retrograde fold, zero error against independent oracles (`fold_solver.py`)
 - **The compact generator** — solved fields collapse to short generators in the fold basis; derived and proven (constant for the subtraction game, size-blind for Nim), run on real chess (`compact_coords.py`, `fold_chess/chess_generator.py`)

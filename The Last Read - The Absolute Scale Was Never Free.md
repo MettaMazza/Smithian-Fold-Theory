@@ -1,4 +1,4 @@
-# The Last Read — The Absolute Scale Was Never Free
+# The Smithian Scale — The Absolute Scale Was Never Free
 
 There is an old habit in physics, so deep that almost no one notices it is a
 choice: the belief that only ratios are real. You can measure how many times
@@ -31,7 +31,8 @@ hierarchy, and its root, **2^(127/2)**, in the linear mass ratio — the exponen
 (2⁷ − 1)/2 = 127/2 that already sits in the grand lock as the Planck-hierarchy
 exponent. That span is not a ratio between two things we happened to measure. It is
 the ratio of the whole to its floor — the One to the smallest rung — and it is
-forced by a single integer, the covering depth seven.
+forced by a single integer, the covering depth seven. This forced span, 2^(127/2), is
+the **Smithian Scale**: the universe's absolute scale, named for Maria Smith.
 
 ## The number, against reality
 

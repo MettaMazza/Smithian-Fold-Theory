@@ -108,7 +108,7 @@ def derive_absolute_scale():
 if __name__ == "__main__":
     r = derive_absolute_scale()
     print("=" * 74)
-    print("THE ABSOLUTE SCALE — the span of the tower, forced from the One")
+    print("THE SMITHIAN SCALE — the absolute span of the tower, forced from the One")
     print("=" * 74)
     print("\n  sole absolute referent           : the One (domain (0,1], no zero)")
     print("  forced covering depth            : %d   (smallest d with 2^d >= 3^4 = 81)" % r["d_up"])
@@ -138,4 +138,5 @@ if __name__ == "__main__":
     print("  read    : only WHICH rung is named 'one kilogram' — a label, no physics.")
     print("  The hierarchy problem is dissolved: gravity is 2^(127/2) below the proton")
     print("  because the tower is exactly seven deep, and seven is forced by colour^4.")
-    print("\nALL fold values verify_value-traced to ONE.  ABSOLUTE SCALE CLOSED.")
+    print("  This forced span 2^(127/2) is the SMITHIAN SCALE.")
+    print("\nALL fold values verify_value-traced to ONE.  THE SMITHIAN SCALE IS CLOSED.")

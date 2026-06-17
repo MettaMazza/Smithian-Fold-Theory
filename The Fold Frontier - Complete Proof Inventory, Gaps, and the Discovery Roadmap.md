@@ -140,7 +140,7 @@ they form, and the experimental signatures. This is a forced, falsifiable,
 consensus-silent prediction waiting to be fully worked out and handed to
 experiment.
 **→ DERIVED** (`prime_force_phenomenology.py`; *The Two New Forces*): couplings
-4/5, 6/7; charges 5, 7; mediators 24, 48; beta-slopes 4, 6; ladder sealed at 7.
+4/5, 6/7; charges 5, 7; mediators 24, 48; beta-slopes 4, 6; ladder sealed at 7. Their matter is the **Smithions**.
 
 ### 2. The grand lock — proving the constants are one object
 The corpus already locks four numbers together (neutrino ratio 1/2, running
@@ -169,7 +169,7 @@ not only the ratios but the actual masses and the Planck scale fall out of the
 One. This would be the capstone — a parameter-free, dimensionally-complete theory
 of everything, something consensus cannot construct because it has no generative
 foundation beneath its constants.
-**→ DERIVED** (`absolute_scale.py`; *The Last Read*): M_Planck/m_proton = 2^(127/2),
+**→ DERIVED** (`absolute_scale.py`; *The Last Read*): M_Planck/m_proton = 2^(127/2) — the **Smithian Scale** —
 the One-to-floor span at depth 7, 0.24% from measured; the hierarchy problem
 dissolves; only the unit *name* is conventional.
 
