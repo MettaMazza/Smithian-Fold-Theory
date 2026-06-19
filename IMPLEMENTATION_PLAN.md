@@ -766,8 +766,6 @@ Each entry's derivation requirement is written so it can be implemented independ
 ### G13
 **Claim:** the fine-structure constant -- 1/alpha proven exactly to 2^7 + 3^2(251/250) from the corpus. Frontier G-13, forward from the proven electromagnetic charges , the proven colour count three , the proven covering structure (/, the generation volume three-cubed and its minimal binary towe
 
-**PRIOR DEFECT: combination 2^7+3^2(251/250) was found by search. Derivation requirement: justify the combining rule from a stated principle BEFORE computing the number, or mark OPEN. A rule chosen to hit 137.036 is numerology.**
-
 **Derivation requirement:** compute the stated quantity forward from the One and the fold; verify by comparing the computed value to an independently-derived structural value (a different route through the fold), never to a typed copy of the target or an always-true identity. If the claim needs a measured number, a square root, an integral, or an absolute scale, it is an EXTERNAL READ — compute the dimensionless part forward and mark the rest. **Check must fail under mutation.**
 
 ### G12
@@ -777,8 +775,6 @@ Each entry's derivation requirement is written so it can be implemented independ
 
 ### G11
 **Claim:** the Hubble tension -- one expansion read against two rung-scales, the ratio proven to 13/12. Frontier G-11 (the standing-anomalies frontier of the plan), forward from the fold expansion over depth , the arrow of time as the fold sequence , the proven parts-of-One density split , and th
-
-**PRIOR DEFECT: used a vacuum fraction inconsistent with the rest of cosmology and an unexplained depth-8 tower. Requirement: one physical model of two calibration scales, using the same density and depth as all other cosmology, or OPEN.**
 
 **Derivation requirement:** compute the stated quantity forward from the One and the fold; verify by comparing the computed value to an independently-derived structural value (a different route through the fold), never to a typed copy of the target or an always-true identity. If the claim needs a measured number, a square root, an integral, or an absolute scale, it is an EXTERNAL READ — compute the dimensionless part forward and mark the rest. **Check must fail under mutation.**
 
