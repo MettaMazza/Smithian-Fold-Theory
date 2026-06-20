@@ -3,7 +3,7 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 [![Python 3.9+](https://img.shields.io/badge/Python-3.9+-green.svg)](https://python.org)
 [![Tests: 1,050 PASS](https://img.shields.io/badge/Tests-1%2C050%20PASS-brightgreen.svg)](#quick-start)
-[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.20515256.svg)](https://doi.org/10.5281/zenodo.20515256)
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.20775538.svg)](https://doi.org/10.5281/zenodo.20775538)
 
 **Author:** Maria Smith, [Ernos Labs](https://discord.gg/Fm8aMyWD) — independent researcher, autodidact. Scotland.
 
@@ -208,7 +208,7 @@ The complete ledger, every prediction with how to confirm or kill it, is in [*Ev
   title        = {Smithian Fold Theory of Everything},
   year         = {2026},
   publisher    = {GitHub / Zenodo},
-  doi          = {10.5281/zenodo.20515256},
+  doi          = {10.5281/zenodo.20775538},
   url          = {https://github.com/MettaMazza/Smithian-Fold-Theory}
 }
 ```

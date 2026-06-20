@@ -9,6 +9,10 @@ type: software
 license: MIT
 repository-code: "https://github.com/MettaMazza/Smithian-Fold-Theory"
 url: "https://github.com/MettaMazza/Smithian-Fold-Theory"
+identifiers:
+  - type: doi
+    value: "10.5281/zenodo.20775538"
+    description: "Zenodo archive"
 abstract: >-
   A unified theory of everything built from a single axiom — the One — using
   one operation: the fold (double and cast out the One). From this alone, with

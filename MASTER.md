@@ -355,7 +355,7 @@ The wave packet remains stable and does not disperse to infinity because the per
 By deriving field theories on the dyadic domain $\mathbb{S}$, SFTOE eliminates continuum singularities while preserving the underlying wave equations and propagation structures. In the companion paper, we demonstrate that this axiomatic system uniquely determines the standard model sector ratios and physical coupling constants.
 
 \begin{thebibliography}{9}
-\bibitem{sftoe} M.~Smith, \textit{Smithian Fold Theory of Everything}, GitHub/Zenodo (2026). \url{https://doi.org/10.5281/zenodo.20515256}.
+\bibitem{sftoe} M.~Smith, \textit{Smithian Fold Theory of Everything}, GitHub/Zenodo (2026). \url{https://doi.org/10.5281/zenodo.20775538}.
 \end{thebibliography}
 
 \end{document}
@@ -580,7 +580,7 @@ This dossier demonstrates that field dynamics and fundamental constants are exac
   title        = {Smithian Fold Theory of Everything},
   year         = {2026},
   publisher    = {GitHub / Zenodo},
-  doi          = {10.5281/zenodo.20515256},
+  doi          = {10.5281/zenodo.20775538},
   url          = {https://github.com/MettaMazza/Smithian-Fold-Theory}
 }
 ```
