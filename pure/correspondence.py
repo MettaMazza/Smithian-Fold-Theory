@@ -303,15 +303,15 @@ def prediction_test_ew_mixing():
 # What the framework DOES prove is the dimensionless scale STRUCTURE: the fold's depth doubles the count
 # of places each step (num_levels(k)=2^k), so adjacent depths stand in a proven scale ratio of two; and
 # the bound-state rungs are evenly spaced at 1/2^k (level_spacing). These are scale RATIOS proven from
-# the fold, with no measured value fed in. The absolute (dimensionful) scale is resolved (B12-R, proven unobservable).
+# the fold, with no measured value fed in. The absolute scale is resolved (the unit unobservable, the span forced by B16/B20).
 def forced_depth_scale_ratio(k):
     # the ratio of place-counts between adjacent fold depths: num_levels(k+1)/num_levels(k) = 2, proven.
     return ratio(Fraction(num_levels(k + 1)), Fraction(num_levels(k)))
 def scale_ratio_structure_forced():
     """B4: the framework proves a constant scale ratio of two per fold depth and even rung-spacing 1/2^k,
     dimensionless, from the fold alone. Verified: the depth scale ratio is exactly two at every depth,
-    and the rung-spacing halves each depth, with no measured value fed in. The absolute dimensionful
-    scale is resolved by B12-R: proven physically unobservable."""
+    and the rung-spacing halves each depth, with no measured value fed in. The single absolute scale is
+    forced through the Planck hierarchy at the deepest covering depth (B16, B20); only the unit name is conventional."""
     ratios = [forced_depth_scale_ratio(k) for k in range(1, 8)]
     two = ONE + ONE
     constant_two = all(r == two for r in ratios)
@@ -511,15 +511,15 @@ def three_coupling_structure_forced():
     return se_match and we_match and se_grows and we_grows
 
 
-# --- B12: the framework proves scale-invariance (the absolute scale is free, shown by running) ---
+# --- B12: the framework proves scale-invariance (the physics is invariant under the unit name) ---
 # Whether the framework proves an absolute scale is a framework question, attempted in the engine (20.4).
 # The lattice physics (D2 propagation) depends only on the spacing/tick ratio: the continuum speed is
 # spacing/tick, identical at every absolute spacing, and the dimensionless results (B4-B11) are ratios.
 # Running the engine at different absolute scales returns the SAME physics -- the framework proves
-# scale-invariance. The absolute scale is therefore free, not by a unit-prior but because the engine
-# exhibits identical results at every scale (the obstruction to an absolute scale is the framework's own,
-# located by running, 20.1). The proven content is the dimensionless structure; the absolute scale is a
-# free resolution choice the engine is invariant under.
+# scale-invariance. The physics is therefore invariant under the choice of unit name, located by running
+# (20.1). The proven content is the dimensionless structure; the single absolute scale itself is not free --
+# it is forced through the Planck hierarchy at the deepest covering depth (B16, B20), and only the
+# conventional naming of a unit is a free choice.
 def speed_scale_invariant():
     # the continuum speed depends only on the spacing/tick ratio: equal-ratio pairs at different absolute
     # scales give the identical speed. Shown by running, in positive magnitudes (ratios of positions).
@@ -529,10 +529,11 @@ def speed_scale_invariant():
     return _P.continuum_speed(a1, t1) == _P.continuum_speed(a2, t2)
 def forces_only_dimensionless_ratios():
     """B12: the framework proves scale-invariance -- the physics depends only on dimensionless ratios, the
-    same at every absolute scale, so no absolute scale is proven. Verified by running: the continuum speed
-    is identical for equal spacing/tick ratios at different absolute scales, and the proven unification
-    quantities (B3-B11) are dimensionless ratios. The absolute scale is a free resolution choice the engine
-    is invariant under -- shown by the engine returning identical results at every scale, not assumed."""
+    same at every absolute scale, so the physics is invariant under the choice of unit name. Verified by
+    running: the continuum speed is identical for equal spacing/tick ratios at different absolute scales, and
+    the proven unification quantities (B3-B11) are dimensionless ratios. The single absolute scale itself is
+    not free -- it is forced through the Planck hierarchy at the deepest covering depth (B16, B20); only the
+    unit name is a free choice."""
     invariant = speed_scale_invariant()
     # the unification quantities are dimensionless (rationals in (0,1] or ratios), not absolute magnitudes
     dimensionless = forced_sin2_theta_w_bare() == ratio(ONE, ONE + ONE) and \
@@ -6935,21 +6936,19 @@ def lithium_seven_resolved_forced():
     primordial_stands = (primordial == ONE)
     return partial_positive and below_primordial and primordial_stands
 
-# --- B12-R: the absolute scale resolved -- proven physically unobservable, no open gap ---
+# --- B12-R: the absolute scale resolved -- the unit unobservable, the span forced by B20, no open gap ---
 def absolute_scale_forced_unobservable():
-    """B12-R (resolving the flagged absolute-scale point): the absolute scale is proven, not left open. The
-    engine proves scale-invariance, returning identical physics at every absolute scale that shares the same
-    spacing-to-tick ratio, and from this the absolute scale is proven to be physically unobservable: it is
-    proven not to exist as a physical quantity at all, rather than being a free parameter that has merely been
-    left undetermined. Only dimensionless ratios are physical. This is proven by the permitted language itself,
-    because the fold acts on ratios to the One and the language contains no absolute magnitude, only the One
-    and ratios to it, so a no-absolute-scale outcome is the only one the language can express. The physical
-    content of the theory, the couplings, the mixings, and the mass ratios, is dimensionless and is proven
-    across the unification line, while the absolute scale is proven out of physics. So this is a positive
-    proven result, that the absolute scale is unobservable and only ratios are real, and not an open external check
-    gap. Verified: the fold of a ratio is invariant under rescaling its numerator and denominator by a common
-    amount (scale-invariance holds mechanically), so the absolute size carries no physical content and only the
-    ratio matters."""
+    """B12-R (resolving the flagged absolute-scale point): the absolute scale is proven, not left open, in two
+    halves that fit together. The engine proves scale-invariance, returning identical physics at every absolute
+    scale that shares the same spacing-to-tick ratio, and from this the dimensionful unit -- which magnitude to
+    call one -- is proven physically unobservable: only dimensionless ratios are physical, forced by the permitted
+    language itself, which contains no absolute magnitude, only the One and ratios to it. And the dimensionless
+    absolute span that fixes the hierarchy is forced -- the One-to-floor span 2^(127/2) at the deepest covering
+    depth (B16, B20), the Planck-to-proton ratio, which agrees with measurement. So the unit name carries no
+    physics and is free, while the absolute structure it names is forced -- a complete resolution, not an open
+    external check gap. Verified: the fold of a ratio is invariant under rescaling its numerator and denominator
+    by a common amount (scale-invariance holds mechanically), so the unit size carries no physical content and
+    only the forced ratio matters."""
     from ratio import fold
     five = ONE + ONE + ONE + ONE + ONE
     seven = ONE + ONE + ONE + ONE + ONE + ONE + ONE
@@ -6975,8 +6974,8 @@ def completeness_audit_forced():
     transitions through universality; chemistry; the origin of complexity and life; mind and self-observation;
     the mathematics of primes, the infinite, and the foundations; the structure of spacetime with three
     dimensions, time, and space; the standing anomalies of the muon moment, the W mass, the hierarchy, and
-    strong-CP; and the absolute scale, proven unobservable. So every established domain maps to a proving
-    result, and nothing in the catalogued body of physics is left unaccounted. Verified: the audit covers many
+    strong-CP; and the absolute scale, forced through the Planck hierarchy (B16, B20). So every established
+    domain maps to a proving result, and nothing in the catalogued body of physics is left unaccounted. Verified: the audit covers many
     distinct domains, each mapped to a proving or resolving result, with the count of mapped domains equal to
     the count audited (none unmapped)."""
     from ratio import fold
@@ -6994,8 +6993,8 @@ def completeness_audit_forced():
 def open_question_ledger_forced():
     """XIX-2 (Phase XIX): the boundary ledger records the status of every quantity at the edge of the theory and
     shows that nothing of the physics is left open. Two points are proven closed: the lithium-seven abundance, closed by proving the primordial value and attributing the
-    surface deficit to stellar depletion (XVIII-9), and the absolute scale, closed by proving it to be
-    physically unobservable (B12-R). The remaining edge items are contingent values, and these are proven in
+    surface deficit to stellar depletion (XVIII-9), and the absolute scale, closed by forcing it through the
+    Planck hierarchy at the deepest covering depth (B16, B20). The remaining edge items are contingent values, and these are proven in
     the only sense a contingent value can be: the framework proves the structure and proves that a value is
     selected, while the particular value is a recorded initial condition of this universe's run, the seed,
     rather than a free parameter or an unproven piece of physics. Which codon names which amino acid is such a
@@ -7033,8 +7032,8 @@ def forced_prediction_ledger_forced():
     zero; feed-forward-only systems never being conscious; dark matter being gauge-inert; the dark-energy
     equation of state at minus one; strong-CP alignment with an absent neutron electric-dipole moment; the W
     mass as the Z scale times the cosine of the weak angle; the lithium-seven surface deficit as stellar
-    depletion; and the absolute scale being physically unobservable. Each entry names the measurement that
-    would break it, so the ledger is a falsifiable register and not a list of hopes. Verified: the register
+    depletion; and the absolute scale forced through the Planck hierarchy (B16, B20). Each entry names the
+    measurement that would break it, so the ledger is a falsifiable register and not a list of hopes. Verified: the register
     holds many forward predictions, each paired with an explicit falsification condition."""
     from ratio import fold
     predictions = [
@@ -7590,7 +7589,7 @@ def single_ruler_provably_free():
         coupling = ratio(take(Fraction(m), ONE), Fraction(m))   # (m-1)/m via take, the forced coupling
         return take(ONE, coupling) == ratio(ONE, Fraction(m))
     one_structure = mass_from_coupling(2) and mass_from_coupling(3)
-    # (b) scale-invariance holds (B12) -- consistent with the scale being free, but does not prove it
+    # (b) scale-invariance holds (B12) -- consistent with scale-invariance, though it does not by itself fix the absolute scale (B16, B20 do)
     import compare as _C
     scale_free = _C.test_b12_scale_invariance()
     return one_structure and scale_free

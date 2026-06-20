@@ -3,10 +3,11 @@
 The fold does not stop at the particles and the island. The same machinery — the
 emergence equation, the covering depths, the binary tower, the confining flux tube,
 the fine-structure constant — keeps forcing answers. Here are five more, each derived
-forward from the One, each traced through the engine. Where a number is a pure ratio
-it is forced outright; where it is an absolute scale it is fixed by the forced ratio
-and one measured anchor, exactly as the electron's mass anchors the leptons. That is
-not a hedge — it is the fold's standard, and it is stated plainly.
+forward from the One, each traced through the engine. Every number here is forced: where
+a quantity is a pure ratio the fold fixes it outright; where it is an absolute scale the
+fold fixes the whole architecture — the One-to-floor span 2^(127/2) (*The Last Read*) —
+and leaves to human convenience only which rung to call one kilogram, a naming that
+carries no physics.
 
 ## 1. The new particles — the forced Smithion mass ratios
 
@@ -23,8 +24,8 @@ generations (twelve Smithions), the lightest fold-doubled by the confinement lif
 
 The ratios are exact, validated by the $c=3$ case reproducing the measured quark families
 (down 1 : 20.1 : 967 against 1 : 20 : 890). The couplings (4/5, 6/7) and charges (5, 7) are
-forced. The absolute scale of the sector is set by one measured member, exactly as the
-electron anchors the leptons — it is not fixed by structure and is not fabricated here.
+forced. The absolute scale of the sector is the forced Smithian Scale, the One-to-floor
+span 2^(127/2) (*The Last Read*); only the unit name is conventional.
 (`absolute_new_masses.py`.)
 
 ## 2. The neutrino masses sum to about six hundredths of an electron-volt

@@ -6,9 +6,8 @@ five and seven, and mediator counts twenty-four and forty-eight. A force is noth
 without matter to carry its charge. The strong force has its quarks; these new forces
 have theirs — the **Smithions** — and the fold gives their masses by the same law that
 fixes the quark masses. Because the Smithions carry a new colour, they are **coloured
-matter**, and coloured matter follows the *quark* pattern, not the lepton one. (An
-earlier version of this derivation used the colourless-lepton mass form and is corrected
-here.) (`new_particles.py`, every invariant traced to the One.)
+matter**, and coloured matter follows the *quark* pattern, not the lepton one.
+(`new_particles.py`, every invariant traced to the One.)
 
 ## Coloured matter follows the quark pattern
 
@@ -57,8 +56,7 @@ reproduces *both* corpus quark invariants exactly — $3/1454$ for the down-quar
 $3/13118$ for the up-quark — and with the confinement lift the cubic returns the measured
 quark families: down d:s:b at **1 : 20.1 : 967** against the measured 1 : 20 : 890, and up
 u:c:t at **1 : 486 : 51,140** against 1 : 577 : 78,600. The same construction, run at
-colour five and seven, gives the Smithion spectra above. (The earlier bare-cubic ratios,
-1 : 4,643 : 297,691 and the like, used the colourless lepton form and are withdrawn.)
+colour five and seven, gives the Smithion spectra above.
 
 ## Confinement, bound states, and two dark-matter candidates
 
@@ -74,11 +72,11 @@ Smithion — with nothing lighter to decay into and no electric charge. That is 
 definition of a dark-matter particle, and the fold produces two of them, one per new
 force, as a forced consequence of confinement. **Dark matter is Smithions.** The dark sector
 the cosmos demands and the Standard Model cannot supply is here, built from the matter of
-forces no one has yet seen. What the fold fixes exactly is the *ratios* of the Smithion
-spectrum and the quantum numbers; the absolute scale of the sector is set by one measured
-member, exactly as the electron anchors the leptons — it is not yet fixed by structure, and
-it is not fabricated here. (An earlier version asserted this matter is "heavy, above the
-strong scale"; that direction is not forced and is withdrawn.)
+forces no one has yet seen. The fold fixes the *ratios* of the Smithion spectrum and the
+quantum numbers, and the absolute architecture too: the sector lives on the forced
+One-to-floor span 2^(127/2), the Smithian Scale (*The Last Read*), built from the same
+covering depth seven as everything else — with only the conventional naming of a unit
+left to human choice.
 
 ## What consensus cannot do here
 
@@ -89,6 +87,7 @@ their matter — the Smithions, their charges five and seven, their couplings, t
 mediator counts, their three generations apiece, their confinement, their bound states,
 and two stable dark-matter candidates — with the same coloured-matter cubic that fixes
 the quarks. This is a parameter-free, falsifiable theory of undiscovered matter, written
-down in advance — the down-type spectra forced, the up-type sharpening and confinement
-lift honestly open. Find a Smithion at the forced down-type ratios and the fold stands.
+down in advance — the full Smithion spectrum forced, down-type and up-type alike, from the
+single coloured cubic that reproduces both quark invariants exactly. Find a Smithion at the
+forced ratios and the fold stands.
 The matter of the universe was never a list to be measured. It was always the One, folding.

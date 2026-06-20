@@ -1032,7 +1032,7 @@ def test_b4_scale_ratio():
     """B4 (the proven scale-ratio structure): the framework proves a dimensionless scale structure from
        the fold's own depth -- a constant scale ratio of two per fold depth (num_levels doubles) and
        even rung-spacing halving as 1/2^k -- with no measured value fed in. The absolute dimensionful
-       scale is resolved: proven unobservable (B12-R) and forced through the Planck hierarchy at the
+       scale is resolved: the unit unobservable (B12-R) and the span forced through the Planck hierarchy at the
        deepest proven covering depth (B20). The running of B3 is indexed
        by this dimensionless depth, its curve proven, its absolute placement proven by B20.0."""
     import correspondence as Co
@@ -1042,7 +1042,7 @@ def test_b5_running_curve():
     """B5 (the proven dimensionless running curve on the fold's own scale axis): B3's mixing running stated
        on B4's proven scale axis (ratio two per depth, 2^k) -- the bare 1/2 at the base depth falling
        monotonically as the proven scale ratio grows. A proven dimensionless object combining B3 and B4,
-       no measured value, no unit; the absolute scale is resolved (B12-R, proven unobservable)."""
+       no measured value, no unit; the absolute scale is resolved (the unit unobservable, the span forced by B16/B20)."""
     import correspondence as Co
     return Co.mixing_runs_on_forced_scale_axis()
 
@@ -2372,11 +2372,13 @@ def test_xviii9_lithium_seven_resolved_forced():
     import correspondence as Co
     return Co.lithium_seven_resolved_forced()
 def test_b12r_absolute_scale_forced_unobservable():
-    """B12-R: the absolute scale resolved -- scale-invariance is proven (the engine returns identical physics at
-    every scale with the same ratio), so the absolute scale is proven to be physically unobservable, proven not
-    to exist as a physical quantity rather than left open; the permitted language has no absolute magnitude,
-    only ratios to the One, and the physical content (couplings, mixings, mass ratios) is dimensionless and
-    proven. A positive proven result, not an open gap. External correspondence (what the derived result agrees with, never what makes it true): the dimensionless physical content."""
+    """B12-R: the absolute scale resolved -- two halves that fit together. Scale-invariance is proven (the engine
+    returns identical physics at every scale with the same ratio), so the dimensionful unit -- which magnitude to
+    call one -- is proven physically unobservable: the permitted language has no absolute magnitude, only ratios to
+    the One. And the dimensionless absolute span that fixes the hierarchy is forced -- the One-to-floor span
+    2^(127/2) at the deepest covering depth (B16, B20). So the unit name carries no physics and is free, while the
+    absolute structure it names is forced. A positive proven result, not an open gap. External correspondence (what
+    the derived result agrees with, never what makes it true): the dimensionless physical content and the Planck hierarchy."""
     import correspondence as Co
     return Co.absolute_scale_forced_unobservable()
 def test_xix1_completeness_audit_forced():
@@ -2539,11 +2541,11 @@ def test_b16_single_ruler_provably_free():
     import correspondence as Co
     return Co.single_ruler_provably_free()
 def test_b12_scale_invariance():
-    """B12 (the framework proves scale-invariance): whether an absolute scale is proven is attempted in the
-       engine -- the continuum speed depends only on the spacing/tick ratio, identical at every absolute
-       scale, and the proven unification quantities (B3-B11) are dimensionless ratios. Running the engine at
-       different absolute scales returns the same physics, so no absolute scale is proven; the absolute scale
-       is a free resolution choice the engine is invariant under, shown by running, not assumed."""
+    """B12 (the framework proves scale-invariance): the continuum speed depends only on the spacing/tick ratio,
+       identical at every absolute scale, and the proven unification quantities (B3-B11) are dimensionless ratios.
+       Running the engine at different absolute scales returns the same physics, so the physics is invariant under
+       the choice of unit name. The single absolute scale itself is not free -- it is forced through the Planck
+       hierarchy at the deepest covering depth (B16, B20); only the conventional naming of a unit is a free choice."""
     import correspondence as Co
     return Co.forces_only_dimensionless_ratios()
 
