@@ -15,3 +15,29 @@ fold_chess/*.bin
 test_specialist.log
 Science education/
 
+
+# --- Communications / book-script writeups: kept locally, excluded from the published repo (GitHub + Zenodo) ---
+/Science education/
+/ZENODO_DESCRIPTION.html
+/Campaign A - The Mathematics - Collatz, the Primes, and the Open Conjectures.md
+/Campaign B - The Scaling Exponents - Turbulence, Zipf, and Gutenberg-Richter.md
+/Campaigns C-E - Condensed Matter, Materials, Astrophysics, Biology.md
+/Every Element There Is - The Complete Table to Element 137.md
+/Every Particle There Is - The Closed Census of the Fold.md
+/Every Prediction the Fold Makes - The Complete Falsification Ledger.md
+/Five More Forced Predictions - New Mass, Neutrinos, Resonances, Dark Matter, and the End of the Elements.md
+/G1 - The Higgs and the Majorana Neutrino.md
+/G2 - Smithium and the g-Block Chemistry.md
+/G3-G6 - Biology, Earth and Sky, Detection, and Free Will.md
+/The Engine Was Never About Chess - The Universal Exact Solver.md
+/The Fold Frontier - Complete Proof Inventory, Gaps, and the Discovery Roadmap.md
+/The Grand Lock - The Constants of Nature Are One Object.md
+/The Harmonics of the Integers - Number Theory as Fold Dynamics.md
+/The Island Is Forced - The Magic Numbers and Element 126.md
+/The Last Read - The Absolute Scale Was Never Free.md
+/The Lepton-Flavour-Violation Spectrum - The Fold's Forced Prediction.md
+/The Matter of the New Forces - Six New Particles the Fold Predicts.md
+/The Two New Forces - Full Phenomenology Derived from the Fold.md
+/The Wall Was a Coordinate - The Compact-Generator Discovery.md
+/What Had To Be - The Counterfactual Map of the Universe.md
+/What the Continuum Could Never Answer - The Fold and the Millennium Problems.md
