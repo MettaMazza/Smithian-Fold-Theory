@@ -69,9 +69,10 @@ the One coincide.
 This is not a curiosity. It is the seed of the Riemann critical line. The line on
 which the Riemann zeros are conjectured to lie is the real part one-half — and in
 the fold, one-half is forced as the single self-antipodal point, the only self-dual
-line the doubling map admits. The next item on the roadmap derives the consequence;
-here the foundation is laid: the half-One is special before any analysis, by the
-pure combinatorics of the fold's antipodal pairing.
+line the doubling map admits. The Millennium derivation carries it through to the Riemann
+critical line (*What the Continuum Could Never Answer*); here the foundation is laid: the
+half-One is special before any analysis, by the pure combinatorics of the fold's antipodal
+pairing.
 
 ## Eternal and transient — where mass lives in the integers
 

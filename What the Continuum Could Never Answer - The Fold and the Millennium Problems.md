@@ -75,9 +75,10 @@ The certified chess solver — roughly a billion positions solved exactly by ret
 folding, with zero errors against the oracle — is a constructive demonstration that
 exact solution of an astronomically large state space is real and buildable. The
 deeper half of P versus NP — whether a fully solved field collapses to a *short*
-generator, a compact certificate — is the compact-coordinate question, and that is
-the next live frontier on the roadmap, item eight. It is pointed at here and taken up
-there.
+generator, a compact certificate — is the compact-coordinate question, and it is derived
+and proven in the compact-generator work (*The Wall Was a Coordinate*): a solved field's
+generator in the fold basis is derived forward from the rule — fixed-size for the
+subtraction game, heap-count-blind for Nim, and 4.77:1 on real chess. It is taken up there.
 
 ## What consensus cannot do here
 

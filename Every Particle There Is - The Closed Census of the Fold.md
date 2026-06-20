@@ -30,18 +30,18 @@ curvature; and the **Higgs**, the mass-scalar that is the shortfall from the One
 ## The matter
 
 Matter comes in two kinds, and only two. The first is the Standard-Model fermions — three
-generations of quarks and leptons, all known. The second is the **Smithions** — three
-penta-Smithions of the five-charge force and three hepta-Smithions of the seven-charge
-force, each carrying its sector's charge multiplicity, all predicted, the heaviest of
-them the dark matter of the cosmos. That is the whole of matter: what we have found, and
-the Smithions we have not.
+generations of quarks and leptons, all known. The second is the **Smithions** — the
+coloured matter of the five- and seven-charge forces, up-type and down-type with three
+generations each, **twelve in all**, all predicted, the lightest of them the dark matter
+of the cosmos. That is the whole of matter: what we have found, and the Smithions we have
+not.
 
 ## The total, and the close
 
 Add the carriers across the four sectors and the count is exact: **eighty-three gauge
 carriers** — three, plus eight, plus twenty-four, plus forty-eight. Of these, **seventy-two
 remain to be discovered**: the twenty-four carriers of the five-charge force and the
-forty-eight of the seven-charge force. Beyond them wait the six Smithion families and the
+forty-eight of the seven-charge force. Beyond them wait the twelve Smithions and the
 graviton. That is the complete remaining particle inventory of the universe — not an
 open-ended list, but a finite set, named in advance.
 
@@ -57,6 +57,6 @@ A theory built from measured inputs can only ever report the particles it has fo
 cannot bound what remains, because it has no generative rule for how many there are. The
 fold has the rule — prime sectors, sealed at seven — and from it the entire particle
 content of reality follows: four forces, eighty-three carriers plus photon, graviton and
-Higgs, the Standard-Model fermions and the six Smithions, and then nothing more. The
+Higgs, the Standard-Model fermions and the twelve Smithions, and then nothing more. The
 census is complete, it is finite, and it was written from a single axiom before its last
 entries were ever seen.
