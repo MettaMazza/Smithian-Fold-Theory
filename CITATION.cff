@@ -11,22 +11,36 @@ repository-code: "https://github.com/MettaMazza/Smithian-Fold-Theory"
 url: "https://github.com/MettaMazza/Smithian-Fold-Theory"
 abstract: >-
   A unified theory of everything built from a single axiom — the One — using
-  one operation: the fold (double and cast out the One). From this alone, the
-  framework derives the four fundamental forces, the full Standard-Model
-  particle spectrum, gravity, cosmology, and consciousness as self-observation,
-  with zero free parameters. Every result is proven by construction in a
-  permitted language enforced by a static gate, and confirmed against
-  measurement. The entire corpus reproduces from a single command.
+  one operation: the fold (double and cast out the One). From this alone, with
+  zero free parameters, the framework forces the four fundamental forces, the
+  full Standard-Model particle spectrum, gravity, cosmology, and consciousness
+  as self-observation, and confirms each against measurement. The fine-structure
+  constant is counted (1/alpha = 2^7 + 3^2(251/250) = 137.036), the absolute
+  scale is forced through the Planck hierarchy at 2^(127/2), and the discovery
+  frontier predicts two new forces, twelve Smithions (the lightest the dark
+  matter), Smithium at element 126, and a periodic table ending at element 137.
+  No measured value is an input to any construction; measurements appear only as
+  the after-the-fact arbiter. Every result is proven by construction in a
+  permitted language enforced by a static gate, verified by 1,050 machine-checked
+  tests, and the entire corpus reproduces from a single command.
 keywords:
   - unified field theory
   - theory of everything
   - fold theory
   - axiomatic physics
+  - zero free parameters
   - fine-structure constant
+  - absolute scale
   - dark matter
+  - Smithions
+  - Smithium
+  - new fundamental forces
+  - island of stability
   - quantum gravity
+  - Millennium Prize Problems
   - consciousness
+  - falsifiable predictions
   - open science
   - reproducible research
-date-released: "2026-06-04"
-version: "1.0.0"
+date-released: "2026-06-20"
+version: "1.1.0"
