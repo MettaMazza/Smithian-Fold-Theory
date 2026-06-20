@@ -12916,11 +12916,15 @@ def verify_fine_structure_forced():
                   sparse, purely structural set of leads, not derived with zero reference
                   to alpha; every other element -- depth 7, colour squared, d_down, the
                   cube -- is forced a priori.)
-      Route B0 -- FORCING BY UNIQUENESS: of the 4608 structural recipe shapes built only
-                  from the forced primitives (counts {2,3,5,7} as bases, covering depths
-                  {5,7} as the tower exponent, spatial dimensions {1,2,3} as exponents,
-                  small forced leads {1,2,3,5}), EXACTLY ONE reproduces 34259/250 -- this
-                  recipe. There is no free factor: the structure admits a single assembly.
+      Route B0 -- FORCING BY UNIQUENESS over SHAPE and FILLING: the search ranges over the
+                  forced primitives (counts {2,3,5,7} as bases, covering depths {5,7} as
+                  the tower exponent, spatial dimensions {1,2,3} as exponents, forced leads
+                  {1,2,3,5}) AND nine structurally-distinct shapes (additive vs
+                  multiplicative join; correction on the colour term or the tower; the
+                  correction form (1+1/cov), (1-1/cov), additive 1/cov, or C/cov). Of all
+                  41472 combinations EXACTLY ONE reproduces 34259/250 -- this recipe.
+                  Honest scope: nine hand-built structural shapes, a broad set, not every
+                  conceivable functional form.
       Route B1 -- eight natural re-assignments are also shown NOT to equal 34259/250.
       Route B2 -- mutating either generator moves the value (it is forced by each).
     No literal zero characters are used in code, docstrings, or comments.
@@ -12996,12 +13000,15 @@ def verify_fine_structure_forced():
         if forced != target:
             raise VerificationError("Forced assembly is not 34259/250.")
 
-        # FORCING BY UNIQUENESS (systematic, not hand-picked). Among every structural
-        # recipe shape built only from the forced primitives -- the counts {2,3,5,7} as
-        # bases, the covering depths {5,7} as the tower exponent, the spatial dimensions
-        # {1,2,3} as the surface/volume exponents, and the small forced leads {1,2,3,5}
-        # -- EXACTLY ONE reproduces 34259/250, and it is this recipe. There is no choice
-        # of factors: the structure admits a single assembly that yields alpha.
+        # FORCING BY UNIQUENESS over BOTH the recipe SHAPE and its FILLINGS. The space
+        # spans the forced primitives -- counts {2,3,5,7} as bases, covering depths {5,7}
+        # as the tower exponent, spatial dimensions {1,2,3} as surface/volume exponents,
+        # forced leads {1,2,3,5} -- AND nine structurally-distinct shapes: additive vs
+        # multiplicative join, the correction carried by the colour term or the tower,
+        # and the correction form (1+1/cov), (1-1/cov), additive 1/cov, or C/cov. Of all
+        # such combinations EXACTLY ONE reproduces 34259/250 -- this recipe. (Honest
+        # scope: nine hand-built structural shapes, a broad set, not every conceivable
+        # functional form.)
         recipe_counts = (two_val, three_val, five_val, seven_val)
         depth_exps = (five_val, seven_val)
         dim_exps = (one_val, two_val, three_val)
@@ -13010,20 +13017,34 @@ def verify_fine_structure_forced():
         recipes_matching = one_val - one_val
         for base_t in recipe_counts:
             for exp_t in depth_exps:
-                tw = base_t ** exp_t
+                tw = Fraction(base_t ** exp_t, one_val)
                 for base_c in recipe_counts:
                     for exp_c in dim_exps:
-                        col = base_c ** exp_c
+                        col = Fraction(base_c ** exp_c, one_val)
                         for cl in lead_set:
                             for base_v in recipe_counts:
                                 for exp_v in dim_exps:
                                     cvol = cl * (base_v ** exp_v)
                                     if cvol < two_val:
                                         continue
-                                    recipes_enumerated = recipes_enumerated + one_val
-                                    cand = Fraction(tw, one_val) + Fraction(col, one_val) * Fraction(cvol + one_val, cvol)
-                                    if cand == target:
-                                        recipes_matching = recipes_matching + one_val
+                                    k_plus = Fraction(cvol + one_val, cvol)
+                                    k_minus = Fraction(cvol - one_val, cvol)
+                                    inv = Fraction(one_val, cvol)
+                                    shapes = (
+                                        tw + col * k_plus,        # canonical: T + C*(1+1/cov)
+                                        tw + col * k_minus,       # T + C*(1-1/cov)
+                                        tw + col + inv,           # T + C + 1/cov
+                                        tw + col - inv,           # T + C - 1/cov
+                                        tw * k_plus + col,        # T*(1+1/cov) + C  (on tower)
+                                        tw * k_minus + col,       # T*(1-1/cov) + C
+                                        tw * col * k_plus,        # T*C*(1+1/cov)    (multiplicative)
+                                        (tw + col) * k_plus,      # (T+C)*(1+1/cov)
+                                        tw + col * inv,           # T + C/cov
+                                    )
+                                    for cand in shapes:
+                                        recipes_enumerated = recipes_enumerated + one_val
+                                        if cand == target:
+                                            recipes_matching = recipes_matching + one_val
         if recipes_matching != one_val:
             raise VerificationError("Fine-structure recipe is not the unique structural assembly for 34259/250.")
 
