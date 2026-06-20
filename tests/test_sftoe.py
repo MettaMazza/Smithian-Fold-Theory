@@ -8182,6 +8182,81 @@ class TestSFTOEFineStructureForced(unittest.TestCase):
             proof.Fraction = original_fraction
 
 
+class TestSFTOEFineStructureSecondOrder(unittest.TestCase):
+    def test_verify_fine_structure_second_order_success(self):
+        from sftoe.proof import verify_fine_structure_second_order
+        res = verify_fine_structure_second_order()
+        self.assertEqual(res["tier"], "Tier A")
+        # forward second covering level: 1/alpha = 5995462/43751
+        self.assertEqual(res["computed_alpha_inv"], Fraction(5995462, 43751))
+        self.assertEqual(res["covering_volume"], 250)
+        self.assertEqual(res["sub_correction_scale"], 175)   # d_down**2 * d_up = 5**2 * 7
+        self.assertEqual(res["cov_eff"], Fraction(43751, 175))
+        self.assertEqual(res["alternatives_rejected"], 6)
+        # accuracy axis (separate from forcing): matches measured 137.035999177 to ~1.6e-10
+        self.assertLess(abs(float(res["computed_alpha_inv"]) - 137.035999177), 1e-9)
+
+    def test_verify_fine_structure_second_order_zero_axiom_mutation(self):
+        from sftoe.proof import verify_fine_structure_second_order
+        from sftoe.core import SmithianValue
+        original_init = SmithianValue.__init__
+        try:
+            def bad_init(self_obj, value, trace=None):
+                from fractions import Fraction as _F
+                self_obj.value = _F(value)
+                self_obj.trace = None
+            SmithianValue.__init__ = bad_init
+            with self.assertRaises(VerificationError):
+                verify_fine_structure_second_order()
+        finally:
+            SmithianValue.__init__ = original_init
+
+    def test_verify_fine_structure_second_order_target_mutation(self):
+        # Corrupting the forward target makes the chain disagree -> must raise.
+        import sftoe.proof as proof
+        original_fraction = proof.Fraction
+        try:
+            def bad_fraction(numerator, denominator=None):
+                if numerator == 5995462 and denominator == 43751:
+                    return original_fraction(5995463, 43751)
+                if denominator is None:
+                    return original_fraction(numerator)
+                return original_fraction(numerator, denominator)
+            proof.Fraction = bad_fraction
+            with self.assertRaises(VerificationError):
+                proof.verify_fine_structure_second_order()
+        finally:
+            proof.Fraction = original_fraction
+
+
+class TestSFTOEQuarkDressingForced(unittest.TestCase):
+    def test_verify_quark_dressing_forced_success(self):
+        from sftoe.proof import verify_quark_dressing_forced
+        res = verify_quark_dressing_forced()
+        self.assertEqual(res["tier"], "B")
+        self.assertEqual(res["down_lift_scale"], 2)   # m2 = d_up - d_down
+        self.assertEqual(res["up_dress_depth"], 7)    # d_up
+        # the forward dressing lands each physical ratio inside 0.3% of measurement
+        self.assertLess(abs(res["s_d_dressed"] - 19.78) / 19.78, 0.003)
+        self.assertLess(abs(res["b_s_dressed"] - 53.94) / 53.94, 0.003)
+        self.assertLess(abs(res["t_c_dressed"] - 103.30) / 103.30, 0.003)
+
+    def test_verify_quark_dressing_forced_zero_axiom_mutation(self):
+        from sftoe.proof import verify_quark_dressing_forced
+        from sftoe.core import SmithianValue
+        original_init = SmithianValue.__init__
+        try:
+            def bad_init(self_obj, value, trace=None):
+                from fractions import Fraction as _F
+                self_obj.value = _F(value)
+                self_obj.trace = None
+            SmithianValue.__init__ = bad_init
+            with self.assertRaises(VerificationError):
+                verify_quark_dressing_forced()
+        finally:
+            SmithianValue.__init__ = original_init
+
+
 class TestSFTOEMuonG2Anomaly(unittest.TestCase):
     def test_verify_muon_g2_anomaly_success(self):
         res = verify_muon_g2_anomaly()

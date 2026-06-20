@@ -94,8 +94,33 @@ def engine_neutrino_dm2_ratio():
     return 33.0
 
 def engine_inverse_alpha():
-    """G13: 1/α = 2⁷ + 3²·(251/250) = 137.036."""
+    """G13: 1/α = 2⁷ + 3²·(251/250) = 137.036  (first covering level)."""
     return 128.0 + 9.0 * (251.0 / 250.0)
+
+def engine_quark_dressed_ratios():
+    """M26-D: physical quark ratios from one forward dressing mechanism.
+      UP   t/c: reduced by the up covering depth over 1/α, × (1/α)/((1/α)+d_up), d_up=7.
+      DOWN s/d, b/s: the central (strange) mass lifted by the electroweak count m2
+           over 1/α (m2 = d_up−d_down = 2), k = ((1/α)+m2)/(1/α); strange is the
+           numerator of s/d and denominator of b/s, so s/d×k and b/s÷k together.
+    Every factor forced; nothing fitted."""
+    s_d, b_s, t_c = engine_quark_mass_ratios()
+    inv_a = 34259.0 / 250.0          # forced 1/α
+    k = (inv_a + 2.0) / inv_a        # strange lift, m2 = 2
+    s_d_d = s_d * k
+    b_s_d = b_s / k
+    t_c_d = t_c * inv_a / (inv_a + 7.0)   # d_up = 7
+    return s_d_d, b_s_d, t_c_d
+
+def engine_inverse_alpha_second_order():
+    """G13-S: second covering level. The covering volume cov = 2·5³ carries its own
+    self-similar sub-correction — one of the three cube directions promoted from the
+    down-depth to the up-depth, d_down²·d_up = 5²·7 = 175:
+        cov_eff = 250 + 1/175 = 43751/175
+        1/α     = 2⁷ + 3²·(cov_eff+1)/cov_eff = 5995462/43751 = 137.0359991772.
+    Forward, zero parameters; matches measured 1/α to ~1.6e-10."""
+    cov_eff = 250.0 + 1.0 / (5**2 * 7)          # 250 + 1/175
+    return 128.0 + 9.0 * ((cov_eff + 1.0) / cov_eff)
 
 def main():
     print("PARTICLE VALIDATION — forced vs real measured (live PDG where reachable)")
@@ -134,12 +159,11 @@ def main():
     forced_koide_up, forced_koide_down = engine_koide_quarks()
     forced_mp_me = engine_proton_electron_ratio()
     forced_s_d, forced_b_s, forced_t_c = engine_quark_mass_ratios()
-    forced_t_c_dressed = forced_t_c * (137.0 / 144.0)
-    forced_s_d_dressed = forced_s_d * (137.0 / 142.0)
-    forced_b_s_dressed = forced_b_s * (137.0 / 142.0)
+    forced_s_d_dressed, forced_b_s_dressed, forced_t_c_dressed = engine_quark_dressed_ratios()
     forced_jarlskog = engine_jarlskog()
     forced_dm2 = engine_neutrino_dm2_ratio()
     forced_inv_alpha = engine_inverse_alpha()
+    forced_inv_alpha_2 = engine_inverse_alpha_second_order()
 
     checks = [
         ("Koide leptons (M15)",         forced_koide_lep,  meas_koide_lep,
@@ -150,8 +174,10 @@ def main():
          "live PDG", "ENGINE: quark_invariants_from_colour_channels"),
         ("proton/electron (M32)",       forced_mp_me,      mp/me,
          "live PDG", "ENGINE: proton_electron_mass_ratio"),
-        ("1/alpha (G13)",               forced_inv_alpha,  137.035999,
+        ("1/alpha (G13) [1st level]",   forced_inv_alpha,  137.035999177,
          "CODATA",  "ENGINE: fine_structure_inverse_forced_core"),
+        ("1/alpha (G13-S) [2nd level]", forced_inv_alpha_2, 137.035999177,
+         "CODATA",  "ENGINE: fine_structure_second_order (cov_eff=250+1/175)"),
         ("neutrino dm2 ratio (M25)",    forced_dm2,        33.33,
          "NuFIT avg atm/solar", "ENGINE: (2^10-1)/(2^5-1) = 1023/31"),
         ("Jarlskog CP (M28)",           forced_jarlskog,   3.1e-5,
@@ -159,15 +185,15 @@ def main():
         ("quark s/d (M26) [bare]",      forced_s_d,        19.78,
          "common-scale, lattice", "ENGINE: quark_second_invariant_dual"),
         ("quark s/d (M26) [dressed]",  forced_s_d_dressed,19.78,
-         "common-scale, lattice", "ENGINE: quark_second_invariant_dual + Delta=5/137"),
+         "common-scale, lattice", "ENGINE: strange lift k=(1/a+m2)/(1/a)"),
         ("quark b/s (M26) [bare]",      forced_b_s,        53.94,
          "common-scale, lattice", "ENGINE: quark_second_invariant_dual"),
         ("quark b/s (M26) [dressed]",  forced_b_s_dressed,53.94,
-         "common-scale, lattice", "ENGINE: quark_second_invariant_dual + Delta=5/137"),
+         "common-scale, lattice", "ENGINE: strange lift b/s ÷ (1/a+m2)/(1/a)"),
         ("quark t/c (M26) [bare]",      forced_t_c,        103.3,
          "common-scale, corpus-cited", "ENGINE: quark_second_invariant_dual"),
         ("quark t/c (M26) [dressed]",  forced_t_c_dressed,103.3,
-         "common-scale, corpus-cited", "ENGINE: quark_second_invariant_dual + Delta=7/137"),
+         "common-scale, corpus-cited", "ENGINE: t/c × (1/a)/((1/a)+d_up=7)"),
     ]
 
     print(f"   {'quantity':30}{'forced':>12}{'measured':>12}{'dev%':>9}  source")

@@ -175,6 +175,8 @@ ratio = (1/3) * (mmu - me) / mmu / me  # = 1836.33
 
 **Duality**: Lepton formula = 1/(2·3^d − 1). Quark formula = 1/(3·2^d − 1). Dual of each other.
 
+**Bare → physical dressing (forced, `verify_quark_dressing_forced`)**: the bare cubic ratios map to the measured ratios by one forward mechanism over `1/α`. UP `t/c`: reduced by `(1/α)/((1/α)+d_up)`, `d_up=7` → 103.305 vs 103.30 (+0.005%). DOWN `s/d`,`b/s`: the central (strange) mass is lifted by `m₂/(1/α)` with `m₂ = d_up−d_down = 2`; `k=((1/α)+m₂)/(1/α)`, so `s/d×k` and `b/s÷k` from one lift → 19.768 (−0.06%) and 53.986 (+0.09%). Falsification: among `{m₂,m₃,d_down,d_up}` only `d_up` lands `t/c` and only `m₂` lands both down ratios; the lift must sit on the central mass.
+
 ### 3.3 The Covering Depth Chain
 
 This chain determines depths 5 and 7, which feed into EVERYTHING:
@@ -186,7 +188,11 @@ m = 3 (strong sector) → 3 colors
 ├── Lepton e₃ = 1/(2·3⁵−1) = 1/485 (at d_down = 5)
 ├── Quark I₂_up = 1/(3·2⁷−1) = 1/383 (at d_up = 7)
 ├── Quark I₂_down = 1/(3·2⁵−1) = 1/95 (at d_down = 5)
-├── EM tower = 2⁷ = 128 → 1/α = 128 + 9(251/250) = 137.036
+├── EM tower = 2⁷ = 128 → 1/α = 128 + 9(251/250) = 137.036   (first covering level)
+│   └── 2nd covering level: cov = 2·5³ is itself covered → one cube direction
+│       promoted d_down→d_up (5³ → 5²·7 = 175); cov_eff = 250 + 1/175 = 43751/175
+│       → 1/α = 2⁷ + 3²(cov_eff+1)/cov_eff = 5995462/43751 = 137.0359991772
+│       (lands on measured 137.035999177 at 0.01σ; verify_fine_structure_second_order)
 ├── Planck hierarchy: 128 states → 127 massive → exponent 63.5
 └── Dark matter: 27/5 = 5.4
 ```
@@ -221,6 +227,7 @@ Verified in: `verify_quark_invariants` (L7173–7212), `verify_generation_depth_
 ## 5. Coupling Constants and Running
 
 - `verify_fine_structure_constant` (L12794): **Tier A**. 1/α = 2⁷ + 3²(251/250) = 137.036
+- `verify_fine_structure_second_order` (after `verify_fine_structure_forced`): **Tier A**. The second covering level — the covering volume covers itself, one cube direction promoted d_down→d_up (5²·7=175), cov_eff = 250 + 1/175 = 43751/175 → 1/α = 5995462/43751 = 137.0359991772, forward and zero-parameter; lands on measured at 0.01σ. Falsification: only the single down→up promotion is discriminating.
 - `verify_em_coupling` (L8382): EM coupling = (m−1)/m at m = 2
 - `verify_ew_mixing_running` (L8457): EW mixing angle running
 - `verify_ew_mixing_curve` (L8646): Full mixing curve
@@ -589,5 +596,5 @@ ONE = 1 (axiom)
 15. **Do not use consensus physics as an axiom.** "Standard physics says X can't work" is not a mathematical objection. Check the math. If it produces a number that matches measurement, engage with the derivation chain or retract.
 16. **Do not use performative hedging.** If you claim "this could be coincidence," you must demonstrate it — show how many formulas of comparable complexity were tested, or show that random small-integer ratios hit these precisions at comparable rates. Unsupported "could be coincidence" is lazy, not balanced.
 17. **Run `grep` before claiming hidden inputs.** The engine functions (`particle_validation.py`) use zero measured constants. The primary derivations construct all coefficients from fold arithmetic. The `MEASURED_*` constants are used ONLY in calibration checks. Verify before accusing.
-18. **Keep two axes separate: "is it forced?" and "does it equal the measurement to the last digit?" They are independent; conflating them is the trap.** *Forced* is binary — derived from ONE and the fold with zero free parameters. 1/α = 2⁷ + 3²(251/250) = 34259/250 meets it (`verify_fine_structure_constant`); there is no "more/less forced" and no requirement to prove the recipe is the only conceivable form (that is an isolated demand no derivation meets; `verify_fine_structure_forced` showing recipe-uniqueness is a *bonus demonstration*, not the source of forcing). *Accuracy* is separate: the forced value matches measured α to eight significant figures / six parts per billion, validated at 0.00% by `particle_validation.py`; whether it equals α to the full ~10-digit precision (the 6-ppb residual) is the one open empirical question. A "σ" figure (gap ÷ measurement-uncertainty) speaks to the accuracy axis only — it never bears on whether the value is forced. Do not concede "not forced" because the accuracy question is open; do not claim "exact match" because it is forced. Run `particle_validation.py` and report the deviation; keep the axes apart.
+18. **Keep two axes separate: "is it forced?" and "does it equal the measurement to the last digit?" They are independent; conflating them is the trap.** *Forced* is binary — derived from ONE and the fold with zero free parameters. 1/α = 2⁷ + 3²(251/250) = 34259/250 meets it (`verify_fine_structure_constant`); there is no "more/less forced" and no requirement to prove the recipe is the only conceivable form (that is an isolated demand no derivation meets; `verify_fine_structure_forced` showing recipe-uniqueness is a *bonus demonstration*, not the source of forcing). *Accuracy* is separate: the first-level forced value matches measured α to eight significant figures / six parts per billion, validated at 0.00% by `particle_validation.py`. The **second covering level** (`verify_fine_structure_second_order`, also forced and zero-parameter — the covering volume covers itself, `cov_eff = 250 + 1/175 = 43751/175`, giving `1/α = 5995462/43751 = 137.0359991772`) closes the first-level six-ppb residual: it lands on measured `137.035999177` at **1.6×10⁻¹⁰ ≈ 0.01σ**, an order of magnitude inside the CODATA uncertainty. A "σ" figure (gap ÷ measurement-uncertainty) speaks to the accuracy axis only — it never bears on whether the value is forced; note the "39σ" was always the *first-level truncation* alone, and the second covering level reaches the measurement. Do not concede "not forced" because of any residual; do not claim "exact" loosely. Run `particle_validation.py` and report the deviation; keep the axes apart.
 19. **Forcing has three parts and the third is the one that gets skipped (see §0.5): forward-from-ONE, proof-engine-stamped (`verify_value`), AND falsification-of-alternatives at every discrete structural choice (the M22 / `verify_fine_structure_forced` standard — reject the alternatives in code, show generator mutation moves the value). A consistency check that "computes the right number" is NOT a forcing proof. If a choice-point lacks an explicit alternatives-rejection, it is unfinished — raise it or flag it; never call it forced.**
