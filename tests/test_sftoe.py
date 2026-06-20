@@ -164,6 +164,7 @@ from sftoe import (
     verify_navier_stokes_no_blowup,
     verify_general_n_body_periodic,
     verify_fine_structure_constant,
+    verify_fine_structure_forced,
     verify_muon_g2_anomaly,
     verify_hubble_tension,
     verify_three_body_solvability,
@@ -8132,6 +8133,47 @@ class TestSFTOEFineStructureConstant(unittest.TestCase):
             proof.Fraction = bad_fraction
             with self.assertRaises(VerificationError):
                 verify_fine_structure_constant()
+        finally:
+            proof.Fraction = original_fraction
+
+
+class TestSFTOEFineStructureForced(unittest.TestCase):
+    def test_verify_fine_structure_forced_success(self):
+        res = verify_fine_structure_forced()
+        self.assertEqual(res["tier"], "Tier A")
+        self.assertEqual(res["computed_alpha_inv"], Fraction(34259, 250))
+        self.assertEqual(res["alternatives_rejected"], 8)
+
+    def test_verify_fine_structure_forced_mutation_zero_axiom(self):
+        from sftoe.core import SmithianValue
+        original_init = SmithianValue.__init__
+        try:
+            def bad_init(self_obj, value, trace=None):
+                from fractions import Fraction
+                self_obj.value = Fraction(value)
+                self_obj.trace = None
+            SmithianValue.__init__ = bad_init
+            with self.assertRaises(VerificationError):
+                verify_fine_structure_forced()
+        finally:
+            SmithianValue.__init__ = original_init
+
+    def test_verify_fine_structure_forced_target_mutation_collides(self):
+        # Corrupting the target rational makes the forward chain disagree with it,
+        # so the engine must raise rather than silently pass.
+        import sftoe.proof as proof
+        original_fraction = proof.Fraction
+        try:
+            def bad_fraction(numerator, denominator=None):
+                # bend the target 34259/250 onto the no-fold-base alternative 17134/125
+                if numerator == 34259 and denominator == 250:
+                    return original_fraction(17134, 125)
+                if denominator is None:
+                    return original_fraction(numerator)
+                return original_fraction(numerator, denominator)
+            proof.Fraction = bad_fraction
+            with self.assertRaises(VerificationError):
+                verify_fine_structure_forced()
         finally:
             proof.Fraction = original_fraction
 
