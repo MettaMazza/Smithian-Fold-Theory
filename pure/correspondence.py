@@ -68,12 +68,12 @@ def spectrum_level(n, spacing):
     return lvl
 
 
-# --- U1: the four proves' characteristic constants are proven from the one fold factor m ---
+# --- U1: the four forces' characteristic constants are proven from the one fold factor m ---
 # The unification: every characteristic dimensionless quantity of the four interactions is proven
 # from the single fold factor m, none fed in. The fundamental coupling g*=(m-1)/m (PH5), the colour
 # count m (D7b), the strong running slope = colour/bare (D10g), the electroweak mixing 1/(m-1)
 # (D11b), the weak channel mass ratio 1/(m-1) (D11g) -- all ratios of the one m. One axiom, one
-# fold factor, the constants of all four proves.
+# fold factor, the constants of all four forces.
 from fractions import Fraction
 from ratio import ONE, ratio, take, separation
 import constants as K, charge as Q, particles as P
@@ -3745,7 +3745,7 @@ def stereochemistry_chirality_forced():
 
 # --- IV-8: intermolecular proves -- the electromagnetic residual outside neutral molecules ---
 def intermolecular_forces_residual_forced():
-    """IV-8 (Phase IV): the proves between neutral molecules are the residual of the electromagnetic
+    """IV-8 (Phase IV): the forces between neutral molecules are the residual of the electromagnetic
     interaction outside the molecule. A neutral molecule has no net charge, so the leading Coulomb term, which
     falls as one over the separation squared, cancels; what remains is the dipole-dipole tail, the van der
     Waals attraction, whose energy falls as one over the separation to the sixth, far shorter in range than
@@ -4064,7 +4064,7 @@ def decay_widths_branching_forced():
 
 # --- VI-3: the running of the couplings -- the holding (s-1)/s over depth, converging at high scale ---
 def running_couplings_convergence_forced():
-    """VI-3 (Phase VI): the proves' couplings run with scale, and the framework proves the full running. Each
+    """VI-3 (Phase VI): the forces' couplings run with scale, and the framework proves the full running. Each
     coupling is the holding part (s-1)/s of its running source, where the source s is the fold branch count m
     plus the depth measure two-to-the-d (B7, B9). With scale carried by the depth d, the depth term grows by
     doubling and comes to dominate the source, so every coupling's holding fraction climbs toward the One. The
@@ -6362,7 +6362,7 @@ def grand_synthesis_statement_forced():
     """B-3 (Chapter B, closing target): the single proven statement of what the framework is, as a mathematical
     object. From one axiom, the One, and one operation, the fold, doubling with the One cast out, acting on the
     positive rationals with no zero, no negative, no imaginary, and no transcendental, the entire catalogue is
-    proven: the couplings and the constants, the masses and the mixings, the proves and the particles, the
+    proven: the couplings and the constants, the masses and the mixings, the forces and the particles, the
     cosmos and its epochs, the stars and the elements, the origin of order and life and mind, and the
     mathematics beneath them all. There is no free parameter anywhere in the structure, no second axiom and no
     fitted value, the whole resting on the single axiom alone. The framework is therefore one object: the One
@@ -6457,7 +6457,7 @@ def unfolding_sequence_forced():
     """C-2 (Chapter C): the unfolding sequence is the ordered playthrough of the whole framework, every stage a
     proven result, played in dependency order so that the movie is the derivation rather than a narration over
     it. The stages are: the One, the axiom and the start; the first fold, the one operation applied; the
-    covering tower, the doubling of states per level; the proves and particles, the coupling ladder with the
+    covering tower, the doubling of states per level; the forces and particles, the coupling ladder with the
     matter sector; the cosmos, the thermal history with the cosmological fractions; the stars and elements,
     nucleosynthesis and stellar structure; the origin of order, life, and mind, the complexity and
     self-observation sectors; and the mathematics beneath it all, the primes, the infinite, and the
@@ -6465,7 +6465,7 @@ def unfolding_sequence_forced():
     none depends on a later one, and every stage is a proven result of the corpus, so playing the sequence in
     order replays the derivation step for step. The movie is therefore not an illustration with a voiceover but
     the proven chain itself, run in the only order the dependencies permit. Verified: the sequence begins at the
-    One and proceeds through the first fold and the covering tower before the proves, the cosmos, the stars,
+    One and proceeds through the first fold and the covering tower before the forces, the cosmos, the stars,
     life and mind, and the mathematics, in a strict dependency order with each stage resting only on earlier
     ones."""
     from ratio import fold
@@ -6476,7 +6476,7 @@ def unfolding_sequence_forced():
     starts_correctly = (stages[0] == 'the One') and (stages[1] == 'the first fold')
     # the sequence is ordered and non-trivial (a real multi-stage playthrough)
     ordered_playthrough = (len(stages) > 1)
-    # dependency order: the covering tower (stage 2) precedes the proves (stage 3), which precede the cosmos (stage 4)
+    # dependency order: the covering tower (stage 2) precedes the forces (stage 3), which precede the cosmos (stage 4)
     dependency_ordered = (stages.index('the covering tower') < stages.index('the forces and particles')
                           < stages.index('the cosmos'))
     return starts_correctly and ordered_playthrough and dependency_ordered
@@ -6967,7 +6967,7 @@ def completeness_audit_forced():
     the standard graduate curriculum and the measured-constant tables, and verifies each is proven from the One, producing a checklist that maps every domain to its proving
     result. The domains and their proving results are: classical mechanics and least action; thermodynamics and
     statistical mechanics; electromagnetism with light at the lattice speed; relativity and gravity; quantum
-    mechanics and measurement; the four proves and their unification; the Standard-Model particle spectrum; the
+    mechanics and measurement; the four forces and their unification; the Standard-Model particle spectrum; the
     fine-structure and coupling constants; the fermion mass ratios of leptons and quarks; the neutrino masses,
     mixings, and ordering; the CKM and PMNS mixings and CP phases; nuclear and hadronic structure; big-bang
     nucleosynthesis including the lithium-seven resolution; the cosmological dark matter, dark energy, and

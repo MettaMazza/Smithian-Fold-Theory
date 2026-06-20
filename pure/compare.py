@@ -487,7 +487,7 @@ def test_unification():
     """U1: every characteristic dimensionless constant of the four interactions -- the fundamental
        coupling (m-1)/m (PH5), the colour count m (D7b), the strong running slope (D10g), the
        electroweak mixing 1/(m-1) (D11b), the weak mass ratio 1/(m-1) (D11g) -- is proven from the
-       single fold factor m, none fed in [unification: one axiom, one fold factor, all four proves]."""
+       single fold factor m, none fed in [unification: one axiom, one fold factor, all four forces]."""
     import correspondence as Co
     c = Co.forced_constants_from_m()
     return Co.all_four_forces_from_one_m() and c["g_star"]==Fraction(1,2) and c["colour_count"]==3
@@ -2381,7 +2381,7 @@ def test_b12r_absolute_scale_forced_unobservable():
     return Co.absolute_scale_forced_unobservable()
 def test_xix1_completeness_audit_forced():
     """XIX-1: the completeness audit -- every established domain of physics (mechanics, thermodynamics,
-    electromagnetism, gravity, quantum, the proves, the spectrum, the constants, mass ratios, neutrinos,
+    electromagnetism, gravity, quantum, the forces, the spectrum, the constants, mass ratios, neutrinos,
     mixings, nuclear, nucleosynthesis, the dark sector, epochs, stars, phase transitions, chemistry, life,
     mind, mathematics, spacetime, the anomalies, the absolute scale) mapped to its proving or resolving result,
     none left unaccounted. External correspondence (what the derived result agrees with, never what makes it true): the completeness of physics as catalogued."""

@@ -279,7 +279,7 @@ Each entry's derivation requirement is written so it can be implemented independ
 **Derivation requirement:** compute the stated quantity forward from the One and the fold; verify by comparing the computed value to an independently-derived structural value (a different route through the fold), never to a typed copy of the target or an always-true identity. If the claim needs a measured number, a square root, an integral, or an absolute scale, it is an EXTERNAL READ — compute the dimensionless part forward and mark the rest. **Check must fail under mutation.**
 
 ### U1
-**Claim:** the four proves' characteristic constants are proven from the one fold factor m. Every characteristic dimensionless quantity of the four interactions is proven from the single fold factor m, none fed in: the fundamental coupling g*=(m-1)/m , the colour count m , the strong running slope as
+**Claim:** the four forces' characteristic constants are proven from the one fold factor m. Every characteristic dimensionless quantity of the four interactions is proven from the single fold factor m, none fed in: the fundamental coupling g*=(m-1)/m , the colour count m , the strong running slope as
 
 **Derivation requirement:** compute the stated quantity forward from the One and the fold; verify by comparing the computed value to an independently-derived structural value (a different route through the fold), never to a typed copy of the target or an always-true identity. If the claim needs a measured number, a square root, an integral, or an absolute scale, it is an EXTERNAL READ — compute the dimensionless part forward and mark the rest. **Check must fail under mutation.**
 
