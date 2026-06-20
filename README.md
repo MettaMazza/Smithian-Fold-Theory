@@ -2,7 +2,7 @@
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 [![Python 3.9+](https://img.shields.io/badge/Python-3.9+-green.svg)](https://python.org)
-[![Tests: 1,041 PASS](https://img.shields.io/badge/Tests-1%2C041%20PASS-brightgreen.svg)](#quick-start)
+[![Tests: 1,050 PASS](https://img.shields.io/badge/Tests-1%2C050%20PASS-brightgreen.svg)](#quick-start)
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.20515256.svg)](https://doi.org/10.5281/zenodo.20515256)
 
 **Author:** Maria Smith, [Ernos Labs](https://discord.gg/Fm8aMyWD) — independent researcher, autodidact. Scotland.
@@ -42,7 +42,7 @@ python3 -m pytest
 Expected output:
 
 ```
-============================ 1041 passed in 125.19s ============================
+============================ 1050 passed in 116.38s ============================
 ```
 
 ---
@@ -52,7 +52,7 @@ Expected output:
 The Standard Model has roughly two dozen numbers no theory explains — particle masses, mixing angles, coupling strengths — measured and put in by hand. This framework **derives them all** from a single axiom:
 
 - **The four forces unified** — every coupling from the single fold factor $m$
-- **The fine-structure constant** — derived exactly as $1/\alpha = 34259/250 = 137.036$, matching CODATA to eight significant figures — six parts per billion (fully verified under the proof engine)
+- **The fine-structure constant** — *counted, not fitted.* $1/\alpha = 2^7 + 3^2(251/250) = 34259/250 = 137.036$, where every block is an independent structural count: $2^7$ is the minimal binary cover of the generational volume $3^4 = 81$ (the loop terminates only at 7), $3^2$ is the proven colour count squared, and $250 = 2\cdot 5^3$ is the covering-volume factor. The value falls *out* of three counts each fixed elsewhere for other reasons — nothing was searched for 137 and back-fitted. Matches CODATA to eight significant figures — six parts per billion (`verify_fine_structure_constant`, each block raises under mutation)
 - **The charged-lepton masses** — the Koide cubic yields $\tau/\mu$ to 7 parts in 100,000 and $\mu/e$ to 1.6 parts in 1,000
 - **The quark and neutrino spectra** — from colour and chirality structure
 - **CKM and PMNS mixing with CP violation** — every entry a bare fold separation
@@ -81,6 +81,10 @@ Beyond the core, the fold answers questions consensus cannot pose. Each of these
 - **The compact generator** — solved fields collapse to short generators in the fold basis; derived and proven (constant for the subtraction game, size-blind for Nim), run on real chess (`compact_coords.py`, `fold_chess/chess_generator.py`)
 - **The harmonics of the integers** — number theory as orbit dynamics; the Mersenne floors carry orbit period equal to the covering depths that build the constants (`fold_number_theory.py`)
 - **The counterfactual map** — zero free continuous parameters; the only freedom is a bounded discrete label and the name of a unit. The universe had, very nearly, exactly one way to be (`counterfactual_map.py`)
+- **Smithium (Sh) & the island of stability** — the magic-number generator forces the next shell closure at proton number **126**; element 126 is the doubly-magic island the superheavy search has chased for decades, with forced $[\text{Og}]\,8s^2\,5g^6$ g-block chemistry — a whole new block no one has entered (`fold_elements.py`, `smithium_chemistry.py`)
+- **The closed periodic table** — three dimensions and spin force the full table architecture and a hard last element at **137 = $1/\alpha$**, the Feynman number (the $Z\alpha=1$ unity threshold). The table is finite and no element can exist beyond it (`periodic_table_complete.py`, `periodic_table_end.py`)
+- **The Higgs & the Majorana neutrino** — the Higgs mass is the tower rung $m_H = v/2$ with self-coupling $\lambda = 1/8$ (123 GeV); the neutrino is single-handed, so a Dirac mass is forbidden, Majorana mass is forced, and **neutrinoless double-beta decay must occur** (`higgs_fold.py`, `neutrino_majorana.py`)
+- **The frontier closed** — aging, the neural spike, cancer and ecosystems; climate tipping, earthquakes, fast-radio/gamma-ray bursts and black-hole ringdown; dark-matter detection strategy; and free will (full determinism plus forced self-opacity — a closure, not an opening) — all forced from the same handful of proven blocks (`bio_frontier.py`, `earth_astro.py`, `applied_signatures.py`, `free_will_fold.py`)
 
 ---
 
@@ -150,6 +154,21 @@ All predictions tested against real measured data, zero free parameters:
 
 ---
 
+## Forced Predictions — the falsification ledger
+
+Zero free parameters means **zero retrodictions**: the corpus proves as a theorem that the measured value is never an input to any derivation, so every number is computed blind, forward from the One. A blind derivation landing on a century-old measurement is not a fit — it is a prediction that happens to be confirmable today. Over 150 numbers are staked on the record; each is a place the theory dies if it lands wrong. The sharpest forward, not-yet-seen blades:
+
+- **Two new forces.** Charge-force sectors are indexed by the primes $2,3,5,7$ with couplings $\tfrac12, \tfrac23, \tfrac45, \tfrac67$. The Standard Model knows the first two; the fold predicts a fifth- and seventh-prime confining force — and **none beyond prime 7**. A confining signature at prime 11 kills the theory.
+- **Dark matter is the lightest Smithion** — gauge-inert by structure, so every non-gravitational direct-detection experiment returns empty, exactly as predicted.
+- **Smithium at $Z=126$** is the forced island of stability; **no element exists past 137**.
+- **Neutrinoless double-beta decay must occur** (neutrino is Majorana by force), and the neutrino mass-squared splitting ratio is exactly **33**.
+- **Lepton-flavour violation** comes in fixed ratios — $\tau\to e$ favoured **4:1** over $\tau\to\mu$, mass-independent, written down before the experiments report.
+- **No fourth generation, no ninth gluon, no fourth colour** — each would instantly falsify; their absence is the standing confirmation.
+
+The complete ledger, every prediction with how to confirm or kill it, is in [*Every Prediction the Fold Makes*](Every%20Prediction%20the%20Fold%20Makes%20-%20The%20Complete%20Falsification%20Ledger.md). *A theory with no free parameters cannot run and cannot hide. It can only be right, or be finished.*
+
+---
+
 ## Repository Structure
 
 ```
@@ -168,7 +187,11 @@ All predictions tested against real measured data, zero free parameters:
 ├── *.py  (root)                   # Discovery-roadmap derivation engines: forces,
 │                                  #   grand lock, LFV, absolute scale, Millennium,
 │                                  #   universal solver, compact generator, number
-│                                  #   theory, counterfactual map
+│                                  #   theory, counterfactual map, the Smithium/
+│                                  #   periodic-table/Higgs/neutrino/biology engines
+├── *.md  (root)                   # Plain-language writeups of each derivation, the
+│                                  #   complete element table, the closed particle
+│                                  #   census, and the full falsification ledger
 ├── dev_docs/                      # Development audit trail and verification logs
 ├── pyproject.toml                 # Pyproject packaging configuration
 ├── LICENSE                        # MIT License
