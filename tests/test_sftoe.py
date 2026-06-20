@@ -8143,6 +8143,10 @@ class TestSFTOEFineStructureForced(unittest.TestCase):
         self.assertEqual(res["tier"], "Tier A")
         self.assertEqual(res["computed_alpha_inv"], Fraction(34259, 250))
         self.assertEqual(res["alternatives_rejected"], 8)
+        self.assertEqual(res["covering_volume"], 250)
+        # forcing by uniqueness: exactly one structural recipe of 4608 yields 34259/250
+        self.assertEqual(res["recipes_enumerated"], 4608)
+        self.assertEqual(res["recipes_matching"], 1)
 
     def test_verify_fine_structure_forced_mutation_zero_axiom(self):
         from sftoe.core import SmithianValue
