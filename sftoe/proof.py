@@ -12897,13 +12897,23 @@ def verify_fine_structure_constant():
 def verify_fine_structure_forced():
     """
     Tier A.
-    Verifies SFTOE Claim G13-F: the fine-structure ASSEMBLY is forced, not chosen.
+    Verifies SFTOE Claim G13-F (supplementary).
 
-    verify_fine_structure_constant proves each block of 1/alpha = 2^7 + 3^2(251/250)
-    forward and checks it against an independent structural definition. This function
-    closes the assembly itself by the same in-code falsification of alternatives that
-    verify_second_invariant_sharpened uses to reject m=2 and m=4 for the strong sector.
-    Three results, all forward from the generators {b=2, c=3}:
+    1/alpha = 2^7 + 3^2(251/250) = 34259/250 is already FORCED -- derived from the One
+    and the fold with ZERO free parameters, every block traced to ONE by the proof
+    engine -- in verify_fine_structure_constant. "Forced" is binary and that function
+    already meets it; nothing here "adds" forcing. This function is a SUPPLEMENTARY
+    UNIQUENESS DEMONSTRATION: it shows the structural recipe the forced derivation uses
+    is also the unique one among a broad structural search. That is a separate, optional
+    observation about the recipe's distinctiveness -- not the source of the forcing,
+    which is the zero-free-parameter derivation itself.
+
+    (Note: whether the forced value 34259/250 = 137.036 equals measured alpha
+    137.035999177 to the last digit is a DIFFERENT axis -- empirical accuracy, the
+    published 8-significant-figure / 6-ppb match -- and has nothing to do with whether
+    the value is forced. Do not conflate the two.)
+
+    The demonstration, all forward from the generators {b=2, c=3}:
       Route A  -- the forced chain reproduces 34259/250, with every in-domain block
                   recomputed from ONE by the proof engine (verify_value). The covering
                   volume is DERIVED, not named: cov = m2 * d_down**3 -- the electroweak
@@ -13093,7 +13103,7 @@ def verify_fine_structure_forced():
 
     return {
         "tier": "Tier A",
-        "concept": "The fine-structure assembly is forced: blocks stamped to ONE, every alternative role-assignment rejected, every generator mutation moves the value.",
+        "concept": "Supplementary uniqueness demonstration for the already-forced 1/alpha (verify_fine_structure_constant): the recipe is the unique structural assembly among the search; this is a distinctiveness observation, not the source of the forcing, which is the zero-free-parameter derivation.",
         "computed_alpha_inv": forced,
         "alternatives_rejected": len(alternatives),
         "covering_volume": cov,
