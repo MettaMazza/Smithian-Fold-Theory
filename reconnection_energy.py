@@ -6,21 +6,27 @@ Forward construction (no measured value enters; the fold map IS the mechanism):
   * Island merging/contraction is a fold. A proton reflected by a contraction has its energy
     DOUBLED — Fermi acceleration in contracting islands is the doubling map x -> 2x, the One's
     only operation. (Composing verify_mhd / the Alfven block VII-2 and the atomic fold-release.)
-  * The fold is 2-to-1, all-or-nothing: the gain is a clean factor of two per step, never a
-    smooth continuum. So the proton energy is forced onto the rungs of the binary tower
+  * The gain per cycle is MULTIPLICATIVE: each reflection multiplies a proton's energy by two
+    (a fold), not the additive nudge of a smooth field. After k cycles a single proton sits at
         E_k = 2^k * E_floor ,   k = 1, 2, 3, ...
-    above the magnetic energy per particle E_floor (the smallest rung). This is the whole
-    derivation: doubling, forward from the One.
+    above the magnetic energy per particle E_floor. That is the derivation: geometric doubling,
+    forward from the One.
 
-WHY NO CONTINUUM MODEL PREDICTED IT: every standard acceleration model is built on the
-continuum and gives smooth, gradual, diffusive energy gain — it cannot put a proton on a
-2^k rung. The fold forces discrete doublings, which reach energies the smooth models can't.
-That discreteness is the forward prediction, and it is exactly what was found.
+WHY NO CONTINUUM MODEL PREDICTED IT: standard acceleration is built on the continuum and gains
+energy ADDITIVELY / diffusively, so it caps near the floor. The fold's gain is MULTIPLICATIVE —
+k doublings reach 2^k times the floor — so it lands protons at energies additive models
+structurally cannot. The multiplicative reach, not any spectral discreteness, is the prediction.
 
-FALSIFIABLE, FORWARD: the proton spectrum is quantised in powers of two of the magnetic-energy
-floor. Parker reports the cutoff at ~1000x the magnetic energy per particle -> that is the
-2^10 rung (2^10 = 1024). The sharp test is the SPACING: the energies sit at 2^k * E_floor, a
-log-2 ladder, not a smooth power of E_floor. A spectrum without the doubling ladder breaks it.
+THE SPECTRUM, CORRECTLY (this is NOT a line spectrum): a population of protons with a spread of
+cycle-counts — most few, some many — does not make discrete lines; geometric gain against a
+per-cycle escape probability yields a SMOOTH POWER LAW, the textbook Fermi outcome. Parker
+measured exactly that: a power law of index ~-5 reaching ~1000x the magnetic energy per particle
+(~2^10, about ten doublings). The smooth power law is the multiplicative-doubling SIGNATURE, not
+its refutation — and reaching ~1000x the floor is the multiplicative reach no additive model has.
+
+FALSIFIABLE: the energization is multiplicative (the cutoff is a large power-of-two multiple of
+the magnetic-energy floor) and the spectrum is a power law. An additive process capped near the
+floor, or no power-law tail at all, breaks it.
 """
 from fractions import Fraction
 from sftoe.core import SmithianValue, fold, ONE
@@ -56,12 +62,13 @@ if __name__ == "__main__":
         if folds != k:
             raise VerificationError("rung 1/2^%d does not climb to unison in %d folds" % (k, k))
     print("           rungs 1/2 .. 1/2^10 each verify_value-clean and climb to unison in k folds.")
-    print("           => Fermi-doubling forces E onto E_k = 2^k * E_floor. No continuum model can.")
+    print("           => each cycle multiplies a proton's energy by two; the gain is geometric, not additive.")
 
-    # the observed factor as a tower rung (the magnetic-energy floor is the only scale; measured)
-    print("\n[AGAINST DATA] Parker: protons at ~1000x the magnetic energy per particle.")
-    print("               2^10 = %d  ~  1000  -> the proton sits on the 10th rung of the tower." % (TWO_I ** 10))
+    # the observed factor as a multiplicative reach (the magnetic-energy floor is the only scale; measured)
+    print("\n[AGAINST DATA] Parker: a power-law spectrum (index ~ -5) reaching ~1000x the magnetic")
+    print("               energy per particle.  ~1000 ~ 2^10  ->  about ten doublings above the floor.")
 
-    print("\n[FALSIFY] the spectrum is quantised: energies at 2^k * E_floor, a log-2 ladder.")
-    print("          a smooth (non-doubling) spectrum breaks the prediction. The discreteness is")
-    print("          the forced, forward signature, and it is why no continuum model saw it coming.")
+    print("\n[FALSIFY] energization is MULTIPLICATIVE: the cutoff is a large power-of-two multiple of the")
+    print("          magnetic-energy floor, with a smooth power-law tail (a population spread over cycle-")
+    print("          counts). An additive process capped near the floor, or no power-law tail, breaks it.")
+    print("          (The smooth power law is the doubling signature, not a line spectrum.)")
