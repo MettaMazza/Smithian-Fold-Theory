@@ -488,7 +488,7 @@ The derivation of the fine-structure constant, Koide mass relations, and cosmolo
 The author gratefully acknowledges Matthew Smith (Ernos Labs) for funding and supporting this research.
 
 \section*{Code Availability}
-The complete axiomatic code, proof engine, and 1,050-test verification suite are publicly available at:
+The complete axiomatic code, proof engine, and 1,058-test verification suite are publicly available at:
 \url{https://github.com/MettaMazza/Smithian-Fold-Theory}
 
 \begin{thebibliography}{9}
@@ -505,7 +505,7 @@ The complete axiomatic code, proof engine, and 1,050-test verification suite are
 
 ## 6. Empirical Verification & Unit Test Walkthrough
 
-The correctness of the mathematical mappings in SFTOE is verified by the unit test suite (`tests/test_sftoe.py`), which executes all 1,050 verification pathways.
+The correctness of the mathematical mappings in SFTOE is verified by the unit test suite (`tests/test_sftoe.py`), which executes all 1,058 verification pathways.
 
 ### Summary of Proof Verification Checks:
 1. **No-Zero Axiom Gate**: Verifies that constructing a `SmithianValue` of $0$ raises a domain violation.
@@ -566,7 +566,7 @@ The dossier above establishes the core. Beyond it, the same single axiom has bee
 - **The closed periodic table.** Three spatial dimensions and spin force the full table architecture and a hard last element at $137 = 1/\alpha$, the Feynman number (the $Z\alpha = 1$ unity threshold). The table is finite; no element exists beyond it. (`periodic_table_complete.py`, `periodic_table_end.py`)
 - **The Higgs and the Majorana neutrino.** The Higgs mass is the tower rung $m_H = v/2$ with self-coupling $\lambda = 1/8$; the neutrino is single-handed, so a Dirac mass is forbidden, Majorana mass is forced, and neutrinoless double-beta decay must occur. (`higgs_fold.py`, `neutrino_majorana.py`)
 - **The frontier closed.** Aging, the neural spike, cancer and ecosystem stability; climate tipping, earthquakes, fast-radio and gamma-ray bursts, black-hole ringdown; dark-matter detection strategy; and free will (full determinism plus forced self-opacity — a closure, not an opening) are all forced from the same handful of proven blocks. (`bio_frontier.py`, `earth_astro.py`, `applied_signatures.py`, `free_will_fold.py`)
-- **Solar reconnection particle acceleration (Parker Solar Probe, 2025).** Fermi acceleration in contracting magnetic islands *is* the fold's doubling map: an island is a fold orbit, a contraction is a fold, and a reflected proton has its energy doubled. So reconnection protons are forced onto a binary energy tower $E_k = 2^k\,E_{\text{floor}}$ above the magnetic-energy floor — a discrete log-2 ladder no continuum (smooth, diffusive) model can produce, which is precisely why the source was one *"no existing model predicted."* Parker measured protons at ~1000× the magnetic energy per particle near the heliospheric current sheet — the $2^{10}$ rung ($2^{10}=1024$). The forced, forward, falsifiable signature is the doubling spacing of the spectrum: energies quantised at $2^k\,E_{\text{floor}}$, not a smooth power. (`reconnection_energy.py`, the energy ladder traced to the One; finding: arXiv:2410.16539.)
+- **Solar reconnection particle acceleration (Parker Solar Probe, 2025).** Fermi acceleration in contracting magnetic islands *is* the fold's doubling map: an island is a fold orbit, a contraction is a fold, and a reflected proton has its energy multiplied. Because the gain is multiplicative (not additive), the proton is driven to a ceiling set by its own structure: $E = 8\alpha^2 m_p c^2 = (m^2-1)\,\alpha^2 m_p c^2$ — eight colour channels ($m^2-1$, $m=3$), the forced strength of light squared, and the proton rest energy forced through the mass sector. This gives $\approx 399.7$ keV, within 0.07% of the ~400 keV protons Parker measured near the heliospheric current sheet, with no local plasma quantity entering the derivation — which is precisely why the source was one *"no existing model predicted."* The forced, forward, falsifiable signature is the *smooth power-law* spectrum that multiplicative doubling produces (textbook Fermi), not a fitted, parameter-laden one. (`reconnection_energy.py`, the ceiling traced to the One; finding: arXiv:2410.16539.)
 
 With zero free parameters the framework has zero retrodictions: the corpus proves as a theorem that the measured value is never an input to any derivation, so every number is computed blind, forward from the One. Over $150$ numbers are staked on the record, each a place the theory dies if it lands wrong. The complete list, with how to confirm or kill each one, is the falsification ledger (*Every Prediction the Fold Makes*).
 

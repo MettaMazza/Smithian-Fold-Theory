@@ -25,7 +25,7 @@ abstract: >-
   matter), Smithium at element 126, and a periodic table ending at element 137.
   No measured value is an input to any construction; measurements appear only as
   the after-the-fact arbiter. Every result is proven by construction in a
-  permitted language enforced by a static gate, verified by 1,050 machine-checked
+  permitted language enforced by a static gate, verified by 1,058 machine-checked
   tests, and the entire corpus reproduces from a single command.
 keywords:
   - unified field theory
@@ -46,5 +46,5 @@ keywords:
   - falsifiable predictions
   - open science
   - reproducible research
-date-released: "2026-06-20"
-version: "1.1.5"
+date-released: "2026-06-28"
+version: "1.6.0"
