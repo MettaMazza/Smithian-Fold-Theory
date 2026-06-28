@@ -1,9 +1,12 @@
 # Smithian Fold Theory of Everything (SFTOE)
 
+[![tests](https://github.com/MettaMazza/Smithian-Fold-Theory/actions/workflows/tests.yml/badge.svg)](https://github.com/MettaMazza/Smithian-Fold-Theory/actions/workflows/tests.yml)
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 [![Python 3.9+](https://img.shields.io/badge/Python-3.9+-green.svg)](https://python.org)
-[![Tests: 1,050 PASS](https://img.shields.io/badge/Tests-1%2C050%20PASS-brightgreen.svg)](#quick-start)
+[![Tests: 1,058 PASS](https://img.shields.io/badge/Tests-1%2C058%20PASS-brightgreen.svg)](VERIFY.md)
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.20775538.svg)](https://doi.org/10.5281/zenodo.20775538)
+
+> **Reviewing this — human or AI?** Read **[VERIFY.md](VERIFY.md)** first. It's a six-step protocol to run the suite, read the gate, and trace a value to its leaves yourself. Don't judge it from the title; execute it.
 
 **Author:** Maria Smith, [Ernos Labs](https://discord.gg/Fm8aMyWD) — independent researcher, autodidact. Scotland.
 
